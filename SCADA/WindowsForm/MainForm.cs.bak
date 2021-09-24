@@ -1,0 +1,466 @@
+﻿using System;
+using System.Collections.Generic;
+using System.ComponentModel;
+using System.Data;
+using System.Drawing;
+using System.Linq;
+using System.Text;
+using System.Windows.Forms;
+using System.Reflection;
+using LineDevice;
+using System.Xml;
+using TaskDataRemotingServer;
+using System.Runtime;
+using System.Runtime.Remoting;
+using System.Runtime.Remoting.Channels;
+using System.Runtime.Remoting.Channels.Tcp;
+using System.Runtime.Remoting.Lifetime;
+using System.Windows;
+using PLC;
+using Collector;
+using ScadaHncData;
+using HNCAPI;
+
+namespace SCADA
+{
+    public partial class MainForm : Form
+    {
+        #region    窗体初始化
+        //用来记录from是否打开过
+        public int[] s = { 0, 0, 0 ,0,0,0,0,0};
+        public static string XMLSavePath = "Set.xml";
+        public static m_xmlDociment m_xml = new m_xmlDociment();
+
+        public static List<CNC> cnclist = new List<CNC>();
+        public static List<ROBOT> robotlist = new List<ROBOT>();
+        public static UInt32 logHandle = 0;
+
+//         public static List<PLC_MITSUBISHI> m_plclist = new List<PLC_MITSUBISHI>();
+        public ShareData shareData;
+        public PLCDataShare plc;
+
+        public const int USERMESSAGE = 0x0400;
+        public const int LanguageChangeMsg = USERMESSAGE + 10;
+        public static IntPtr m_Ptr;//保存了MainForm的句柄   
+
+        private CollectShare ncCollector;
+        private readonly String LOG_PATH = "..\\data\\ScadaLog";
+        private readonly UInt16 maxLogSize = 2 * 1024;
+        private readonly Byte maxFileCnt = 10;
+
+        public MainForm()
+        {
+            Boolean ret = LogApi.LogInitialize(ref logHandle, LOG_PATH, maxLogSize, maxFileCnt);
+            if (!ret)
+            {
+                MessageBox.Show("日志初始化失败！");
+            }
+
+            InitializeComponent();
+            m_Ptr = this.Handle;
+            if (m_xml.m_load(XMLSavePath) == 0)
+            {
+                System.Windows.Forms.MessageBox.Show("配置文件不存在，已经生成默认的配置文件\r\n" );
+            }
+            AddForm();
+
+            shareData = new ShareData();
+            ncCollector = new CollectShare(shareData, cnclist);
+            plc = new PLCDataShare(shareData);
+
+            TcpChannel tc = new TcpChannel(9988);
+            ChannelServices.RegisterChannel(tc, false);
+            LifetimeServices.LeaseTime = TimeSpan.Zero;
+            ObjRef objrefWellKnown = RemotingServices.Marshal(shareData, "ZKService");
+
+            InitEquiment();
+            ncCollector.StartCollection();
+        }
+
+        private void registerDialog() 
+        {
+            MessageBoxManager.Unregister();
+            MessageBoxManager.OK = Localization.Dialog["201"];
+            MessageBoxManager.Cancel = Localization.Dialog["202"];
+            MessageBoxManager.Yes = Localization.Dialog["203"];
+            MessageBoxManager.No = Localization.Dialog["204"];
+            MessageBoxManager.Retry = Localization.Dialog["205"];
+            MessageBoxManager.Abort = Localization.Dialog["206"];
+            MessageBoxManager.Ignore = Localization.Dialog["207"];
+            MessageBoxManager.Register();
+        }
+
+        /// <summary>
+        /// 根据XML文件初始化设备对象
+        /// </summary>
+        private void InitEquiment()
+        {
+            string pathstr = m_xml.Default_Path_str[0] + "/" + m_xml.Default_Path_str[1];
+            string get_str = m_xml.m_Read(pathstr, -1, m_xml.Default_Attributes_str1[0]);
+            for (int ii = 0; ii < int.Parse(get_str); ii++)
+            {
+                CNC m_cnc = new CNC();
+                m_cnc.CNC_SetCNC(ushort.Parse(m_xml.m_Read(pathstr, ii, m_xml.Default_Attributes_str1[1])),
+                    m_xml.m_Read(pathstr, ii, m_xml.Default_Attributes_str1[2]),
+                    m_xml.m_Read(pathstr, ii, m_xml.Default_Attributes_str1[3]),
+                    m_xml.m_Read(pathstr, ii, m_xml.Default_Attributes_str1[6]),
+                    ushort.Parse(m_xml.m_Read(pathstr, ii, m_xml.Default_Attributes_str1[7])));
+                cnclist.Add(m_cnc);
+            }
+
+            if (cnclist.Count > 0)
+            {
+                string ip = "172.20.170.123";
+                //cnclist[0].GetLocalIpAddr(ref ip);
+                int rec = HncApi.HNC_NetInit(ip, 10001);
+                if (rec != 0)
+                {
+                    MessageBox.Show("初始化CNC失败!");//初始化失败
+                }
+            }
+
+            pathstr = m_xml.Default_Path_str[0] + "/" + m_xml.Default_Path_str[2];
+            get_str = m_xml.m_Read(pathstr, -1, m_xml.Default_Attributes_str1[0]);
+            for (int ii = 0; ii < int.Parse(get_str); ii++)
+            {
+                ROBOT mrobot = new ROBOT();
+                mrobot.SetRobot(m_xml.m_Read(pathstr, ii, m_xml.Default_Path_str[8]), m_xml.m_Read(pathstr, ii, m_xml.Default_Attributes_str1[1]),
+                   m_xml.m_Read(pathstr, ii, m_xml.Default_Attributes_str1[2]), m_xml.m_Read(pathstr, ii, m_xml.Default_Attributes_str1[3]),
+                   m_xml.m_Read(pathstr, ii, m_xml.Default_Attributes_str1[4]), m_xml.m_Read(pathstr, ii, m_xml.Default_Attributes_str1[5]),
+                   m_xml.m_Read(pathstr, ii, m_xml.Default_Attributes_str1[6]), m_xml.m_Read(pathstr, ii, m_xml.Default_Attributes_str1[7]));
+                robotlist.Add(mrobot);
+            }
+            pathstr = m_xml.Default_Path_str[0] + "/" + m_xml.Default_Path_str[3];
+            get_str = m_xml.m_Read(pathstr, -1, m_xml.Default_Attributes_str1[0]);
+            for (int ii = 0; ii < int.Parse(get_str); ii++)
+            {
+                PLC_MITSUBISHI_HNC8 m_slplc = new PLC_MITSUBISHI_HNC8();
+                m_slplc.serial = Int32.Parse(m_xml.m_Read(pathstr, ii, m_xml.Default_Path_str[8]));
+                m_slplc.port = UInt16.Parse(m_xml.m_Read(pathstr, ii, m_xml.Default_Attributes_str1[7]));
+                m_slplc.remark = m_xml.m_Read(pathstr, ii, m_xml.Default_Attributes_str1[8]);
+                m_slplc.ip = m_xml.m_Read(pathstr, ii, m_xml.Default_Attributes_str1[6]);
+                m_slplc.system = m_xml.m_Read(pathstr, ii, m_xml.Default_Attributes_str1[5]);
+                m_slplc.type = m_xml.m_Read(pathstr, ii, m_xml.Default_Attributes_str1[4]);
+                m_slplc.productionline = m_xml.m_Read(pathstr, ii, m_xml.Default_Attributes_str1[3]);
+                m_slplc.workshop = m_xml.m_Read(pathstr, ii, m_xml.Default_Attributes_str1[2]);
+                m_slplc.ConnetNum = Int32.Parse(m_xml.m_Read(pathstr, ii, m_xml.Default_Attributes_str1[1]));
+
+                for (int jj = 0; jj < 2; jj++)
+                {
+                    string pathstr1 = pathstr + "/" + m_xml.Default_Path_str[5] + ii.ToString();//Root/PLC/Itemii
+                    string pathstr2 = "";
+                    if (jj == 0)
+                    {
+                        pathstr2 = pathstr1 + "/" + m_xml.Default_Path_str[6];//Root/PLC/Itemii/Signinput
+                    }
+                    else if (jj == 1)
+                    {
+                        pathstr2 = pathstr1 + "/" + m_xml.Default_Path_str[7];//Root/PLC/Itemii/Signinput
+                    }
+
+                    Int32 Count = Int32.Parse(m_xml.m_Read(pathstr2, -1, m_xml.Default_Attributes_str1[0]));
+                    m_slplc.InitPLC_Signal(jj, Count, 0);
+                    for (int kk = 0; kk < Count; kk++)
+                    {
+                        bool jiankong;
+                        if (m_xml.m_Read(pathstr2, kk, m_xml.Default_Attributes_str2[3]) == m_xml.Default_Attributesstr2_value[3])
+                        {
+                            jiankong = false;
+                        }
+                        else
+                        {
+                            jiankong = true;
+                        }
+                        m_slplc.AddPLC_SignalNode2List(jj, kk,
+                            m_xml.m_Read(pathstr2, kk, m_xml.Default_Attributes_str2[1]),
+                            m_xml.m_Read(pathstr2, kk, m_xml.Default_Attributes_str2[2]),0,
+                            m_xml.m_Read(pathstr2, kk, m_xml.Default_Attributes_str2[4]),
+                            m_xml.m_Read(pathstr2, kk, m_xml.Default_Attributes_str2[5]),
+                            jiankong);
+                    }
+                }
+                plc.AddPLC(m_slplc);
+            }
+            plc.StarCollectThread();
+        }
+
+        private void Form1_Load(object sender, EventArgs e)
+        {
+            Console.WriteLine("load");
+            //初始打开时加载HomeForm
+            string formClass = "SCADA.HomeForm";
+            GenerateForm(formClass, tabControlMain);
+            string skin = Localization.ReadDefaultSkin();
+            this.skinEngine1.SkinFile =skin+".ssk";  // "MacOS.ssk"; 
+            //程序加载时在状态栏显示时钟
+             ssText.Text = DateTime.Now.ToString();
+
+            //初始化TaskRemotingServer
+//              TcpServerChannel m_TaskChannel = new TcpServerChannel(8080);
+//              ChannelServices.RegisterChannel(m_TaskChannel,false);
+//              RemotingConfiguration.RegisterWellKnownServiceType(typeof(TaskDataObj), "TaskDataServer", WellKnownObjectMode.Singleton);
+
+             if (Localization.HasLang)
+             {
+                 Localization.RefreshLanguage(this);
+             }
+             foreach (ToolStripMenuItem topItem in this.menuStrip1.Items)
+             {
+                 topItem.Text = Localization.Menu[topItem.Name];
+                 menu(topItem);
+             }
+             registerDialog();
+        }
+        private void timerTime_Tick(object sender, EventArgs e)
+        {
+            //每秒状态栏时钟会有变化，显示最新的时间
+            ssText.Text = DateTime.Now.ToString() + "    ";
+        }
+
+
+        //在选项卡中生成窗体
+        public void GenerateForm(string form, object sender)
+        {
+            // 反射生成窗体
+            Form fm = (Form)Assembly.GetExecutingAssembly().CreateInstance(form);
+            //设置窗体没有边框 加入到选项卡中
+            fm.FormBorderStyle = FormBorderStyle.None;
+            fm.TopLevel = false;
+            fm.Parent = ((TabControl)sender).SelectedTab;
+            fm.ControlBox = false;
+            fm.Dock = DockStyle.Fill;
+            fm.Show();
+            s[((TabControl)sender).SelectedIndex] = 1;
+        }
+
+
+        private void tabControlMain_SelectedIndexChanged(object sender, EventArgs e)
+        {
+            if (s[tabControlMain.SelectedIndex] == 0)    //只生成一次
+            {
+                btnX_Click(sender, e);
+            }
+
+        }
+        /// <summary>
+        /// 通用按钮点击选项卡 在选项卡上显示对应的窗体
+        /// </summary>
+        private void btnX_Click(object sender, EventArgs e)
+        {
+            string formClass = ((TabControl)sender).SelectedTab.Tag.ToString();
+            GenerateForm(formClass, sender);
+
+        }
+
+        /// <summary>
+        /// 消息处理
+        /// </summary>
+        /// <param name="m"></param>
+        protected override void DefWndProc(ref Message m)
+        {
+            switch (m.Msg)
+            {
+                case USERMESSAGE:
+                    CncForm.tab_index = (int)m.LParam;
+                    tabControlMain.SelectedIndex = (int)m.WParam;
+                    break;
+                case USERMESSAGE + 1:
+                    RobotForm.ROBOTIndex = (int)m.LParam;
+                    tabControlMain.SelectedIndex = (int)m.WParam;
+                    break;         
+                default:
+                    base.DefWndProc(ref m);
+                    break;
+            }
+        }
+        #endregion
+
+        private void tabPageHome_Click(object sender, EventArgs e)
+        {
+
+        }
+
+        private void tabPageRFID_Click(object sender, EventArgs e)
+        {
+
+        }
+
+        private static void AddForm()
+        {         
+            Localization.AddForm("RobotForm");
+            Localization.AddForm("RfidForm");
+            Localization.AddForm("CncForm");
+            Localization.AddForm("PlcForm");
+            Localization.AddForm("SetForm");
+            Localization.AddForm("MainForm");
+            Localization.AddForm("LogForm");
+          string defaultLanguage=  Localization.ReadDefaultLanguage();
+          if (!Localization.Load(defaultLanguage))
+            {
+                MessageBox.Show("无法加载默认语言配置文件", "错误", MessageBoxButtons.OK,
+                    MessageBoxIcon.Exclamation);
+                Localization.HasLang = false;
+            }
+            else
+                Localization.HasLang = true;
+        }
+        private void 中文ToolStripMenuItem_Click(object sender, EventArgs e)
+        {
+            Localization.Load("zh");
+			Localization.WriteDefaultLanguage(Localization.Lang);
+            HomeForm.PostMessage(RfidForm.rfidPtr, LanguageChangeMsg, 0, 0);
+            HomeForm.PostMessage(CncForm.cncPtr, LanguageChangeMsg, 0, 0);
+            HomeForm.PostMessage(RobotForm.robotPtr, LanguageChangeMsg, 0, 0);
+            HomeForm.PostMessage(PlcForm.PLCPtr, LanguageChangeMsg, 0, 0);
+            HomeForm.PostMessage(SetForm.setFormPtr, LanguageChangeMsg, 0, 0);
+            HomeForm.PostMessage(LogForm.LogPtr, LanguageChangeMsg, 0, 0);
+            Localization.RefreshLanguage(this);
+            foreach (ToolStripMenuItem topItem in this.menuStrip1.Items)
+            {
+                topItem.Text = Localization.Menu[topItem.Name];
+                menu(topItem);
+            }
+            registerDialog();          
+        }
+       
+        private void 英文ToolStripMenuItem_Click(object sender, EventArgs e)
+        {
+            Localization.Load("en");
+            Localization.WriteDefaultLanguage(Localization.Lang);
+            HomeForm.PostMessage(RfidForm.rfidPtr, LanguageChangeMsg, 0, 0);
+            HomeForm.PostMessage(CncForm.cncPtr, LanguageChangeMsg, 0, 0);
+            HomeForm.PostMessage(RobotForm.robotPtr, LanguageChangeMsg, 0, 0);
+            HomeForm.PostMessage(PlcForm.PLCPtr, LanguageChangeMsg, 0, 0);
+            HomeForm.PostMessage(SetForm.setFormPtr, LanguageChangeMsg, 0, 0);
+            HomeForm.PostMessage(LogForm.LogPtr, LanguageChangeMsg, 0, 0);
+            Localization.RefreshLanguage(this);
+            //更新菜单栏
+            foreach (ToolStripMenuItem topItem in MainMenuStrip.Items)
+            {
+                topItem.Text = Localization.Menu[topItem.Name];
+                menu(topItem);
+            }
+            registerDialog();
+            
+
+        }
+
+        private void menu(ToolStripMenuItem item)
+        {
+            foreach (ToolStripMenuItem subitem in item.DropDownItems)
+            {
+                if (subitem is ToolStripMenuItem)
+                {
+                    string text = "";
+                    if (Localization.Menu.TryGetValue(subitem.Name, out text))
+                        subitem.Text = text;
+                    if (subitem.HasDropDownItems)
+                        menu(subitem);
+                }
+              
+            }
+        }
+        private void txtStartTime_Click(object sender, EventArgs e)
+        {
+
+        }
+        #region  编辑-->皮肤更换
+        private void toolStripMenuItem2_Click(object sender, EventArgs e)
+        {
+            this.skinEngine1.SkinFile = "Calmness.ssk";
+            Localization.WriteDefaultSkin("Calmness");
+        }
+        private void toolStripMenuItem3_Click(object sender, EventArgs e)
+        {
+            this.skinEngine1.SkinFile = "DeepCyan.ssk";
+            Localization.WriteDefaultSkin("DeepCyan");
+        }
+
+        private void toolStripMenuItem4_Click(object sender, EventArgs e)
+        {
+            this.skinEngine1.SkinFile = "DeepGreen.ssk";
+            Localization.WriteDefaultSkin("DeepGreen");
+        }
+        private void toolStripMenuItem5_Click(object sender, EventArgs e)
+        {
+            this.skinEngine1.SkinFile = "DeepOrange.ssk";
+            Localization.WriteDefaultSkin("DeepOrange");
+        }
+        private void toolStripMenuItem6_Click(object sender, EventArgs e)
+        {
+            this.skinEngine1.SkinFile = "Midsummer.ssk";
+            Localization.WriteDefaultSkin("Midsummer");
+        }
+
+        private void toolStripMenuItem7_Click(object sender, EventArgs e)
+        {
+            this.skinEngine1.SkinFile = "MacOS.ssk";
+            Localization.WriteDefaultSkin("MacOS");
+        }
+
+        private void toolStripMenuItem8_Click(object sender, EventArgs e)
+        {
+            this.skinEngine1.SkinFile = "Page.ssk";
+            Localization.WriteDefaultSkin("Page");
+        }
+
+        private void toolStripMenuItem9_Click(object sender, EventArgs e)
+        {
+            this.skinEngine1.SkinFile = "Vista.ssk";
+            Localization.WriteDefaultSkin("Vista");
+        }
+        private void toolStripMenuItem13_Click(object sender, EventArgs e)
+        {
+            this.skinEngine1.SkinFile = "DiamondBlue.ssk";
+            Localization.WriteDefaultSkin("DiamondBlue");
+        }
+
+        private void toolStripMenuItem14_Click(object sender, EventArgs e)
+        {
+            this.skinEngine1.SkinFile = "Eighteen.ssk";
+            Localization.WriteDefaultSkin("Eighteen");
+        }
+
+        private void toolStripMenuItem15_Click(object sender, EventArgs e)
+        {
+            this.skinEngine1.SkinFile = "Emerald.ssk";
+            Localization.WriteDefaultSkin("Emerald");
+        }
+        private void toolStripMenuItem11_Click(object sender, EventArgs e)
+        {
+            this.skinEngine1.SkinFile = "Vista2_color1.ssk";
+            Localization.WriteDefaultSkin("Vista2_color1");
+        }
+
+        private void toolStripMenuItem16_Click(object sender, EventArgs e)
+        {
+            this.skinEngine1.SkinFile = "Wave.ssk";
+            Localization.WriteDefaultSkin("Wave");
+        }
+
+        private void toolStripMenuItem17_Click(object sender, EventArgs e)
+        {
+            this.skinEngine1.SkinFile = "WaveColor1.ssk";
+            Localization.WriteDefaultSkin("WaveColor1");
+        }
+
+        private void toolStripMenuItem18_Click(object sender, EventArgs e)
+        {
+            this.skinEngine1.SkinFile = "WaveColor2.ssk";
+            Localization.WriteDefaultSkin("WaveColor2");
+        }
+
+        #endregion
+
+        private void MainForm_FormClosed(object sender, FormClosedEventArgs e)
+        {
+            plc.ClosePLC_MITSUBISHI();
+            ncCollector.CollectExit();
+            LogApi.LogExit(logHandle);
+            HncApi.HNC_NetExit();
+        }
+    }
+
+   
+}
+

@@ -1,0 +1,1800 @@
+<?xml version="1.0"?>
+<doc>
+    <assembly>
+        <name>HNCAPI_INTERFACE</name>
+    </assembly>
+    <members>
+        <member name="T:HNCAPI_INTERFACE.EVENTDEF">
+            <summary>
+            事件定义（注释完成）
+            </summary>
+        </member>
+        <member name="F:HNCAPI_INTERFACE.EVENTDEF.EV_SRC_SYS">
+            <summary>
+            系统事件
+            </summary>
+        </member>
+        <member name="F:HNCAPI_INTERFACE.EVENTDEF.EV_SRC_CH0">
+            <summary>
+            通道0事件0x100~0x10f
+            </summary>
+        </member>
+        <member name="F:HNCAPI_INTERFACE.EVENTDEF.EV_SRC_MDI">
+            <summary>
+            MDI的事件
+            </summary>
+        </member>
+        <member name="F:HNCAPI_INTERFACE.EVENTDEF.EV_SRC_KBD">
+            <summary>
+            键盘事件
+            </summary>
+        </member>
+        <member name="F:HNCAPI_INTERFACE.EVENTDEF.EV_SRC_AX0">
+            <summary>
+            轴事件
+            </summary>
+        </member>
+        <member name="F:HNCAPI_INTERFACE.EVENTDEF.EV_SRC_NET">
+            <summary>
+            网络事件
+            </summary>
+        </member>
+        <member name="F:HNCAPI_INTERFACE.EVENTDEF.ncEvtPrgStart">
+            <summary>
+            程序启动
+            </summary>
+        </member>
+        <member name="F:HNCAPI_INTERFACE.EVENTDEF.ncEvtPrgEnd">
+            <summary>
+            程序结束
+            </summary>
+        </member>
+        <member name="F:HNCAPI_INTERFACE.EVENTDEF.ncEvtPrgHold">
+            <summary>
+            Hold完成
+            </summary>
+        </member>
+        <member name="F:HNCAPI_INTERFACE.EVENTDEF.ncEvtPrgBreak">
+            <summary>
+            Break完成
+            </summary>
+        </member>
+        <member name="F:HNCAPI_INTERFACE.EVENTDEF.ncEvtG92Fin">
+            <summary>
+            G92完成
+            </summary>
+        </member>
+        <member name="F:HNCAPI_INTERFACE.EVENTDEF.ncEvtRstFin">
+            <summary>
+            上电复位完成
+            </summary>
+        </member>
+        <member name="F:HNCAPI_INTERFACE.EVENTDEF.ncEvtRwndFin">
+            <summary>
+            重运行完成
+            </summary>
+        </member>
+        <member name="F:HNCAPI_INTERFACE.EVENTDEF.ncEvtMdiRdy">
+            <summary>
+            MDI准备好
+            </summary>
+        </member>
+        <member name="F:HNCAPI_INTERFACE.EVENTDEF.ncEvtMdiExit">
+            <summary>
+            MDI退出
+            </summary>
+        </member>
+        <member name="F:HNCAPI_INTERFACE.EVENTDEF.ncEvtMdiAck">
+            <summary>
+            MDI行解释完成
+            </summary>
+        </member>
+        <member name="F:HNCAPI_INTERFACE.EVENTDEF.ncEvtRunStart">
+            <summary>
+            程序运行
+            </summary>
+        </member>
+        <member name="F:HNCAPI_INTERFACE.EVENTDEF.ncEvtRunRowAck">
+            <summary>
+            任意行请求应答
+            </summary>
+        </member>
+        <member name="F:HNCAPI_INTERFACE.EVENTDEF.ncEvtRunRowRdy">
+            <summary>
+            任意行准备好
+            </summary>
+        </member>
+        <member name="F:HNCAPI_INTERFACE.EVENTDEF.ncEvtBpSaved">
+            <summary>
+            断电保存完成
+            </summary>
+        </member>
+        <member name="F:HNCAPI_INTERFACE.EVENTDEF.ncEvtBpResumed">
+            <summary>
+            断电恢复完成
+            </summary>
+        </member>
+        <member name="F:HNCAPI_INTERFACE.EVENTDEF.ncEvtIntvHold">
+            <summary>
+            执行到M92等待用户干预
+            </summary>
+        </member>
+        <member name="F:HNCAPI_INTERFACE.EVENTDEF.ncEvtEstop">
+            <summary>
+            外部急停
+            </summary>
+        </member>
+        <member name="F:HNCAPI_INTERFACE.EVENTDEF.ncEvtLoadOK">
+            <summary>
+            程序加载完成
+            </summary>
+        </member>
+        <member name="F:HNCAPI_INTERFACE.EVENTDEF.ncEvtSyntax1">
+            <summary>
+            第一类语法错误（修改后可接着运行）
+            </summary>
+        </member>
+        <member name="F:HNCAPI_INTERFACE.EVENTDEF.ncEvtSyntax2">
+            <summary>
+            第二类语法错误（修改后从头运行）
+            </summary>
+        </member>
+        <member name="F:HNCAPI_INTERFACE.EVENTDEF.ncEvtGcodeSave">
+            <summary>
+            程序中的数据保存指令
+            </summary>
+        </member>
+        <member name="F:HNCAPI_INTERFACE.EVENTDEF.ncEvtLoadData">
+            <summary>
+            程序中的数据加载指令
+            </summary>
+        </member>
+        <member name="F:HNCAPI_INTERFACE.EVENTDEF.ncEvtChgTool">
+            <summary>
+            G代码修改了刀具数据
+            </summary>
+        </member>
+        <member name="F:HNCAPI_INTERFACE.EVENTDEF.ncEvtChgCrds">
+            <summary>
+            G代码修改了坐标系数据
+            </summary>
+        </member>
+        <member name="F:HNCAPI_INTERFACE.EVENTDEF.ncEvtChgAxes">
+            <summary>
+            通道轴发生了改变
+            </summary>
+        </member>
+        <member name="F:HNCAPI_INTERFACE.EVENTDEF.ncEvtChgVar">
+            <summary>
+            G代码修改变量
+            </summary>
+        </member>
+        <member name="F:HNCAPI_INTERFACE.EVENTDEF.ncEvtNckNote">
+            <summary>
+            通道提示
+            </summary>
+        </member>
+        <member name="F:HNCAPI_INTERFACE.EVENTDEF.ncEvtNckAlarm">
+            <summary>
+            通道警报
+            </summary>
+        </member>
+        <member name="F:HNCAPI_INTERFACE.EVENTDEF.ncEvtStopAck">
+            <summary>
+            sys_stop_prog完成
+            </summary>
+        </member>
+        <member name="F:HNCAPI_INTERFACE.EVENTDEF.ncEvtRandomRowFinish">
+            <summary>
+            任意行扫描完成
+            </summary>
+        </member>
+        <member name="F:HNCAPI_INTERFACE.EVENTDEF.ncEVtRandomRowRequestProg">
+            <summary>
+            任意行扫描模式请求程序管理器准备好程序
+            </summary>
+        </member>
+        <member name="F:HNCAPI_INTERFACE.EVENTDEF.ncEvtFaultIrq">
+            <summary>
+            故障中断
+            </summary>
+        </member>
+        <member name="F:HNCAPI_INTERFACE.EVENTDEF.ncEvtPackFin">
+            <summary>
+            数据打包完成
+            </summary>
+        </member>
+        <member name="F:HNCAPI_INTERFACE.EVENTDEF.ncEvtAlarmChg">
+            <summary>
+            警报产生或消除
+            </summary>
+        </member>
+        <member name="F:HNCAPI_INTERFACE.EVENTDEF.ncEvtFileChg">
+            <summary>
+            文件修改
+            </summary>
+        </member>
+        <member name="F:HNCAPI_INTERFACE.EVENTDEF.ncEvtConnect">
+            <summary>
+            nc连接
+            </summary>
+        </member>
+        <member name="T:HNCAPI_INTERFACE.HncAxis">
+            <summary>
+            轴
+            </summary>
+        </member>
+        <member name="F:HNCAPI_INTERFACE.HncAxis.HNC_AXIS_NAME">
+            <summary>
+            轴名称
+            </summary>
+        </member>
+        <member name="F:HNCAPI_INTERFACE.HncAxis.HNC_AXIS_TYPE">
+            <summary>
+            轴类型
+            </summary>
+        </member>
+        <member name="F:HNCAPI_INTERFACE.HncAxis.HNC_AXIS_CHAN">
+            <summary>
+            获取通道号
+            </summary>
+        </member>
+        <member name="F:HNCAPI_INTERFACE.HncAxis.HNC_AXIS_CHAN_INDEX">
+            <summary>
+            获取在通道中的轴号
+            </summary>
+        </member>
+        <member name="F:HNCAPI_INTERFACE.HncAxis.HNC_AXIS_CHAN_SINDEX">
+            <summary>
+            获取在通道中的主轴号
+            </summary>
+        </member>
+        <member name="F:HNCAPI_INTERFACE.HncAxis.HNC_AXIS_LEAD">
+            <summary>
+            获取引导轴
+            </summary>
+        </member>
+        <member name="F:HNCAPI_INTERFACE.HncAxis.HNC_AXIS_ACT_POS">
+            <summary>
+            机床实际位置
+            </summary>
+        </member>
+        <member name="F:HNCAPI_INTERFACE.HncAxis.HNC_AXIS_ACT_POS2">
+            <summary>
+            机床实际位置2
+            </summary>
+        </member>
+        <member name="F:HNCAPI_INTERFACE.HncAxis.HNC_AXIS_CMD_POS">
+            <summary>
+            机床指令位置
+            </summary>
+        </member>
+        <member name="F:HNCAPI_INTERFACE.HncAxis.HNC_AXIS_ACT_POS_WCS">
+            <summary>
+            工件实际位置
+            </summary>
+        </member>
+        <member name="F:HNCAPI_INTERFACE.HncAxis.HNC_AXIS_CMD_POS_WCS">
+            <summary>
+            工件指令位置
+            </summary>
+        </member>
+        <member name="F:HNCAPI_INTERFACE.HncAxis.HNC_AXIS_ACT_POS_RCS">
+            <summary>
+            相对实际位置
+            </summary>
+        </member>
+        <member name="F:HNCAPI_INTERFACE.HncAxis.HNC_AXIS_CMD_POS_RCS">
+            <summary>
+            相对指令位置
+            </summary>
+        </member>
+        <member name="F:HNCAPI_INTERFACE.HncAxis.HNC_AXIS_ACT_PULSE">
+            <summary>
+            实际脉冲位置
+            </summary>
+        </member>
+        <member name="F:HNCAPI_INTERFACE.HncAxis.HNC_AXIS_CMD_PULSE">
+            <summary>
+            指令脉冲位置
+            </summary>
+        </member>
+        <member name="F:HNCAPI_INTERFACE.HncAxis.HNC_AXIS_PROG_POS">
+            <summary>
+            编程位置
+            </summary>
+        </member>
+        <member name="F:HNCAPI_INTERFACE.HncAxis.HNC_AXIS_ENC_CNTR">
+            <summary>
+            电机位置
+            </summary>
+        </member>
+        <member name="F:HNCAPI_INTERFACE.HncAxis.HNC_AXIS_CMD_VEL">
+            <summary>
+            指令速度
+            </summary>
+        </member>
+        <member name="F:HNCAPI_INTERFACE.HncAxis.HNC_AXIS_ACT_VEL">
+            <summary>
+            实际速度
+            </summary>
+        </member>
+        <member name="F:HNCAPI_INTERFACE.HncAxis.HNC_AXIS_LEFT_TOGO">
+            <summary>
+            剩余进给
+            </summary>
+        </member>
+        <member name="F:HNCAPI_INTERFACE.HncAxis.HNC_AXIS_WCS_ZERO">
+            <summary>
+            工件零点
+            </summary>
+        </member>
+        <member name="F:HNCAPI_INTERFACE.HncAxis.HNC_AXIS_WHEEl_OFF">
+            <summary>
+            手轮中断偏移量
+            </summary>
+        </member>
+        <member name="F:HNCAPI_INTERFACE.HncAxis.HNC_AXIS_FOLLOW_ERR">
+            <summary>
+            跟踪误差
+            </summary>
+        </member>
+        <member name="F:HNCAPI_INTERFACE.HncAxis.HNC_AXIS_SYN_ERR">
+            <summary>
+            同步误差
+            </summary>
+        </member>
+        <member name="F:HNCAPI_INTERFACE.HncAxis.HNC_AXIS_COMP">
+            <summary>
+            轴补偿值
+            </summary>
+        </member>
+        <member name="F:HNCAPI_INTERFACE.HncAxis.HNC_AXIS_ZSW_DIST">
+            <summary>
+            Z脉冲偏移
+            </summary>
+        </member>
+        <member name="F:HNCAPI_INTERFACE.HncAxis.HNC_AXIS_REAL_ZERO">
+            <summary>
+            相对零点
+            </summary>
+        </member>
+        <member name="F:HNCAPI_INTERFACE.HncAxis.HNC_AXIS_MOTOR_REV">
+            <summary>
+            电机转速
+            </summary>
+        </member>
+        <member name="F:HNCAPI_INTERFACE.HncAxis.HNC_AXIS_DRIVE_CUR">
+            <summary>
+            驱动单元电流
+            </summary>
+        </member>
+        <member name="F:HNCAPI_INTERFACE.HncAxis.HNC_AXIS_LOAD_CUR">
+            <summary>
+            负载电流
+            </summary>
+        </member>
+        <member name="F:HNCAPI_INTERFACE.HncAxis.HNC_AXIS_RATED_CUR">
+            <summary>
+            额定电流
+            </summary>
+        </member>
+        <member name="F:HNCAPI_INTERFACE.HncAxis.HNC_AXIS_IS_HOMEF">
+            <summary>
+            回零完成
+            </summary>
+        </member>
+        <member name="F:HNCAPI_INTERFACE.HncAxis.HNC_AXIS_WAVE_FREQ">
+            <summary>
+            波形频率
+            </summary>
+        </member>
+        <member name="F:HNCAPI_INTERFACE.HncAxis.HNC_AXIS_DRIVE_VER">
+            <summary>
+            伺服驱动版本
+            </summary>
+        </member>
+        <member name="F:HNCAPI_INTERFACE.HncAxis.HNC_AXIS_MOTOR_TYPE">
+            <summary>
+            伺服类型
+            </summary>
+        </member>
+        <member name="F:HNCAPI_INTERFACE.HncAxis.HNC_AXIS_MOTOR_TYPE_FLAG">
+            <summary>
+            伺服类型出错标志
+            </summary>
+        </member>
+        <member name="T:HNCAPI_INTERFACE.HncChannel">
+            <summary>
+            通道
+            </summary>
+        </member>
+        <member name="F:HNCAPI_INTERFACE.HncChannel.HNC_CHAN_IS_EXIST">
+            <summary>
+            通道是否存在
+            </summary>
+        </member>
+        <member name="F:HNCAPI_INTERFACE.HncChannel.HNC_CHAN_MAC_TYPE">
+            <summary>
+            通道的机床类型
+            </summary>
+        </member>
+        <member name="F:HNCAPI_INTERFACE.HncChannel.HNC_CHAN_AXES_MASK">
+            <summary>
+            轴掩码
+            </summary>
+        </member>
+        <member name="F:HNCAPI_INTERFACE.HncChannel.HNC_CHAN_AXES_MASK1">
+            <summary>
+            轴掩码1
+            </summary>
+        </member>
+        <member name="F:HNCAPI_INTERFACE.HncChannel.HNC_CHAN_NAME">
+            <summary>
+            通道名
+            </summary>
+        </member>
+        <member name="F:HNCAPI_INTERFACE.HncChannel.HNC_CHAN_CMD_TYPE">
+            <summary>
+            读取当前G代码的标志
+            </summary>
+        </member>
+        <member name="F:HNCAPI_INTERFACE.HncChannel.HNC_CHAN_CMD_FEEDRATE">
+            <summary>
+            指令进给速度
+            </summary>
+        </member>
+        <member name="F:HNCAPI_INTERFACE.HncChannel.HNC_CHAN_ACT_FEEDRATE">
+            <summary>
+            实际进给速度
+            </summary>
+        </member>
+        <member name="F:HNCAPI_INTERFACE.HncChannel.HNC_CHAN_PROG_FEEDRATE">
+            <summary>
+            编程指令速度
+            </summary>
+        </member>
+        <member name="F:HNCAPI_INTERFACE.HncChannel.HNC_CHAN_FEED_OVERRIDE">
+            <summary>
+            进给修调
+            </summary>
+        </member>
+        <member name="F:HNCAPI_INTERFACE.HncChannel.HNC_CHAN_RAPID_OVERRIDE">
+            <summary>
+            快移修调
+            </summary>
+        </member>
+        <member name="F:HNCAPI_INTERFACE.HncChannel.HNC_CHAN_MCODE">
+            <summary>
+            通道的M指令
+            </summary>
+        </member>
+        <member name="F:HNCAPI_INTERFACE.HncChannel.HNC_CHAN_TCODE">
+            <summary>
+            通道的T指令
+            </summary>
+        </member>
+        <member name="F:HNCAPI_INTERFACE.HncChannel.HNC_CHAN_TOFFS">
+            <summary>
+            通道中的刀偏号
+            </summary>
+        </member>
+        <member name="F:HNCAPI_INTERFACE.HncChannel.HNC_CHAN_TOOL_USE">
+            <summary>
+            当前刀具
+            </summary>
+        </member>
+        <member name="F:HNCAPI_INTERFACE.HncChannel.HNC_CHAN_TOOL_RDY">
+            <summary>
+            准备好交换的刀具
+            </summary>
+        </member>
+        <member name="F:HNCAPI_INTERFACE.HncChannel.HNC_CHAN_MODE">
+            <summary>
+            模式
+            </summary>
+        </member>
+        <member name="F:HNCAPI_INTERFACE.HncChannel.HNC_CHAN_IS_MDI">
+            <summary>
+            MDI
+            </summary>
+        </member>
+        <member name="F:HNCAPI_INTERFACE.HncChannel.HNC_CHAN_CYCLE">
+            <summary>
+            循环启动
+            </summary>
+        </member>
+        <member name="F:HNCAPI_INTERFACE.HncChannel.HNC_CHAN_HOLD">
+            <summary>
+            进给保持
+            </summary>
+        </member>
+        <member name="F:HNCAPI_INTERFACE.HncChannel.HNC_CHAN_IS_PROGSEL">
+            <summary>
+            已选程序
+            </summary>
+        </member>
+        <member name="F:HNCAPI_INTERFACE.HncChannel.HNC_CHAN_IS_PROGEND">
+            <summary>
+            程序运行完成
+            </summary>
+        </member>
+        <member name="F:HNCAPI_INTERFACE.HncChannel.HNC_CHAN_IS_THREADING">
+            <summary>
+            螺纹加工
+            </summary>
+        </member>
+        <member name="F:HNCAPI_INTERFACE.HncChannel.HNC_CHAN_IS_RIGID">
+            <summary>
+            刚性攻丝
+            </summary>
+        </member>
+        <member name="F:HNCAPI_INTERFACE.HncChannel.HNC_CHAN_IS_REWINDED">
+            <summary>
+            重运行复位状态
+            </summary>
+        </member>
+        <member name="F:HNCAPI_INTERFACE.HncChannel.HNC_CHAN_IS_ESTOP">
+            <summary>
+            急停
+            </summary>
+        </member>
+        <member name="F:HNCAPI_INTERFACE.HncChannel.HNC_CHAN_IS_RESETTING">
+            <summary>
+            复位
+            </summary>
+        </member>
+        <member name="F:HNCAPI_INTERFACE.HncChannel.HNC_CHAN_IS_RUNNING">
+            <summary>
+            运行中
+            </summary>
+        </member>
+        <member name="F:HNCAPI_INTERFACE.HncChannel.HNC_CHAN_IS_HOMING">
+            <summary>
+            回零中
+            </summary>
+        </member>
+        <member name="F:HNCAPI_INTERFACE.HncChannel.HNC_CHAN_IS_MOVING">
+            <summary>
+            轴移动中
+            </summary>
+        </member>
+        <member name="F:HNCAPI_INTERFACE.HncChannel.HNC_CHAN_DIAMETER">
+            <summary>
+            直半径编程
+            </summary>
+        </member>
+        <member name="F:HNCAPI_INTERFACE.HncChannel.HNC_CHAN_VERIFY">
+            <summary>
+            校验
+            </summary>
+        </member>
+        <member name="F:HNCAPI_INTERFACE.HncChannel.HNC_CHAN_RUN_ROW">
+            <summary>
+            运行行
+            </summary>
+        </member>
+        <member name="F:HNCAPI_INTERFACE.HncChannel.HNC_CHAN_DCD_ROW">
+            <summary>
+            译码行
+            </summary>
+        </member>
+        <member name="F:HNCAPI_INTERFACE.HncChannel.HNC_CHAN_SEL_PROG">
+            <summary>
+            选择程序的编号
+            </summary>
+        </member>
+        <member name="F:HNCAPI_INTERFACE.HncChannel.HNC_CHAN_RUN_PROG">
+            <summary>
+            运行程序的编号
+            </summary>
+        </member>
+        <member name="F:HNCAPI_INTERFACE.HncChannel.HNC_CHAN_PART_CNTR">
+            <summary>
+            加工计数
+            </summary>
+        </member>
+        <member name="F:HNCAPI_INTERFACE.HncChannel.HNC_CHAN_PART_STATI">
+            <summary>
+            工件总数
+            </summary>
+        </member>
+        <member name="F:HNCAPI_INTERFACE.HncChannel.HNC_CHAN_HMI_RESET">
+            <summary>
+            HMI复位
+            </summary>
+        </member>
+        <member name="F:HNCAPI_INTERFACE.HncChannel.HNC_CHAN_CHG_PROG">
+            <summary>
+            程序修改标志
+            </summary>
+        </member>
+        <member name="F:HNCAPI_INTERFACE.HncChannel.HNC_CHAN_PERIOD_TOTAL">
+            <summary>
+            【周期数据结束】，以下数据不作为周期数据上传
+            </summary>
+        </member>
+        <member name="F:HNCAPI_INTERFACE.HncChannel.HNC_CHAN_LAX">
+            <summary>
+            通道轴对应的逻辑轴号
+            </summary>
+        </member>
+        <member name="F:HNCAPI_INTERFACE.HncChannel.HNC_CHAN_AXIS_NAME">
+            <summary>
+            编程轴名
+            </summary>
+        </member>
+        <member name="F:HNCAPI_INTERFACE.HncChannel.HNC_CHAN_SPDL_NAME">
+            <summary>
+            编程主轴名
+            </summary>
+        </member>
+        <member name="F:HNCAPI_INTERFACE.HncChannel.HNC_CHAN_MODAL">
+            <summary>
+            通道模态共80组
+            </summary>
+        </member>
+        <member name="F:HNCAPI_INTERFACE.HncChannel.HNC_CHAN_SPDL_LAX">
+            <summary>
+            通道主轴对应的逻辑轴号，动态
+            </summary>
+        </member>
+        <member name="F:HNCAPI_INTERFACE.HncChannel.HNC_CHAN_SPDL_PARA_LAX">
+            <summary>
+            通道主轴对应的逻辑轴号，静态
+            </summary>
+        </member>
+        <member name="F:HNCAPI_INTERFACE.HncChannel.HNC_CHAN_CMD_SPDL_SPEED">
+            <summary>
+            主轴指令速度
+            </summary>
+        </member>
+        <member name="F:HNCAPI_INTERFACE.HncChannel.HNC_CHAN_ACT_SPDL_SPEED">
+            <summary>
+            主轴实际速度
+            </summary>
+        </member>
+        <member name="F:HNCAPI_INTERFACE.HncChannel.HNC_CHAN_SPDL_OVERRIDE">
+            <summary>
+            主轴修调
+            </summary>
+        </member>
+        <member name="F:HNCAPI_INTERFACE.HncChannel.HNC_CHAN_DO_HOLD">
+            <summary>
+            设置进给保持
+            </summary>
+        </member>
+        <member name="F:HNCAPI_INTERFACE.HncChannel.HNC_CHAN_BP_POS">
+            <summary>
+            断点位置
+            </summary>
+        </member>
+        <member name="F:HNCAPI_INTERFACE.HncChannel.HNC_CHAN_PROG_FLOW">
+            <summary>
+            正在调用手动子程序
+            </summary>
+        </member>
+        <member name="F:HNCAPI_INTERFACE.HncChannel.HNC_CHAN_H_OFF">
+            <summary>
+            当前使用刀具长度补偿号
+            </summary>
+        </member>
+        <member name="F:HNCAPI_INTERFACE.HncChannel.HNC_CHAN_D_OFF">
+            <summary>
+            当前使用刀具半径补偿号
+            </summary>
+        </member>
+        <member name="T:HNCAPI_INTERFACE.HncCRDS">
+            <summary>
+            坐标系
+            </summary>
+        </member>
+        <member name="F:HNCAPI_INTERFACE.HncCRDS.HNC_CRDS_CH_G5X_ZERO">
+            <summary>
+            指定通道轴坐标系零点
+            </summary>
+        </member>
+        <member name="F:HNCAPI_INTERFACE.HncCRDS.HNC_CRDS_CH_G5X_ID">
+            <summary>
+            指定通道轴坐标系ID
+            </summary>
+        </member>
+        <member name="F:HNCAPI_INTERFACE.HncCRDS.HNC_CRDS_CH_WCS_ZERO">
+            <summary>
+            指定通道轴工件坐标系零点
+            </summary>
+        </member>
+        <member name="F:HNCAPI_INTERFACE.HncCRDS.HNC_CRDS_CH_REL_ZERO">
+            <summary>
+            指定通道轴相对坐标系零点
+            </summary>
+        </member>
+        <member name="F:HNCAPI_INTERFACE.HncCRDS.HNC_CRDS_CH_FRAME_ZERO">
+            <summary>
+            指定通道轴基架坐标系零点
+            </summary>
+        </member>
+        <member name="F:HNCAPI_INTERFACE.HncCRDS.HNC_CRDS_G68_PNT1">
+            <summary>
+            特性坐标系辅助点1坐标
+            </summary>
+        </member>
+        <member name="F:HNCAPI_INTERFACE.HncCRDS.HNC_CRDS_G68_PNT2">
+            <summary>
+            特性坐标系辅助点2坐标
+            </summary>
+        </member>
+        <member name="F:HNCAPI_INTERFACE.HncCRDS.HNC_CRDS_G68_ZERO">
+            <summary>
+            特性坐标系零点
+            </summary>
+        </member>
+        <member name="F:HNCAPI_INTERFACE.HncCRDS.HNC_CRDS_G68_VCT">
+            <summary>
+            特性坐标系向量
+            </summary>
+        </member>
+        <member name="F:HNCAPI_INTERFACE.HncCRDS.HNC_CRDS_CH_G5X_OFFSET_ZERO">
+            <summary>
+            指定通道轴坐标系偏置零点
+            </summary>
+        </member>
+        <member name="F:HNCAPI_INTERFACE.HncCRDS.HNC_CRDS_TOTAL">
+            <summary>
+            
+            </summary>
+        </member>
+        <member name="T:HNCAPI_INTERFACE.HncCrdsMaxNum">
+            <summary>
+            各类坐标系数目（注释完成）
+            </summary>
+        </member>
+        <member name="F:HNCAPI_INTERFACE.HncCrdsMaxNum.G5EXT_MAX_NUM">
+            <summary>
+            G54.X扩展坐标系的数目
+            </summary>
+        </member>
+        <member name="F:HNCAPI_INTERFACE.HncCrdsMaxNum.CHG_WCS_MAX_NUM">
+            <summary>
+            进给保持时的临时工件坐标系数目
+            </summary>
+        </member>
+        <member name="F:HNCAPI_INTERFACE.HncCrdsMaxNum.TCS_MAX_NUM">
+            <summary>
+            TCS坐标系数目
+            </summary>
+        </member>
+        <member name="T:HNCAPI_INTERFACE.HNCDATADEF">
+            <summary>
+            数据定义（注释中）
+            </summary>
+        </member>
+        <member name="F:HNCAPI_INTERFACE.HNCDATADEF.PARAMAN_FILE_NCU">
+            <summary>
+            NC参数
+            子类号0
+            </summary>
+        </member>
+        <member name="F:HNCAPI_INTERFACE.HNCDATADEF.PARAMAN_FILE_MAC">
+            <summary>
+            机床用户参数
+            子类号0
+            </summary>
+        </member>
+        <member name="F:HNCAPI_INTERFACE.HNCDATADEF.PARAMAN_FILE_CHAN">
+            <summary>
+            通道参数
+            子类号0~3（共4组）
+            </summary>
+        </member>
+        <member name="F:HNCAPI_INTERFACE.HNCDATADEF.PARAMAN_FILE_AXIS">
+            <summary>
+            坐标轴参数
+            子类号0~31（共32组）
+            </summary>
+        </member>
+        <member name="F:HNCAPI_INTERFACE.HNCDATADEF.PARAMAN_FILE_ACMP">
+            <summary>
+            误差补偿参数
+            子类号0~31（共32组）
+            </summary>
+        </member>
+        <member name="F:HNCAPI_INTERFACE.HNCDATADEF.PARAMAN_FILE_CFG">
+            <summary>
+            设备接口参数
+            子类号0~79（共80组）
+            </summary>
+        </member>
+        <member name="F:HNCAPI_INTERFACE.HNCDATADEF.PARAMAN_FILE_TABLE">
+            <summary>
+            数据表参数
+            子类号0
+            </summary>
+        </member>
+        <member name="T:HNCAPI_INTERFACE.HncRegFGBaseType">
+            <summary>
+            FG寄存器基地址（注释完成）
+            </summary>
+        </member>
+        <member name="F:HNCAPI_INTERFACE.HncRegFGBaseType.REG_FG_SYS_BASE">
+            <summary>
+            系统数据基址{Get(Bit32)}
+            </summary>
+        </member>
+        <member name="F:HNCAPI_INTERFACE.HncRegFGBaseType.REG_FG_CHAN_BASE">
+            <summary>
+            通道数据基址{Get(Bit32)}
+            </summary>
+        </member>
+        <member name="F:HNCAPI_INTERFACE.HncRegFGBaseType.REG_FG_AXIS_BASE">
+            <summary>
+            轴数据基址{Get(Bit32)}
+            </summary>
+        </member>
+        <member name="T:HNCAPI_INTERFACE.HncRegType">
+            <summary>
+            寄存器（注释完成）
+            </summary>
+        </member>
+        <member name="F:HNCAPI_INTERFACE.HncRegType.REG_TYPE_X">
+            <summary>
+            X寄存器，MAC（机床）到PLC
+            Bit8
+            </summary>
+        </member>
+        <member name="F:HNCAPI_INTERFACE.HncRegType.REG_TYPE_Y">
+            <summary>
+            Y寄存器，PLC到MAC（机床）
+            Bit8
+            </summary>
+        </member>
+        <member name="F:HNCAPI_INTERFACE.HncRegType.REG_TYPE_F">
+            <summary>
+            F寄存器，NC到PLC
+            Bit16
+            </summary>
+        </member>
+        <member name="F:HNCAPI_INTERFACE.HncRegType.REG_TYPE_G">
+            <summary>
+            G寄存器，PLC到NC
+            Bit16
+            </summary>
+        </member>
+        <member name="F:HNCAPI_INTERFACE.HncRegType.REG_TYPE_R">
+            <summary>
+            R寄存器，8位内部寄存器
+            Bit8
+            </summary>
+        </member>
+        <member name="F:HNCAPI_INTERFACE.HncRegType.REG_TYPE_W">
+            <summary>
+            W寄存器，16位内部寄存器
+            Bit16
+            </summary>
+        </member>
+        <member name="F:HNCAPI_INTERFACE.HncRegType.REG_TYPE_D">
+            <summary>
+            D寄存器，32位内部寄存器
+            Bit32
+            </summary>
+        </member>
+        <member name="F:HNCAPI_INTERFACE.HncRegType.REG_TYPE_B">
+            <summary>
+            B寄存器，断电保存寄存器
+            Bit32
+            </summary>
+        </member>
+        <member name="F:HNCAPI_INTERFACE.HncRegType.REG_TYPE_P">
+            <summary>
+            P寄存器，机床用户参数数据
+            Bit32
+            </summary>
+        </member>
+        <member name="T:HNCAPI_INTERFACE.HncSampleType">
+            <summary>
+            采样（注释完成）
+            </summary>
+        </member>
+        <member name="F:HNCAPI_INTERFACE.HncSampleType.SAMPL_AXIS_CMD">
+            <summary>
+            轴的指令位置
+            </summary>
+        </member>
+        <member name="F:HNCAPI_INTERFACE.HncSampleType.SAMPL_AXIS_ACT">
+            <summary>
+            轴的实际位置
+            </summary>
+        </member>
+        <member name="F:HNCAPI_INTERFACE.HncSampleType.SAMPL_FOLLOW_ERR">
+            <summary>
+            轴的跟随误差
+            </summary>
+        </member>
+        <member name="F:HNCAPI_INTERFACE.HncSampleType.SAMPL_CMD_INC">
+            <summary>
+            轴的指令速度
+            </summary>
+        </member>
+        <member name="F:HNCAPI_INTERFACE.HncSampleType.SAMPL_ACT_VEL">
+            <summary>
+            轴的实际速度
+            </summary>
+        </member>
+        <member name="F:HNCAPI_INTERFACE.HncSampleType.SAMPL_ACT_TRQ">
+            <summary>
+            轴的负载电流
+            </summary>
+        </member>
+        <member name="F:HNCAPI_INTERFACE.HncSampleType.SAMPL_CMD_POS">
+            <summary>
+            指令电机位置
+            </summary>
+        </member>
+        <member name="F:HNCAPI_INTERFACE.HncSampleType.SAMPL_CMD_PULSE">
+            <summary>
+            指令脉冲位置
+            </summary>
+        </member>
+        <member name="F:HNCAPI_INTERFACE.HncSampleType.SAMPL_ACT_POS">
+            <summary>
+            实际电机位置
+            </summary>
+        </member>
+        <member name="F:HNCAPI_INTERFACE.HncSampleType.SAMPL_ACT_PULSE">
+            <summary>
+            实际脉冲位置
+            </summary>
+        </member>
+        <member name="F:HNCAPI_INTERFACE.HncSampleType.SAMPL_TOL_COMP">
+            <summary>
+            补偿值
+            </summary>
+        </member>
+        <member name="F:HNCAPI_INTERFACE.HncSampleType.SAMPL_SYS_VAL">
+            <summary>
+            系统变量
+            </summary>
+        </member>
+        <member name="F:HNCAPI_INTERFACE.HncSampleType.SAMPL_CHAN_VAL">
+            <summary>
+            通道变量
+            </summary>
+        </member>
+        <member name="F:HNCAPI_INTERFACE.HncSampleType.SAMPL_AXIS_VAL">
+            <summary>
+            轴变量
+            </summary>
+        </member>
+        <member name="F:HNCAPI_INTERFACE.HncSampleType.SAMPL_X_REG">
+            <summary>
+            X寄存器
+            </summary>
+        </member>
+        <member name="F:HNCAPI_INTERFACE.HncSampleType.SAMPL_Y_REG">
+            <summary>
+            Y寄存器
+            </summary>
+        </member>
+        <member name="F:HNCAPI_INTERFACE.HncSampleType.SAMPL_F_AXIS_REG">
+            <summary>
+            轴F寄存器
+            </summary>
+        </member>
+        <member name="F:HNCAPI_INTERFACE.HncSampleType.SAMPL_G_AXIS_REG">
+            <summary>
+            轴G寄存器
+            </summary>
+        </member>
+        <member name="F:HNCAPI_INTERFACE.HncSampleType.SAMPL_F_CHAN_REG">
+            <summary>
+            通道F寄存器
+            </summary>
+        </member>
+        <member name="F:HNCAPI_INTERFACE.HncSampleType.SAMPL_G_CHAN_REG">
+            <summary>
+            通道G寄存器
+            </summary>
+        </member>
+        <member name="F:HNCAPI_INTERFACE.HncSampleType.SAMPL_F_SYS_REG">
+            <summary>
+            系统F寄存器
+            </summary>
+        </member>
+        <member name="F:HNCAPI_INTERFACE.HncSampleType.SAMPL_G_SYS_REG">
+            <summary>
+            系统F寄存器
+            </summary>
+        </member>
+        <member name="F:HNCAPI_INTERFACE.HncSampleType.SAMPL_R_REG">
+            <summary>
+            R寄存器
+            </summary>
+        </member>
+        <member name="F:HNCAPI_INTERFACE.HncSampleType.SAMPL_B_REG">
+            <summary>
+            B寄存器
+            </summary>
+        </member>
+        <member name="T:HNCAPI_INTERFACE.HncSystem">
+            <summary>
+            系统
+            </summary>
+        </member>
+        <member name="F:HNCAPI_INTERFACE.HncSystem.HNC_SYS_CHAN_NUM">
+            <summary>
+            获取系统通道数
+            </summary>
+        </member>
+        <member name="F:HNCAPI_INTERFACE.HncSystem.HNC_SYS_MOVE_UNIT">
+            <summary>
+            长度分辨率
+            </summary>
+        </member>
+        <member name="F:HNCAPI_INTERFACE.HncSystem.HNC_SYS_TURN_UNIT">
+            <summary>
+            角度分辨率
+            </summary>
+        </member>
+        <member name="F:HNCAPI_INTERFACE.HncSystem.HNC_SYS_METRIC_DISP">
+            <summary>
+            公英制
+            </summary>
+        </member>
+        <member name="F:HNCAPI_INTERFACE.HncSystem.HNC_SYS_SHOW_TIME">
+            <summary>
+            显示时间
+            </summary>
+        </member>
+        <member name="F:HNCAPI_INTERFACE.HncSystem.HNC_SYS_POP_ALARM">
+            <summary>
+            报警自动显示
+            </summary>
+        </member>
+        <member name="F:HNCAPI_INTERFACE.HncSystem.HNC_SYS_GRAPH_ERASE">
+            <summary>
+            图形自动擦除
+            </summary>
+        </member>
+        <member name="F:HNCAPI_INTERFACE.HncSystem.HNC_SYS_MAC_TYPE">
+            <summary>
+            机床类型
+            </summary>
+        </member>
+        <member name="F:HNCAPI_INTERFACE.HncSystem.HNC_SYS_PREC">
+            <summary>
+            坐标系精度
+            </summary>
+        </member>
+        <member name="F:HNCAPI_INTERFACE.HncSystem.HNC_SYS_F_PREC">
+            <summary>
+            F精度
+            </summary>
+        </member>
+        <member name="F:HNCAPI_INTERFACE.HncSystem.HNC_SYS_S_PREC">
+            <summary>
+            S精度
+            </summary>
+        </member>
+        <member name="F:HNCAPI_INTERFACE.HncSystem.HNC_SYS_NCK_VER">
+            <summary>
+            NCK版本
+            </summary>
+        </member>
+        <member name="F:HNCAPI_INTERFACE.HncSystem.HNC_SYS_DRV_VER">
+            <summary>
+            DRV版本
+            </summary>
+        </member>
+        <member name="F:HNCAPI_INTERFACE.HncSystem.HNC_SYS_PLC_VER">
+            <summary>
+            PLC版本
+            </summary>
+        </member>
+        <member name="F:HNCAPI_INTERFACE.HncSystem.HNC_SYS_CNC_VER">
+            <summary>
+            CNC版本
+            </summary>
+        </member>
+        <member name="F:HNCAPI_INTERFACE.HncSystem.HNC_SYS_MCP_KEY">
+            <summary>
+            MCP面板钥匙开关
+            </summary>
+        </member>
+        <member name="F:HNCAPI_INTERFACE.HncSystem.HNC_SYS_ACTIVE_CHAN">
+            <summary>
+            活动通道
+            </summary>
+        </member>
+        <member name="F:HNCAPI_INTERFACE.HncSystem.HNC_SYS_REQUEST_CHAN">
+            <summary>
+            请求通道
+            </summary>
+        </member>
+        <member name="F:HNCAPI_INTERFACE.HncSystem.HNC_SYS_MDI_CHAN">
+            <summary>
+            MDI运行通道
+            </summary>
+        </member>
+        <member name="F:HNCAPI_INTERFACE.HncSystem.HNC_SYS_REQUEST_CHAN_MASK">
+            <summary>
+            请求的通道屏蔽字
+            </summary>
+        </member>
+        <member name="F:HNCAPI_INTERFACE.HncSystem.HNC_SYS_CHAN_MASK">
+            <summary>
+            通道屏蔽字
+            </summary>
+        </member>
+        <member name="F:HNCAPI_INTERFACE.HncSystem.HNC_SYS_PLC_STOP">
+            <summary>
+            PLC停止
+            </summary>
+        </member>
+        <member name="F:HNCAPI_INTERFACE.HncSystem.HNC_SYS_POWEROFF_ACT">
+            <summary>
+            断电应答
+            </summary>
+        </member>
+        <member name="F:HNCAPI_INTERFACE.HncSystem.HNC_SYS_IS_HOLD_REDECODE">
+            <summary>
+            进给保持后是否重新解释
+            </summary>
+        </member>
+        <member name="F:HNCAPI_INTERFACE.HncSystem.HNC_SYS_NC_VER">
+            <summary>
+            NC版本
+            </summary>
+        </member>
+        <member name="F:HNCAPI_INTERFACE.HncSystem.HNC_SYS_SN_NUM">
+            <summary>
+            CF卡SN号
+            </summary>
+        </member>
+        <member name="F:HNCAPI_INTERFACE.HncSystem.HNC_SYS_MACHINE_TYPE">
+            <summary>
+            机床型号
+            </summary>
+        </member>
+        <member name="F:HNCAPI_INTERFACE.HncSystem.HNC_SYS_MACHINE_INFO">
+            <summary>
+            机床信息
+            </summary>
+        </member>
+        <member name="F:HNCAPI_INTERFACE.HncSystem.HNC_SYS_MACFAC_INFO">
+            <summary>
+            机床厂信息
+            </summary>
+        </member>
+        <member name="F:HNCAPI_INTERFACE.HncSystem.HNC_SYS_USER_INFO">
+            <summary>
+            用户信息
+            </summary>
+        </member>
+        <member name="F:HNCAPI_INTERFACE.HncSystem.HNC_SYS_MACHINE_NUM">
+            <summary>
+            机床编号
+            </summary>
+        </member>
+        <member name="F:HNCAPI_INTERFACE.HncSystem.HNC_SYS_EXFACTORY_DATE">
+            <summary>
+            出厂时间
+            </summary>
+        </member>
+        <member name="F:HNCAPI_INTERFACE.HncSystem.HNC_SYS_ACCESS_LEVEL">
+            <summary>
+            权限等级
+            </summary>
+        </member>
+        <member name="F:HNCAPI_INTERFACE.HncSystem.HNC_SYS_MUL_CHAN_RESET">
+            <summary>
+            多通道复位流程启动标记
+            </summary>
+        </member>
+        <member name="F:HNCAPI_INTERFACE.HncSystem.HNC_SYS_RIGHTS_KEY">
+            <summary>
+            权限钥匙锁
+            </summary>
+        </member>
+        <member name="T:HNCAPI_INTERFACE.HNCUPDATE">
+            <summary>
+            升级备份（注释完成）
+            </summary>
+        </member>
+        <member name="F:HNCAPI_INTERFACE.HNCUPDATE.SELECT_BASE">
+            <summary>
+            N/A
+            </summary>
+        </member>
+        <member name="F:HNCAPI_INTERFACE.HNCUPDATE.SELECT_BIN">
+            <summary>
+            文件夹BIN
+            </summary>
+        </member>
+        <member name="F:HNCAPI_INTERFACE.HNCUPDATE.SELECT_BMP">
+            <summary>
+            文件夹BMP
+            </summary>
+        </member>
+        <member name="F:HNCAPI_INTERFACE.HNCUPDATE.SELECT_DATA">
+            <summary>
+            文件夹DATA
+            </summary>
+        </member>
+        <member name="F:HNCAPI_INTERFACE.HNCUPDATE.SELECT_HLP">
+            <summary>
+            文件夹HLP
+            </summary>
+        </member>
+        <member name="F:HNCAPI_INTERFACE.HNCUPDATE.SELECT_N">
+            <summary>
+            文件夹N
+            </summary>
+        </member>
+        <member name="F:HNCAPI_INTERFACE.HNCUPDATE.SELECT_PARM">
+            <summary>
+            文件夹PARM
+            </summary>
+        </member>
+        <member name="F:HNCAPI_INTERFACE.HNCUPDATE.SELECT_PLC">
+            <summary>
+            文件夹PLC
+            </summary>
+        </member>
+        <member name="F:HNCAPI_INTERFACE.HNCUPDATE.SELECT_PROG">
+            <summary>
+            文件夹PROG
+            </summary>
+        </member>
+        <member name="F:HNCAPI_INTERFACE.HNCUPDATE.SELECT_TMP">
+            <summary>
+            文件夹TMP
+            </summary>
+        </member>
+        <member name="F:HNCAPI_INTERFACE.HNCUPDATE.SELECT_ALLBTF">
+            <summary>
+            所有文件夹
+            </summary>
+        </member>
+        <member name="T:HNCAPI_INTERFACE.HncVarType">
+            <summary>
+            变量数据
+            </summary>
+        </member>
+        <member name="F:HNCAPI_INTERFACE.HncVarType.VAR_TYPE_AXIS">
+            <summary>
+            轴变量
+            </summary>
+        </member>
+        <member name="F:HNCAPI_INTERFACE.HncVarType.VAR_TYPE_CHANNEL">
+            <summary>
+            通道变量
+            </summary>
+        </member>
+        <member name="F:HNCAPI_INTERFACE.HncVarType.VAR_TYPE_SYSTEM">
+            <summary>
+            系统变量
+            </summary>
+        </member>
+        <member name="F:HNCAPI_INTERFACE.HncVarType.VAR_TYPE_SYSTEM_F">
+            <summary>
+            浮点类型的系统变量
+            </summary>
+        </member>
+        <member name="F:HNCAPI_INTERFACE.HncVarType.VAR_TYPE_TOTAL">
+            <summary>
+            
+            </summary>
+        </member>
+        <member name="T:HNCAPI_INTERFACE.MagzHeadIndex">
+            <summary>
+            刀库表表头数据索引（注释完成）
+            </summary>
+        </member>
+        <member name="F:HNCAPI_INTERFACE.MagzHeadIndex.MAGZTAB_HEAD">
+            <summary>
+            刀库表起始偏移地址（刀具号段+刀位属性段）
+            </summary>
+        </member>
+        <member name="F:HNCAPI_INTERFACE.MagzHeadIndex.MAGZTAB_TOOL_NUM">
+            <summary>
+            刀库表中刀具数
+            </summary>
+        </member>
+        <member name="F:HNCAPI_INTERFACE.MagzHeadIndex.MAGZTAB_CUR_TOOL">
+            <summary>
+            当前刀具号
+            </summary>
+        </member>
+        <member name="F:HNCAPI_INTERFACE.MagzHeadIndex.MAGZTAB_CUR_POT">
+            <summary>
+            当前刀位号
+            </summary>
+        </member>
+        <member name="F:HNCAPI_INTERFACE.MagzHeadIndex.MAGZTAB_REF_TOOL">
+            <summary>
+            标刀号
+            </summary>
+        </member>
+        <member name="F:HNCAPI_INTERFACE.MagzHeadIndex.MAGZTAB_CHAN">
+            <summary>
+            刀库所属通道号
+            </summary>
+        </member>
+        <member name="F:HNCAPI_INTERFACE.MagzHeadIndex.MAGZTAB_TYPE">
+            <summary>
+            刀库类型
+            </summary>
+        </member>
+        <member name="F:HNCAPI_INTERFACE.MagzHeadIndex.SWAP_LEFT_TOOL">
+            <summary>
+            机械手左刀位刀具号
+            </summary>
+        </member>
+        <member name="F:HNCAPI_INTERFACE.MagzHeadIndex.SWAP_RIGHT_TOOL">
+            <summary>
+            机械手右刀位刀具号
+            </summary>
+        </member>
+        <member name="T:HNCAPI_INTERFACE.ParaPropType">
+            <summary>
+            参数（注释完成）
+            </summary>
+        </member>
+        <member name="F:HNCAPI_INTERFACE.ParaPropType.PARA_PROP_VALUE">
+            <summary>
+            参数值
+            </summary>
+        </member>
+        <member name="F:HNCAPI_INTERFACE.ParaPropType.PARA_PROP_MAXVALUE">
+            <summary>
+            最大值
+            </summary>
+        </member>
+        <member name="F:HNCAPI_INTERFACE.ParaPropType.PARA_PROP_MINVALUE">
+            <summary>
+            最小值
+            </summary>
+        </member>
+        <member name="F:HNCAPI_INTERFACE.ParaPropType.PARA_PROP_DFVALUE">
+            <summary>
+            缺省值
+            </summary>
+        </member>
+        <member name="F:HNCAPI_INTERFACE.ParaPropType.PARA_PROP_NAME">
+            <summary>
+            名字
+            Bit8[](64位字符串)
+            </summary>
+        </member>
+        <member name="F:HNCAPI_INTERFACE.ParaPropType.PARA_PROP_ACCESS">
+            <summary>
+            权限
+            Bit32
+            </summary>
+        </member>
+        <member name="F:HNCAPI_INTERFACE.ParaPropType.PARA_PROP_ACT">
+            <summary>
+            生效方式
+            Bit32
+            </summary>
+        </member>
+        <member name="F:HNCAPI_INTERFACE.ParaPropType.PARA_PROP_STORE">
+            <summary>
+            存储类型
+            Bit32
+            </summary>
+        </member>
+        <member name="F:HNCAPI_INTERFACE.ParaPropType.PARA_PROP_ID">
+            <summary>
+            参数编号
+            Bit32
+            </summary>
+        </member>
+        <member name="F:HNCAPI_INTERFACE.ParaPropType.PARA_PROP_SIZE">
+            <summary>
+            大小
+            Bit32
+            </summary>
+        </member>
+        <member name="F:HNCAPI_INTERFACE.ParaPropType.PARA_PROP_RELATIONID">
+            <summary>
+            
+            </summary>
+        </member>
+        <member name="T:HNCAPI_INTERFACE.ParaSubClassProp">
+            <summary>
+            参数子类型（注释完成）
+            </summary>
+        </member>
+        <member name="F:HNCAPI_INTERFACE.ParaSubClassProp.SUBCLASS_NAME">
+            <summary>
+            子类名
+            </summary>
+        </member>
+        <member name="F:HNCAPI_INTERFACE.ParaSubClassProp.SUBCLASS_ROWNUM">
+            <summary>
+            子类行数
+            </summary>
+        </member>
+        <member name="F:HNCAPI_INTERFACE.ParaSubClassProp.SUBCLASS_NUM">
+            <summary>
+            子类数
+            </summary>
+        </member>
+        <member name="F:HNCAPI_INTERFACE.ParaSubClassProp.SUBCLASS_MAXNUM">
+            <summary>
+            最大行数
+            </summary>
+        </member>
+        <member name="T:HNCAPI_INTERFACE.SAxisVals">
+            <summary>
+            轴
+            </summary>
+        </member>
+        <member name="T:HNCAPI_INTERFACE.SEventElement">
+            <summary>
+            事件结构（注释完成）
+            </summary>
+        </member>
+        <member name="F:HNCAPI_INTERFACE.SEventElement.src">
+            <summary>
+            事件来源
+            </summary>
+        </member>
+        <member name="F:HNCAPI_INTERFACE.SEventElement.code">
+            <summary>
+            事件代码
+            </summary>
+        </member>
+        <member name="F:HNCAPI_INTERFACE.SEventElement.buf">
+            <summary>
+            事件内容
+            </summary>
+        </member>
+        <member name="T:HNCAPI_INTERFACE.ToolParaIndex">
+            <summary>
+            刀具
+            </summary>
+        </member>
+        <member name="F:HNCAPI_INTERFACE.ToolParaIndex.GTOOL_DIR">
+            <summary>
+            方向
+            </summary>
+        </member>
+        <member name="F:HNCAPI_INTERFACE.ToolParaIndex.GTOOL_LEN1">
+            <summary>
+            长度1(铣：刀具长度；车：X偏置)
+            </summary>
+        </member>
+        <member name="F:HNCAPI_INTERFACE.ToolParaIndex.GTOOL_LEN2">
+            <summary>
+            长度2(车：Y偏置)
+            </summary>
+        </member>
+        <member name="F:HNCAPI_INTERFACE.ToolParaIndex.GTOOL_LEN3">
+            <summary>
+            长度3(车：Z偏置)
+            </summary>
+        </member>
+        <member name="F:HNCAPI_INTERFACE.ToolParaIndex.GTOOL_LEN4">
+            <summary>
+            长度4
+            </summary>
+        </member>
+        <member name="F:HNCAPI_INTERFACE.ToolParaIndex.GTOOL_LEN5">
+            <summary>
+            长度5
+            </summary>
+        </member>
+        <member name="F:HNCAPI_INTERFACE.ToolParaIndex.GTOOL_RAD1">
+            <summary>
+            半径1(铣：刀具半径；车：刀尖半径)
+            </summary>
+        </member>
+        <member name="F:HNCAPI_INTERFACE.ToolParaIndex.GTOOL_RAD2">
+            <summary>
+            半径2
+            </summary>
+        </member>
+        <member name="F:HNCAPI_INTERFACE.ToolParaIndex.GTOOL_ANG1">
+            <summary>
+            角度1
+            </summary>
+        </member>
+        <member name="F:HNCAPI_INTERFACE.ToolParaIndex.GTOOL_ANG2">
+            <summary>
+            角度2
+            </summary>
+        </member>
+        <member name="F:HNCAPI_INTERFACE.ToolParaIndex.GTOOL_TOTAL">
+            <summary>
+            
+            </summary>
+        </member>
+        <member name="F:HNCAPI_INTERFACE.ToolParaIndex.WTOOL_LEN1">
+            <summary>
+            长度1(铣：长度磨损；车：Z磨损)
+            </summary>
+        </member>
+        <member name="F:HNCAPI_INTERFACE.ToolParaIndex.WTOOL_LEN2">
+            <summary>
+            长度2
+            </summary>
+        </member>
+        <member name="F:HNCAPI_INTERFACE.ToolParaIndex.WTOOL_LEN3">
+            <summary>
+            长度3
+            </summary>
+        </member>
+        <member name="F:HNCAPI_INTERFACE.ToolParaIndex.WTOOL_LEN4">
+            <summary>
+            长度4
+            </summary>
+        </member>
+        <member name="F:HNCAPI_INTERFACE.ToolParaIndex.WTOOL_LEN5">
+            <summary>
+            长度5
+            </summary>
+        </member>
+        <member name="F:HNCAPI_INTERFACE.ToolParaIndex.WTOOL_RAD1">
+            <summary>
+            半径1(铣：半径磨损；车：X磨损)
+            </summary>
+        </member>
+        <member name="F:HNCAPI_INTERFACE.ToolParaIndex.WTOOL_RAD2">
+            <summary>
+            半径2
+            </summary>
+        </member>
+        <member name="F:HNCAPI_INTERFACE.ToolParaIndex.WTOOL_ANG1">
+            <summary>
+            角度1
+            </summary>
+        </member>
+        <member name="F:HNCAPI_INTERFACE.ToolParaIndex.WTOOL_ANG2">
+            <summary>
+            角度2
+            </summary>
+        </member>
+        <member name="F:HNCAPI_INTERFACE.ToolParaIndex.WTOOL_TOTAL">
+            <summary>
+            
+            </summary>
+        </member>
+        <member name="F:HNCAPI_INTERFACE.ToolParaIndex.TETOOL_PARA0">
+            <summary>
+            刀具工艺相关参数索引
+            </summary>
+        </member>
+        <member name="F:HNCAPI_INTERFACE.ToolParaIndex.TETOOL_PARA1">
+            <summary>
+            刀具工艺相关参数索引
+            </summary>
+        </member>
+        <member name="F:HNCAPI_INTERFACE.ToolParaIndex.TETOOL_PARA2">
+            <summary>
+            刀具工艺相关参数索引
+            </summary>
+        </member>
+        <member name="F:HNCAPI_INTERFACE.ToolParaIndex.TETOOL_PARA3">
+            <summary>
+            刀具工艺相关参数索引
+            </summary>
+        </member>
+        <member name="F:HNCAPI_INTERFACE.ToolParaIndex.TETOOL_PARA4">
+            <summary>
+            刀具工艺相关参数索引
+            </summary>
+        </member>
+        <member name="F:HNCAPI_INTERFACE.ToolParaIndex.TETOOL_PARA5">
+            <summary>
+            刀具工艺相关参数索引
+            </summary>
+        </member>
+        <member name="F:HNCAPI_INTERFACE.ToolParaIndex.TETOOL_PARA6">
+            <summary>
+            刀具工艺相关参数索引
+            </summary>
+        </member>
+        <member name="F:HNCAPI_INTERFACE.ToolParaIndex.TETOOL_PARA7">
+            <summary>
+            刀具工艺相关参数索引
+            </summary>
+        </member>
+        <member name="F:HNCAPI_INTERFACE.ToolParaIndex.TETOOL_PARA8">
+            <summary>
+            刀具工艺相关参数索引
+            </summary>
+        </member>
+        <member name="F:HNCAPI_INTERFACE.ToolParaIndex.TETOOL_PARA9">
+            <summary>
+            刀具工艺相关参数索引
+            </summary>
+        </member>
+        <member name="F:HNCAPI_INTERFACE.ToolParaIndex.TETOOL_TOTAL">
+            <summary>
+            
+            </summary>
+        </member>
+        <member name="F:HNCAPI_INTERFACE.ToolParaIndex.EXTOOL_S_LIMIT">
+            <summary>
+            S转速限制
+            </summary>
+        </member>
+        <member name="F:HNCAPI_INTERFACE.ToolParaIndex.EXTOOL_F_LIMIT">
+            <summary>
+            F转速限制
+            </summary>
+        </member>
+        <member name="F:HNCAPI_INTERFACE.ToolParaIndex.EXTOOL_LARGE_LEFT">
+            <summary>
+            大刀具干涉左刀位（半刀位）数目
+            </summary>
+        </member>
+        <member name="F:HNCAPI_INTERFACE.ToolParaIndex.EXTOOL_LARGE_RIGHT">
+            <summary>
+            大刀具干涩右刀位（半刀位）数目
+            </summary>
+        </member>
+        <member name="F:HNCAPI_INTERFACE.ToolParaIndex.EXTOOL_TOTAL">
+            <summary>
+            
+            </summary>
+        </member>
+        <member name="F:HNCAPI_INTERFACE.ToolParaIndex.MOTOOL_TYPE">
+            <summary>
+            刀具监控类型，按位有效，寿命/计件/磨损，可选多种监控方式同时监控
+            </summary>
+        </member>
+        <member name="F:HNCAPI_INTERFACE.ToolParaIndex.MOTOOL_SEQU">
+            <summary>
+            优先级
+            </summary>
+        </member>
+        <member name="F:HNCAPI_INTERFACE.ToolParaIndex.MOTOOL_MULTI">
+            <summary>
+            倍率
+            </summary>
+        </member>
+        <member name="F:HNCAPI_INTERFACE.ToolParaIndex.MOTOOL_MAX_LIFE">
+            <summary>
+            最大切削时间（最大寿命）
+            </summary>
+        </member>
+        <member name="F:HNCAPI_INTERFACE.ToolParaIndex.MOTOOL_ALM_LIFE">
+            <summary>
+            预警切削时间（预警寿命）
+            </summary>
+        </member>
+        <member name="F:HNCAPI_INTERFACE.ToolParaIndex.MOTOOL_ACT_LIFE">
+            <summary>
+            实际切削时间（实际寿命）
+            </summary>
+        </member>
+        <member name="F:HNCAPI_INTERFACE.ToolParaIndex.MOTOOL_MAX_COUNT">
+            <summary>
+            最大安装次数（最大计件数）
+            </summary>
+        </member>
+        <member name="F:HNCAPI_INTERFACE.ToolParaIndex.MOTOOL_ALM_COUNT">
+            <summary>
+            预警安装次数（预警计件数）
+            </summary>
+        </member>
+        <member name="F:HNCAPI_INTERFACE.ToolParaIndex.MOTOOL_ACT_COUNT">
+            <summary>
+            实际安装次数（实际计件数）
+            </summary>
+        </member>
+        <member name="F:HNCAPI_INTERFACE.ToolParaIndex.MOTOOL_MAX_WEAR">
+            <summary>
+            最大磨损
+            </summary>
+        </member>
+        <member name="F:HNCAPI_INTERFACE.ToolParaIndex.MOTOOL_ALM_WEAR">
+            <summary>
+            预警磨损
+            </summary>
+        </member>
+        <member name="F:HNCAPI_INTERFACE.ToolParaIndex.MOTOOL_ACT_WEAR">
+            <summary>
+            实际磨损
+            </summary>
+        </member>
+        <member name="F:HNCAPI_INTERFACE.ToolParaIndex.MOTOOL_GROUP">
+            <summary>
+            刀具所属分组号
+            </summary>
+        </member>
+        <member name="F:HNCAPI_INTERFACE.ToolParaIndex.MOTOOL_TOTAL">
+            <summary>
+            
+            </summary>
+        </member>
+        <member name="F:HNCAPI_INTERFACE.ToolParaIndex.METOOL_PARA0">
+            <summary>
+            刀具测量参数个数
+            </summary>
+        </member>
+        <member name="F:HNCAPI_INTERFACE.ToolParaIndex.METOOL_PARA1">
+            <summary>
+            刀具测量参数个数
+            </summary>
+        </member>
+        <member name="F:HNCAPI_INTERFACE.ToolParaIndex.METOOL_PARA2">
+            <summary>
+            刀具测量参数个数
+            </summary>
+        </member>
+        <member name="F:HNCAPI_INTERFACE.ToolParaIndex.METOOL_PARA3">
+            <summary>
+            刀具测量参数个数
+            </summary>
+        </member>
+        <member name="F:HNCAPI_INTERFACE.ToolParaIndex.METOOL_PARA4">
+            <summary>
+            刀具测量参数个数
+            </summary>
+        </member>
+        <member name="F:HNCAPI_INTERFACE.ToolParaIndex.METOOL_PARA5">
+            <summary>
+            刀具测量参数个数
+            </summary>
+        </member>
+        <member name="F:HNCAPI_INTERFACE.ToolParaIndex.METOOL_PARA6">
+            <summary>
+            刀具测量参数个数
+            </summary>
+        </member>
+        <member name="F:HNCAPI_INTERFACE.ToolParaIndex.METOOL_PARA7">
+            <summary>
+            刀具测量参数个数
+            </summary>
+        </member>
+        <member name="F:HNCAPI_INTERFACE.ToolParaIndex.METOOL_PARA8">
+            <summary>
+            刀具测量参数个数
+            </summary>
+        </member>
+        <member name="F:HNCAPI_INTERFACE.ToolParaIndex.METOOL_PARA9">
+            <summary>
+            刀具测量参数个数
+            </summary>
+        </member>
+        <member name="F:HNCAPI_INTERFACE.ToolParaIndex.METOOL_TOTAL">
+            <summary>
+            
+            </summary>
+        </member>
+        <member name="F:HNCAPI_INTERFACE.ToolParaIndex.INFTOOL_ID">
+            <summary>
+            刀具索引号
+            </summary>
+        </member>
+        <member name="F:HNCAPI_INTERFACE.ToolParaIndex.INFTOOL_MAGZ">
+            <summary>
+            刀具所属刀库号
+            </summary>
+        </member>
+        <member name="F:HNCAPI_INTERFACE.ToolParaIndex.INFTOOL_CH">
+            <summary>
+            刀具所属通道号
+            </summary>
+        </member>
+        <member name="F:HNCAPI_INTERFACE.ToolParaIndex.INFTOOL_TYPE">
+            <summary>
+            刀具所属类型
+            </summary>
+        </member>
+        <member name="F:HNCAPI_INTERFACE.ToolParaIndex.INFTOOL_STATE">
+            <summary>
+            刀具状态字
+            </summary>
+        </member>
+        <member name="F:HNCAPI_INTERFACE.ToolParaIndex.INFTOOL_G64MODE">
+            <summary>
+            刀具高速高精加工模式
+            </summary>
+        </member>
+    </members>
+</doc>

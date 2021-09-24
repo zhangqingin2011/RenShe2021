@@ -1,0 +1,2166 @@
+﻿namespace SCADA
+{
+    partial class PlcForm
+    {
+        /// <summary>
+        /// Required designer variable.
+        /// </summary>
+        private System.ComponentModel.IContainer components = null;
+
+        /// <summary>
+        /// Clean up any resources being used.
+        /// </summary>
+        /// <param name="disposing">true if managed resources should be disposed; otherwise, false.</param>
+        protected override void Dispose(bool disposing)
+        {
+            if (disposing && (components != null))
+            {
+                components.Dispose();
+            }
+            base.Dispose(disposing);
+        }
+
+        #region Windows Form Designer generated code
+
+        /// <summary>
+        /// Required method for Designer support - do not modify
+        /// the contents of this method with the code editor.
+        /// </summary>
+        private void InitializeComponent()
+        {
+            this.components = new System.ComponentModel.Container();
+            System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle1 = new System.Windows.Forms.DataGridViewCellStyle();
+            System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle2 = new System.Windows.Forms.DataGridViewCellStyle();
+            System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle3 = new System.Windows.Forms.DataGridViewCellStyle();
+            System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle4 = new System.Windows.Forms.DataGridViewCellStyle();
+            System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle5 = new System.Windows.Forms.DataGridViewCellStyle();
+            System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle6 = new System.Windows.Forms.DataGridViewCellStyle();
+            System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle7 = new System.Windows.Forms.DataGridViewCellStyle();
+            System.ComponentModel.ComponentResourceManager resources = new System.ComponentModel.ComponentResourceManager(typeof(PlcForm));
+            System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle8 = new System.Windows.Forms.DataGridViewCellStyle();
+            this.spContainerPLC = new System.Windows.Forms.SplitContainer();
+            this.plcDGV1 = new System.Windows.Forms.DataGridView();
+            this.input_id = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.input_name = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.Column1 = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.input_Monitor = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.input_EQUIP_CODE = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.input_ACTION_ID = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.comboBoxPLCJiankong1 = new System.Windows.Forms.ComboBox();
+            this.comboBoxPLCJiankong2 = new System.Windows.Forms.ComboBox();
+            this.plcDGV2 = new System.Windows.Forms.DataGridView();
+            this.output_id = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.output_name = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.dataGridViewTextBoxColumn1 = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.output_Monitor = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.output_EQUIP_CODE = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.oput_ACTION_ID = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.groupBox3 = new System.Windows.Forms.GroupBox();
+            this.labelLinckText = new System.Windows.Forms.Label();
+            this.pictureBox_LinkState = new System.Windows.Forms.PictureBox();
+            this.groupBox2 = new System.Windows.Forms.GroupBox();
+            this.switchPlc = new SCADA.mComboBox();
+            this.groupBox1 = new System.Windows.Forms.GroupBox();
+            this.radioButton_shliujinzhi = new System.Windows.Forms.RadioButton();
+            this.radioButton_shijinzhi = new System.Windows.Forms.RadioButton();
+            this.radioButton_serjinzhi = new System.Windows.Forms.RadioButton();
+            PlcForm.timer1 = new System.Windows.Forms.Timer(this.components);
+            this.dataGridViewImageColumn1 = new System.Windows.Forms.DataGridViewImageColumn();
+            this.dataGridViewImageColumn2 = new System.Windows.Forms.DataGridViewImageColumn();
+            this.splitContainer1 = new System.Windows.Forms.SplitContainer();
+            this.tabControl1 = new System.Windows.Forms.TabControl();
+            this.tabPage_PLCRegMonitor = new System.Windows.Forms.TabPage();
+            this.tabPage_PLCOperation = new System.Windows.Forms.TabPage();
+            this.comboBox_PLCStationSelet = new SCADA.mComboBox();
+            this.button27 = new System.Windows.Forms.Button();
+            this.button26 = new System.Windows.Forms.Button();
+            this.button25 = new System.Windows.Forms.Button();
+            this.button24 = new System.Windows.Forms.Button();
+            this.button20 = new System.Windows.Forms.Button();
+            this.button22 = new System.Windows.Forms.Button();
+            this.button18 = new System.Windows.Forms.Button();
+            this.button23 = new System.Windows.Forms.Button();
+            this.button21 = new System.Windows.Forms.Button();
+            this.button19 = new System.Windows.Forms.Button();
+            this.button17 = new System.Windows.Forms.Button();
+            this.button16 = new System.Windows.Forms.Button();
+            this.button14 = new System.Windows.Forms.Button();
+            this.button15 = new System.Windows.Forms.Button();
+            this.button13 = new System.Windows.Forms.Button();
+            this.button12 = new System.Windows.Forms.Button();
+            this.button10 = new System.Windows.Forms.Button();
+            this.button11 = new System.Windows.Forms.Button();
+            this.button9 = new System.Windows.Forms.Button();
+            this.button8 = new System.Windows.Forms.Button();
+            this.button6 = new System.Windows.Forms.Button();
+            this.button7 = new System.Windows.Forms.Button();
+            this.button5 = new System.Windows.Forms.Button();
+            this.button4 = new System.Windows.Forms.Button();
+            this.button3 = new System.Windows.Forms.Button();
+            this.button2 = new System.Windows.Forms.Button();
+            this.button1 = new System.Windows.Forms.Button();
+            this.tabPage_Alarm = new System.Windows.Forms.TabPage();
+            this.button_alarmReFlesh = new System.Windows.Forms.Button();
+            this.dataGridViewalarmdata = new System.Windows.Forms.DataGridView();
+            this.dataGridViewTextBoxColumn2 = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.Column2 = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.Column3 = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.HistoricalAlarm = new System.Windows.Forms.RadioButton();
+            this.CurrentAlarm = new System.Windows.Forms.RadioButton();
+            this.changku = new System.Windows.Forms.TabPage();
+            PlcForm.groupBox5 = new System.Windows.Forms.GroupBox();
+            this.pictureBoxck40 = new System.Windows.Forms.PictureBox();
+            this.pictureBoxck39 = new System.Windows.Forms.PictureBox();
+            this.pictureBoxck38 = new System.Windows.Forms.PictureBox();
+            this.pictureBoxck37 = new System.Windows.Forms.PictureBox();
+            this.pictureBoxck36 = new System.Windows.Forms.PictureBox();
+            this.pictureBoxck35 = new System.Windows.Forms.PictureBox();
+            this.pictureBoxck34 = new System.Windows.Forms.PictureBox();
+            this.pictureBoxck33 = new System.Windows.Forms.PictureBox();
+            this.pictureBoxck32 = new System.Windows.Forms.PictureBox();
+            this.pictureBoxck31 = new System.Windows.Forms.PictureBox();
+            this.buttonck40 = new System.Windows.Forms.Button();
+            this.buttonck39 = new System.Windows.Forms.Button();
+            this.buttonck38 = new System.Windows.Forms.Button();
+            this.buttonck37 = new System.Windows.Forms.Button();
+            this.buttonck36 = new System.Windows.Forms.Button();
+            this.buttonck35 = new System.Windows.Forms.Button();
+            this.buttonck34 = new System.Windows.Forms.Button();
+            this.buttonck33 = new System.Windows.Forms.Button();
+            this.buttonck32 = new System.Windows.Forms.Button();
+            this.buttonck31 = new System.Windows.Forms.Button();
+            this.buttonck30 = new System.Windows.Forms.Button();
+            this.pictureBoxck5 = new System.Windows.Forms.PictureBox();
+            this.pictureBoxck4 = new System.Windows.Forms.PictureBox();
+            this.pictureBoxck3 = new System.Windows.Forms.PictureBox();
+            this.pictureBoxck2 = new System.Windows.Forms.PictureBox();
+            this.pictureBoxck10 = new System.Windows.Forms.PictureBox();
+            this.pictureBoxck8 = new System.Windows.Forms.PictureBox();
+            this.pictureBoxck7 = new System.Windows.Forms.PictureBox();
+            this.pictureBoxck30 = new System.Windows.Forms.PictureBox();
+            this.pictureBoxck29 = new System.Windows.Forms.PictureBox();
+            this.pictureBoxck28 = new System.Windows.Forms.PictureBox();
+            this.pictureBoxck27 = new System.Windows.Forms.PictureBox();
+            this.pictureBoxck26 = new System.Windows.Forms.PictureBox();
+            this.pictureBoxck22 = new System.Windows.Forms.PictureBox();
+            this.pictureBoxck25 = new System.Windows.Forms.PictureBox();
+            this.pictureBoxck24 = new System.Windows.Forms.PictureBox();
+            this.pictureBoxck23 = new System.Windows.Forms.PictureBox();
+            this.pictureBoxck21 = new System.Windows.Forms.PictureBox();
+            this.pictureBoxck18 = new System.Windows.Forms.PictureBox();
+            this.pictureBoxck20 = new System.Windows.Forms.PictureBox();
+            this.pictureBoxck19 = new System.Windows.Forms.PictureBox();
+            this.pictureBoxck17 = new System.Windows.Forms.PictureBox();
+            this.pictureBoxck16 = new System.Windows.Forms.PictureBox();
+            this.pictureBoxck12 = new System.Windows.Forms.PictureBox();
+            this.pictureBoxck9 = new System.Windows.Forms.PictureBox();
+            this.pictureBoxck15 = new System.Windows.Forms.PictureBox();
+            this.pictureBoxck14 = new System.Windows.Forms.PictureBox();
+            this.pictureBoxck13 = new System.Windows.Forms.PictureBox();
+            this.pictureBoxck11 = new System.Windows.Forms.PictureBox();
+            this.pictureBoxck6 = new System.Windows.Forms.PictureBox();
+            this.pictureBoxck1 = new System.Windows.Forms.PictureBox();
+            this.buttonck20 = new System.Windows.Forms.Button();
+            this.buttonck25 = new System.Windows.Forms.Button();
+            this.buttonck15 = new System.Windows.Forms.Button();
+            this.buttonck10 = new System.Windows.Forms.Button();
+            this.buttonck5 = new System.Windows.Forms.Button();
+            this.buttonck29 = new System.Windows.Forms.Button();
+            this.buttonck19 = new System.Windows.Forms.Button();
+            this.buttonck24 = new System.Windows.Forms.Button();
+            this.buttonck14 = new System.Windows.Forms.Button();
+            this.buttonck9 = new System.Windows.Forms.Button();
+            this.buttonck4 = new System.Windows.Forms.Button();
+            this.buttonck28 = new System.Windows.Forms.Button();
+            this.buttonck18 = new System.Windows.Forms.Button();
+            this.buttonck23 = new System.Windows.Forms.Button();
+            this.buttonck13 = new System.Windows.Forms.Button();
+            this.buttonck8 = new System.Windows.Forms.Button();
+            this.buttonck3 = new System.Windows.Forms.Button();
+            this.buttonck27 = new System.Windows.Forms.Button();
+            this.buttonck17 = new System.Windows.Forms.Button();
+            this.buttonck22 = new System.Windows.Forms.Button();
+            this.buttonck12 = new System.Windows.Forms.Button();
+            this.buttonck7 = new System.Windows.Forms.Button();
+            this.buttonck2 = new System.Windows.Forms.Button();
+            this.buttonck26 = new System.Windows.Forms.Button();
+            this.buttonck21 = new System.Windows.Forms.Button();
+            this.buttonck16 = new System.Windows.Forms.Button();
+            this.buttonck11 = new System.Windows.Forms.Button();
+            this.buttonck6 = new System.Windows.Forms.Button();
+            this.buttonck1 = new System.Windows.Forms.Button();
+            this.groupBox4 = new System.Windows.Forms.GroupBox();
+            this.label_PLCSysTemText = new System.Windows.Forms.Label();
+            ((System.ComponentModel.ISupportInitialize)(this.spContainerPLC)).BeginInit();
+            this.spContainerPLC.Panel1.SuspendLayout();
+            this.spContainerPLC.Panel2.SuspendLayout();
+            this.spContainerPLC.SuspendLayout();
+            ((System.ComponentModel.ISupportInitialize)(this.plcDGV1)).BeginInit();
+            ((System.ComponentModel.ISupportInitialize)(this.plcDGV2)).BeginInit();
+            this.groupBox3.SuspendLayout();
+            ((System.ComponentModel.ISupportInitialize)(this.pictureBox_LinkState)).BeginInit();
+            this.groupBox2.SuspendLayout();
+            this.groupBox1.SuspendLayout();
+            ((System.ComponentModel.ISupportInitialize)(this.splitContainer1)).BeginInit();
+            this.splitContainer1.Panel1.SuspendLayout();
+            this.splitContainer1.Panel2.SuspendLayout();
+            this.splitContainer1.SuspendLayout();
+            this.tabControl1.SuspendLayout();
+            this.tabPage_PLCRegMonitor.SuspendLayout();
+            this.tabPage_PLCOperation.SuspendLayout();
+            this.tabPage_Alarm.SuspendLayout();
+            ((System.ComponentModel.ISupportInitialize)(this.dataGridViewalarmdata)).BeginInit();
+            this.changku.SuspendLayout();
+            PlcForm.groupBox5.SuspendLayout();
+            ((System.ComponentModel.ISupportInitialize)(this.pictureBoxck40)).BeginInit();
+            ((System.ComponentModel.ISupportInitialize)(this.pictureBoxck39)).BeginInit();
+            ((System.ComponentModel.ISupportInitialize)(this.pictureBoxck38)).BeginInit();
+            ((System.ComponentModel.ISupportInitialize)(this.pictureBoxck37)).BeginInit();
+            ((System.ComponentModel.ISupportInitialize)(this.pictureBoxck36)).BeginInit();
+            ((System.ComponentModel.ISupportInitialize)(this.pictureBoxck35)).BeginInit();
+            ((System.ComponentModel.ISupportInitialize)(this.pictureBoxck34)).BeginInit();
+            ((System.ComponentModel.ISupportInitialize)(this.pictureBoxck33)).BeginInit();
+            ((System.ComponentModel.ISupportInitialize)(this.pictureBoxck32)).BeginInit();
+            ((System.ComponentModel.ISupportInitialize)(this.pictureBoxck31)).BeginInit();
+            ((System.ComponentModel.ISupportInitialize)(this.pictureBoxck5)).BeginInit();
+            ((System.ComponentModel.ISupportInitialize)(this.pictureBoxck4)).BeginInit();
+            ((System.ComponentModel.ISupportInitialize)(this.pictureBoxck3)).BeginInit();
+            ((System.ComponentModel.ISupportInitialize)(this.pictureBoxck2)).BeginInit();
+            ((System.ComponentModel.ISupportInitialize)(this.pictureBoxck10)).BeginInit();
+            ((System.ComponentModel.ISupportInitialize)(this.pictureBoxck8)).BeginInit();
+            ((System.ComponentModel.ISupportInitialize)(this.pictureBoxck7)).BeginInit();
+            ((System.ComponentModel.ISupportInitialize)(this.pictureBoxck30)).BeginInit();
+            ((System.ComponentModel.ISupportInitialize)(this.pictureBoxck29)).BeginInit();
+            ((System.ComponentModel.ISupportInitialize)(this.pictureBoxck28)).BeginInit();
+            ((System.ComponentModel.ISupportInitialize)(this.pictureBoxck27)).BeginInit();
+            ((System.ComponentModel.ISupportInitialize)(this.pictureBoxck26)).BeginInit();
+            ((System.ComponentModel.ISupportInitialize)(this.pictureBoxck22)).BeginInit();
+            ((System.ComponentModel.ISupportInitialize)(this.pictureBoxck25)).BeginInit();
+            ((System.ComponentModel.ISupportInitialize)(this.pictureBoxck24)).BeginInit();
+            ((System.ComponentModel.ISupportInitialize)(this.pictureBoxck23)).BeginInit();
+            ((System.ComponentModel.ISupportInitialize)(this.pictureBoxck21)).BeginInit();
+            ((System.ComponentModel.ISupportInitialize)(this.pictureBoxck18)).BeginInit();
+            ((System.ComponentModel.ISupportInitialize)(this.pictureBoxck20)).BeginInit();
+            ((System.ComponentModel.ISupportInitialize)(this.pictureBoxck19)).BeginInit();
+            ((System.ComponentModel.ISupportInitialize)(this.pictureBoxck17)).BeginInit();
+            ((System.ComponentModel.ISupportInitialize)(this.pictureBoxck16)).BeginInit();
+            ((System.ComponentModel.ISupportInitialize)(this.pictureBoxck12)).BeginInit();
+            ((System.ComponentModel.ISupportInitialize)(this.pictureBoxck9)).BeginInit();
+            ((System.ComponentModel.ISupportInitialize)(this.pictureBoxck15)).BeginInit();
+            ((System.ComponentModel.ISupportInitialize)(this.pictureBoxck14)).BeginInit();
+            ((System.ComponentModel.ISupportInitialize)(this.pictureBoxck13)).BeginInit();
+            ((System.ComponentModel.ISupportInitialize)(this.pictureBoxck11)).BeginInit();
+            ((System.ComponentModel.ISupportInitialize)(this.pictureBoxck6)).BeginInit();
+            ((System.ComponentModel.ISupportInitialize)(this.pictureBoxck1)).BeginInit();
+            this.groupBox4.SuspendLayout();
+            this.SuspendLayout();
+            // 
+            // spContainerPLC
+            // 
+            this.spContainerPLC.BorderStyle = System.Windows.Forms.BorderStyle.Fixed3D;
+            this.spContainerPLC.Dock = System.Windows.Forms.DockStyle.Fill;
+            this.spContainerPLC.Location = new System.Drawing.Point(0, 0);
+            this.spContainerPLC.Name = "spContainerPLC";
+            // 
+            // spContainerPLC.Panel1
+            // 
+            this.spContainerPLC.Panel1.AutoScrollMargin = new System.Drawing.Size(300, 0);
+            this.spContainerPLC.Panel1.Controls.Add(this.plcDGV1);
+            this.spContainerPLC.Panel1.Controls.Add(this.comboBoxPLCJiankong1);
+            // 
+            // spContainerPLC.Panel2
+            // 
+            this.spContainerPLC.Panel2.Controls.Add(this.comboBoxPLCJiankong2);
+            this.spContainerPLC.Panel2.Controls.Add(this.plcDGV2);
+            this.spContainerPLC.Size = new System.Drawing.Size(738, 421);
+            this.spContainerPLC.SplitterDistance = 368;
+            this.spContainerPLC.TabIndex = 7;
+            // 
+            // plcDGV1
+            // 
+            this.plcDGV1.AllowUserToAddRows = false;
+            this.plcDGV1.AllowUserToDeleteRows = false;
+            this.plcDGV1.BackgroundColor = System.Drawing.Color.White;
+            this.plcDGV1.BorderStyle = System.Windows.Forms.BorderStyle.Fixed3D;
+            dataGridViewCellStyle1.Alignment = System.Windows.Forms.DataGridViewContentAlignment.MiddleCenter;
+            dataGridViewCellStyle1.BackColor = System.Drawing.SystemColors.Control;
+            dataGridViewCellStyle1.Font = new System.Drawing.Font("宋体", 9F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(134)));
+            dataGridViewCellStyle1.ForeColor = System.Drawing.SystemColors.WindowText;
+            dataGridViewCellStyle1.SelectionBackColor = System.Drawing.SystemColors.Highlight;
+            dataGridViewCellStyle1.SelectionForeColor = System.Drawing.SystemColors.HighlightText;
+            dataGridViewCellStyle1.WrapMode = System.Windows.Forms.DataGridViewTriState.True;
+            this.plcDGV1.ColumnHeadersDefaultCellStyle = dataGridViewCellStyle1;
+            this.plcDGV1.ColumnHeadersHeight = 25;
+            this.plcDGV1.Columns.AddRange(new System.Windows.Forms.DataGridViewColumn[] {
+            this.input_id,
+            this.input_name,
+            this.Column1,
+            this.input_Monitor,
+            this.input_EQUIP_CODE,
+            this.input_ACTION_ID});
+            this.plcDGV1.Location = new System.Drawing.Point(1, 24);
+            this.plcDGV1.Name = "plcDGV1";
+            this.plcDGV1.ReadOnly = true;
+            this.plcDGV1.RowHeadersVisible = false;
+            this.plcDGV1.RowTemplate.Height = 23;
+            this.plcDGV1.Size = new System.Drawing.Size(358, 390);
+            this.plcDGV1.TabIndex = 0;
+            // 
+            // input_id
+            // 
+            dataGridViewCellStyle2.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(255)))), ((int)(((byte)(224)))), ((int)(((byte)(192)))));
+            this.input_id.DefaultCellStyle = dataGridViewCellStyle2;
+            this.input_id.FillWeight = 144.0867F;
+            this.input_id.HeaderText = "地址";
+            this.input_id.Name = "input_id";
+            this.input_id.ReadOnly = true;
+            this.input_id.Resizable = System.Windows.Forms.DataGridViewTriState.True;
+            this.input_id.Width = 54;
+            // 
+            // input_name
+            // 
+            dataGridViewCellStyle3.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(255)))), ((int)(((byte)(224)))), ((int)(((byte)(192)))));
+            this.input_name.DefaultCellStyle = dataGridViewCellStyle3;
+            this.input_name.FillWeight = 119.0281F;
+            this.input_name.HeaderText = "定义";
+            this.input_name.Name = "input_name";
+            this.input_name.ReadOnly = true;
+            this.input_name.Width = 54;
+            // 
+            // Column1
+            // 
+            this.Column1.HeaderText = "值";
+            this.Column1.Name = "Column1";
+            this.Column1.ReadOnly = true;
+            // 
+            // input_Monitor
+            // 
+            this.input_Monitor.HeaderText = "动作上报";
+            this.input_Monitor.Name = "input_Monitor";
+            this.input_Monitor.ReadOnly = true;
+            this.input_Monitor.Width = 78;
+            // 
+            // input_EQUIP_CODE
+            // 
+            this.input_EQUIP_CODE.HeaderText = "部件ID";
+            this.input_EQUIP_CODE.Name = "input_EQUIP_CODE";
+            this.input_EQUIP_CODE.ReadOnly = true;
+            this.input_EQUIP_CODE.Width = 66;
+            // 
+            // input_ACTION_ID
+            // 
+            this.input_ACTION_ID.HeaderText = "触发事件ID";
+            this.input_ACTION_ID.Name = "input_ACTION_ID";
+            this.input_ACTION_ID.ReadOnly = true;
+            this.input_ACTION_ID.Width = 90;
+            // 
+            // comboBoxPLCJiankong1
+            // 
+            this.comboBoxPLCJiankong1.DropDownStyle = System.Windows.Forms.ComboBoxStyle.DropDownList;
+            this.comboBoxPLCJiankong1.FormattingEnabled = true;
+            this.comboBoxPLCJiankong1.Location = new System.Drawing.Point(122, 2);
+            this.comboBoxPLCJiankong1.Name = "comboBoxPLCJiankong1";
+            this.comboBoxPLCJiankong1.Size = new System.Drawing.Size(121, 20);
+            this.comboBoxPLCJiankong1.TabIndex = 8;
+            this.comboBoxPLCJiankong1.SelectedIndexChanged += new System.EventHandler(this.comboBoxPLCJiankong1_SelectedIndexChanged);
+            // 
+            // comboBoxPLCJiankong2
+            // 
+            this.comboBoxPLCJiankong2.DropDownStyle = System.Windows.Forms.ComboBoxStyle.DropDownList;
+            this.comboBoxPLCJiankong2.FormattingEnabled = true;
+            this.comboBoxPLCJiankong2.Location = new System.Drawing.Point(128, 2);
+            this.comboBoxPLCJiankong2.Name = "comboBoxPLCJiankong2";
+            this.comboBoxPLCJiankong2.Size = new System.Drawing.Size(121, 20);
+            this.comboBoxPLCJiankong2.TabIndex = 8;
+            this.comboBoxPLCJiankong2.SelectedIndexChanged += new System.EventHandler(this.comboBoxPLCJiankong2_SelectedIndexChanged);
+            // 
+            // plcDGV2
+            // 
+            this.plcDGV2.AllowUserToAddRows = false;
+            this.plcDGV2.AllowUserToDeleteRows = false;
+            this.plcDGV2.BackgroundColor = System.Drawing.Color.White;
+            this.plcDGV2.BorderStyle = System.Windows.Forms.BorderStyle.Fixed3D;
+            dataGridViewCellStyle4.Alignment = System.Windows.Forms.DataGridViewContentAlignment.MiddleCenter;
+            dataGridViewCellStyle4.BackColor = System.Drawing.SystemColors.Control;
+            dataGridViewCellStyle4.Font = new System.Drawing.Font("宋体", 9F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(134)));
+            dataGridViewCellStyle4.ForeColor = System.Drawing.SystemColors.WindowText;
+            dataGridViewCellStyle4.SelectionBackColor = System.Drawing.SystemColors.Highlight;
+            dataGridViewCellStyle4.SelectionForeColor = System.Drawing.SystemColors.HighlightText;
+            dataGridViewCellStyle4.WrapMode = System.Windows.Forms.DataGridViewTriState.True;
+            this.plcDGV2.ColumnHeadersDefaultCellStyle = dataGridViewCellStyle4;
+            this.plcDGV2.ColumnHeadersHeight = 25;
+            this.plcDGV2.Columns.AddRange(new System.Windows.Forms.DataGridViewColumn[] {
+            this.output_id,
+            this.output_name,
+            this.dataGridViewTextBoxColumn1,
+            this.output_Monitor,
+            this.output_EQUIP_CODE,
+            this.oput_ACTION_ID});
+            this.plcDGV2.Location = new System.Drawing.Point(5, 24);
+            this.plcDGV2.Name = "plcDGV2";
+            this.plcDGV2.ReadOnly = true;
+            this.plcDGV2.RowHeadersVisible = false;
+            this.plcDGV2.RowTemplate.Height = 23;
+            this.plcDGV2.Size = new System.Drawing.Size(356, 390);
+            this.plcDGV2.TabIndex = 0;
+            // 
+            // output_id
+            // 
+            this.output_id.DataPropertyName = "address";
+            dataGridViewCellStyle5.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(255)))), ((int)(((byte)(224)))), ((int)(((byte)(192)))));
+            this.output_id.DefaultCellStyle = dataGridViewCellStyle5;
+            this.output_id.HeaderText = "地址";
+            this.output_id.Name = "output_id";
+            this.output_id.ReadOnly = true;
+            this.output_id.Resizable = System.Windows.Forms.DataGridViewTriState.True;
+            this.output_id.Width = 54;
+            // 
+            // output_name
+            // 
+            this.output_name.DataPropertyName = "name";
+            dataGridViewCellStyle6.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(255)))), ((int)(((byte)(224)))), ((int)(((byte)(192)))));
+            this.output_name.DefaultCellStyle = dataGridViewCellStyle6;
+            this.output_name.HeaderText = "定义";
+            this.output_name.Name = "output_name";
+            this.output_name.ReadOnly = true;
+            this.output_name.Width = 54;
+            // 
+            // dataGridViewTextBoxColumn1
+            // 
+            this.dataGridViewTextBoxColumn1.HeaderText = "值";
+            this.dataGridViewTextBoxColumn1.Name = "dataGridViewTextBoxColumn1";
+            this.dataGridViewTextBoxColumn1.ReadOnly = true;
+            // 
+            // output_Monitor
+            // 
+            this.output_Monitor.HeaderText = "动作上报";
+            this.output_Monitor.Name = "output_Monitor";
+            this.output_Monitor.ReadOnly = true;
+            this.output_Monitor.Width = 78;
+            // 
+            // output_EQUIP_CODE
+            // 
+            this.output_EQUIP_CODE.HeaderText = "部件ID";
+            this.output_EQUIP_CODE.Name = "output_EQUIP_CODE";
+            this.output_EQUIP_CODE.ReadOnly = true;
+            this.output_EQUIP_CODE.Width = 66;
+            // 
+            // oput_ACTION_ID
+            // 
+            this.oput_ACTION_ID.HeaderText = "动作ID";
+            this.oput_ACTION_ID.Name = "oput_ACTION_ID";
+            this.oput_ACTION_ID.ReadOnly = true;
+            this.oput_ACTION_ID.Width = 66;
+            // 
+            // groupBox3
+            // 
+            this.groupBox3.Controls.Add(this.labelLinckText);
+            this.groupBox3.Controls.Add(this.pictureBox_LinkState);
+            this.groupBox3.Location = new System.Drawing.Point(514, 4);
+            this.groupBox3.Name = "groupBox3";
+            this.groupBox3.Size = new System.Drawing.Size(139, 58);
+            this.groupBox3.TabIndex = 6;
+            this.groupBox3.TabStop = false;
+            this.groupBox3.Text = "PLC连接状态";
+            // 
+            // labelLinckText
+            // 
+            this.labelLinckText.AutoSize = true;
+            this.labelLinckText.Location = new System.Drawing.Point(12, 29);
+            this.labelLinckText.Name = "labelLinckText";
+            this.labelLinckText.Size = new System.Drawing.Size(29, 12);
+            this.labelLinckText.TabIndex = 8;
+            this.labelLinckText.Text = "离线";
+            // 
+            // pictureBox_LinkState
+            // 
+            this.pictureBox_LinkState.Location = new System.Drawing.Point(105, 23);
+            this.pictureBox_LinkState.Name = "pictureBox_LinkState";
+            this.pictureBox_LinkState.Size = new System.Drawing.Size(24, 29);
+            this.pictureBox_LinkState.TabIndex = 7;
+            this.pictureBox_LinkState.TabStop = false;
+            // 
+            // groupBox2
+            // 
+            this.groupBox2.Controls.Add(this.switchPlc);
+            this.groupBox2.Location = new System.Drawing.Point(24, 4);
+            this.groupBox2.Name = "groupBox2";
+            this.groupBox2.Size = new System.Drawing.Size(139, 58);
+            this.groupBox2.TabIndex = 6;
+            this.groupBox2.TabStop = false;
+            this.groupBox2.Text = "PLC选择";
+            // 
+            // switchPlc
+            // 
+            this.switchPlc.BackColor = System.Drawing.SystemColors.ButtonShadow;
+            this.switchPlc.DropDownStyle = System.Windows.Forms.ComboBoxStyle.DropDownList;
+            this.switchPlc.FormattingEnabled = true;
+            this.switchPlc.Location = new System.Drawing.Point(11, 21);
+            this.switchPlc.Margin = new System.Windows.Forms.Padding(4);
+            this.switchPlc.Name = "switchPlc";
+            this.switchPlc.Size = new System.Drawing.Size(116, 20);
+            this.switchPlc.TabIndex = 0;
+            this.switchPlc.SelectedIndexChanged += new System.EventHandler(this.switchPlc_SelectedIndexChanged);
+            // 
+            // groupBox1
+            // 
+            this.groupBox1.Controls.Add(this.radioButton_shliujinzhi);
+            this.groupBox1.Controls.Add(this.radioButton_shijinzhi);
+            this.groupBox1.Controls.Add(this.radioButton_serjinzhi);
+            this.groupBox1.Location = new System.Drawing.Point(3, 3);
+            this.groupBox1.Name = "groupBox1";
+            this.groupBox1.Size = new System.Drawing.Size(139, 197);
+            this.groupBox1.TabIndex = 6;
+            this.groupBox1.TabStop = false;
+            this.groupBox1.Text = "寄存器值显示方式";
+            // 
+            // radioButton_shliujinzhi
+            // 
+            this.radioButton_shliujinzhi.AutoSize = true;
+            this.radioButton_shliujinzhi.Checked = true;
+            this.radioButton_shliujinzhi.Location = new System.Drawing.Point(37, 148);
+            this.radioButton_shliujinzhi.Name = "radioButton_shliujinzhi";
+            this.radioButton_shliujinzhi.Size = new System.Drawing.Size(71, 16);
+            this.radioButton_shliujinzhi.TabIndex = 5;
+            this.radioButton_shliujinzhi.TabStop = true;
+            this.radioButton_shliujinzhi.Text = "十六进制";
+            this.radioButton_shliujinzhi.UseVisualStyleBackColor = true;
+            // 
+            // radioButton_shijinzhi
+            // 
+            this.radioButton_shijinzhi.AutoSize = true;
+            this.radioButton_shijinzhi.Location = new System.Drawing.Point(36, 98);
+            this.radioButton_shijinzhi.Name = "radioButton_shijinzhi";
+            this.radioButton_shijinzhi.Size = new System.Drawing.Size(59, 16);
+            this.radioButton_shijinzhi.TabIndex = 5;
+            this.radioButton_shijinzhi.TabStop = true;
+            this.radioButton_shijinzhi.Text = "十进制";
+            this.radioButton_shijinzhi.UseVisualStyleBackColor = true;
+            // 
+            // radioButton_serjinzhi
+            // 
+            this.radioButton_serjinzhi.AutoSize = true;
+            this.radioButton_serjinzhi.Location = new System.Drawing.Point(37, 55);
+            this.radioButton_serjinzhi.Name = "radioButton_serjinzhi";
+            this.radioButton_serjinzhi.Size = new System.Drawing.Size(59, 16);
+            this.radioButton_serjinzhi.TabIndex = 5;
+            this.radioButton_serjinzhi.TabStop = true;
+            this.radioButton_serjinzhi.Text = "二进制";
+            this.radioButton_serjinzhi.UseVisualStyleBackColor = true;
+            // 
+            // timer1
+            // 
+            PlcForm.timer1.Enabled = true;
+            PlcForm.timer1.Tick += new System.EventHandler(this.timer1_Tick);
+            // 
+            // dataGridViewImageColumn1
+            // 
+            this.dataGridViewImageColumn1.AutoSizeMode = System.Windows.Forms.DataGridViewAutoSizeColumnMode.Fill;
+            this.dataGridViewImageColumn1.DataPropertyName = "getPicture";
+            dataGridViewCellStyle7.Alignment = System.Windows.Forms.DataGridViewContentAlignment.MiddleCenter;
+            dataGridViewCellStyle7.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(255)))), ((int)(((byte)(224)))), ((int)(((byte)(192)))));
+            dataGridViewCellStyle7.NullValue = null;
+            this.dataGridViewImageColumn1.DefaultCellStyle = dataGridViewCellStyle7;
+            this.dataGridViewImageColumn1.HeaderText = "信号状态";
+            this.dataGridViewImageColumn1.Image = ((System.Drawing.Image)(resources.GetObject("dataGridViewImageColumn1.Image")));
+            this.dataGridViewImageColumn1.Name = "dataGridViewImageColumn1";
+            this.dataGridViewImageColumn1.ReadOnly = true;
+            this.dataGridViewImageColumn1.Resizable = System.Windows.Forms.DataGridViewTriState.True;
+            this.dataGridViewImageColumn1.SortMode = System.Windows.Forms.DataGridViewColumnSortMode.Automatic;
+            // 
+            // dataGridViewImageColumn2
+            // 
+            this.dataGridViewImageColumn2.AutoSizeMode = System.Windows.Forms.DataGridViewAutoSizeColumnMode.Fill;
+            this.dataGridViewImageColumn2.DataPropertyName = "getPicture";
+            dataGridViewCellStyle8.Alignment = System.Windows.Forms.DataGridViewContentAlignment.MiddleCenter;
+            dataGridViewCellStyle8.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(255)))), ((int)(((byte)(224)))), ((int)(((byte)(192)))));
+            dataGridViewCellStyle8.NullValue = null;
+            this.dataGridViewImageColumn2.DefaultCellStyle = dataGridViewCellStyle8;
+            this.dataGridViewImageColumn2.HeaderText = "信号状态";
+            this.dataGridViewImageColumn2.Image = ((System.Drawing.Image)(resources.GetObject("dataGridViewImageColumn2.Image")));
+            this.dataGridViewImageColumn2.Name = "dataGridViewImageColumn2";
+            this.dataGridViewImageColumn2.ReadOnly = true;
+            this.dataGridViewImageColumn2.Resizable = System.Windows.Forms.DataGridViewTriState.True;
+            this.dataGridViewImageColumn2.SortMode = System.Windows.Forms.DataGridViewColumnSortMode.Automatic;
+            // 
+            // splitContainer1
+            // 
+            this.splitContainer1.Dock = System.Windows.Forms.DockStyle.Fill;
+            this.splitContainer1.Location = new System.Drawing.Point(3, 3);
+            this.splitContainer1.Name = "splitContainer1";
+            // 
+            // splitContainer1.Panel1
+            // 
+            this.splitContainer1.Panel1.Controls.Add(this.groupBox1);
+            // 
+            // splitContainer1.Panel2
+            // 
+            this.splitContainer1.Panel2.Controls.Add(this.spContainerPLC);
+            this.splitContainer1.Size = new System.Drawing.Size(891, 421);
+            this.splitContainer1.SplitterDistance = 149;
+            this.splitContainer1.TabIndex = 8;
+            // 
+            // tabControl1
+            // 
+            this.tabControl1.Controls.Add(this.tabPage_PLCRegMonitor);
+            this.tabControl1.Controls.Add(this.tabPage_PLCOperation);
+            this.tabControl1.Controls.Add(this.tabPage_Alarm);
+            this.tabControl1.Controls.Add(this.changku);
+            this.tabControl1.Location = new System.Drawing.Point(4, 63);
+            this.tabControl1.Name = "tabControl1";
+            this.tabControl1.SelectedIndex = 0;
+            this.tabControl1.Size = new System.Drawing.Size(905, 453);
+            this.tabControl1.TabIndex = 9;
+            // 
+            // tabPage_PLCRegMonitor
+            // 
+            this.tabPage_PLCRegMonitor.Controls.Add(this.splitContainer1);
+            this.tabPage_PLCRegMonitor.Location = new System.Drawing.Point(4, 22);
+            this.tabPage_PLCRegMonitor.Name = "tabPage_PLCRegMonitor";
+            this.tabPage_PLCRegMonitor.Padding = new System.Windows.Forms.Padding(3);
+            this.tabPage_PLCRegMonitor.Size = new System.Drawing.Size(897, 427);
+            this.tabPage_PLCRegMonitor.TabIndex = 0;
+            this.tabPage_PLCRegMonitor.Text = "寄存器监控";
+            this.tabPage_PLCRegMonitor.UseVisualStyleBackColor = true;
+            // 
+            // tabPage_PLCOperation
+            // 
+            this.tabPage_PLCOperation.Controls.Add(this.comboBox_PLCStationSelet);
+            this.tabPage_PLCOperation.Controls.Add(this.button27);
+            this.tabPage_PLCOperation.Controls.Add(this.button26);
+            this.tabPage_PLCOperation.Controls.Add(this.button25);
+            this.tabPage_PLCOperation.Controls.Add(this.button24);
+            this.tabPage_PLCOperation.Controls.Add(this.button20);
+            this.tabPage_PLCOperation.Controls.Add(this.button22);
+            this.tabPage_PLCOperation.Controls.Add(this.button18);
+            this.tabPage_PLCOperation.Controls.Add(this.button23);
+            this.tabPage_PLCOperation.Controls.Add(this.button21);
+            this.tabPage_PLCOperation.Controls.Add(this.button19);
+            this.tabPage_PLCOperation.Controls.Add(this.button17);
+            this.tabPage_PLCOperation.Controls.Add(this.button16);
+            this.tabPage_PLCOperation.Controls.Add(this.button14);
+            this.tabPage_PLCOperation.Controls.Add(this.button15);
+            this.tabPage_PLCOperation.Controls.Add(this.button13);
+            this.tabPage_PLCOperation.Controls.Add(this.button12);
+            this.tabPage_PLCOperation.Controls.Add(this.button10);
+            this.tabPage_PLCOperation.Controls.Add(this.button11);
+            this.tabPage_PLCOperation.Controls.Add(this.button9);
+            this.tabPage_PLCOperation.Controls.Add(this.button8);
+            this.tabPage_PLCOperation.Controls.Add(this.button6);
+            this.tabPage_PLCOperation.Controls.Add(this.button7);
+            this.tabPage_PLCOperation.Controls.Add(this.button5);
+            this.tabPage_PLCOperation.Controls.Add(this.button4);
+            this.tabPage_PLCOperation.Controls.Add(this.button3);
+            this.tabPage_PLCOperation.Controls.Add(this.button2);
+            this.tabPage_PLCOperation.Controls.Add(this.button1);
+            this.tabPage_PLCOperation.Location = new System.Drawing.Point(4, 22);
+            this.tabPage_PLCOperation.Name = "tabPage_PLCOperation";
+            this.tabPage_PLCOperation.Padding = new System.Windows.Forms.Padding(3);
+            this.tabPage_PLCOperation.Size = new System.Drawing.Size(897, 427);
+            this.tabPage_PLCOperation.TabIndex = 1;
+            this.tabPage_PLCOperation.Text = "操作";
+            this.tabPage_PLCOperation.UseVisualStyleBackColor = true;
+            // 
+            // comboBox_PLCStationSelet
+            // 
+            this.comboBox_PLCStationSelet.DropDownStyle = System.Windows.Forms.ComboBoxStyle.DropDownList;
+            this.comboBox_PLCStationSelet.FormattingEnabled = true;
+            this.comboBox_PLCStationSelet.Location = new System.Drawing.Point(275, 17);
+            this.comboBox_PLCStationSelet.Name = "comboBox_PLCStationSelet";
+            this.comboBox_PLCStationSelet.Size = new System.Drawing.Size(121, 20);
+            this.comboBox_PLCStationSelet.TabIndex = 1;
+            this.comboBox_PLCStationSelet.SelectedIndexChanged += new System.EventHandler(this.comboBox_PLCStationSelet_SelectedIndexChanged);
+            // 
+            // button27
+            // 
+            this.button27.Location = new System.Drawing.Point(689, 185);
+            this.button27.Name = "button27";
+            this.button27.Size = new System.Drawing.Size(146, 35);
+            this.button27.TabIndex = 0;
+            this.button27.Tag = "9999";
+            this.button27.Text = "button27";
+            this.button27.UseVisualStyleBackColor = true;
+            this.button27.Visible = false;
+            // 
+            // button26
+            // 
+            this.button26.Location = new System.Drawing.Point(689, 267);
+            this.button26.Name = "button26";
+            this.button26.Size = new System.Drawing.Size(146, 35);
+            this.button26.TabIndex = 0;
+            this.button26.Tag = "9999";
+            this.button26.Text = "button26";
+            this.button26.UseVisualStyleBackColor = true;
+            this.button26.Visible = false;
+            // 
+            // button25
+            // 
+            this.button25.Location = new System.Drawing.Point(689, 342);
+            this.button25.Name = "button25";
+            this.button25.Size = new System.Drawing.Size(146, 35);
+            this.button25.TabIndex = 0;
+            this.button25.Tag = "9999";
+            this.button25.Text = "button25";
+            this.button25.UseVisualStyleBackColor = true;
+            this.button25.Visible = false;
+            // 
+            // button24
+            // 
+            this.button24.Location = new System.Drawing.Point(496, 362);
+            this.button24.Name = "button24";
+            this.button24.Size = new System.Drawing.Size(146, 35);
+            this.button24.TabIndex = 0;
+            this.button24.Tag = "9999";
+            this.button24.Text = "button24";
+            this.button24.UseVisualStyleBackColor = true;
+            this.button24.Visible = false;
+            // 
+            // button20
+            // 
+            this.button20.Location = new System.Drawing.Point(496, 303);
+            this.button20.Name = "button20";
+            this.button20.Size = new System.Drawing.Size(146, 35);
+            this.button20.TabIndex = 0;
+            this.button20.Tag = "9999";
+            this.button20.Text = "button20";
+            this.button20.UseVisualStyleBackColor = true;
+            this.button20.Visible = false;
+            // 
+            // button22
+            // 
+            this.button22.Location = new System.Drawing.Point(184, 362);
+            this.button22.Name = "button22";
+            this.button22.Size = new System.Drawing.Size(146, 35);
+            this.button22.TabIndex = 0;
+            this.button22.Tag = "9999";
+            this.button22.Text = "button22";
+            this.button22.UseVisualStyleBackColor = true;
+            this.button22.Visible = false;
+            // 
+            // button18
+            // 
+            this.button18.Location = new System.Drawing.Point(184, 303);
+            this.button18.Name = "button18";
+            this.button18.Size = new System.Drawing.Size(146, 35);
+            this.button18.TabIndex = 0;
+            this.button18.Tag = "9999";
+            this.button18.Text = "button18";
+            this.button18.UseVisualStyleBackColor = true;
+            this.button18.Visible = false;
+            // 
+            // button23
+            // 
+            this.button23.Location = new System.Drawing.Point(340, 362);
+            this.button23.Name = "button23";
+            this.button23.Size = new System.Drawing.Size(146, 35);
+            this.button23.TabIndex = 0;
+            this.button23.Tag = "9999";
+            this.button23.Text = "button23";
+            this.button23.UseVisualStyleBackColor = true;
+            this.button23.Visible = false;
+            // 
+            // button21
+            // 
+            this.button21.Location = new System.Drawing.Point(28, 362);
+            this.button21.Name = "button21";
+            this.button21.Size = new System.Drawing.Size(146, 35);
+            this.button21.TabIndex = 0;
+            this.button21.Tag = "9999";
+            this.button21.Text = "button21";
+            this.button21.UseVisualStyleBackColor = true;
+            this.button21.Visible = false;
+            // 
+            // button19
+            // 
+            this.button19.Location = new System.Drawing.Point(340, 303);
+            this.button19.Name = "button19";
+            this.button19.Size = new System.Drawing.Size(146, 35);
+            this.button19.TabIndex = 0;
+            this.button19.Tag = "9999";
+            this.button19.Text = "button19";
+            this.button19.UseVisualStyleBackColor = true;
+            this.button19.Visible = false;
+            // 
+            // button17
+            // 
+            this.button17.Location = new System.Drawing.Point(28, 303);
+            this.button17.Name = "button17";
+            this.button17.Size = new System.Drawing.Size(146, 35);
+            this.button17.TabIndex = 0;
+            this.button17.Tag = "9999";
+            this.button17.Text = "button17";
+            this.button17.UseVisualStyleBackColor = true;
+            this.button17.Visible = false;
+            // 
+            // button16
+            // 
+            this.button16.Location = new System.Drawing.Point(496, 244);
+            this.button16.Name = "button16";
+            this.button16.Size = new System.Drawing.Size(146, 35);
+            this.button16.TabIndex = 0;
+            this.button16.Tag = "9999";
+            this.button16.Text = "button16";
+            this.button16.UseVisualStyleBackColor = true;
+            this.button16.Visible = false;
+            // 
+            // button14
+            // 
+            this.button14.Location = new System.Drawing.Point(184, 244);
+            this.button14.Name = "button14";
+            this.button14.Size = new System.Drawing.Size(146, 35);
+            this.button14.TabIndex = 0;
+            this.button14.Tag = "9999";
+            this.button14.Text = "button14";
+            this.button14.UseVisualStyleBackColor = true;
+            this.button14.Visible = false;
+            // 
+            // button15
+            // 
+            this.button15.Location = new System.Drawing.Point(340, 244);
+            this.button15.Name = "button15";
+            this.button15.Size = new System.Drawing.Size(146, 35);
+            this.button15.TabIndex = 0;
+            this.button15.Tag = "9999";
+            this.button15.Text = "button15";
+            this.button15.UseVisualStyleBackColor = true;
+            this.button15.Visible = false;
+            // 
+            // button13
+            // 
+            this.button13.Location = new System.Drawing.Point(28, 244);
+            this.button13.Name = "button13";
+            this.button13.Size = new System.Drawing.Size(146, 35);
+            this.button13.TabIndex = 0;
+            this.button13.Tag = "9999";
+            this.button13.Text = "button13";
+            this.button13.UseVisualStyleBackColor = true;
+            this.button13.Visible = false;
+            // 
+            // button12
+            // 
+            this.button12.Location = new System.Drawing.Point(496, 185);
+            this.button12.Name = "button12";
+            this.button12.Size = new System.Drawing.Size(146, 35);
+            this.button12.TabIndex = 0;
+            this.button12.Tag = "9999";
+            this.button12.Text = "button12";
+            this.button12.UseVisualStyleBackColor = true;
+            this.button12.Visible = false;
+            // 
+            // button10
+            // 
+            this.button10.Location = new System.Drawing.Point(184, 185);
+            this.button10.Name = "button10";
+            this.button10.Size = new System.Drawing.Size(146, 35);
+            this.button10.TabIndex = 0;
+            this.button10.Tag = "9999";
+            this.button10.Text = "button10";
+            this.button10.UseVisualStyleBackColor = true;
+            this.button10.Visible = false;
+            // 
+            // button11
+            // 
+            this.button11.Location = new System.Drawing.Point(340, 185);
+            this.button11.Name = "button11";
+            this.button11.Size = new System.Drawing.Size(146, 35);
+            this.button11.TabIndex = 0;
+            this.button11.Tag = "9999";
+            this.button11.Text = "button11";
+            this.button11.UseVisualStyleBackColor = true;
+            this.button11.Visible = false;
+            // 
+            // button9
+            // 
+            this.button9.Location = new System.Drawing.Point(28, 185);
+            this.button9.Name = "button9";
+            this.button9.Size = new System.Drawing.Size(146, 35);
+            this.button9.TabIndex = 0;
+            this.button9.Tag = "9999";
+            this.button9.Text = "button9";
+            this.button9.UseVisualStyleBackColor = true;
+            this.button9.Visible = false;
+            // 
+            // button8
+            // 
+            this.button8.Location = new System.Drawing.Point(496, 126);
+            this.button8.Name = "button8";
+            this.button8.Size = new System.Drawing.Size(146, 35);
+            this.button8.TabIndex = 0;
+            this.button8.Tag = "9999";
+            this.button8.Text = "button8";
+            this.button8.UseVisualStyleBackColor = true;
+            this.button8.Visible = false;
+            // 
+            // button6
+            // 
+            this.button6.Location = new System.Drawing.Point(184, 126);
+            this.button6.Name = "button6";
+            this.button6.Size = new System.Drawing.Size(146, 35);
+            this.button6.TabIndex = 0;
+            this.button6.Tag = "9999";
+            this.button6.Text = "button6";
+            this.button6.UseVisualStyleBackColor = true;
+            this.button6.Visible = false;
+            // 
+            // button7
+            // 
+            this.button7.Location = new System.Drawing.Point(340, 126);
+            this.button7.Name = "button7";
+            this.button7.Size = new System.Drawing.Size(146, 35);
+            this.button7.TabIndex = 0;
+            this.button7.Tag = "9999";
+            this.button7.Text = "button7";
+            this.button7.UseVisualStyleBackColor = true;
+            this.button7.Visible = false;
+            // 
+            // button5
+            // 
+            this.button5.Location = new System.Drawing.Point(28, 126);
+            this.button5.Name = "button5";
+            this.button5.Size = new System.Drawing.Size(146, 35);
+            this.button5.TabIndex = 0;
+            this.button5.Tag = "9999";
+            this.button5.Text = "button5";
+            this.button5.UseVisualStyleBackColor = true;
+            this.button5.Visible = false;
+            // 
+            // button4
+            // 
+            this.button4.Location = new System.Drawing.Point(496, 67);
+            this.button4.Name = "button4";
+            this.button4.Size = new System.Drawing.Size(146, 35);
+            this.button4.TabIndex = 0;
+            this.button4.Tag = "9999";
+            this.button4.Text = "button4";
+            this.button4.UseVisualStyleBackColor = true;
+            this.button4.Visible = false;
+            // 
+            // button3
+            // 
+            this.button3.Location = new System.Drawing.Point(340, 67);
+            this.button3.Name = "button3";
+            this.button3.Size = new System.Drawing.Size(146, 35);
+            this.button3.TabIndex = 0;
+            this.button3.Tag = "9999";
+            this.button3.Text = "button3";
+            this.button3.UseVisualStyleBackColor = true;
+            this.button3.Visible = false;
+            // 
+            // button2
+            // 
+            this.button2.Location = new System.Drawing.Point(184, 67);
+            this.button2.Name = "button2";
+            this.button2.Size = new System.Drawing.Size(146, 35);
+            this.button2.TabIndex = 0;
+            this.button2.Tag = "9999";
+            this.button2.Text = "button2";
+            this.button2.UseVisualStyleBackColor = true;
+            this.button2.Visible = false;
+            // 
+            // button1
+            // 
+            this.button1.Location = new System.Drawing.Point(28, 67);
+            this.button1.Name = "button1";
+            this.button1.Size = new System.Drawing.Size(146, 35);
+            this.button1.TabIndex = 0;
+            this.button1.Tag = "9999";
+            this.button1.Text = "button1";
+            this.button1.UseVisualStyleBackColor = true;
+            this.button1.Visible = false;
+            // 
+            // tabPage_Alarm
+            // 
+            this.tabPage_Alarm.Controls.Add(this.button_alarmReFlesh);
+            this.tabPage_Alarm.Controls.Add(this.dataGridViewalarmdata);
+            this.tabPage_Alarm.Controls.Add(this.HistoricalAlarm);
+            this.tabPage_Alarm.Controls.Add(this.CurrentAlarm);
+            this.tabPage_Alarm.Location = new System.Drawing.Point(4, 22);
+            this.tabPage_Alarm.Name = "tabPage_Alarm";
+            this.tabPage_Alarm.Size = new System.Drawing.Size(897, 427);
+            this.tabPage_Alarm.TabIndex = 2;
+            this.tabPage_Alarm.Text = "报警";
+            this.tabPage_Alarm.UseVisualStyleBackColor = true;
+            // 
+            // button_alarmReFlesh
+            // 
+            this.button_alarmReFlesh.Location = new System.Drawing.Point(316, 5);
+            this.button_alarmReFlesh.Name = "button_alarmReFlesh";
+            this.button_alarmReFlesh.Size = new System.Drawing.Size(75, 23);
+            this.button_alarmReFlesh.TabIndex = 8;
+            this.button_alarmReFlesh.Text = "刷新";
+            this.button_alarmReFlesh.UseVisualStyleBackColor = true;
+            this.button_alarmReFlesh.Click += new System.EventHandler(this.button_alarmReFlesh_Click);
+            // 
+            // dataGridViewalarmdata
+            // 
+            this.dataGridViewalarmdata.AllowUserToDeleteRows = false;
+            this.dataGridViewalarmdata.AllowUserToOrderColumns = true;
+            this.dataGridViewalarmdata.BackgroundColor = System.Drawing.Color.White;
+            this.dataGridViewalarmdata.ColumnHeadersHeightSizeMode = System.Windows.Forms.DataGridViewColumnHeadersHeightSizeMode.AutoSize;
+            this.dataGridViewalarmdata.Columns.AddRange(new System.Windows.Forms.DataGridViewColumn[] {
+            this.dataGridViewTextBoxColumn2,
+            this.Column2,
+            this.Column3});
+            this.dataGridViewalarmdata.Location = new System.Drawing.Point(0, 35);
+            this.dataGridViewalarmdata.Name = "dataGridViewalarmdata";
+            this.dataGridViewalarmdata.ReadOnly = true;
+            this.dataGridViewalarmdata.RowHeadersVisible = false;
+            this.dataGridViewalarmdata.RowTemplate.Height = 23;
+            this.dataGridViewalarmdata.Size = new System.Drawing.Size(894, 389);
+            this.dataGridViewalarmdata.TabIndex = 7;
+            // 
+            // dataGridViewTextBoxColumn2
+            // 
+            this.dataGridViewTextBoxColumn2.HeaderText = "序号";
+            this.dataGridViewTextBoxColumn2.Name = "dataGridViewTextBoxColumn2";
+            this.dataGridViewTextBoxColumn2.ReadOnly = true;
+            // 
+            // Column2
+            // 
+            this.Column2.HeaderText = "报警号";
+            this.Column2.Name = "Column2";
+            this.Column2.ReadOnly = true;
+            this.Column2.Width = 200;
+            // 
+            // Column3
+            // 
+            this.Column3.HeaderText = "报警内容";
+            this.Column3.Name = "Column3";
+            this.Column3.ReadOnly = true;
+            this.Column3.Width = 400;
+            // 
+            // HistoricalAlarm
+            // 
+            this.HistoricalAlarm.AutoSize = true;
+            this.HistoricalAlarm.Location = new System.Drawing.Point(133, 13);
+            this.HistoricalAlarm.Name = "HistoricalAlarm";
+            this.HistoricalAlarm.Size = new System.Drawing.Size(71, 16);
+            this.HistoricalAlarm.TabIndex = 6;
+            this.HistoricalAlarm.Text = "历史报警";
+            this.HistoricalAlarm.UseVisualStyleBackColor = true;
+            this.HistoricalAlarm.CheckedChanged += new System.EventHandler(this.HistoricalAlarm_CheckedChanged);
+            // 
+            // CurrentAlarm
+            // 
+            this.CurrentAlarm.AutoSize = true;
+            this.CurrentAlarm.Checked = true;
+            this.CurrentAlarm.Location = new System.Drawing.Point(14, 13);
+            this.CurrentAlarm.Name = "CurrentAlarm";
+            this.CurrentAlarm.Size = new System.Drawing.Size(71, 16);
+            this.CurrentAlarm.TabIndex = 5;
+            this.CurrentAlarm.TabStop = true;
+            this.CurrentAlarm.Text = "当前报警";
+            this.CurrentAlarm.UseVisualStyleBackColor = true;
+            this.CurrentAlarm.CheckedChanged += new System.EventHandler(this.CurrentAlarm_CheckedChanged);
+            // 
+            // changku
+            // 
+            this.changku.Controls.Add(PlcForm.groupBox5);
+            this.changku.Location = new System.Drawing.Point(4, 22);
+            this.changku.Name = "changku";
+            this.changku.Size = new System.Drawing.Size(897, 427);
+            this.changku.TabIndex = 3;
+            this.changku.Text = "仓库";
+            this.changku.UseVisualStyleBackColor = true;
+            // 
+            // groupBox5
+            // 
+            PlcForm.groupBox5.Controls.Add(this.pictureBoxck40);
+            PlcForm.groupBox5.Controls.Add(this.pictureBoxck39);
+            PlcForm.groupBox5.Controls.Add(this.pictureBoxck38);
+            PlcForm.groupBox5.Controls.Add(this.pictureBoxck37);
+            PlcForm.groupBox5.Controls.Add(this.pictureBoxck36);
+            PlcForm.groupBox5.Controls.Add(this.pictureBoxck35);
+            PlcForm.groupBox5.Controls.Add(this.pictureBoxck34);
+            PlcForm.groupBox5.Controls.Add(this.pictureBoxck33);
+            PlcForm.groupBox5.Controls.Add(this.pictureBoxck32);
+            PlcForm.groupBox5.Controls.Add(this.pictureBoxck31);
+            PlcForm.groupBox5.Controls.Add(this.buttonck40);
+            PlcForm.groupBox5.Controls.Add(this.buttonck39);
+            PlcForm.groupBox5.Controls.Add(this.buttonck38);
+            PlcForm.groupBox5.Controls.Add(this.buttonck37);
+            PlcForm.groupBox5.Controls.Add(this.buttonck36);
+            PlcForm.groupBox5.Controls.Add(this.buttonck35);
+            PlcForm.groupBox5.Controls.Add(this.buttonck34);
+            PlcForm.groupBox5.Controls.Add(this.buttonck33);
+            PlcForm.groupBox5.Controls.Add(this.buttonck32);
+            PlcForm.groupBox5.Controls.Add(this.buttonck31);
+            PlcForm.groupBox5.Controls.Add(this.buttonck30);
+            PlcForm.groupBox5.Controls.Add(this.pictureBoxck5);
+            PlcForm.groupBox5.Controls.Add(this.pictureBoxck4);
+            PlcForm.groupBox5.Controls.Add(this.pictureBoxck3);
+            PlcForm.groupBox5.Controls.Add(this.pictureBoxck2);
+            PlcForm.groupBox5.Controls.Add(this.pictureBoxck10);
+            PlcForm.groupBox5.Controls.Add(this.pictureBoxck8);
+            PlcForm.groupBox5.Controls.Add(this.pictureBoxck7);
+            PlcForm.groupBox5.Controls.Add(this.pictureBoxck30);
+            PlcForm.groupBox5.Controls.Add(this.pictureBoxck29);
+            PlcForm.groupBox5.Controls.Add(this.pictureBoxck28);
+            PlcForm.groupBox5.Controls.Add(this.pictureBoxck27);
+            PlcForm.groupBox5.Controls.Add(this.pictureBoxck26);
+            PlcForm.groupBox5.Controls.Add(this.pictureBoxck22);
+            PlcForm.groupBox5.Controls.Add(this.pictureBoxck25);
+            PlcForm.groupBox5.Controls.Add(this.pictureBoxck24);
+            PlcForm.groupBox5.Controls.Add(this.pictureBoxck23);
+            PlcForm.groupBox5.Controls.Add(this.pictureBoxck21);
+            PlcForm.groupBox5.Controls.Add(this.pictureBoxck18);
+            PlcForm.groupBox5.Controls.Add(this.pictureBoxck20);
+            PlcForm.groupBox5.Controls.Add(this.pictureBoxck19);
+            PlcForm.groupBox5.Controls.Add(this.pictureBoxck17);
+            PlcForm.groupBox5.Controls.Add(this.pictureBoxck16);
+            PlcForm.groupBox5.Controls.Add(this.pictureBoxck12);
+            PlcForm.groupBox5.Controls.Add(this.pictureBoxck9);
+            PlcForm.groupBox5.Controls.Add(this.pictureBoxck15);
+            PlcForm.groupBox5.Controls.Add(this.pictureBoxck14);
+            PlcForm.groupBox5.Controls.Add(this.pictureBoxck13);
+            PlcForm.groupBox5.Controls.Add(this.pictureBoxck11);
+            PlcForm.groupBox5.Controls.Add(this.pictureBoxck6);
+            PlcForm.groupBox5.Controls.Add(this.pictureBoxck1);
+            PlcForm.groupBox5.Controls.Add(this.buttonck20);
+            PlcForm.groupBox5.Controls.Add(this.buttonck25);
+            PlcForm.groupBox5.Controls.Add(this.buttonck15);
+            PlcForm.groupBox5.Controls.Add(this.buttonck10);
+            PlcForm.groupBox5.Controls.Add(this.buttonck5);
+            PlcForm.groupBox5.Controls.Add(this.buttonck29);
+            PlcForm.groupBox5.Controls.Add(this.buttonck19);
+            PlcForm.groupBox5.Controls.Add(this.buttonck24);
+            PlcForm.groupBox5.Controls.Add(this.buttonck14);
+            PlcForm.groupBox5.Controls.Add(this.buttonck9);
+            PlcForm.groupBox5.Controls.Add(this.buttonck4);
+            PlcForm.groupBox5.Controls.Add(this.buttonck28);
+            PlcForm.groupBox5.Controls.Add(this.buttonck18);
+            PlcForm.groupBox5.Controls.Add(this.buttonck23);
+            PlcForm.groupBox5.Controls.Add(this.buttonck13);
+            PlcForm.groupBox5.Controls.Add(this.buttonck8);
+            PlcForm.groupBox5.Controls.Add(this.buttonck3);
+            PlcForm.groupBox5.Controls.Add(this.buttonck27);
+            PlcForm.groupBox5.Controls.Add(this.buttonck17);
+            PlcForm.groupBox5.Controls.Add(this.buttonck22);
+            PlcForm.groupBox5.Controls.Add(this.buttonck12);
+            PlcForm.groupBox5.Controls.Add(this.buttonck7);
+            PlcForm.groupBox5.Controls.Add(this.buttonck2);
+            PlcForm.groupBox5.Controls.Add(this.buttonck26);
+            PlcForm.groupBox5.Controls.Add(this.buttonck21);
+            PlcForm.groupBox5.Controls.Add(this.buttonck16);
+            PlcForm.groupBox5.Controls.Add(this.buttonck11);
+            PlcForm.groupBox5.Controls.Add(this.buttonck6);
+            PlcForm.groupBox5.Controls.Add(this.buttonck1);
+            PlcForm.groupBox5.Location = new System.Drawing.Point(27, 14);
+            PlcForm.groupBox5.Name = "groupBox5";
+            PlcForm.groupBox5.Size = new System.Drawing.Size(829, 395);
+            PlcForm.groupBox5.TabIndex = 3;
+            PlcForm.groupBox5.TabStop = false;
+            PlcForm.groupBox5.Text = "物料仓库仓位操作";
+            // 
+            // pictureBoxck40
+            // 
+            this.pictureBoxck40.Location = new System.Drawing.Point(745, 115);
+            this.pictureBoxck40.Name = "pictureBoxck40";
+            this.pictureBoxck40.Size = new System.Drawing.Size(71, 14);
+            this.pictureBoxck40.TabIndex = 27;
+            this.pictureBoxck40.TabStop = false;
+            // 
+            // pictureBoxck39
+            // 
+            this.pictureBoxck39.Location = new System.Drawing.Point(640, 115);
+            this.pictureBoxck39.Name = "pictureBoxck39";
+            this.pictureBoxck39.Size = new System.Drawing.Size(71, 14);
+            this.pictureBoxck39.TabIndex = 26;
+            this.pictureBoxck39.TabStop = false;
+            // 
+            // pictureBoxck38
+            // 
+            this.pictureBoxck38.Location = new System.Drawing.Point(535, 115);
+            this.pictureBoxck38.Name = "pictureBoxck38";
+            this.pictureBoxck38.Size = new System.Drawing.Size(71, 14);
+            this.pictureBoxck38.TabIndex = 25;
+            this.pictureBoxck38.TabStop = false;
+            // 
+            // pictureBoxck37
+            // 
+            this.pictureBoxck37.Location = new System.Drawing.Point(430, 115);
+            this.pictureBoxck37.Name = "pictureBoxck37";
+            this.pictureBoxck37.Size = new System.Drawing.Size(71, 14);
+            this.pictureBoxck37.TabIndex = 24;
+            this.pictureBoxck37.TabStop = false;
+            // 
+            // pictureBoxck36
+            // 
+            this.pictureBoxck36.Location = new System.Drawing.Point(325, 115);
+            this.pictureBoxck36.Name = "pictureBoxck36";
+            this.pictureBoxck36.Size = new System.Drawing.Size(71, 14);
+            this.pictureBoxck36.TabIndex = 23;
+            this.pictureBoxck36.TabStop = false;
+            // 
+            // pictureBoxck35
+            // 
+            this.pictureBoxck35.Location = new System.Drawing.Point(220, 115);
+            this.pictureBoxck35.Name = "pictureBoxck35";
+            this.pictureBoxck35.Size = new System.Drawing.Size(71, 14);
+            this.pictureBoxck35.TabIndex = 22;
+            this.pictureBoxck35.TabStop = false;
+            // 
+            // pictureBoxck34
+            // 
+            this.pictureBoxck34.Location = new System.Drawing.Point(115, 115);
+            this.pictureBoxck34.Name = "pictureBoxck34";
+            this.pictureBoxck34.Size = new System.Drawing.Size(71, 14);
+            this.pictureBoxck34.TabIndex = 21;
+            this.pictureBoxck34.TabStop = false;
+            // 
+            // pictureBoxck33
+            // 
+            this.pictureBoxck33.Location = new System.Drawing.Point(10, 115);
+            this.pictureBoxck33.Name = "pictureBoxck33";
+            this.pictureBoxck33.Size = new System.Drawing.Size(71, 14);
+            this.pictureBoxck33.TabIndex = 20;
+            this.pictureBoxck33.TabStop = false;
+            // 
+            // pictureBoxck32
+            // 
+            this.pictureBoxck32.Location = new System.Drawing.Point(745, 180);
+            this.pictureBoxck32.Name = "pictureBoxck32";
+            this.pictureBoxck32.Size = new System.Drawing.Size(71, 14);
+            this.pictureBoxck32.TabIndex = 19;
+            this.pictureBoxck32.TabStop = false;
+            // 
+            // pictureBoxck31
+            // 
+            this.pictureBoxck31.Location = new System.Drawing.Point(640, 180);
+            this.pictureBoxck31.Name = "pictureBoxck31";
+            this.pictureBoxck31.Size = new System.Drawing.Size(71, 14);
+            this.pictureBoxck31.TabIndex = 18;
+            this.pictureBoxck31.TabStop = false;
+            // 
+            // buttonck40
+            // 
+            this.buttonck40.Location = new System.Drawing.Point(745, 80);
+            this.buttonck40.Name = "buttonck40";
+            this.buttonck40.Size = new System.Drawing.Size(71, 33);
+            this.buttonck40.TabIndex = 0;
+            this.buttonck40.Tag = "9999";
+            this.buttonck40.Text = "48";
+            this.buttonck40.UseVisualStyleBackColor = true;
+            // 
+            // buttonck39
+            // 
+            this.buttonck39.Location = new System.Drawing.Point(640, 80);
+            this.buttonck39.Name = "buttonck39";
+            this.buttonck39.Size = new System.Drawing.Size(71, 33);
+            this.buttonck39.TabIndex = 0;
+            this.buttonck39.Tag = "9999";
+            this.buttonck39.Text = "47";
+            this.buttonck39.UseVisualStyleBackColor = true;
+            // 
+            // buttonck38
+            // 
+            this.buttonck38.Location = new System.Drawing.Point(535, 80);
+            this.buttonck38.Name = "buttonck38";
+            this.buttonck38.Size = new System.Drawing.Size(71, 33);
+            this.buttonck38.TabIndex = 0;
+            this.buttonck38.Tag = "9999";
+            this.buttonck38.Text = "46";
+            this.buttonck38.UseVisualStyleBackColor = true;
+            // 
+            // buttonck37
+            // 
+            this.buttonck37.Location = new System.Drawing.Point(430, 80);
+            this.buttonck37.Name = "buttonck37";
+            this.buttonck37.Size = new System.Drawing.Size(71, 33);
+            this.buttonck37.TabIndex = 0;
+            this.buttonck37.Tag = "9999";
+            this.buttonck37.Text = "45";
+            this.buttonck37.UseVisualStyleBackColor = true;
+            // 
+            // buttonck36
+            // 
+            this.buttonck36.Location = new System.Drawing.Point(325, 80);
+            this.buttonck36.Name = "buttonck36";
+            this.buttonck36.Size = new System.Drawing.Size(71, 33);
+            this.buttonck36.TabIndex = 0;
+            this.buttonck36.Tag = "9999";
+            this.buttonck36.Text = "44";
+            this.buttonck36.UseVisualStyleBackColor = true;
+            // 
+            // buttonck35
+            // 
+            this.buttonck35.Location = new System.Drawing.Point(220, 80);
+            this.buttonck35.Name = "buttonck35";
+            this.buttonck35.Size = new System.Drawing.Size(71, 33);
+            this.buttonck35.TabIndex = 0;
+            this.buttonck35.Tag = "9999";
+            this.buttonck35.Text = "43";
+            this.buttonck35.UseVisualStyleBackColor = true;
+            // 
+            // buttonck34
+            // 
+            this.buttonck34.Location = new System.Drawing.Point(115, 80);
+            this.buttonck34.Name = "buttonck34";
+            this.buttonck34.Size = new System.Drawing.Size(71, 33);
+            this.buttonck34.TabIndex = 0;
+            this.buttonck34.Tag = "9999";
+            this.buttonck34.Text = "42";
+            this.buttonck34.UseVisualStyleBackColor = true;
+            // 
+            // buttonck33
+            // 
+            this.buttonck33.Location = new System.Drawing.Point(10, 80);
+            this.buttonck33.Name = "buttonck33";
+            this.buttonck33.Size = new System.Drawing.Size(71, 33);
+            this.buttonck33.TabIndex = 0;
+            this.buttonck33.Tag = "9999";
+            this.buttonck33.Text = "41";
+            this.buttonck33.UseVisualStyleBackColor = true;
+            // 
+            // buttonck32
+            // 
+            this.buttonck32.Location = new System.Drawing.Point(745, 145);
+            this.buttonck32.Name = "buttonck32";
+            this.buttonck32.Size = new System.Drawing.Size(71, 33);
+            this.buttonck32.TabIndex = 0;
+            this.buttonck32.Tag = "9999";
+            this.buttonck32.Text = "38";
+            this.buttonck32.UseVisualStyleBackColor = true;
+            // 
+            // buttonck31
+            // 
+            this.buttonck31.Location = new System.Drawing.Point(640, 145);
+            this.buttonck31.Name = "buttonck31";
+            this.buttonck31.Size = new System.Drawing.Size(71, 33);
+            this.buttonck31.TabIndex = 0;
+            this.buttonck31.Tag = "9999";
+            this.buttonck31.Text = "37";
+            this.buttonck31.UseVisualStyleBackColor = true;
+            // 
+            // buttonck30
+            // 
+            this.buttonck30.Location = new System.Drawing.Point(535, 145);
+            this.buttonck30.Name = "buttonck30";
+            this.buttonck30.Size = new System.Drawing.Size(71, 33);
+            this.buttonck30.TabIndex = 0;
+            this.buttonck30.Tag = "9999";
+            this.buttonck30.Text = "36";
+            this.buttonck30.UseVisualStyleBackColor = true;
+            this.buttonck30.Click += new System.EventHandler(this.buttonck1_Click);
+            // 
+            // pictureBoxck5
+            // 
+            this.pictureBoxck5.Location = new System.Drawing.Point(430, 375);
+            this.pictureBoxck5.Name = "pictureBoxck5";
+            this.pictureBoxck5.Size = new System.Drawing.Size(71, 14);
+            this.pictureBoxck5.TabIndex = 7;
+            this.pictureBoxck5.TabStop = false;
+            // 
+            // pictureBoxck4
+            // 
+            this.pictureBoxck4.Location = new System.Drawing.Point(325, 375);
+            this.pictureBoxck4.Name = "pictureBoxck4";
+            this.pictureBoxck4.Size = new System.Drawing.Size(71, 14);
+            this.pictureBoxck4.TabIndex = 7;
+            this.pictureBoxck4.TabStop = false;
+            // 
+            // pictureBoxck3
+            // 
+            this.pictureBoxck3.Location = new System.Drawing.Point(220, 375);
+            this.pictureBoxck3.Name = "pictureBoxck3";
+            this.pictureBoxck3.Size = new System.Drawing.Size(71, 14);
+            this.pictureBoxck3.TabIndex = 7;
+            this.pictureBoxck3.TabStop = false;
+            // 
+            // pictureBoxck2
+            // 
+            this.pictureBoxck2.Location = new System.Drawing.Point(115, 375);
+            this.pictureBoxck2.Name = "pictureBoxck2";
+            this.pictureBoxck2.Size = new System.Drawing.Size(71, 14);
+            this.pictureBoxck2.TabIndex = 7;
+            this.pictureBoxck2.TabStop = false;
+            // 
+            // pictureBoxck10
+            // 
+            this.pictureBoxck10.Location = new System.Drawing.Point(115, 310);
+            this.pictureBoxck10.Name = "pictureBoxck10";
+            this.pictureBoxck10.Size = new System.Drawing.Size(71, 14);
+            this.pictureBoxck10.TabIndex = 7;
+            this.pictureBoxck10.TabStop = false;
+            // 
+            // pictureBoxck8
+            // 
+            this.pictureBoxck8.Location = new System.Drawing.Point(745, 375);
+            this.pictureBoxck8.Name = "pictureBoxck8";
+            this.pictureBoxck8.Size = new System.Drawing.Size(71, 14);
+            this.pictureBoxck8.TabIndex = 7;
+            this.pictureBoxck8.TabStop = false;
+            // 
+            // pictureBoxck7
+            // 
+            this.pictureBoxck7.Location = new System.Drawing.Point(640, 375);
+            this.pictureBoxck7.Name = "pictureBoxck7";
+            this.pictureBoxck7.Size = new System.Drawing.Size(71, 14);
+            this.pictureBoxck7.TabIndex = 7;
+            this.pictureBoxck7.TabStop = false;
+            // 
+            // pictureBoxck30
+            // 
+            this.pictureBoxck30.Location = new System.Drawing.Point(535, 180);
+            this.pictureBoxck30.Name = "pictureBoxck30";
+            this.pictureBoxck30.Size = new System.Drawing.Size(71, 14);
+            this.pictureBoxck30.TabIndex = 7;
+            this.pictureBoxck30.TabStop = false;
+            // 
+            // pictureBoxck29
+            // 
+            this.pictureBoxck29.Location = new System.Drawing.Point(430, 180);
+            this.pictureBoxck29.Name = "pictureBoxck29";
+            this.pictureBoxck29.Size = new System.Drawing.Size(71, 14);
+            this.pictureBoxck29.TabIndex = 7;
+            this.pictureBoxck29.TabStop = false;
+            // 
+            // pictureBoxck28
+            // 
+            this.pictureBoxck28.Location = new System.Drawing.Point(325, 180);
+            this.pictureBoxck28.Name = "pictureBoxck28";
+            this.pictureBoxck28.Size = new System.Drawing.Size(71, 14);
+            this.pictureBoxck28.TabIndex = 7;
+            this.pictureBoxck28.TabStop = false;
+            // 
+            // pictureBoxck27
+            // 
+            this.pictureBoxck27.Location = new System.Drawing.Point(220, 180);
+            this.pictureBoxck27.Name = "pictureBoxck27";
+            this.pictureBoxck27.Size = new System.Drawing.Size(71, 14);
+            this.pictureBoxck27.TabIndex = 7;
+            this.pictureBoxck27.TabStop = false;
+            // 
+            // pictureBoxck26
+            // 
+            this.pictureBoxck26.Location = new System.Drawing.Point(115, 180);
+            this.pictureBoxck26.Name = "pictureBoxck26";
+            this.pictureBoxck26.Size = new System.Drawing.Size(71, 14);
+            this.pictureBoxck26.TabIndex = 7;
+            this.pictureBoxck26.TabStop = false;
+            // 
+            // pictureBoxck22
+            // 
+            this.pictureBoxck22.Location = new System.Drawing.Point(535, 245);
+            this.pictureBoxck22.Name = "pictureBoxck22";
+            this.pictureBoxck22.Size = new System.Drawing.Size(71, 14);
+            this.pictureBoxck22.TabIndex = 7;
+            this.pictureBoxck22.TabStop = false;
+            // 
+            // pictureBoxck25
+            // 
+            this.pictureBoxck25.Location = new System.Drawing.Point(10, 180);
+            this.pictureBoxck25.Name = "pictureBoxck25";
+            this.pictureBoxck25.Size = new System.Drawing.Size(71, 14);
+            this.pictureBoxck25.TabIndex = 7;
+            this.pictureBoxck25.TabStop = false;
+            // 
+            // pictureBoxck24
+            // 
+            this.pictureBoxck24.Location = new System.Drawing.Point(745, 245);
+            this.pictureBoxck24.Name = "pictureBoxck24";
+            this.pictureBoxck24.Size = new System.Drawing.Size(71, 14);
+            this.pictureBoxck24.TabIndex = 7;
+            this.pictureBoxck24.TabStop = false;
+            // 
+            // pictureBoxck23
+            // 
+            this.pictureBoxck23.Location = new System.Drawing.Point(640, 245);
+            this.pictureBoxck23.Name = "pictureBoxck23";
+            this.pictureBoxck23.Size = new System.Drawing.Size(71, 14);
+            this.pictureBoxck23.TabIndex = 7;
+            this.pictureBoxck23.TabStop = false;
+            // 
+            // pictureBoxck21
+            // 
+            this.pictureBoxck21.Location = new System.Drawing.Point(430, 245);
+            this.pictureBoxck21.Name = "pictureBoxck21";
+            this.pictureBoxck21.Size = new System.Drawing.Size(71, 14);
+            this.pictureBoxck21.TabIndex = 7;
+            this.pictureBoxck21.TabStop = false;
+            // 
+            // pictureBoxck18
+            // 
+            this.pictureBoxck18.Location = new System.Drawing.Point(115, 245);
+            this.pictureBoxck18.Name = "pictureBoxck18";
+            this.pictureBoxck18.Size = new System.Drawing.Size(71, 14);
+            this.pictureBoxck18.TabIndex = 7;
+            this.pictureBoxck18.TabStop = false;
+            // 
+            // pictureBoxck20
+            // 
+            this.pictureBoxck20.Location = new System.Drawing.Point(325, 245);
+            this.pictureBoxck20.Name = "pictureBoxck20";
+            this.pictureBoxck20.Size = new System.Drawing.Size(71, 14);
+            this.pictureBoxck20.TabIndex = 7;
+            this.pictureBoxck20.TabStop = false;
+            // 
+            // pictureBoxck19
+            // 
+            this.pictureBoxck19.Location = new System.Drawing.Point(220, 245);
+            this.pictureBoxck19.Name = "pictureBoxck19";
+            this.pictureBoxck19.Size = new System.Drawing.Size(71, 14);
+            this.pictureBoxck19.TabIndex = 7;
+            this.pictureBoxck19.TabStop = false;
+            // 
+            // pictureBoxck17
+            // 
+            this.pictureBoxck17.Location = new System.Drawing.Point(10, 245);
+            this.pictureBoxck17.Name = "pictureBoxck17";
+            this.pictureBoxck17.Size = new System.Drawing.Size(71, 14);
+            this.pictureBoxck17.TabIndex = 7;
+            this.pictureBoxck17.TabStop = false;
+            // 
+            // pictureBoxck16
+            // 
+            this.pictureBoxck16.Location = new System.Drawing.Point(745, 310);
+            this.pictureBoxck16.Name = "pictureBoxck16";
+            this.pictureBoxck16.Size = new System.Drawing.Size(71, 14);
+            this.pictureBoxck16.TabIndex = 7;
+            this.pictureBoxck16.TabStop = false;
+            // 
+            // pictureBoxck12
+            // 
+            this.pictureBoxck12.Location = new System.Drawing.Point(325, 310);
+            this.pictureBoxck12.Name = "pictureBoxck12";
+            this.pictureBoxck12.Size = new System.Drawing.Size(71, 14);
+            this.pictureBoxck12.TabIndex = 7;
+            this.pictureBoxck12.TabStop = false;
+            // 
+            // pictureBoxck9
+            // 
+            this.pictureBoxck9.Location = new System.Drawing.Point(10, 310);
+            this.pictureBoxck9.Name = "pictureBoxck9";
+            this.pictureBoxck9.Size = new System.Drawing.Size(71, 14);
+            this.pictureBoxck9.TabIndex = 7;
+            this.pictureBoxck9.TabStop = false;
+            // 
+            // pictureBoxck15
+            // 
+            this.pictureBoxck15.Location = new System.Drawing.Point(640, 310);
+            this.pictureBoxck15.Name = "pictureBoxck15";
+            this.pictureBoxck15.Size = new System.Drawing.Size(71, 14);
+            this.pictureBoxck15.TabIndex = 7;
+            this.pictureBoxck15.TabStop = false;
+            // 
+            // pictureBoxck14
+            // 
+            this.pictureBoxck14.Location = new System.Drawing.Point(535, 310);
+            this.pictureBoxck14.Name = "pictureBoxck14";
+            this.pictureBoxck14.Size = new System.Drawing.Size(71, 14);
+            this.pictureBoxck14.TabIndex = 7;
+            this.pictureBoxck14.TabStop = false;
+            // 
+            // pictureBoxck13
+            // 
+            this.pictureBoxck13.Location = new System.Drawing.Point(430, 310);
+            this.pictureBoxck13.Name = "pictureBoxck13";
+            this.pictureBoxck13.Size = new System.Drawing.Size(71, 14);
+            this.pictureBoxck13.TabIndex = 7;
+            this.pictureBoxck13.TabStop = false;
+            // 
+            // pictureBoxck11
+            // 
+            this.pictureBoxck11.Location = new System.Drawing.Point(220, 310);
+            this.pictureBoxck11.Name = "pictureBoxck11";
+            this.pictureBoxck11.Size = new System.Drawing.Size(71, 14);
+            this.pictureBoxck11.TabIndex = 7;
+            this.pictureBoxck11.TabStop = false;
+            // 
+            // pictureBoxck6
+            // 
+            this.pictureBoxck6.Location = new System.Drawing.Point(535, 375);
+            this.pictureBoxck6.Name = "pictureBoxck6";
+            this.pictureBoxck6.Size = new System.Drawing.Size(71, 14);
+            this.pictureBoxck6.TabIndex = 7;
+            this.pictureBoxck6.TabStop = false;
+            // 
+            // pictureBoxck1
+            // 
+            this.pictureBoxck1.Location = new System.Drawing.Point(10, 375);
+            this.pictureBoxck1.Name = "pictureBoxck1";
+            this.pictureBoxck1.Size = new System.Drawing.Size(71, 14);
+            this.pictureBoxck1.TabIndex = 7;
+            this.pictureBoxck1.TabStop = false;
+            // 
+            // buttonck20
+            // 
+            this.buttonck20.Location = new System.Drawing.Point(325, 210);
+            this.buttonck20.Name = "buttonck20";
+            this.buttonck20.Size = new System.Drawing.Size(71, 33);
+            this.buttonck20.TabIndex = 0;
+            this.buttonck20.Tag = "9999";
+            this.buttonck20.Text = "24";
+            this.buttonck20.UseVisualStyleBackColor = true;
+            this.buttonck20.Click += new System.EventHandler(this.buttonck1_Click);
+            // 
+            // buttonck25
+            // 
+            this.buttonck25.Location = new System.Drawing.Point(10, 145);
+            this.buttonck25.Name = "buttonck25";
+            this.buttonck25.Size = new System.Drawing.Size(71, 33);
+            this.buttonck25.TabIndex = 0;
+            this.buttonck25.Tag = "9999";
+            this.buttonck25.Text = "31";
+            this.buttonck25.UseVisualStyleBackColor = true;
+            this.buttonck25.Click += new System.EventHandler(this.buttonck1_Click);
+            // 
+            // buttonck15
+            // 
+            this.buttonck15.Location = new System.Drawing.Point(640, 275);
+            this.buttonck15.Name = "buttonck15";
+            this.buttonck15.Size = new System.Drawing.Size(71, 33);
+            this.buttonck15.TabIndex = 0;
+            this.buttonck15.Tag = "9999";
+            this.buttonck15.Text = "17";
+            this.buttonck15.UseVisualStyleBackColor = true;
+            this.buttonck15.Click += new System.EventHandler(this.buttonck1_Click);
+            // 
+            // buttonck10
+            // 
+            this.buttonck10.Location = new System.Drawing.Point(115, 275);
+            this.buttonck10.Name = "buttonck10";
+            this.buttonck10.Size = new System.Drawing.Size(71, 33);
+            this.buttonck10.TabIndex = 0;
+            this.buttonck10.Tag = "9999";
+            this.buttonck10.Text = "12";
+            this.buttonck10.UseVisualStyleBackColor = true;
+            this.buttonck10.Click += new System.EventHandler(this.buttonck1_Click);
+            // 
+            // buttonck5
+            // 
+            this.buttonck5.Location = new System.Drawing.Point(430, 340);
+            this.buttonck5.Name = "buttonck5";
+            this.buttonck5.Size = new System.Drawing.Size(71, 33);
+            this.buttonck5.TabIndex = 0;
+            this.buttonck5.Tag = "9999";
+            this.buttonck5.Text = "5";
+            this.buttonck5.UseVisualStyleBackColor = true;
+            this.buttonck5.Click += new System.EventHandler(this.buttonck1_Click);
+            // 
+            // buttonck29
+            // 
+            this.buttonck29.Location = new System.Drawing.Point(430, 145);
+            this.buttonck29.Name = "buttonck29";
+            this.buttonck29.Size = new System.Drawing.Size(71, 33);
+            this.buttonck29.TabIndex = 0;
+            this.buttonck29.Tag = "9999";
+            this.buttonck29.Text = "35";
+            this.buttonck29.UseVisualStyleBackColor = true;
+            this.buttonck29.Click += new System.EventHandler(this.buttonck1_Click);
+            // 
+            // buttonck19
+            // 
+            this.buttonck19.Location = new System.Drawing.Point(220, 210);
+            this.buttonck19.Name = "buttonck19";
+            this.buttonck19.Size = new System.Drawing.Size(71, 33);
+            this.buttonck19.TabIndex = 0;
+            this.buttonck19.Tag = "9999";
+            this.buttonck19.Text = "23";
+            this.buttonck19.UseVisualStyleBackColor = true;
+            this.buttonck19.Click += new System.EventHandler(this.buttonck1_Click);
+            // 
+            // buttonck24
+            // 
+            this.buttonck24.Location = new System.Drawing.Point(745, 210);
+            this.buttonck24.Name = "buttonck24";
+            this.buttonck24.Size = new System.Drawing.Size(71, 33);
+            this.buttonck24.TabIndex = 0;
+            this.buttonck24.Tag = "9999";
+            this.buttonck24.Text = "28";
+            this.buttonck24.UseVisualStyleBackColor = true;
+            this.buttonck24.Click += new System.EventHandler(this.buttonck1_Click);
+            // 
+            // buttonck14
+            // 
+            this.buttonck14.Location = new System.Drawing.Point(535, 275);
+            this.buttonck14.Name = "buttonck14";
+            this.buttonck14.Size = new System.Drawing.Size(71, 33);
+            this.buttonck14.TabIndex = 0;
+            this.buttonck14.Tag = "9999";
+            this.buttonck14.Text = "16";
+            this.buttonck14.UseVisualStyleBackColor = true;
+            this.buttonck14.Click += new System.EventHandler(this.buttonck1_Click);
+            // 
+            // buttonck9
+            // 
+            this.buttonck9.Location = new System.Drawing.Point(10, 275);
+            this.buttonck9.Name = "buttonck9";
+            this.buttonck9.Size = new System.Drawing.Size(71, 33);
+            this.buttonck9.TabIndex = 0;
+            this.buttonck9.Tag = "9999";
+            this.buttonck9.Text = "11";
+            this.buttonck9.UseVisualStyleBackColor = true;
+            this.buttonck9.Click += new System.EventHandler(this.buttonck1_Click);
+            // 
+            // buttonck4
+            // 
+            this.buttonck4.Location = new System.Drawing.Point(325, 340);
+            this.buttonck4.Name = "buttonck4";
+            this.buttonck4.Size = new System.Drawing.Size(71, 33);
+            this.buttonck4.TabIndex = 0;
+            this.buttonck4.Tag = "9999";
+            this.buttonck4.Text = "4";
+            this.buttonck4.UseVisualStyleBackColor = true;
+            this.buttonck4.Click += new System.EventHandler(this.buttonck1_Click);
+            // 
+            // buttonck28
+            // 
+            this.buttonck28.Location = new System.Drawing.Point(325, 145);
+            this.buttonck28.Name = "buttonck28";
+            this.buttonck28.Size = new System.Drawing.Size(71, 33);
+            this.buttonck28.TabIndex = 0;
+            this.buttonck28.Tag = "9999";
+            this.buttonck28.Text = "34";
+            this.buttonck28.UseVisualStyleBackColor = true;
+            this.buttonck28.Click += new System.EventHandler(this.buttonck1_Click);
+            // 
+            // buttonck18
+            // 
+            this.buttonck18.Location = new System.Drawing.Point(115, 210);
+            this.buttonck18.Name = "buttonck18";
+            this.buttonck18.Size = new System.Drawing.Size(71, 33);
+            this.buttonck18.TabIndex = 0;
+            this.buttonck18.Tag = "9999";
+            this.buttonck18.Text = "22";
+            this.buttonck18.UseVisualStyleBackColor = true;
+            this.buttonck18.Click += new System.EventHandler(this.buttonck1_Click);
+            // 
+            // buttonck23
+            // 
+            this.buttonck23.Location = new System.Drawing.Point(640, 210);
+            this.buttonck23.Name = "buttonck23";
+            this.buttonck23.Size = new System.Drawing.Size(71, 33);
+            this.buttonck23.TabIndex = 0;
+            this.buttonck23.Tag = "9999";
+            this.buttonck23.Text = "27";
+            this.buttonck23.UseVisualStyleBackColor = true;
+            this.buttonck23.Click += new System.EventHandler(this.buttonck1_Click);
+            // 
+            // buttonck13
+            // 
+            this.buttonck13.Location = new System.Drawing.Point(430, 275);
+            this.buttonck13.Name = "buttonck13";
+            this.buttonck13.Size = new System.Drawing.Size(71, 33);
+            this.buttonck13.TabIndex = 0;
+            this.buttonck13.Tag = "9999";
+            this.buttonck13.Text = "15";
+            this.buttonck13.UseVisualStyleBackColor = true;
+            this.buttonck13.Click += new System.EventHandler(this.buttonck1_Click);
+            // 
+            // buttonck8
+            // 
+            this.buttonck8.Location = new System.Drawing.Point(745, 340);
+            this.buttonck8.Name = "buttonck8";
+            this.buttonck8.Size = new System.Drawing.Size(71, 33);
+            this.buttonck8.TabIndex = 0;
+            this.buttonck8.Tag = "9999";
+            this.buttonck8.Text = "8";
+            this.buttonck8.UseVisualStyleBackColor = true;
+            this.buttonck8.Click += new System.EventHandler(this.buttonck1_Click);
+            // 
+            // buttonck3
+            // 
+            this.buttonck3.Location = new System.Drawing.Point(220, 340);
+            this.buttonck3.Name = "buttonck3";
+            this.buttonck3.Size = new System.Drawing.Size(71, 33);
+            this.buttonck3.TabIndex = 0;
+            this.buttonck3.Tag = "9999";
+            this.buttonck3.Text = "3";
+            this.buttonck3.UseVisualStyleBackColor = true;
+            this.buttonck3.Click += new System.EventHandler(this.buttonck1_Click);
+            // 
+            // buttonck27
+            // 
+            this.buttonck27.Location = new System.Drawing.Point(220, 145);
+            this.buttonck27.Name = "buttonck27";
+            this.buttonck27.Size = new System.Drawing.Size(71, 33);
+            this.buttonck27.TabIndex = 0;
+            this.buttonck27.Tag = "9999";
+            this.buttonck27.Text = "33";
+            this.buttonck27.UseVisualStyleBackColor = true;
+            this.buttonck27.Click += new System.EventHandler(this.buttonck1_Click);
+            // 
+            // buttonck17
+            // 
+            this.buttonck17.Location = new System.Drawing.Point(10, 210);
+            this.buttonck17.Name = "buttonck17";
+            this.buttonck17.Size = new System.Drawing.Size(71, 33);
+            this.buttonck17.TabIndex = 0;
+            this.buttonck17.Tag = "9999";
+            this.buttonck17.Text = "21";
+            this.buttonck17.UseVisualStyleBackColor = true;
+            this.buttonck17.Click += new System.EventHandler(this.buttonck1_Click);
+            // 
+            // buttonck22
+            // 
+            this.buttonck22.Location = new System.Drawing.Point(535, 210);
+            this.buttonck22.Name = "buttonck22";
+            this.buttonck22.Size = new System.Drawing.Size(71, 33);
+            this.buttonck22.TabIndex = 0;
+            this.buttonck22.Tag = "9999";
+            this.buttonck22.Text = "26";
+            this.buttonck22.UseVisualStyleBackColor = true;
+            this.buttonck22.Click += new System.EventHandler(this.buttonck1_Click);
+            // 
+            // buttonck12
+            // 
+            this.buttonck12.Location = new System.Drawing.Point(325, 275);
+            this.buttonck12.Name = "buttonck12";
+            this.buttonck12.Size = new System.Drawing.Size(71, 33);
+            this.buttonck12.TabIndex = 0;
+            this.buttonck12.Tag = "9999";
+            this.buttonck12.Text = "14";
+            this.buttonck12.UseVisualStyleBackColor = true;
+            this.buttonck12.Click += new System.EventHandler(this.buttonck1_Click);
+            // 
+            // buttonck7
+            // 
+            this.buttonck7.Location = new System.Drawing.Point(640, 340);
+            this.buttonck7.Name = "buttonck7";
+            this.buttonck7.Size = new System.Drawing.Size(71, 33);
+            this.buttonck7.TabIndex = 0;
+            this.buttonck7.Tag = "9999";
+            this.buttonck7.Text = "7";
+            this.buttonck7.UseVisualStyleBackColor = true;
+            this.buttonck7.Click += new System.EventHandler(this.buttonck1_Click);
+            // 
+            // buttonck2
+            // 
+            this.buttonck2.Location = new System.Drawing.Point(115, 340);
+            this.buttonck2.Name = "buttonck2";
+            this.buttonck2.Size = new System.Drawing.Size(71, 33);
+            this.buttonck2.TabIndex = 0;
+            this.buttonck2.Tag = "9999";
+            this.buttonck2.Text = "2";
+            this.buttonck2.UseVisualStyleBackColor = true;
+            this.buttonck2.Click += new System.EventHandler(this.buttonck1_Click);
+            // 
+            // buttonck26
+            // 
+            this.buttonck26.Location = new System.Drawing.Point(115, 145);
+            this.buttonck26.Name = "buttonck26";
+            this.buttonck26.Size = new System.Drawing.Size(71, 33);
+            this.buttonck26.TabIndex = 0;
+            this.buttonck26.Tag = "9999";
+            this.buttonck26.Text = "32";
+            this.buttonck26.UseVisualStyleBackColor = true;
+            this.buttonck26.Click += new System.EventHandler(this.buttonck1_Click);
+            // 
+            // buttonck21
+            // 
+            this.buttonck21.Location = new System.Drawing.Point(430, 210);
+            this.buttonck21.Name = "buttonck21";
+            this.buttonck21.Size = new System.Drawing.Size(71, 33);
+            this.buttonck21.TabIndex = 0;
+            this.buttonck21.Tag = "9999";
+            this.buttonck21.Text = "25";
+            this.buttonck21.UseVisualStyleBackColor = true;
+            this.buttonck21.Click += new System.EventHandler(this.buttonck1_Click);
+            // 
+            // buttonck16
+            // 
+            this.buttonck16.Location = new System.Drawing.Point(745, 275);
+            this.buttonck16.Name = "buttonck16";
+            this.buttonck16.Size = new System.Drawing.Size(71, 33);
+            this.buttonck16.TabIndex = 0;
+            this.buttonck16.Tag = "9999";
+            this.buttonck16.Text = "18";
+            this.buttonck16.UseVisualStyleBackColor = true;
+            this.buttonck16.Click += new System.EventHandler(this.buttonck1_Click);
+            // 
+            // buttonck11
+            // 
+            this.buttonck11.Location = new System.Drawing.Point(220, 275);
+            this.buttonck11.Name = "buttonck11";
+            this.buttonck11.Size = new System.Drawing.Size(71, 33);
+            this.buttonck11.TabIndex = 0;
+            this.buttonck11.Tag = "9999";
+            this.buttonck11.Text = "13";
+            this.buttonck11.UseVisualStyleBackColor = true;
+            this.buttonck11.Click += new System.EventHandler(this.buttonck1_Click);
+            // 
+            // buttonck6
+            // 
+            this.buttonck6.Location = new System.Drawing.Point(535, 340);
+            this.buttonck6.Name = "buttonck6";
+            this.buttonck6.Size = new System.Drawing.Size(71, 33);
+            this.buttonck6.TabIndex = 0;
+            this.buttonck6.Tag = "9999";
+            this.buttonck6.Text = "6";
+            this.buttonck6.UseVisualStyleBackColor = true;
+            this.buttonck6.Click += new System.EventHandler(this.buttonck1_Click);
+            // 
+            // buttonck1
+            // 
+            this.buttonck1.Location = new System.Drawing.Point(10, 340);
+            this.buttonck1.Name = "buttonck1";
+            this.buttonck1.Size = new System.Drawing.Size(71, 33);
+            this.buttonck1.TabIndex = 0;
+            this.buttonck1.Tag = "9999";
+            this.buttonck1.Text = "1";
+            this.buttonck1.UseVisualStyleBackColor = true;
+            this.buttonck1.Click += new System.EventHandler(this.buttonck1_Click);
+            // 
+            // groupBox4
+            // 
+            this.groupBox4.Controls.Add(this.label_PLCSysTemText);
+            this.groupBox4.Location = new System.Drawing.Point(269, 4);
+            this.groupBox4.Name = "groupBox4";
+            this.groupBox4.Size = new System.Drawing.Size(139, 58);
+            this.groupBox4.TabIndex = 6;
+            this.groupBox4.TabStop = false;
+            this.groupBox4.Text = "PLC系统";
+            // 
+            // label_PLCSysTemText
+            // 
+            this.label_PLCSysTemText.AutoSize = true;
+            this.label_PLCSysTemText.Location = new System.Drawing.Point(43, 29);
+            this.label_PLCSysTemText.Name = "label_PLCSysTemText";
+            this.label_PLCSysTemText.Size = new System.Drawing.Size(47, 12);
+            this.label_PLCSysTemText.TabIndex = 8;
+            this.label_PLCSysTemText.Text = "PLC系统";
+            // 
+            // PlcForm
+            // 
+            this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 12F);
+            this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
+            this.BackColor = System.Drawing.Color.White;
+            this.ClientSize = new System.Drawing.Size(911, 523);
+            this.Controls.Add(this.groupBox3);
+            this.Controls.Add(this.groupBox4);
+            this.Controls.Add(this.groupBox2);
+            this.Controls.Add(this.tabControl1);
+            this.FormBorderStyle = System.Windows.Forms.FormBorderStyle.Fixed3D;
+            this.Name = "PlcForm";
+            this.Text = "PlcForm";
+            this.Load += new System.EventHandler(this.PlcForm_Load);
+            this.SizeChanged += new System.EventHandler(this.PlcForm_SizeChanged);
+            this.spContainerPLC.Panel1.ResumeLayout(false);
+            this.spContainerPLC.Panel2.ResumeLayout(false);
+            ((System.ComponentModel.ISupportInitialize)(this.spContainerPLC)).EndInit();
+            this.spContainerPLC.ResumeLayout(false);
+            ((System.ComponentModel.ISupportInitialize)(this.plcDGV1)).EndInit();
+            ((System.ComponentModel.ISupportInitialize)(this.plcDGV2)).EndInit();
+            this.groupBox3.ResumeLayout(false);
+            this.groupBox3.PerformLayout();
+            ((System.ComponentModel.ISupportInitialize)(this.pictureBox_LinkState)).EndInit();
+            this.groupBox2.ResumeLayout(false);
+            this.groupBox1.ResumeLayout(false);
+            this.groupBox1.PerformLayout();
+            this.splitContainer1.Panel1.ResumeLayout(false);
+            this.splitContainer1.Panel2.ResumeLayout(false);
+            ((System.ComponentModel.ISupportInitialize)(this.splitContainer1)).EndInit();
+            this.splitContainer1.ResumeLayout(false);
+            this.tabControl1.ResumeLayout(false);
+            this.tabPage_PLCRegMonitor.ResumeLayout(false);
+            this.tabPage_PLCOperation.ResumeLayout(false);
+            this.tabPage_Alarm.ResumeLayout(false);
+            this.tabPage_Alarm.PerformLayout();
+            ((System.ComponentModel.ISupportInitialize)(this.dataGridViewalarmdata)).EndInit();
+            this.changku.ResumeLayout(false);
+            PlcForm.groupBox5.ResumeLayout(false);
+            ((System.ComponentModel.ISupportInitialize)(this.pictureBoxck40)).EndInit();
+            ((System.ComponentModel.ISupportInitialize)(this.pictureBoxck39)).EndInit();
+            ((System.ComponentModel.ISupportInitialize)(this.pictureBoxck38)).EndInit();
+            ((System.ComponentModel.ISupportInitialize)(this.pictureBoxck37)).EndInit();
+            ((System.ComponentModel.ISupportInitialize)(this.pictureBoxck36)).EndInit();
+            ((System.ComponentModel.ISupportInitialize)(this.pictureBoxck35)).EndInit();
+            ((System.ComponentModel.ISupportInitialize)(this.pictureBoxck34)).EndInit();
+            ((System.ComponentModel.ISupportInitialize)(this.pictureBoxck33)).EndInit();
+            ((System.ComponentModel.ISupportInitialize)(this.pictureBoxck32)).EndInit();
+            ((System.ComponentModel.ISupportInitialize)(this.pictureBoxck31)).EndInit();
+            ((System.ComponentModel.ISupportInitialize)(this.pictureBoxck5)).EndInit();
+            ((System.ComponentModel.ISupportInitialize)(this.pictureBoxck4)).EndInit();
+            ((System.ComponentModel.ISupportInitialize)(this.pictureBoxck3)).EndInit();
+            ((System.ComponentModel.ISupportInitialize)(this.pictureBoxck2)).EndInit();
+            ((System.ComponentModel.ISupportInitialize)(this.pictureBoxck10)).EndInit();
+            ((System.ComponentModel.ISupportInitialize)(this.pictureBoxck8)).EndInit();
+            ((System.ComponentModel.ISupportInitialize)(this.pictureBoxck7)).EndInit();
+            ((System.ComponentModel.ISupportInitialize)(this.pictureBoxck30)).EndInit();
+            ((System.ComponentModel.ISupportInitialize)(this.pictureBoxck29)).EndInit();
+            ((System.ComponentModel.ISupportInitialize)(this.pictureBoxck28)).EndInit();
+            ((System.ComponentModel.ISupportInitialize)(this.pictureBoxck27)).EndInit();
+            ((System.ComponentModel.ISupportInitialize)(this.pictureBoxck26)).EndInit();
+            ((System.ComponentModel.ISupportInitialize)(this.pictureBoxck22)).EndInit();
+            ((System.ComponentModel.ISupportInitialize)(this.pictureBoxck25)).EndInit();
+            ((System.ComponentModel.ISupportInitialize)(this.pictureBoxck24)).EndInit();
+            ((System.ComponentModel.ISupportInitialize)(this.pictureBoxck23)).EndInit();
+            ((System.ComponentModel.ISupportInitialize)(this.pictureBoxck21)).EndInit();
+            ((System.ComponentModel.ISupportInitialize)(this.pictureBoxck18)).EndInit();
+            ((System.ComponentModel.ISupportInitialize)(this.pictureBoxck20)).EndInit();
+            ((System.ComponentModel.ISupportInitialize)(this.pictureBoxck19)).EndInit();
+            ((System.ComponentModel.ISupportInitialize)(this.pictureBoxck17)).EndInit();
+            ((System.ComponentModel.ISupportInitialize)(this.pictureBoxck16)).EndInit();
+            ((System.ComponentModel.ISupportInitialize)(this.pictureBoxck12)).EndInit();
+            ((System.ComponentModel.ISupportInitialize)(this.pictureBoxck9)).EndInit();
+            ((System.ComponentModel.ISupportInitialize)(this.pictureBoxck15)).EndInit();
+            ((System.ComponentModel.ISupportInitialize)(this.pictureBoxck14)).EndInit();
+            ((System.ComponentModel.ISupportInitialize)(this.pictureBoxck13)).EndInit();
+            ((System.ComponentModel.ISupportInitialize)(this.pictureBoxck11)).EndInit();
+            ((System.ComponentModel.ISupportInitialize)(this.pictureBoxck6)).EndInit();
+            ((System.ComponentModel.ISupportInitialize)(this.pictureBoxck1)).EndInit();
+            this.groupBox4.ResumeLayout(false);
+            this.groupBox4.PerformLayout();
+            this.ResumeLayout(false);
+
+        }
+
+        #endregion
+
+        private System.Windows.Forms.SplitContainer spContainerPLC;
+        private System.Windows.Forms.DataGridView plcDGV1;
+        private System.Windows.Forms.DataGridView plcDGV2;
+        static public System.Windows.Forms.Timer timer1;
+        private System.Windows.Forms.DataGridViewImageColumn dataGridViewImageColumn1;
+        private System.Windows.Forms.DataGridViewImageColumn dataGridViewImageColumn2;
+        private mComboBox switchPlc;
+        private System.Windows.Forms.ComboBox comboBoxPLCJiankong1;
+        private System.Windows.Forms.ComboBox comboBoxPLCJiankong2;
+        private System.Windows.Forms.DataGridViewTextBoxColumn input_id;
+        private System.Windows.Forms.DataGridViewTextBoxColumn input_name;
+        private System.Windows.Forms.DataGridViewTextBoxColumn Column1;
+        private System.Windows.Forms.DataGridViewTextBoxColumn input_Monitor;
+        private System.Windows.Forms.DataGridViewTextBoxColumn input_EQUIP_CODE;
+        private System.Windows.Forms.DataGridViewTextBoxColumn input_ACTION_ID;
+        private System.Windows.Forms.DataGridViewTextBoxColumn output_id;
+        private System.Windows.Forms.DataGridViewTextBoxColumn output_name;
+        private System.Windows.Forms.DataGridViewTextBoxColumn dataGridViewTextBoxColumn1;
+        private System.Windows.Forms.DataGridViewTextBoxColumn output_Monitor;
+        private System.Windows.Forms.DataGridViewTextBoxColumn output_EQUIP_CODE;
+        private System.Windows.Forms.DataGridViewTextBoxColumn oput_ACTION_ID;
+        private System.Windows.Forms.GroupBox groupBox1;
+        private System.Windows.Forms.RadioButton radioButton_serjinzhi;
+        private System.Windows.Forms.RadioButton radioButton_shliujinzhi;
+        private System.Windows.Forms.RadioButton radioButton_shijinzhi;
+        private System.Windows.Forms.GroupBox groupBox3;
+        private System.Windows.Forms.GroupBox groupBox2;
+        private System.Windows.Forms.PictureBox pictureBox_LinkState;
+        private System.Windows.Forms.Label labelLinckText;
+        private System.Windows.Forms.SplitContainer splitContainer1;
+        private System.Windows.Forms.TabControl tabControl1;
+        private System.Windows.Forms.TabPage tabPage_PLCRegMonitor;
+        private System.Windows.Forms.TabPage tabPage_PLCOperation;
+        private System.Windows.Forms.Button button1;
+        private System.Windows.Forms.Button button20;
+        private System.Windows.Forms.Button button18;
+        private System.Windows.Forms.Button button19;
+        private System.Windows.Forms.Button button17;
+        private System.Windows.Forms.Button button16;
+        private System.Windows.Forms.Button button14;
+        private System.Windows.Forms.Button button15;
+        private System.Windows.Forms.Button button13;
+        private System.Windows.Forms.Button button12;
+        private System.Windows.Forms.Button button10;
+        private System.Windows.Forms.Button button11;
+        private System.Windows.Forms.Button button9;
+        private System.Windows.Forms.Button button8;
+        private System.Windows.Forms.Button button6;
+        private System.Windows.Forms.Button button7;
+        private System.Windows.Forms.Button button5;
+        private System.Windows.Forms.Button button4;
+        private System.Windows.Forms.Button button3;
+        private System.Windows.Forms.Button button2;
+        private mComboBox comboBox_PLCStationSelet;
+        private System.Windows.Forms.Button button24;
+        private System.Windows.Forms.Button button22;
+        private System.Windows.Forms.Button button23;
+        private System.Windows.Forms.Button button21;
+        private System.Windows.Forms.GroupBox groupBox4;
+        private System.Windows.Forms.Label label_PLCSysTemText;
+        private System.Windows.Forms.TabPage tabPage_Alarm;
+        private System.Windows.Forms.DataGridView dataGridViewalarmdata;
+        private System.Windows.Forms.DataGridViewTextBoxColumn dataGridViewTextBoxColumn2;
+        private System.Windows.Forms.DataGridViewTextBoxColumn Column2;
+        private System.Windows.Forms.DataGridViewTextBoxColumn Column3;
+        private System.Windows.Forms.RadioButton HistoricalAlarm;
+        private System.Windows.Forms.RadioButton CurrentAlarm;
+        private System.Windows.Forms.Button button_alarmReFlesh;
+        private System.Windows.Forms.GroupBox groupBox5;
+        private System.Windows.Forms.Button buttonck5;
+        private System.Windows.Forms.Button buttonck4;
+        private System.Windows.Forms.Button buttonck3;
+        private System.Windows.Forms.Button buttonck2;
+        public System.Windows.Forms.Button buttonck1;
+        public System.Windows.Forms.Button buttonck20;
+        public System.Windows.Forms.Button buttonck15;
+        public System.Windows.Forms.Button buttonck10;
+        public System.Windows.Forms.Button buttonck19;
+        public System.Windows.Forms.Button buttonck14;
+        public System.Windows.Forms.Button buttonck9;
+        public System.Windows.Forms.Button buttonck18;
+        public System.Windows.Forms.Button buttonck13;
+        public System.Windows.Forms.Button buttonck8;
+        public System.Windows.Forms.Button buttonck17;
+        public System.Windows.Forms.Button buttonck12;
+        public System.Windows.Forms.Button buttonck7;
+        public System.Windows.Forms.Button buttonck16;
+        public System.Windows.Forms.Button buttonck11;
+        public System.Windows.Forms.Button buttonck6;
+        public System.Windows.Forms.Button buttonck30;
+        public System.Windows.Forms.Button buttonck25;
+        public System.Windows.Forms.Button buttonck29;
+        public System.Windows.Forms.Button buttonck24;
+        public System.Windows.Forms.Button buttonck28;
+        public System.Windows.Forms.Button buttonck23;
+        public System.Windows.Forms.Button buttonck27;
+        public System.Windows.Forms.Button buttonck22;
+        public System.Windows.Forms.Button buttonck26;
+        public System.Windows.Forms.Button buttonck21;
+        public System.Windows.Forms.PictureBox pictureBoxck1;
+        public System.Windows.Forms.PictureBox pictureBoxck5;
+        public System.Windows.Forms.PictureBox pictureBoxck4;
+        public System.Windows.Forms.PictureBox pictureBoxck3;
+        public System.Windows.Forms.PictureBox pictureBoxck2;
+        public System.Windows.Forms.PictureBox pictureBoxck10;
+        public System.Windows.Forms.PictureBox pictureBoxck8;
+        public System.Windows.Forms.PictureBox pictureBoxck7;
+        public System.Windows.Forms.PictureBox pictureBoxck30;
+        public System.Windows.Forms.PictureBox pictureBoxck29;
+        public System.Windows.Forms.PictureBox pictureBoxck28;
+        public System.Windows.Forms.PictureBox pictureBoxck27;
+        public System.Windows.Forms.PictureBox pictureBoxck26;
+        public System.Windows.Forms.PictureBox pictureBoxck22;
+        public System.Windows.Forms.PictureBox pictureBoxck25;
+        public System.Windows.Forms.PictureBox pictureBoxck24;
+        public System.Windows.Forms.PictureBox pictureBoxck23;
+        public System.Windows.Forms.PictureBox pictureBoxck21;
+        public System.Windows.Forms.PictureBox pictureBoxck18;
+        public System.Windows.Forms.PictureBox pictureBoxck20;
+        public System.Windows.Forms.PictureBox pictureBoxck19;
+        public System.Windows.Forms.PictureBox pictureBoxck17;
+        public System.Windows.Forms.PictureBox pictureBoxck16;
+        public System.Windows.Forms.PictureBox pictureBoxck12;
+        public System.Windows.Forms.PictureBox pictureBoxck9;
+        public System.Windows.Forms.PictureBox pictureBoxck15;
+        public System.Windows.Forms.PictureBox pictureBoxck14;
+        public System.Windows.Forms.PictureBox pictureBoxck13;
+        public System.Windows.Forms.PictureBox pictureBoxck11;
+        public System.Windows.Forms.PictureBox pictureBoxck6;
+        private System.Windows.Forms.TabPage changku;
+        private System.Windows.Forms.Button button27;
+        private System.Windows.Forms.Button button26;
+        private System.Windows.Forms.Button button25;
+        public System.Windows.Forms.PictureBox pictureBoxck40;
+        public System.Windows.Forms.PictureBox pictureBoxck39;
+        public System.Windows.Forms.PictureBox pictureBoxck38;
+        public System.Windows.Forms.PictureBox pictureBoxck37;
+        public System.Windows.Forms.PictureBox pictureBoxck36;
+        public System.Windows.Forms.PictureBox pictureBoxck35;
+        public System.Windows.Forms.PictureBox pictureBoxck34;
+        public System.Windows.Forms.PictureBox pictureBoxck33;
+        public System.Windows.Forms.PictureBox pictureBoxck32;
+        public System.Windows.Forms.PictureBox pictureBoxck31;
+        public System.Windows.Forms.Button buttonck40;
+        public System.Windows.Forms.Button buttonck39;
+        public System.Windows.Forms.Button buttonck38;
+        public System.Windows.Forms.Button buttonck36;
+        public System.Windows.Forms.Button buttonck35;
+        public System.Windows.Forms.Button buttonck34;
+        public System.Windows.Forms.Button buttonck33;
+        public System.Windows.Forms.Button buttonck32;
+        public System.Windows.Forms.Button buttonck31;
+        public System.Windows.Forms.Button buttonck37;
+
+    }
+}

@@ -1,0 +1,39 @@
+﻿<Project Sdk="Microsoft.NET.Sdk">
+
+  <PropertyGroup>
+    <TargetFramework>netstandard2.0</TargetFramework>
+  </PropertyGroup>
+
+  <PropertyGroup Condition="'$(Configuration)|$(Platform)'=='Debug|AnyCPU'">
+    <DocumentationFile>HNCAPI_INTERFACE.xml</DocumentationFile>
+    <NoWarn>1701;1702;1591;0618;</NoWarn>
+  </PropertyGroup>
+
+  <PropertyGroup Condition="'$(Configuration)|$(Platform)'=='Release|AnyCPU'">
+    <DocumentationFile>HNCAPI_INTERFACE.xml</DocumentationFile>
+  </PropertyGroup>
+
+  <ItemGroup>
+    <Compile Remove="lib\**" />
+    <EmbeddedResource Remove="lib\**" />
+    <None Remove="lib\**" />
+  </ItemGroup>
+
+  <ItemGroup>
+    <PackageReference Include="Newtonsoft.Json" Version="12.0.3" />
+    <PackageReference Include="System.Text.Encoding.CodePages" Version="4.7.0" />
+  </ItemGroup>
+
+  <ItemGroup>
+    <Reference Include="ftp">
+      <HintPath>bin\Debug\netstandard2.0\ftp.dll</HintPath>
+    </Reference>
+    <Reference Include="HncNetDllForCSharp">
+      <HintPath>bin\Debug\netstandard2.0\HncNetDllForCSharp.dll</HintPath>
+    </Reference>
+    <Reference Include="Thrift">
+      <HintPath>bin\Debug\netstandard2.0\Thrift.dll</HintPath>
+    </Reference>
+  </ItemGroup>
+
+</Project>
