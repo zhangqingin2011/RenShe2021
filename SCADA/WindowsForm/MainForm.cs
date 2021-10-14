@@ -7,21 +7,9 @@ using System.Linq;
 using System.Text;
 using System.Windows.Forms;
 using System.Reflection;
-using System.Xml;
-using System.Runtime;
-using System.Runtime.Remoting;
-using System.Runtime.Remoting.Channels;
-using System.Runtime.Remoting.Channels.Tcp;
-using System.Runtime.Remoting.Lifetime;
-using System.Windows;
 using ScadaHncData;
-using HNCAPI;
 using System.Management;//需要在项目中添加System.Management引用
-using System.Management.Instrumentation;
-using HNC_MacDataService;
 using System.Threading;
-using System.Globalization;
-using System.Resources;
 using System.Collections;
 using System.Security.Cryptography;
 using System.IO;
@@ -31,7 +19,7 @@ using HNC.MOHRSS.Common;
 using Hsc3.Comm;
 using Hsc3.Proxy;
 using HNC.API;
-using HNCAPI_INTERFACE;
+using System.Text.RegularExpressions;
 
 namespace SCADA
 {
@@ -189,32 +177,76 @@ namespace SCADA
         /// 取得设备硬盘的卷标号
         /// </summary>
         /// <returns></returns>
+        //private string GetDiskVolumeSerialNumber()
+        //{
+        //    ManagementClass mc = new ManagementClass("Win32_PhysicalMedia");
+        //    ManagementObjectCollection moc = mc.GetInstances();
+        //    string strID = null;
+        //    foreach (ManagementObject mo in moc)
+        //    {
+        //        try
+        //        {
+        //            strID = mo.Properties["SerialNumber"].Value.ToString();
+        //        }
+        //        catch (Exception ex)
+        //        {
+        //        }
+        //        // break;
+        //    }
+        //    if (strID == null)
+        //    {
+        //        return "00000000";
+        //    }
+        //    strID = strID.Replace("_", "");
+        //    int length = strID.Length;
+        //    if (length > 10)
+        //    {
+        //        strID = strID.Substring(length - 10, 9);
+        //        return strID;
+        //    }
+        //    else
+        //    {
+        //        strID = strID + "00000000";
+        //        strID = strID.Substring(0, 8);
+        //        return strID;
+        //    }
+        //}
         private string GetDiskVolumeSerialNumber()
         {
             ManagementClass mc = new ManagementClass("Win32_PhysicalMedia");
             ManagementObjectCollection moc = mc.GetInstances();
-            string strID = null;
+            Dictionary<string, string> dict = new Dictionary<string, string>();
             foreach (ManagementObject mo in moc)
             {
-                try
-                {
-                    strID = mo.Properties["SerialNumber"].Value.ToString();
-                }
-                catch (Exception ex)
-                {
-                }
-                // break;
+                string tag = mo.Properties["Tag"].Value.ToString().ToLower().Trim();
+                string hdId = (string)mo.Properties["SerialNumber"].Value ?? string.Empty;
+                hdId = hdId.Trim();
+                dict.Add(tag, hdId);
             }
-            if (strID == null)
+
+             mc= new ManagementClass("Win32_OperatingSystem");
+            moc = mc.GetInstances();
+            string currentSysRunDisk = string.Empty;
+            foreach (ManagementObject mo in moc)
             {
-                return "00000000";
+                currentSysRunDisk = Regex.Match(mo.Properties["Name"].Value.ToString().ToLower(), @"harddisk\d+").Value;
+            }
+            var results = dict.Where(x => Regex.IsMatch(x.Key, @"physicaldrive" + Regex.Match(currentSysRunDisk, @"\d+$").Value));
+           string  strID = "";
+            if (results.Any())
+            {
+                strID= results.ElementAt(0).Value;
+            }
+            else
+            {
+                strID = "00000000";
             }
             strID = strID.Replace("_", "");
             int length = strID.Length;
             if (length > 10)
             {
                 strID = strID.Substring(length - 10, 9);
-                return strID;
+                return strID;//844AF4D01
             }
             else
             {
@@ -559,6 +591,7 @@ namespace SCADA
             AddForm();
 
 
+            TaskDataForm.ctrlTaskData = new UserControlTaskData();
             // hisoutput = int.Parse(iniapi.loaddata());
 
             //------------------------------------Modified by zb 20151111--------------------------------start
@@ -705,15 +738,15 @@ namespace SCADA
                 }
                 catch (Exception ex)
                 {
-                    if (language == "English")
-                    {
-                        MessageBox.Show("SQL operate error!");
-                    }
-                    else
-                    {
+                    //if (language == "English")
+                    //{
+                    //    MessageBox.Show("SQL operate error!");
+                    //}
+                    //else
+                    //{
 
-                        MessageBox.Show("数据库操作错误!");
-                    }
+                    //    MessageBox.Show("数据库操作错误!");
+                    //}
                 }
             }
         }
@@ -2465,53 +2498,27 @@ namespace SCADA
                 if (temp1.IsConnected())
                 {
                     SEquipmentlist[0].IsConnect = true;
-                    if (temp1.cnctype == HNC.API.CNCType.CNC)
-                    {
-                        labelcnc.Text = "在线";
-                    }
-                    else if (temp1.cnctype == CNCType.Lathe)
-                    {
-                        labellathe.Text = "在线";
-                    }
+                    labellathe.Text = "在线";
+                  
                 }
                 else
                 {
                     SEquipmentlist[0].IsConnect = false;
 
-                    if (temp1.cnctype == CNCType.CNC)
-                    {
-                        labelcnc.Text = "离线";
-                    }
-                    else if (temp1.cnctype == CNCType.Lathe)
-                    {
                         labellathe.Text = "离线";
-                    }
+                    
                 }
                 if (temp2.IsConnected())
                 {
-                    SEquipmentlist[1].IsConnect = false;
-                    if (temp2.cnctype == CNCType.CNC)
-                    {
-                        labelcnc.Text = "在线";
-                    }
-                    else if (temp2.cnctype == CNCType.Lathe)
-                    {
-                        labellathe.Text = "在线";
-                    }
-
+                    SEquipmentlist[1].IsConnect = true;
+                     labelcnc.Text = "在线";
+                   
                 }
                 else
                 {
                     SEquipmentlist[1].IsConnect = false;
-
-                    if (temp2.cnctype == CNCType.CNC)
-                    {
-                        labelcnc.Text = "离线";
-                    }
-                    else if (temp2.cnctype == CNCType.Lathe)
-                    {
-                        labellathe.Text = "离线";
-                    }
+                    labelcnc.Text = "离线";
+                    
                 }
 
             }
@@ -2553,7 +2560,7 @@ namespace SCADA
             // robotconnect = MainForm.PingTestCNC("192.168.8.103", 300);//
             if (cmApi != null)
             {
-                //202108robotconnect = cmApi.isConnected();
+                robotconnect = cmApi.isConnected();
             }
             else
             {
@@ -3501,7 +3508,7 @@ namespace SCADA
                 }
             }
         }
-        private static bool connectrobot = false;
+        private static bool connectrobot = true;//允许重新连接机器人
         private void UpdataRobotData()
         {
             bool robotconnect = PingTestCNC(MainForm.ROBORTAddress, 300);//
@@ -3620,10 +3627,10 @@ namespace SCADA
         }
         private void UpdataRobotData(bool t = true)
         {
-            if (!connectrobot)
+            if (connectrobot)
             {
-                var robotconnect = cmApi.connect(MainForm.ROBORTAddress, 23234);//
-                if (robotconnect != 0)
+                var conn = cmApi.connect(MainForm.ROBORTAddress, 23234);//
+                if (conn != 0)
                 {
                     SCADA.LogData.EventHandlerSendParm SendParm = new SCADA.LogData.EventHandlerSendParm();
                     SendParm.Node1NameIndex = (int)SCADA.LogData.Node1Name.Equipment_ROBOT;
@@ -3635,8 +3642,9 @@ namespace SCADA
 
                     return;
                 }
-                else
+                if(conn == 0)
                 {
+                    connectrobot = false;
                     SCADA.LogData.EventHandlerSendParm SendParm = new SCADA.LogData.EventHandlerSendParm();
                     SendParm.Node1NameIndex = (int)SCADA.LogData.Node1Name.Equipment_ROBOT;
                     SendParm.LevelIndex = (int)SCADA.LogData.Node2Level.MESSAGE;
@@ -3645,9 +3653,10 @@ namespace SCADA
                     SendParm.EventData = MainForm.ROBORTAddress + "：网络连接失败";
                     SCADA.MainForm.m_Log.AddLogMsgHandler.BeginInvoke(this, SendParm, null, null);
 
-                    return;
+                   // return;
                 }
             }
+ 
 
             var curJointPos6 = new List<double>();
             var pos1 = 0.000;
@@ -3656,28 +3665,41 @@ namespace SCADA
             var pos4 = 0.000;
             var pos5 = 0.000;
             var pos6 = 0.000;
-            int pos7 = 0;
+            var pos7 = 0.000;
             if (!cmApi.isConnected())
             {
                 cmApi.disconnect();
-                connectrobot = false;
+                connectrobot = true;//
+                robotconnect = false;
+                return;
 
             }
             else
             {
-                proMot.getJntData(6, ref curJointPos6);
-                pos1 = curJointPos6[0];
-                pos2 = curJointPos6[1];
-                pos3 = curJointPos6[2];
-                pos4 = curJointPos6[3];
-                pos5 = curJointPos6[4];
-                pos6 = curJointPos6[5];
-                pos7 = ModbusTcp.DataMoubus[(int)SCADA.ModbusTcp.DataConfigArr.Mesans_Joint7_coor];
-                if (pos7 > 16000)
+                robotconnect = true;
+                ulong ret =  proMot.getJntData(0, ref curJointPos6);
+                if(ret == 0 && curJointPos6.Count >= 7)
                 {
-                    pos7 = (~pos7) & 0xffff;
-                    pos7 = 0 - (pos7 + 1);
+                    pos1 = curJointPos6[0];
+                    pos2 = curJointPos6[1];
+                    pos3 = curJointPos6[2];
+                    pos4 = curJointPos6[3];
+                    pos5 = curJointPos6[4];
+                    pos6 = curJointPos6[5];
+                    pos7 = curJointPos6[6]; 
+                   
                 }
+                else
+                {
+                    pos1 = 0.00;
+                    pos2 = 0.00;
+                    pos3 = 0.00;
+                    pos4 = 0.00;
+                    pos5 = 0.00;
+                    pos6 = 0.00;
+                    pos7 = 0.00;
+                }
+              
 
 
             }

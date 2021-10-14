@@ -29,6 +29,12 @@
         private void InitializeComponent()
         {
             this.tabControl1 = new System.Windows.Forms.TabControl();
+            this.tabButtonPDM = new System.Windows.Forms.TabPage();
+            this.panel1 = new System.Windows.Forms.Panel();
+            this.button2 = new System.Windows.Forms.Button();
+            this.tabButtonCAPP = new System.Windows.Forms.TabPage();
+            this.panel2 = new System.Windows.Forms.Panel();
+            this.button4 = new System.Windows.Forms.Button();
             this.tabEBOM = new System.Windows.Forms.TabPage();
             this.tableLayoutPanel1 = new System.Windows.Forms.TableLayoutPanel();
             this.tableLayoutPanel4 = new System.Windows.Forms.TableLayoutPanel();
@@ -36,6 +42,8 @@
             this.label3 = new System.Windows.Forms.Label();
             this.buttongetebom = new System.Windows.Forms.Button();
             this.groupBox1 = new System.Windows.Forms.GroupBox();
+            this.label10 = new System.Windows.Forms.Label();
+            this.textBoxshuliang = new System.Windows.Forms.TextBox();
             this.label1 = new System.Windows.Forms.Label();
             this.textBoxcaizhi = new System.Windows.Forms.TextBox();
             this.labelcaizhi = new System.Windows.Forms.Label();
@@ -60,8 +68,8 @@
             this.tableLayoutPanel6 = new System.Windows.Forms.TableLayoutPanel();
             this.tableLayoutPanel7 = new System.Windows.Forms.TableLayoutPanel();
             this.treeView2 = new System.Windows.Forms.TreeView();
-            this.button1 = new System.Windows.Forms.Button();
             this.label2 = new System.Windows.Forms.Label();
+            this.button1 = new System.Windows.Forms.Button();
             this.groupBox2 = new System.Windows.Forms.GroupBox();
             this.label19 = new System.Windows.Forms.Label();
             this.textBoxpcailiao = new System.Windows.Forms.TextBox();
@@ -150,9 +158,75 @@
             this.textBox34 = new System.Windows.Forms.TextBox();
             this.textBox33 = new System.Windows.Forms.TextBox();
             this.textBoxcl = new System.Windows.Forms.TextBox();
-            this.textBoxshuliang = new System.Windows.Forms.TextBox();
-            this.label10 = new System.Windows.Forms.Label();
+            this.tabPLMEBOM = new System.Windows.Forms.TabPage();
+            this.tableLayoutPanel2 = new System.Windows.Forms.TableLayoutPanel();
+            this.tableLayoutPanel3 = new System.Windows.Forms.TableLayoutPanel();
+            this.treeView3 = new System.Windows.Forms.TreeView();
+            this.label11 = new System.Windows.Forms.Label();
+            this.tableLayoutPanel5 = new System.Windows.Forms.TableLayoutPanel();
+            this.buttonebom = new System.Windows.Forms.Button();
+            this.comboBoxEBOM = new System.Windows.Forms.ComboBox();
+            this.groupBox4 = new System.Windows.Forms.GroupBox();
+            this.label12 = new System.Windows.Forms.Label();
+            this.textBoxbeizhu1 = new System.Windows.Forms.TextBox();
+            this.label16 = new System.Windows.Forms.Label();
+            this.textBoxbanben1 = new System.Windows.Forms.TextBox();
+            this.label18 = new System.Windows.Forms.Label();
+            this.label25 = new System.Windows.Forms.Label();
+            this.textBoxshuliang1 = new System.Windows.Forms.TextBox();
+            this.label26 = new System.Windows.Forms.Label();
+            this.label27 = new System.Windows.Forms.Label();
+            this.label28 = new System.Windows.Forms.Label();
+            this.label29 = new System.Windows.Forms.Label();
+            this.textBoxzhongliang1 = new System.Windows.Forms.TextBox();
+            this.label30 = new System.Windows.Forms.Label();
+            this.labelshengmingzhuangtai1 = new System.Windows.Forms.Label();
+            this.textBoxcailiao1 = new System.Windows.Forms.TextBox();
+            this.textBoxzerenren1 = new System.Windows.Forms.TextBox();
+            this.label32 = new System.Windows.Forms.Label();
+            this.textBoxdanwei1 = new System.Windows.Forms.TextBox();
+            this.textBoxlingjianleixing1 = new System.Windows.Forms.TextBox();
+            this.textBoxzhongwenmingcheng1 = new System.Windows.Forms.TextBox();
+            this.textBoxshengmingzhungtai1 = new System.Windows.Forms.TextBox();
+            this.textBoxtuhao1 = new System.Windows.Forms.TextBox();
+            this.tabPLMPBOM = new System.Windows.Forms.TabPage();
+            this.tableLayoutPanel8 = new System.Windows.Forms.TableLayoutPanel();
+            this.tableLayoutPanel21 = new System.Windows.Forms.TableLayoutPanel();
+            this.treeView4 = new System.Windows.Forms.TreeView();
+            this.label31 = new System.Windows.Forms.Label();
+            this.tableLayoutPanel22 = new System.Windows.Forms.TableLayoutPanel();
+            this.buttonGetPBOM = new System.Windows.Forms.Button();
+            this.comboBoxPBOM = new System.Windows.Forms.ComboBox();
+            this.groupBox5 = new System.Windows.Forms.GroupBox();
+            this.label44 = new System.Windows.Forms.Label();
+            this.textBoxwuliaozu = new System.Windows.Forms.TextBox();
+            this.label33 = new System.Windows.Forms.Label();
+            this.textBoxbeizhu2 = new System.Windows.Forms.TextBox();
+            this.label34 = new System.Windows.Forms.Label();
+            this.textBoxbanben2 = new System.Windows.Forms.TextBox();
+            this.label35 = new System.Windows.Forms.Label();
+            this.label36 = new System.Windows.Forms.Label();
+            this.textBoxshuliang2 = new System.Windows.Forms.TextBox();
+            this.label37 = new System.Windows.Forms.Label();
+            this.label38 = new System.Windows.Forms.Label();
+            this.label39 = new System.Windows.Forms.Label();
+            this.label40 = new System.Windows.Forms.Label();
+            this.textBoxzhongliang2 = new System.Windows.Forms.TextBox();
+            this.label41 = new System.Windows.Forms.Label();
+            this.label42 = new System.Windows.Forms.Label();
+            this.textBoxcailiao2 = new System.Windows.Forms.TextBox();
+            this.textBoxzerenren2 = new System.Windows.Forms.TextBox();
+            this.label43 = new System.Windows.Forms.Label();
+            this.textBoxdanwei2 = new System.Windows.Forms.TextBox();
+            this.textBoxlingjianleixing2 = new System.Windows.Forms.TextBox();
+            this.textBoxzhongwenmingcheng2 = new System.Windows.Forms.TextBox();
+            this.textBoxshengmingzhuangtai2 = new System.Windows.Forms.TextBox();
+            this.textBoxtuhao2 = new System.Windows.Forms.TextBox();
             this.tabControl1.SuspendLayout();
+            this.tabButtonPDM.SuspendLayout();
+            this.panel1.SuspendLayout();
+            this.tabButtonCAPP.SuspendLayout();
+            this.panel2.SuspendLayout();
             this.tabEBOM.SuspendLayout();
             this.tableLayoutPanel1.SuspendLayout();
             this.tableLayoutPanel4.SuspendLayout();
@@ -176,13 +250,27 @@
             this.tableLayoutPanel19.SuspendLayout();
             this.tableLayoutPanel20.SuspendLayout();
             this.tableLayoutPanel11.SuspendLayout();
+            this.tabPLMEBOM.SuspendLayout();
+            this.tableLayoutPanel2.SuspendLayout();
+            this.tableLayoutPanel3.SuspendLayout();
+            this.tableLayoutPanel5.SuspendLayout();
+            this.groupBox4.SuspendLayout();
+            this.tabPLMPBOM.SuspendLayout();
+            this.tableLayoutPanel8.SuspendLayout();
+            this.tableLayoutPanel21.SuspendLayout();
+            this.tableLayoutPanel22.SuspendLayout();
+            this.groupBox5.SuspendLayout();
             this.SuspendLayout();
             // 
             // tabControl1
             // 
+            this.tabControl1.Controls.Add(this.tabButtonPDM);
+            this.tabControl1.Controls.Add(this.tabButtonCAPP);
             this.tabControl1.Controls.Add(this.tabEBOM);
             this.tabControl1.Controls.Add(this.tabPBOM);
             this.tabControl1.Controls.Add(this.tabCard);
+            this.tabControl1.Controls.Add(this.tabPLMEBOM);
+            this.tabControl1.Controls.Add(this.tabPLMPBOM);
             this.tabControl1.Dock = System.Windows.Forms.DockStyle.Fill;
             this.tabControl1.DrawMode = System.Windows.Forms.TabDrawMode.OwnerDrawFixed;
             this.tabControl1.Font = new System.Drawing.Font("微软雅黑", 12F);
@@ -196,6 +284,71 @@
             this.tabControl1.TabIndex = 0;
             this.tabControl1.DrawItem += new System.Windows.Forms.DrawItemEventHandler(this.tabControl1_DrawItem);
             this.tabControl1.SelectedIndexChanged += new System.EventHandler(this.tabControl1_SelectedIndexChanged);
+            // 
+            // tabButtonPDM
+            // 
+            this.tabButtonPDM.Controls.Add(this.panel1);
+            this.tabButtonPDM.Location = new System.Drawing.Point(4, 44);
+            this.tabButtonPDM.Name = "tabButtonPDM";
+            this.tabButtonPDM.Size = new System.Drawing.Size(1146, 694);
+            this.tabButtonPDM.TabIndex = 12;
+            this.tabButtonPDM.Text = "BOM";
+            this.tabButtonPDM.UseVisualStyleBackColor = true;
+            // 
+            // panel1
+            // 
+            this.panel1.Controls.Add(this.button2);
+            this.panel1.Dock = System.Windows.Forms.DockStyle.Fill;
+            this.panel1.Location = new System.Drawing.Point(0, 0);
+            this.panel1.Name = "panel1";
+            this.panel1.Size = new System.Drawing.Size(1146, 694);
+            this.panel1.TabIndex = 1;
+            // 
+            // button2
+            // 
+            this.button2.BackColor = System.Drawing.Color.SpringGreen;
+            this.button2.FlatAppearance.BorderSize = 0;
+            this.button2.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
+            this.button2.Location = new System.Drawing.Point(548, 333);
+            this.button2.Name = "button2";
+            this.button2.Size = new System.Drawing.Size(155, 70);
+            this.button2.TabIndex = 25;
+            this.button2.Text = "开启BOM";
+            this.button2.UseVisualStyleBackColor = false;
+            this.button2.Click += new System.EventHandler(this.button2_Click);
+            // 
+            // tabButtonCAPP
+            // 
+            this.tabButtonCAPP.Controls.Add(this.panel2);
+            this.tabButtonCAPP.Location = new System.Drawing.Point(4, 44);
+            this.tabButtonCAPP.Name = "tabButtonCAPP";
+            this.tabButtonCAPP.Size = new System.Drawing.Size(1146, 694);
+            this.tabButtonCAPP.TabIndex = 13;
+            this.tabButtonCAPP.Text = "工艺卡";
+            this.tabButtonCAPP.UseVisualStyleBackColor = true;
+            // 
+            // panel2
+            // 
+            this.panel2.Controls.Add(this.button4);
+            this.panel2.Dock = System.Windows.Forms.DockStyle.Fill;
+            this.panel2.Location = new System.Drawing.Point(0, 0);
+            this.panel2.Name = "panel2";
+            this.panel2.Size = new System.Drawing.Size(1146, 694);
+            this.panel2.TabIndex = 29;
+            // 
+            // button4
+            // 
+            this.button4.Anchor = System.Windows.Forms.AnchorStyles.None;
+            this.button4.BackColor = System.Drawing.Color.SpringGreen;
+            this.button4.FlatAppearance.BorderSize = 0;
+            this.button4.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
+            this.button4.Location = new System.Drawing.Point(509, 320);
+            this.button4.Name = "button4";
+            this.button4.Size = new System.Drawing.Size(155, 70);
+            this.button4.TabIndex = 27;
+            this.button4.Text = "打开工艺卡";
+            this.button4.UseVisualStyleBackColor = false;
+            this.button4.Click += new System.EventHandler(this.button4_Click_1);
             // 
             // tabEBOM
             // 
@@ -270,7 +423,7 @@
             this.buttongetebom.Location = new System.Drawing.Point(107, 603);
             this.buttongetebom.Margin = new System.Windows.Forms.Padding(4);
             this.buttongetebom.Name = "buttongetebom";
-            this.buttongetebom.Size = new System.Drawing.Size(122, 37);
+            this.buttongetebom.Size = new System.Drawing.Size(123, 37);
             this.buttongetebom.TabIndex = 2;
             this.buttongetebom.Text = "获取EBOM";
             this.buttongetebom.UseVisualStyleBackColor = false;
@@ -310,6 +463,25 @@
             this.groupBox1.TabStop = false;
             this.groupBox1.Text = "EBOM属性";
             this.groupBox1.SizeChanged += new System.EventHandler(this.GroupBox1_SizeChanged);
+            // 
+            // label10
+            // 
+            this.label10.AutoSize = true;
+            this.label10.Location = new System.Drawing.Point(41, 553);
+            this.label10.Margin = new System.Windows.Forms.Padding(4, 0, 4, 0);
+            this.label10.Name = "label10";
+            this.label10.Size = new System.Drawing.Size(120, 27);
+            this.label10.TabIndex = 36;
+            this.label10.Text = "        数量：";
+            // 
+            // textBoxshuliang
+            // 
+            this.textBoxshuliang.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(224)))), ((int)(((byte)(224)))), ((int)(((byte)(224)))));
+            this.textBoxshuliang.Location = new System.Drawing.Point(180, 550);
+            this.textBoxshuliang.Margin = new System.Windows.Forms.Padding(4);
+            this.textBoxshuliang.Name = "textBoxshuliang";
+            this.textBoxshuliang.Size = new System.Drawing.Size(582, 34);
+            this.textBoxshuliang.TabIndex = 35;
             // 
             // label1
             // 
@@ -525,7 +697,7 @@
             this.tableLayoutPanel6.Name = "tableLayoutPanel6";
             this.tableLayoutPanel6.RowCount = 1;
             this.tableLayoutPanel6.RowStyles.Add(new System.Windows.Forms.RowStyle(System.Windows.Forms.SizeType.Percent, 100F));
-            this.tableLayoutPanel6.RowStyles.Add(new System.Windows.Forms.RowStyle(System.Windows.Forms.SizeType.Absolute, 20F));
+            this.tableLayoutPanel6.RowStyles.Add(new System.Windows.Forms.RowStyle(System.Windows.Forms.SizeType.Absolute, 694F));
             this.tableLayoutPanel6.Size = new System.Drawing.Size(1146, 694);
             this.tableLayoutPanel6.TabIndex = 1;
             // 
@@ -556,6 +728,18 @@
             this.treeView2.TabIndex = 0;
             this.treeView2.AfterSelect += new System.Windows.Forms.TreeViewEventHandler(this.TreeView2_AfterSelect);
             // 
+            // label2
+            // 
+            this.label2.Anchor = System.Windows.Forms.AnchorStyles.Left;
+            this.label2.AutoSize = true;
+            this.label2.Location = new System.Drawing.Point(4, 1);
+            this.label2.Margin = new System.Windows.Forms.Padding(4, 0, 4, 0);
+            this.label2.Name = "label2";
+            this.label2.Size = new System.Drawing.Size(113, 27);
+            this.label2.TabIndex = 1;
+            this.label2.Text = "PBOM树：";
+            this.label2.TextAlign = System.Drawing.ContentAlignment.MiddleRight;
+            // 
             // button1
             // 
             this.button1.Anchor = System.Windows.Forms.AnchorStyles.None;
@@ -571,18 +755,6 @@
             this.button1.Text = "获取PBOM";
             this.button1.UseVisualStyleBackColor = false;
             this.button1.Click += new System.EventHandler(this.Button1_Click_1);
-            // 
-            // label2
-            // 
-            this.label2.Anchor = System.Windows.Forms.AnchorStyles.Left;
-            this.label2.AutoSize = true;
-            this.label2.Location = new System.Drawing.Point(4, 1);
-            this.label2.Margin = new System.Windows.Forms.Padding(4, 0, 4, 0);
-            this.label2.Name = "label2";
-            this.label2.Size = new System.Drawing.Size(113, 27);
-            this.label2.TabIndex = 1;
-            this.label2.Text = "PBOM树：";
-            this.label2.TextAlign = System.Drawing.ContentAlignment.MiddleRight;
             // 
             // groupBox2
             // 
@@ -691,7 +863,6 @@
             this.label21.Size = new System.Drawing.Size(120, 27);
             this.label21.TabIndex = 23;
             this.label21.Text = "        材料：";
-            this.label21.Click += new System.EventHandler(this.label21_Click);
             // 
             // label6
             // 
@@ -928,7 +1099,6 @@
             this.dataGridView1.Size = new System.Drawing.Size(1142, 420);
             this.dataGridView1.TabIndex = 1;
             this.dataGridView1.CellContentClick += new System.Windows.Forms.DataGridViewCellEventHandler(this.DataGridView1_CellContentClick);
-            this.dataGridView1.Paint += new System.Windows.Forms.PaintEventHandler(this.DataGridView1_Paint);
             // 
             // Column1
             // 
@@ -1752,24 +1922,728 @@
             this.textBoxcl.TabIndex = 1;
             this.textBoxcl.TextAlign = System.Windows.Forms.HorizontalAlignment.Center;
             // 
-            // textBoxshuliang
+            // tabPLMEBOM
             // 
-            this.textBoxshuliang.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(224)))), ((int)(((byte)(224)))), ((int)(((byte)(224)))));
-            this.textBoxshuliang.Location = new System.Drawing.Point(180, 550);
-            this.textBoxshuliang.Margin = new System.Windows.Forms.Padding(4);
-            this.textBoxshuliang.Name = "textBoxshuliang";
-            this.textBoxshuliang.Size = new System.Drawing.Size(582, 34);
-            this.textBoxshuliang.TabIndex = 35;
+            this.tabPLMEBOM.Controls.Add(this.tableLayoutPanel2);
+            this.tabPLMEBOM.Location = new System.Drawing.Point(4, 44);
+            this.tabPLMEBOM.Name = "tabPLMEBOM";
+            this.tabPLMEBOM.Size = new System.Drawing.Size(1146, 694);
+            this.tabPLMEBOM.TabIndex = 10;
+            this.tabPLMEBOM.Text = "EBOM";
+            this.tabPLMEBOM.UseVisualStyleBackColor = true;
             // 
-            // label10
+            // tableLayoutPanel2
             // 
-            this.label10.AutoSize = true;
-            this.label10.Location = new System.Drawing.Point(41, 553);
-            this.label10.Margin = new System.Windows.Forms.Padding(4, 0, 4, 0);
-            this.label10.Name = "label10";
-            this.label10.Size = new System.Drawing.Size(120, 27);
-            this.label10.TabIndex = 36;
-            this.label10.Text = "        数量：";
+            this.tableLayoutPanel2.ColumnCount = 2;
+            this.tableLayoutPanel2.ColumnStyles.Add(new System.Windows.Forms.ColumnStyle(System.Windows.Forms.SizeType.Percent, 30F));
+            this.tableLayoutPanel2.ColumnStyles.Add(new System.Windows.Forms.ColumnStyle(System.Windows.Forms.SizeType.Percent, 70F));
+            this.tableLayoutPanel2.Controls.Add(this.tableLayoutPanel3, 0, 0);
+            this.tableLayoutPanel2.Controls.Add(this.groupBox4, 1, 0);
+            this.tableLayoutPanel2.Dock = System.Windows.Forms.DockStyle.Fill;
+            this.tableLayoutPanel2.Location = new System.Drawing.Point(0, 0);
+            this.tableLayoutPanel2.Name = "tableLayoutPanel2";
+            this.tableLayoutPanel2.RowCount = 1;
+            this.tableLayoutPanel2.RowStyles.Add(new System.Windows.Forms.RowStyle(System.Windows.Forms.SizeType.Percent, 100F));
+            this.tableLayoutPanel2.Size = new System.Drawing.Size(1146, 694);
+            this.tableLayoutPanel2.TabIndex = 1;
+            // 
+            // tableLayoutPanel3
+            // 
+            this.tableLayoutPanel3.ColumnCount = 1;
+            this.tableLayoutPanel3.ColumnStyles.Add(new System.Windows.Forms.ColumnStyle(System.Windows.Forms.SizeType.Percent, 100F));
+            this.tableLayoutPanel3.Controls.Add(this.treeView3, 0, 1);
+            this.tableLayoutPanel3.Controls.Add(this.label11, 0, 0);
+            this.tableLayoutPanel3.Controls.Add(this.tableLayoutPanel5, 0, 2);
+            this.tableLayoutPanel3.Dock = System.Windows.Forms.DockStyle.Fill;
+            this.tableLayoutPanel3.Location = new System.Drawing.Point(3, 3);
+            this.tableLayoutPanel3.Name = "tableLayoutPanel3";
+            this.tableLayoutPanel3.RowCount = 3;
+            this.tableLayoutPanel3.RowStyles.Add(new System.Windows.Forms.RowStyle(System.Windows.Forms.SizeType.Absolute, 30F));
+            this.tableLayoutPanel3.RowStyles.Add(new System.Windows.Forms.RowStyle(System.Windows.Forms.SizeType.Percent, 80F));
+            this.tableLayoutPanel3.RowStyles.Add(new System.Windows.Forms.RowStyle(System.Windows.Forms.SizeType.Percent, 20F));
+            this.tableLayoutPanel3.Size = new System.Drawing.Size(337, 688);
+            this.tableLayoutPanel3.TabIndex = 0;
+            // 
+            // treeView3
+            // 
+            this.treeView3.Dock = System.Windows.Forms.DockStyle.Fill;
+            this.treeView3.Location = new System.Drawing.Point(3, 33);
+            this.treeView3.Name = "treeView3";
+            this.treeView3.Size = new System.Drawing.Size(331, 520);
+            this.treeView3.TabIndex = 0;
+            this.treeView3.AfterSelect += new System.Windows.Forms.TreeViewEventHandler(this.treeView3_AfterSelect);
+            // 
+            // label11
+            // 
+            this.label11.Anchor = System.Windows.Forms.AnchorStyles.Left;
+            this.label11.AutoSize = true;
+            this.label11.Location = new System.Drawing.Point(4, 1);
+            this.label11.Margin = new System.Windows.Forms.Padding(4, 0, 4, 0);
+            this.label11.Name = "label11";
+            this.label11.Size = new System.Drawing.Size(112, 27);
+            this.label11.TabIndex = 1;
+            this.label11.Text = "EBOM树：";
+            this.label11.TextAlign = System.Drawing.ContentAlignment.MiddleRight;
+            // 
+            // tableLayoutPanel5
+            // 
+            this.tableLayoutPanel5.AutoSizeMode = System.Windows.Forms.AutoSizeMode.GrowAndShrink;
+            this.tableLayoutPanel5.ColumnCount = 1;
+            this.tableLayoutPanel5.ColumnStyles.Add(new System.Windows.Forms.ColumnStyle(System.Windows.Forms.SizeType.Percent, 50F));
+            this.tableLayoutPanel5.ColumnStyles.Add(new System.Windows.Forms.ColumnStyle(System.Windows.Forms.SizeType.Percent, 50F));
+            this.tableLayoutPanel5.Controls.Add(this.buttonebom, 0, 1);
+            this.tableLayoutPanel5.Controls.Add(this.comboBoxEBOM, 0, 0);
+            this.tableLayoutPanel5.Dock = System.Windows.Forms.DockStyle.Fill;
+            this.tableLayoutPanel5.Location = new System.Drawing.Point(3, 559);
+            this.tableLayoutPanel5.Name = "tableLayoutPanel5";
+            this.tableLayoutPanel5.RowCount = 2;
+            this.tableLayoutPanel5.RowStyles.Add(new System.Windows.Forms.RowStyle(System.Windows.Forms.SizeType.Percent, 50F));
+            this.tableLayoutPanel5.RowStyles.Add(new System.Windows.Forms.RowStyle(System.Windows.Forms.SizeType.Percent, 50F));
+            this.tableLayoutPanel5.Size = new System.Drawing.Size(331, 126);
+            this.tableLayoutPanel5.TabIndex = 2;
+            // 
+            // buttonebom
+            // 
+            this.buttonebom.Anchor = System.Windows.Forms.AnchorStyles.None;
+            this.buttonebom.AutoSize = true;
+            this.buttonebom.BackColor = System.Drawing.Color.LightGreen;
+            this.buttonebom.FlatAppearance.BorderSize = 0;
+            this.buttonebom.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
+            this.buttonebom.Location = new System.Drawing.Point(104, 76);
+            this.buttonebom.Margin = new System.Windows.Forms.Padding(4);
+            this.buttonebom.Name = "buttonebom";
+            this.buttonebom.Size = new System.Drawing.Size(122, 37);
+            this.buttonebom.TabIndex = 2;
+            this.buttonebom.Text = "获取EBOM";
+            this.buttonebom.UseVisualStyleBackColor = false;
+            this.buttonebom.Click += new System.EventHandler(this.buttonebom_Click);
+            // 
+            // comboBoxEBOM
+            // 
+            this.comboBoxEBOM.Anchor = System.Windows.Forms.AnchorStyles.None;
+            this.comboBoxEBOM.FormattingEnabled = true;
+            this.comboBoxEBOM.Location = new System.Drawing.Point(50, 20);
+            this.comboBoxEBOM.Name = "comboBoxEBOM";
+            this.comboBoxEBOM.Size = new System.Drawing.Size(231, 35);
+            this.comboBoxEBOM.TabIndex = 3;
+            this.comboBoxEBOM.Click += new System.EventHandler(this.comboBox1_Click);
+            // 
+            // groupBox4
+            // 
+            this.groupBox4.AutoSize = true;
+            this.groupBox4.AutoSizeMode = System.Windows.Forms.AutoSizeMode.GrowAndShrink;
+            this.groupBox4.Controls.Add(this.label12);
+            this.groupBox4.Controls.Add(this.textBoxbeizhu1);
+            this.groupBox4.Controls.Add(this.label16);
+            this.groupBox4.Controls.Add(this.textBoxbanben1);
+            this.groupBox4.Controls.Add(this.label18);
+            this.groupBox4.Controls.Add(this.label25);
+            this.groupBox4.Controls.Add(this.textBoxshuliang1);
+            this.groupBox4.Controls.Add(this.label26);
+            this.groupBox4.Controls.Add(this.label27);
+            this.groupBox4.Controls.Add(this.label28);
+            this.groupBox4.Controls.Add(this.label29);
+            this.groupBox4.Controls.Add(this.textBoxzhongliang1);
+            this.groupBox4.Controls.Add(this.label30);
+            this.groupBox4.Controls.Add(this.labelshengmingzhuangtai1);
+            this.groupBox4.Controls.Add(this.textBoxcailiao1);
+            this.groupBox4.Controls.Add(this.textBoxzerenren1);
+            this.groupBox4.Controls.Add(this.label32);
+            this.groupBox4.Controls.Add(this.textBoxdanwei1);
+            this.groupBox4.Controls.Add(this.textBoxlingjianleixing1);
+            this.groupBox4.Controls.Add(this.textBoxzhongwenmingcheng1);
+            this.groupBox4.Controls.Add(this.textBoxshengmingzhungtai1);
+            this.groupBox4.Controls.Add(this.textBoxtuhao1);
+            this.groupBox4.Dock = System.Windows.Forms.DockStyle.Fill;
+            this.groupBox4.Location = new System.Drawing.Point(346, 3);
+            this.groupBox4.Name = "groupBox4";
+            this.groupBox4.Size = new System.Drawing.Size(797, 688);
+            this.groupBox4.TabIndex = 1;
+            this.groupBox4.TabStop = false;
+            this.groupBox4.Text = "EBOM属性";
+            // 
+            // label12
+            // 
+            this.label12.AutoSize = true;
+            this.label12.Location = new System.Drawing.Point(-4, 453);
+            this.label12.Margin = new System.Windows.Forms.Padding(4, 0, 4, 0);
+            this.label12.Name = "label12";
+            this.label12.Size = new System.Drawing.Size(162, 27);
+            this.label12.TabIndex = 36;
+            this.label12.Text = "               数量：";
+            // 
+            // textBoxbeizhu1
+            // 
+            this.textBoxbeizhu1.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(224)))), ((int)(((byte)(224)))), ((int)(((byte)(224)))));
+            this.textBoxbeizhu1.Location = new System.Drawing.Point(180, 550);
+            this.textBoxbeizhu1.Margin = new System.Windows.Forms.Padding(4);
+            this.textBoxbeizhu1.Name = "textBoxbeizhu1";
+            this.textBoxbeizhu1.Size = new System.Drawing.Size(582, 34);
+            this.textBoxbeizhu1.TabIndex = 35;
+            // 
+            // label16
+            // 
+            this.label16.AutoSize = true;
+            this.label16.Location = new System.Drawing.Point(1, 50);
+            this.label16.Margin = new System.Windows.Forms.Padding(4, 0, 4, 0);
+            this.label16.Name = "label16";
+            this.label16.Size = new System.Drawing.Size(160, 27);
+            this.label16.TabIndex = 3;
+            this.label16.Text = "        零件类型：";
+            this.label16.TextAlign = System.Drawing.ContentAlignment.MiddleRight;
+            // 
+            // textBoxbanben1
+            // 
+            this.textBoxbanben1.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(224)))), ((int)(((byte)(224)))), ((int)(((byte)(224)))));
+            this.textBoxbanben1.Location = new System.Drawing.Point(180, 500);
+            this.textBoxbanben1.Margin = new System.Windows.Forms.Padding(4);
+            this.textBoxbanben1.Name = "textBoxbanben1";
+            this.textBoxbanben1.Size = new System.Drawing.Size(582, 34);
+            this.textBoxbanben1.TabIndex = 34;
+            // 
+            // label18
+            // 
+            this.label18.AutoSize = true;
+            this.label18.Location = new System.Drawing.Point(-2, 153);
+            this.label18.Margin = new System.Windows.Forms.Padding(4, 0, 4, 0);
+            this.label18.Name = "label18";
+            this.label18.Size = new System.Drawing.Size(162, 27);
+            this.label18.TabIndex = 23;
+            this.label18.Text = "               图号：";
+            // 
+            // label25
+            // 
+            this.label25.AutoSize = true;
+            this.label25.Location = new System.Drawing.Point(-2, 403);
+            this.label25.Margin = new System.Windows.Forms.Padding(4, 0, 4, 0);
+            this.label25.Name = "label25";
+            this.label25.Size = new System.Drawing.Size(162, 27);
+            this.label25.TabIndex = 17;
+            this.label25.Text = "               材料：";
+            // 
+            // textBoxshuliang1
+            // 
+            this.textBoxshuliang1.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(224)))), ((int)(((byte)(224)))), ((int)(((byte)(224)))));
+            this.textBoxshuliang1.Location = new System.Drawing.Point(180, 450);
+            this.textBoxshuliang1.Margin = new System.Windows.Forms.Padding(4);
+            this.textBoxshuliang1.Name = "textBoxshuliang1";
+            this.textBoxshuliang1.Size = new System.Drawing.Size(582, 34);
+            this.textBoxshuliang1.TabIndex = 33;
+            // 
+            // label26
+            // 
+            this.label26.AutoSize = true;
+            this.label26.Location = new System.Drawing.Point(-2, 553);
+            this.label26.Margin = new System.Windows.Forms.Padding(4, 0, 4, 0);
+            this.label26.Name = "label26";
+            this.label26.Size = new System.Drawing.Size(162, 27);
+            this.label26.TabIndex = 15;
+            this.label26.Text = "               备注：";
+            // 
+            // label27
+            // 
+            this.label27.AutoSize = true;
+            this.label27.Location = new System.Drawing.Point(1, 353);
+            this.label27.Margin = new System.Windows.Forms.Padding(4, 0, 4, 0);
+            this.label27.Name = "label27";
+            this.label27.Size = new System.Drawing.Size(160, 27);
+            this.label27.TabIndex = 13;
+            this.label27.Text = "        单件重量：";
+            // 
+            // label28
+            // 
+            this.label28.AutoSize = true;
+            this.label28.Location = new System.Drawing.Point(-1, 303);
+            this.label28.Margin = new System.Windows.Forms.Padding(4, 0, 4, 0);
+            this.label28.Name = "label28";
+            this.label28.Size = new System.Drawing.Size(162, 27);
+            this.label28.TabIndex = 11;
+            this.label28.Text = "     零件责任人：";
+            // 
+            // label29
+            // 
+            this.label29.AutoSize = true;
+            this.label29.Location = new System.Drawing.Point(-2, 253);
+            this.label29.Margin = new System.Windows.Forms.Padding(4, 0, 4, 0);
+            this.label29.Name = "label29";
+            this.label29.Size = new System.Drawing.Size(162, 27);
+            this.label29.TabIndex = 10;
+            this.label29.Text = "               单位：";
+            // 
+            // textBoxzhongliang1
+            // 
+            this.textBoxzhongliang1.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(224)))), ((int)(((byte)(224)))), ((int)(((byte)(224)))));
+            this.textBoxzhongliang1.Location = new System.Drawing.Point(180, 350);
+            this.textBoxzhongliang1.Margin = new System.Windows.Forms.Padding(4);
+            this.textBoxzhongliang1.Name = "textBoxzhongliang1";
+            this.textBoxzhongliang1.Size = new System.Drawing.Size(582, 34);
+            this.textBoxzhongliang1.TabIndex = 31;
+            // 
+            // label30
+            // 
+            this.label30.AutoSize = true;
+            this.label30.Location = new System.Drawing.Point(-2, 503);
+            this.label30.Margin = new System.Windows.Forms.Padding(4, 0, 4, 0);
+            this.label30.Name = "label30";
+            this.label30.Size = new System.Drawing.Size(160, 27);
+            this.label30.TabIndex = 9;
+            this.label30.Text = "        版本标识：";
+            // 
+            // labelshengmingzhuangtai1
+            // 
+            this.labelshengmingzhuangtai1.AutoSize = true;
+            this.labelshengmingzhuangtai1.Location = new System.Drawing.Point(-2, 203);
+            this.labelshengmingzhuangtai1.Margin = new System.Windows.Forms.Padding(4, 0, 4, 0);
+            this.labelshengmingzhuangtai1.Name = "labelshengmingzhuangtai1";
+            this.labelshengmingzhuangtai1.Size = new System.Drawing.Size(160, 27);
+            this.labelshengmingzhuangtai1.TabIndex = 8;
+            this.labelshengmingzhuangtai1.Text = "        生命状态：";
+            this.labelshengmingzhuangtai1.TextAlign = System.Drawing.ContentAlignment.MiddleRight;
+            // 
+            // textBoxcailiao1
+            // 
+            this.textBoxcailiao1.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(224)))), ((int)(((byte)(224)))), ((int)(((byte)(224)))));
+            this.textBoxcailiao1.Location = new System.Drawing.Point(180, 400);
+            this.textBoxcailiao1.Margin = new System.Windows.Forms.Padding(4);
+            this.textBoxcailiao1.Name = "textBoxcailiao1";
+            this.textBoxcailiao1.Size = new System.Drawing.Size(582, 34);
+            this.textBoxcailiao1.TabIndex = 32;
+            // 
+            // textBoxzerenren1
+            // 
+            this.textBoxzerenren1.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(224)))), ((int)(((byte)(224)))), ((int)(((byte)(224)))));
+            this.textBoxzerenren1.Location = new System.Drawing.Point(180, 300);
+            this.textBoxzerenren1.Margin = new System.Windows.Forms.Padding(4);
+            this.textBoxzerenren1.Name = "textBoxzerenren1";
+            this.textBoxzerenren1.Size = new System.Drawing.Size(582, 34);
+            this.textBoxzerenren1.TabIndex = 30;
+            // 
+            // label32
+            // 
+            this.label32.AutoSize = true;
+            this.label32.Location = new System.Drawing.Point(1, 100);
+            this.label32.Margin = new System.Windows.Forms.Padding(4, 0, 4, 0);
+            this.label32.Name = "label32";
+            this.label32.Size = new System.Drawing.Size(160, 27);
+            this.label32.TabIndex = 7;
+            this.label32.Text = "        中文名称：";
+            // 
+            // textBoxdanwei1
+            // 
+            this.textBoxdanwei1.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(224)))), ((int)(((byte)(224)))), ((int)(((byte)(224)))));
+            this.textBoxdanwei1.Location = new System.Drawing.Point(180, 250);
+            this.textBoxdanwei1.Margin = new System.Windows.Forms.Padding(4);
+            this.textBoxdanwei1.Name = "textBoxdanwei1";
+            this.textBoxdanwei1.Size = new System.Drawing.Size(582, 34);
+            this.textBoxdanwei1.TabIndex = 29;
+            // 
+            // textBoxlingjianleixing1
+            // 
+            this.textBoxlingjianleixing1.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(224)))), ((int)(((byte)(224)))), ((int)(((byte)(224)))));
+            this.textBoxlingjianleixing1.Location = new System.Drawing.Point(180, 50);
+            this.textBoxlingjianleixing1.Margin = new System.Windows.Forms.Padding(4);
+            this.textBoxlingjianleixing1.Name = "textBoxlingjianleixing1";
+            this.textBoxlingjianleixing1.Size = new System.Drawing.Size(582, 34);
+            this.textBoxlingjianleixing1.TabIndex = 25;
+            // 
+            // textBoxzhongwenmingcheng1
+            // 
+            this.textBoxzhongwenmingcheng1.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(224)))), ((int)(((byte)(224)))), ((int)(((byte)(224)))));
+            this.textBoxzhongwenmingcheng1.Location = new System.Drawing.Point(180, 100);
+            this.textBoxzhongwenmingcheng1.Margin = new System.Windows.Forms.Padding(4);
+            this.textBoxzhongwenmingcheng1.Name = "textBoxzhongwenmingcheng1";
+            this.textBoxzhongwenmingcheng1.Size = new System.Drawing.Size(582, 34);
+            this.textBoxzhongwenmingcheng1.TabIndex = 26;
+            // 
+            // textBoxshengmingzhungtai1
+            // 
+            this.textBoxshengmingzhungtai1.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(224)))), ((int)(((byte)(224)))), ((int)(((byte)(224)))));
+            this.textBoxshengmingzhungtai1.Location = new System.Drawing.Point(180, 200);
+            this.textBoxshengmingzhungtai1.Margin = new System.Windows.Forms.Padding(4);
+            this.textBoxshengmingzhungtai1.Name = "textBoxshengmingzhungtai1";
+            this.textBoxshengmingzhungtai1.Size = new System.Drawing.Size(582, 34);
+            this.textBoxshengmingzhungtai1.TabIndex = 28;
+            // 
+            // textBoxtuhao1
+            // 
+            this.textBoxtuhao1.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(224)))), ((int)(((byte)(224)))), ((int)(((byte)(224)))));
+            this.textBoxtuhao1.Location = new System.Drawing.Point(180, 150);
+            this.textBoxtuhao1.Margin = new System.Windows.Forms.Padding(4);
+            this.textBoxtuhao1.Name = "textBoxtuhao1";
+            this.textBoxtuhao1.Size = new System.Drawing.Size(582, 34);
+            this.textBoxtuhao1.TabIndex = 27;
+            // 
+            // tabPLMPBOM
+            // 
+            this.tabPLMPBOM.Controls.Add(this.tableLayoutPanel8);
+            this.tabPLMPBOM.Location = new System.Drawing.Point(4, 44);
+            this.tabPLMPBOM.Name = "tabPLMPBOM";
+            this.tabPLMPBOM.Size = new System.Drawing.Size(1146, 694);
+            this.tabPLMPBOM.TabIndex = 11;
+            this.tabPLMPBOM.Text = "PBOM";
+            this.tabPLMPBOM.UseVisualStyleBackColor = true;
+            // 
+            // tableLayoutPanel8
+            // 
+            this.tableLayoutPanel8.ColumnCount = 2;
+            this.tableLayoutPanel8.ColumnStyles.Add(new System.Windows.Forms.ColumnStyle(System.Windows.Forms.SizeType.Percent, 30F));
+            this.tableLayoutPanel8.ColumnStyles.Add(new System.Windows.Forms.ColumnStyle(System.Windows.Forms.SizeType.Percent, 70F));
+            this.tableLayoutPanel8.Controls.Add(this.tableLayoutPanel21, 0, 0);
+            this.tableLayoutPanel8.Controls.Add(this.groupBox5, 1, 0);
+            this.tableLayoutPanel8.Dock = System.Windows.Forms.DockStyle.Fill;
+            this.tableLayoutPanel8.Location = new System.Drawing.Point(0, 0);
+            this.tableLayoutPanel8.Name = "tableLayoutPanel8";
+            this.tableLayoutPanel8.RowCount = 1;
+            this.tableLayoutPanel8.RowStyles.Add(new System.Windows.Forms.RowStyle(System.Windows.Forms.SizeType.Percent, 100F));
+            this.tableLayoutPanel8.Size = new System.Drawing.Size(1146, 694);
+            this.tableLayoutPanel8.TabIndex = 2;
+            // 
+            // tableLayoutPanel21
+            // 
+            this.tableLayoutPanel21.ColumnCount = 1;
+            this.tableLayoutPanel21.ColumnStyles.Add(new System.Windows.Forms.ColumnStyle(System.Windows.Forms.SizeType.Percent, 100F));
+            this.tableLayoutPanel21.Controls.Add(this.treeView4, 0, 1);
+            this.tableLayoutPanel21.Controls.Add(this.label31, 0, 0);
+            this.tableLayoutPanel21.Controls.Add(this.tableLayoutPanel22, 0, 2);
+            this.tableLayoutPanel21.Dock = System.Windows.Forms.DockStyle.Fill;
+            this.tableLayoutPanel21.Location = new System.Drawing.Point(3, 3);
+            this.tableLayoutPanel21.Name = "tableLayoutPanel21";
+            this.tableLayoutPanel21.RowCount = 3;
+            this.tableLayoutPanel21.RowStyles.Add(new System.Windows.Forms.RowStyle(System.Windows.Forms.SizeType.Absolute, 30F));
+            this.tableLayoutPanel21.RowStyles.Add(new System.Windows.Forms.RowStyle(System.Windows.Forms.SizeType.Percent, 80F));
+            this.tableLayoutPanel21.RowStyles.Add(new System.Windows.Forms.RowStyle(System.Windows.Forms.SizeType.Percent, 20F));
+            this.tableLayoutPanel21.Size = new System.Drawing.Size(337, 688);
+            this.tableLayoutPanel21.TabIndex = 0;
+            // 
+            // treeView4
+            // 
+            this.treeView4.Dock = System.Windows.Forms.DockStyle.Fill;
+            this.treeView4.Location = new System.Drawing.Point(3, 33);
+            this.treeView4.Name = "treeView4";
+            this.treeView4.Size = new System.Drawing.Size(331, 520);
+            this.treeView4.TabIndex = 0;
+            this.treeView4.AfterSelect += new System.Windows.Forms.TreeViewEventHandler(this.treeView4_AfterSelect);
+            // 
+            // label31
+            // 
+            this.label31.Anchor = System.Windows.Forms.AnchorStyles.Left;
+            this.label31.AutoSize = true;
+            this.label31.Location = new System.Drawing.Point(4, 1);
+            this.label31.Margin = new System.Windows.Forms.Padding(4, 0, 4, 0);
+            this.label31.Name = "label31";
+            this.label31.Size = new System.Drawing.Size(113, 27);
+            this.label31.TabIndex = 1;
+            this.label31.Text = "PBOM树：";
+            this.label31.TextAlign = System.Drawing.ContentAlignment.MiddleRight;
+            // 
+            // tableLayoutPanel22
+            // 
+            this.tableLayoutPanel22.AutoSizeMode = System.Windows.Forms.AutoSizeMode.GrowAndShrink;
+            this.tableLayoutPanel22.ColumnCount = 1;
+            this.tableLayoutPanel22.ColumnStyles.Add(new System.Windows.Forms.ColumnStyle(System.Windows.Forms.SizeType.Percent, 50F));
+            this.tableLayoutPanel22.ColumnStyles.Add(new System.Windows.Forms.ColumnStyle(System.Windows.Forms.SizeType.Percent, 50F));
+            this.tableLayoutPanel22.Controls.Add(this.buttonGetPBOM, 0, 1);
+            this.tableLayoutPanel22.Controls.Add(this.comboBoxPBOM, 0, 0);
+            this.tableLayoutPanel22.Dock = System.Windows.Forms.DockStyle.Fill;
+            this.tableLayoutPanel22.Location = new System.Drawing.Point(3, 559);
+            this.tableLayoutPanel22.Name = "tableLayoutPanel22";
+            this.tableLayoutPanel22.RowCount = 2;
+            this.tableLayoutPanel22.RowStyles.Add(new System.Windows.Forms.RowStyle(System.Windows.Forms.SizeType.Percent, 50F));
+            this.tableLayoutPanel22.RowStyles.Add(new System.Windows.Forms.RowStyle(System.Windows.Forms.SizeType.Percent, 50F));
+            this.tableLayoutPanel22.Size = new System.Drawing.Size(331, 126);
+            this.tableLayoutPanel22.TabIndex = 2;
+            // 
+            // buttonGetPBOM
+            // 
+            this.buttonGetPBOM.Anchor = System.Windows.Forms.AnchorStyles.None;
+            this.buttonGetPBOM.AutoSize = true;
+            this.buttonGetPBOM.BackColor = System.Drawing.Color.LightGreen;
+            this.buttonGetPBOM.FlatAppearance.BorderSize = 0;
+            this.buttonGetPBOM.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
+            this.buttonGetPBOM.Location = new System.Drawing.Point(104, 76);
+            this.buttonGetPBOM.Margin = new System.Windows.Forms.Padding(4);
+            this.buttonGetPBOM.Name = "buttonGetPBOM";
+            this.buttonGetPBOM.Size = new System.Drawing.Size(123, 37);
+            this.buttonGetPBOM.TabIndex = 2;
+            this.buttonGetPBOM.Text = "获取PBOM";
+            this.buttonGetPBOM.UseVisualStyleBackColor = false;
+            this.buttonGetPBOM.Click += new System.EventHandler(this.buttonGetPBOM_Click);
+            // 
+            // comboBoxPBOM
+            // 
+            this.comboBoxPBOM.Anchor = System.Windows.Forms.AnchorStyles.None;
+            this.comboBoxPBOM.FormattingEnabled = true;
+            this.comboBoxPBOM.Location = new System.Drawing.Point(50, 14);
+            this.comboBoxPBOM.Name = "comboBoxPBOM";
+            this.comboBoxPBOM.Size = new System.Drawing.Size(231, 35);
+            this.comboBoxPBOM.TabIndex = 3;
+            this.comboBoxPBOM.Click += new System.EventHandler(this.comboBoxPBOM_Click_1);
+            // 
+            // groupBox5
+            // 
+            this.groupBox5.AutoSize = true;
+            this.groupBox5.AutoSizeMode = System.Windows.Forms.AutoSizeMode.GrowAndShrink;
+            this.groupBox5.Controls.Add(this.label44);
+            this.groupBox5.Controls.Add(this.textBoxwuliaozu);
+            this.groupBox5.Controls.Add(this.label33);
+            this.groupBox5.Controls.Add(this.textBoxbeizhu2);
+            this.groupBox5.Controls.Add(this.label34);
+            this.groupBox5.Controls.Add(this.textBoxbanben2);
+            this.groupBox5.Controls.Add(this.label35);
+            this.groupBox5.Controls.Add(this.label36);
+            this.groupBox5.Controls.Add(this.textBoxshuliang2);
+            this.groupBox5.Controls.Add(this.label37);
+            this.groupBox5.Controls.Add(this.label38);
+            this.groupBox5.Controls.Add(this.label39);
+            this.groupBox5.Controls.Add(this.label40);
+            this.groupBox5.Controls.Add(this.textBoxzhongliang2);
+            this.groupBox5.Controls.Add(this.label41);
+            this.groupBox5.Controls.Add(this.label42);
+            this.groupBox5.Controls.Add(this.textBoxcailiao2);
+            this.groupBox5.Controls.Add(this.textBoxzerenren2);
+            this.groupBox5.Controls.Add(this.label43);
+            this.groupBox5.Controls.Add(this.textBoxdanwei2);
+            this.groupBox5.Controls.Add(this.textBoxlingjianleixing2);
+            this.groupBox5.Controls.Add(this.textBoxzhongwenmingcheng2);
+            this.groupBox5.Controls.Add(this.textBoxshengmingzhuangtai2);
+            this.groupBox5.Controls.Add(this.textBoxtuhao2);
+            this.groupBox5.Dock = System.Windows.Forms.DockStyle.Fill;
+            this.groupBox5.Location = new System.Drawing.Point(346, 3);
+            this.groupBox5.Name = "groupBox5";
+            this.groupBox5.Size = new System.Drawing.Size(797, 688);
+            this.groupBox5.TabIndex = 1;
+            this.groupBox5.TabStop = false;
+            this.groupBox5.Text = "PBOM属性";
+            // 
+            // label44
+            // 
+            this.label44.AutoSize = true;
+            this.label44.Location = new System.Drawing.Point(3, 499);
+            this.label44.Margin = new System.Windows.Forms.Padding(4, 0, 4, 0);
+            this.label44.Name = "label44";
+            this.label44.Size = new System.Drawing.Size(158, 27);
+            this.label44.TabIndex = 38;
+            this.label44.Text = "           物料组：";
+            // 
+            // textBoxwuliaozu
+            // 
+            this.textBoxwuliaozu.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(224)))), ((int)(((byte)(224)))), ((int)(((byte)(224)))));
+            this.textBoxwuliaozu.Location = new System.Drawing.Point(180, 496);
+            this.textBoxwuliaozu.Margin = new System.Windows.Forms.Padding(4);
+            this.textBoxwuliaozu.Name = "textBoxwuliaozu";
+            this.textBoxwuliaozu.Size = new System.Drawing.Size(582, 34);
+            this.textBoxwuliaozu.TabIndex = 37;
+            // 
+            // label33
+            // 
+            this.label33.AutoSize = true;
+            this.label33.Location = new System.Drawing.Point(-1, 453);
+            this.label33.Margin = new System.Windows.Forms.Padding(4, 0, 4, 0);
+            this.label33.Name = "label33";
+            this.label33.Size = new System.Drawing.Size(162, 27);
+            this.label33.TabIndex = 36;
+            this.label33.Text = "               数量：";
+            // 
+            // textBoxbeizhu2
+            // 
+            this.textBoxbeizhu2.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(224)))), ((int)(((byte)(224)))), ((int)(((byte)(224)))));
+            this.textBoxbeizhu2.Location = new System.Drawing.Point(180, 597);
+            this.textBoxbeizhu2.Margin = new System.Windows.Forms.Padding(4);
+            this.textBoxbeizhu2.Name = "textBoxbeizhu2";
+            this.textBoxbeizhu2.Size = new System.Drawing.Size(582, 34);
+            this.textBoxbeizhu2.TabIndex = 35;
+            // 
+            // label34
+            // 
+            this.label34.AutoSize = true;
+            this.label34.Location = new System.Drawing.Point(1, 50);
+            this.label34.Margin = new System.Windows.Forms.Padding(4, 0, 4, 0);
+            this.label34.Name = "label34";
+            this.label34.Size = new System.Drawing.Size(160, 27);
+            this.label34.TabIndex = 3;
+            this.label34.Text = "        零件类型：";
+            this.label34.TextAlign = System.Drawing.ContentAlignment.MiddleRight;
+            // 
+            // textBoxbanben2
+            // 
+            this.textBoxbanben2.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(224)))), ((int)(((byte)(224)))), ((int)(((byte)(224)))));
+            this.textBoxbanben2.Location = new System.Drawing.Point(180, 547);
+            this.textBoxbanben2.Margin = new System.Windows.Forms.Padding(4);
+            this.textBoxbanben2.Name = "textBoxbanben2";
+            this.textBoxbanben2.Size = new System.Drawing.Size(582, 34);
+            this.textBoxbanben2.TabIndex = 34;
+            // 
+            // label35
+            // 
+            this.label35.AutoSize = true;
+            this.label35.Location = new System.Drawing.Point(-1, 153);
+            this.label35.Margin = new System.Windows.Forms.Padding(4, 0, 4, 0);
+            this.label35.Name = "label35";
+            this.label35.Size = new System.Drawing.Size(162, 27);
+            this.label35.TabIndex = 23;
+            this.label35.Text = "               图号：";
+            // 
+            // label36
+            // 
+            this.label36.AutoSize = true;
+            this.label36.Location = new System.Drawing.Point(-1, 403);
+            this.label36.Margin = new System.Windows.Forms.Padding(4, 0, 4, 0);
+            this.label36.Name = "label36";
+            this.label36.Size = new System.Drawing.Size(162, 27);
+            this.label36.TabIndex = 17;
+            this.label36.Text = "               材料：";
+            // 
+            // textBoxshuliang2
+            // 
+            this.textBoxshuliang2.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(224)))), ((int)(((byte)(224)))), ((int)(((byte)(224)))));
+            this.textBoxshuliang2.Location = new System.Drawing.Point(180, 450);
+            this.textBoxshuliang2.Margin = new System.Windows.Forms.Padding(4);
+            this.textBoxshuliang2.Name = "textBoxshuliang2";
+            this.textBoxshuliang2.Size = new System.Drawing.Size(582, 34);
+            this.textBoxshuliang2.TabIndex = 33;
+            // 
+            // label37
+            // 
+            this.label37.AutoSize = true;
+            this.label37.Location = new System.Drawing.Point(-1, 600);
+            this.label37.Margin = new System.Windows.Forms.Padding(4, 0, 4, 0);
+            this.label37.Name = "label37";
+            this.label37.Size = new System.Drawing.Size(162, 27);
+            this.label37.TabIndex = 15;
+            this.label37.Text = "               备注：";
+            // 
+            // label38
+            // 
+            this.label38.AutoSize = true;
+            this.label38.Location = new System.Drawing.Point(1, 350);
+            this.label38.Margin = new System.Windows.Forms.Padding(4, 0, 4, 0);
+            this.label38.Name = "label38";
+            this.label38.Size = new System.Drawing.Size(160, 27);
+            this.label38.TabIndex = 13;
+            this.label38.Text = "        单件重量：";
+            // 
+            // label39
+            // 
+            this.label39.AutoSize = true;
+            this.label39.Location = new System.Drawing.Point(-1, 303);
+            this.label39.Margin = new System.Windows.Forms.Padding(4, 0, 4, 0);
+            this.label39.Name = "label39";
+            this.label39.Size = new System.Drawing.Size(162, 27);
+            this.label39.TabIndex = 11;
+            this.label39.Text = "     零件责任人：";
+            // 
+            // label40
+            // 
+            this.label40.AutoSize = true;
+            this.label40.Location = new System.Drawing.Point(-1, 250);
+            this.label40.Margin = new System.Windows.Forms.Padding(4, 0, 4, 0);
+            this.label40.Name = "label40";
+            this.label40.Size = new System.Drawing.Size(162, 27);
+            this.label40.TabIndex = 10;
+            this.label40.Text = "               单位：";
+            // 
+            // textBoxzhongliang2
+            // 
+            this.textBoxzhongliang2.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(224)))), ((int)(((byte)(224)))), ((int)(((byte)(224)))));
+            this.textBoxzhongliang2.Location = new System.Drawing.Point(180, 350);
+            this.textBoxzhongliang2.Margin = new System.Windows.Forms.Padding(4);
+            this.textBoxzhongliang2.Name = "textBoxzhongliang2";
+            this.textBoxzhongliang2.Size = new System.Drawing.Size(582, 34);
+            this.textBoxzhongliang2.TabIndex = 31;
+            // 
+            // label41
+            // 
+            this.label41.AutoSize = true;
+            this.label41.Location = new System.Drawing.Point(1, 550);
+            this.label41.Margin = new System.Windows.Forms.Padding(4, 0, 4, 0);
+            this.label41.Name = "label41";
+            this.label41.Size = new System.Drawing.Size(160, 27);
+            this.label41.TabIndex = 9;
+            this.label41.Text = "        版本标识：";
+            // 
+            // label42
+            // 
+            this.label42.AutoSize = true;
+            this.label42.Location = new System.Drawing.Point(1, 203);
+            this.label42.Margin = new System.Windows.Forms.Padding(4, 0, 4, 0);
+            this.label42.Name = "label42";
+            this.label42.Size = new System.Drawing.Size(160, 27);
+            this.label42.TabIndex = 8;
+            this.label42.Text = "        生命状态：";
+            this.label42.TextAlign = System.Drawing.ContentAlignment.MiddleRight;
+            // 
+            // textBoxcailiao2
+            // 
+            this.textBoxcailiao2.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(224)))), ((int)(((byte)(224)))), ((int)(((byte)(224)))));
+            this.textBoxcailiao2.Location = new System.Drawing.Point(180, 400);
+            this.textBoxcailiao2.Margin = new System.Windows.Forms.Padding(4);
+            this.textBoxcailiao2.Name = "textBoxcailiao2";
+            this.textBoxcailiao2.Size = new System.Drawing.Size(582, 34);
+            this.textBoxcailiao2.TabIndex = 32;
+            // 
+            // textBoxzerenren2
+            // 
+            this.textBoxzerenren2.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(224)))), ((int)(((byte)(224)))), ((int)(((byte)(224)))));
+            this.textBoxzerenren2.Location = new System.Drawing.Point(180, 300);
+            this.textBoxzerenren2.Margin = new System.Windows.Forms.Padding(4);
+            this.textBoxzerenren2.Name = "textBoxzerenren2";
+            this.textBoxzerenren2.Size = new System.Drawing.Size(582, 34);
+            this.textBoxzerenren2.TabIndex = 30;
+            // 
+            // label43
+            // 
+            this.label43.AutoSize = true;
+            this.label43.Location = new System.Drawing.Point(1, 100);
+            this.label43.Margin = new System.Windows.Forms.Padding(4, 0, 4, 0);
+            this.label43.Name = "label43";
+            this.label43.Size = new System.Drawing.Size(160, 27);
+            this.label43.TabIndex = 7;
+            this.label43.Text = "        中文名称：";
+            // 
+            // textBoxdanwei2
+            // 
+            this.textBoxdanwei2.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(224)))), ((int)(((byte)(224)))), ((int)(((byte)(224)))));
+            this.textBoxdanwei2.Location = new System.Drawing.Point(180, 250);
+            this.textBoxdanwei2.Margin = new System.Windows.Forms.Padding(4);
+            this.textBoxdanwei2.Name = "textBoxdanwei2";
+            this.textBoxdanwei2.Size = new System.Drawing.Size(582, 34);
+            this.textBoxdanwei2.TabIndex = 29;
+            // 
+            // textBoxlingjianleixing2
+            // 
+            this.textBoxlingjianleixing2.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(224)))), ((int)(((byte)(224)))), ((int)(((byte)(224)))));
+            this.textBoxlingjianleixing2.Location = new System.Drawing.Point(180, 50);
+            this.textBoxlingjianleixing2.Margin = new System.Windows.Forms.Padding(4);
+            this.textBoxlingjianleixing2.Name = "textBoxlingjianleixing2";
+            this.textBoxlingjianleixing2.Size = new System.Drawing.Size(582, 34);
+            this.textBoxlingjianleixing2.TabIndex = 25;
+            // 
+            // textBoxzhongwenmingcheng2
+            // 
+            this.textBoxzhongwenmingcheng2.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(224)))), ((int)(((byte)(224)))), ((int)(((byte)(224)))));
+            this.textBoxzhongwenmingcheng2.Location = new System.Drawing.Point(180, 100);
+            this.textBoxzhongwenmingcheng2.Margin = new System.Windows.Forms.Padding(4);
+            this.textBoxzhongwenmingcheng2.Name = "textBoxzhongwenmingcheng2";
+            this.textBoxzhongwenmingcheng2.Size = new System.Drawing.Size(582, 34);
+            this.textBoxzhongwenmingcheng2.TabIndex = 26;
+            // 
+            // textBoxshengmingzhuangtai2
+            // 
+            this.textBoxshengmingzhuangtai2.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(224)))), ((int)(((byte)(224)))), ((int)(((byte)(224)))));
+            this.textBoxshengmingzhuangtai2.Location = new System.Drawing.Point(180, 200);
+            this.textBoxshengmingzhuangtai2.Margin = new System.Windows.Forms.Padding(4);
+            this.textBoxshengmingzhuangtai2.Name = "textBoxshengmingzhuangtai2";
+            this.textBoxshengmingzhuangtai2.Size = new System.Drawing.Size(582, 34);
+            this.textBoxshengmingzhuangtai2.TabIndex = 28;
+            // 
+            // textBoxtuhao2
+            // 
+            this.textBoxtuhao2.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(224)))), ((int)(((byte)(224)))), ((int)(((byte)(224)))));
+            this.textBoxtuhao2.Location = new System.Drawing.Point(180, 150);
+            this.textBoxtuhao2.Margin = new System.Windows.Forms.Padding(4);
+            this.textBoxtuhao2.Name = "textBoxtuhao2";
+            this.textBoxtuhao2.Size = new System.Drawing.Size(582, 34);
+            this.textBoxtuhao2.TabIndex = 27;
             // 
             // BOMForm
             // 
@@ -1784,6 +2658,10 @@
             this.Load += new System.EventHandler(this.BOMForm_Load);
             this.SizeChanged += new System.EventHandler(this.BOMForm_SizeChanged);
             this.tabControl1.ResumeLayout(false);
+            this.tabButtonPDM.ResumeLayout(false);
+            this.panel1.ResumeLayout(false);
+            this.tabButtonCAPP.ResumeLayout(false);
+            this.panel2.ResumeLayout(false);
             this.tabEBOM.ResumeLayout(false);
             this.tableLayoutPanel1.ResumeLayout(false);
             this.tableLayoutPanel1.PerformLayout();
@@ -1825,6 +2703,24 @@
             this.tableLayoutPanel20.PerformLayout();
             this.tableLayoutPanel11.ResumeLayout(false);
             this.tableLayoutPanel11.PerformLayout();
+            this.tabPLMEBOM.ResumeLayout(false);
+            this.tableLayoutPanel2.ResumeLayout(false);
+            this.tableLayoutPanel2.PerformLayout();
+            this.tableLayoutPanel3.ResumeLayout(false);
+            this.tableLayoutPanel3.PerformLayout();
+            this.tableLayoutPanel5.ResumeLayout(false);
+            this.tableLayoutPanel5.PerformLayout();
+            this.groupBox4.ResumeLayout(false);
+            this.groupBox4.PerformLayout();
+            this.tabPLMPBOM.ResumeLayout(false);
+            this.tableLayoutPanel8.ResumeLayout(false);
+            this.tableLayoutPanel8.PerformLayout();
+            this.tableLayoutPanel21.ResumeLayout(false);
+            this.tableLayoutPanel21.PerformLayout();
+            this.tableLayoutPanel22.ResumeLayout(false);
+            this.tableLayoutPanel22.PerformLayout();
+            this.groupBox5.ResumeLayout(false);
+            this.groupBox5.PerformLayout();
             this.ResumeLayout(false);
 
         }
@@ -1955,5 +2851,75 @@
         private System.Windows.Forms.GroupBox groupBox2;
         private System.Windows.Forms.TextBox textBoxshuliang;
         private System.Windows.Forms.Label label10;
+        private System.Windows.Forms.TabPage tabPLMEBOM;
+        private System.Windows.Forms.TableLayoutPanel tableLayoutPanel2;
+        private System.Windows.Forms.TableLayoutPanel tableLayoutPanel3;
+        private System.Windows.Forms.TreeView treeView3;
+        private System.Windows.Forms.Label label11;
+        private System.Windows.Forms.TableLayoutPanel tableLayoutPanel5;
+        private System.Windows.Forms.Button buttonebom;
+        private System.Windows.Forms.ComboBox comboBoxEBOM;
+        private System.Windows.Forms.GroupBox groupBox4;
+        private System.Windows.Forms.Label label12;
+        private System.Windows.Forms.TextBox textBoxbeizhu1;
+        private System.Windows.Forms.Label label16;
+        private System.Windows.Forms.TextBox textBoxbanben1;
+        private System.Windows.Forms.Label label18;
+        private System.Windows.Forms.Label label25;
+        private System.Windows.Forms.TextBox textBoxshuliang1;
+        private System.Windows.Forms.Label label26;
+        private System.Windows.Forms.Label label27;
+        private System.Windows.Forms.Label label28;
+        private System.Windows.Forms.Label label29;
+        private System.Windows.Forms.TextBox textBoxzhongliang1;
+        private System.Windows.Forms.Label label30;
+        private System.Windows.Forms.Label labelshengmingzhuangtai1;
+        private System.Windows.Forms.TextBox textBoxcailiao1;
+        private System.Windows.Forms.TextBox textBoxzerenren1;
+        private System.Windows.Forms.Label label32;
+        private System.Windows.Forms.TextBox textBoxdanwei1;
+        private System.Windows.Forms.TextBox textBoxlingjianleixing1;
+        private System.Windows.Forms.TextBox textBoxzhongwenmingcheng1;
+        private System.Windows.Forms.TextBox textBoxshengmingzhungtai1;
+        private System.Windows.Forms.TextBox textBoxtuhao1;
+        private System.Windows.Forms.TabPage tabPLMPBOM;
+        private System.Windows.Forms.TableLayoutPanel tableLayoutPanel8;
+        private System.Windows.Forms.TableLayoutPanel tableLayoutPanel21;
+        private System.Windows.Forms.TreeView treeView4;
+        private System.Windows.Forms.Label label31;
+        private System.Windows.Forms.TableLayoutPanel tableLayoutPanel22;
+        private System.Windows.Forms.Button buttonGetPBOM;
+        private System.Windows.Forms.ComboBox comboBoxPBOM;
+        private System.Windows.Forms.GroupBox groupBox5;
+        private System.Windows.Forms.Label label33;
+        private System.Windows.Forms.TextBox textBoxbeizhu2;
+        private System.Windows.Forms.Label label34;
+        private System.Windows.Forms.TextBox textBoxbanben2;
+        private System.Windows.Forms.Label label35;
+        private System.Windows.Forms.Label label36;
+        private System.Windows.Forms.TextBox textBoxshuliang2;
+        private System.Windows.Forms.Label label37;
+        private System.Windows.Forms.Label label38;
+        private System.Windows.Forms.Label label39;
+        private System.Windows.Forms.Label label40;
+        private System.Windows.Forms.TextBox textBoxzhongliang2;
+        private System.Windows.Forms.Label label41;
+        private System.Windows.Forms.Label label42;
+        private System.Windows.Forms.TextBox textBoxcailiao2;
+        private System.Windows.Forms.TextBox textBoxzerenren2;
+        private System.Windows.Forms.Label label43;
+        private System.Windows.Forms.TextBox textBoxdanwei2;
+        private System.Windows.Forms.TextBox textBoxlingjianleixing2;
+        private System.Windows.Forms.TextBox textBoxzhongwenmingcheng2;
+        private System.Windows.Forms.TextBox textBoxshengmingzhuangtai2;
+        private System.Windows.Forms.TextBox textBoxtuhao2;
+        private System.Windows.Forms.Label label44;
+        private System.Windows.Forms.TextBox textBoxwuliaozu;
+        private System.Windows.Forms.TabPage tabButtonPDM;
+        private System.Windows.Forms.TabPage tabButtonCAPP;
+        private System.Windows.Forms.Panel panel1;
+        private System.Windows.Forms.Button button2;
+        private System.Windows.Forms.Panel panel2;
+        private System.Windows.Forms.Button button4;
     }
 }

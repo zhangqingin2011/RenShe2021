@@ -631,15 +631,31 @@ namespace SCADA
             //设置刀具参数
             if (renewtoolflag)
             {
-                var ret = MainForm.collectdatav2.GetCNCDataLst[0].SetTool();
-                if (!ret)
+                if(comboBoxcnctool.SelectedIndex == 0)
                 {
-                    MessageBox.Show("补偿失败，请确认网络是否连接！");
+                    var ret = MainForm.collectdatav2.GetCNCDataLst[0].SetTool();
+                    if (!ret)
+                    {
+                        MessageBox.Show("补偿失败，请确认网络是否连接！");
+                    }
+                    else
+                    {
+                        MainForm.renewlathesql = true;
+                    }
                 }
                 else
                 {
-                    MainForm.renewcncsql = true;
+                    var ret = MainForm.collectdatav2.GetCNCDataLst[1].SetTool();
+                    if (!ret)
+                    {
+                        MessageBox.Show("补偿失败，请确认网络是否连接！");
+                    }
+                    else
+                    {
+                        MainForm.renewcncsql = true;
+                    }
                 }
+              
             }
 
 

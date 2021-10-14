@@ -73,6 +73,7 @@ namespace SCADA
                     CollectTool();
                     CollectProgFile();
                     CollectMeter();
+                   // CollectVersion();
                 }
 
 
@@ -193,6 +194,10 @@ namespace SCADA
                             if (Convert.ToDouble(value1) != 0)
                             {
                                 CNC.LoadX = (int)((Convert.ToDouble(value) / Convert.ToDouble(value1)) * 100);
+                                if(CNC.LoadX<0)
+                                {
+                                    CNC.LoadX = (-1) * CNC.LoadX;
+                                }
                             }
 
                         }
@@ -204,6 +209,10 @@ namespace SCADA
                             if (Convert.ToDouble(value1) != 0)
                             {
                                 CNC.LoadY = (int)((Convert.ToDouble(value) / Convert.ToDouble(value1)) * 100);
+                                if (CNC.LoadY < 0)
+                                {
+                                    CNC.LoadY = (-1) * CNC.LoadY;
+                                }
                             }
 
                         }
@@ -215,6 +224,10 @@ namespace SCADA
                             if (Convert.ToDouble(value1) != 0)
                             {
                                 CNC.LoadZ = (int)((Convert.ToDouble(value) / Convert.ToDouble(value1)) * 100);
+                                if (CNC.LoadZ < 0)
+                                {
+                                    CNC.LoadZ = (-1)*CNC.LoadZ;
+                                }
                             }
 
                         }
@@ -226,6 +239,10 @@ namespace SCADA
                             if (Convert.ToDouble(value1) != 0)
                             {
                                 CNC.LoadC = (int)((Convert.ToDouble(value) / Convert.ToDouble(value1)) * 100);
+                                if (CNC.LoadC < 0)
+                                {
+                                    CNC.LoadC = (-1) * CNC.LoadC;
+                                }
                             }
 
                         }
@@ -242,7 +259,22 @@ namespace SCADA
                     {
                         CNC.SpdlRate = Convert.ToDouble(value);
                     }
+                    if (CNC.AxisGetValue(HncAxis.HNC_AXIS_TYPE, out datatype, out value, 1))
+                    {
+                        if (Convert.ToString(value) == "0" || Convert.ToString(value) == "")
+                        {
+                            CNC.cnctype = CNCType.Lathe;
+                        }
+                        else
+                        {
+                            CNC.cnctype = CNCType.CNC;
+                        }
+                    }
+                    if (!CNC.AxisGetValue(HncAxis.HNC_AXIS_TYPE, out datatype, out value, 1))
+                    {
+                        CNC.cnctype = CNCType.Lathe;
 
+                    }
                     //获取进给百分比fspeedrate
 
 
@@ -377,13 +409,26 @@ namespace SCADA
                     {
                         CNC.NCVersion = Convert.ToString(datavalue);
                     }
-                    if (CNC.SystemGetValue(HncSystem.HNC_SYS_MACHINE_TYPE, out datatType, out datavalue))
-                    {
-                        CNC.cnctype = CNCType.CNC;
-                    }
+                  
                     if (CNC.SystemGetValue(HncSystem.HNC_SYS_MACHINE_NUM, out datatType, out datavalue))
                     {
                         CNC.MachineSN = Convert.ToString(datavalue);
+                    }
+                    if(CNC.AxisGetValue(HncAxis.HNC_AXIS_TYPE, out datatType, out datavalue, 1))
+                    {
+                        if(Convert.ToString(datavalue) == "0"|| Convert.ToString(datavalue) == "")
+                        {
+                            CNC.cnctype = CNCType.Lathe;
+                        }
+                        else
+                        {
+                            CNC.cnctype = CNCType.CNC;
+                        }
+                    }
+                    if (!CNC.AxisGetValue(HncAxis.HNC_AXIS_TYPE, out datatType, out datavalue, 1))
+                    {
+                         CNC.cnctype = CNCType.Lathe;
+                     
                     }
                 }
 
@@ -512,8 +557,6 @@ namespace SCADA
                 }
                 for (int i = 0; i < 20; i++)
                 {
-                    v1.v.f = 1.11 + i;
-                    CNC.MacroVarSetValue(50040 + i, v1);
                     CNC.MacroVarGetValue(50040 + i, out MacroVale);
 
                     var temps = MacroVale.v.f;
@@ -580,6 +623,7 @@ namespace SCADA
                 //string name = "OMDI";
                 string ip = CNC.IP + ":10021";
                 // using (var sr = new StreamWriter(CNC.FtpClient.OpenWrite(cncEvent.GCodeUrl)))
+                //var ret = CNC.FtpClient.UploadFile( path, "h/lnc8/prog/");
                 if (CNC.SysCtrlUpLoadFile(remote, path, ip))
                 {
                     return true;

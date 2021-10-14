@@ -2781,7 +2781,7 @@ namespace SCADA
                 }
                 // if (MainForm.cnclist[0].sendFile(gcoderoad, "..prog/" + gcodename, 0, false) == 0)
                 MainForm.cncv2list[0].SetProgPath = gcoderoad;
-                if (MainForm.collectdatav2.GetCNCDataLst[1].SetProgFile())
+                if (MainForm.collectdatav2.GetCNCDataLst[0].SetProgFile())
                 {
                     return 1;
                 }
@@ -2789,14 +2789,7 @@ namespace SCADA
                 {
                     return 0;
                 }
-                //if (MainForm.cnclist[0].sendFile(gcoderoad, "h/lnc8/prog/" + gcodename, 0, false) == 0)
-                //    {
-                //        return 1;
-                //    }
-                //    else
-                //    {
-                //        return 0;
-                //    }
+             
             }
 
 
@@ -3767,6 +3760,7 @@ namespace SCADA
             valuestrarry[2] = cncv2.MeterValue[2].ToString();
             valuestrarry[3] = cncv2.MeterValue[3].ToString();
             valuestrarry[4] = cncv2.MeterValue[4].ToString();
+            valuestrarry[5] = cncv2.MeterValue[5].ToString();
 
 
             for (int ii = 0; ii < 6; ii++)
@@ -3774,10 +3768,7 @@ namespace SCADA
                 string str = valuestrarry[ii];
                 if (str.Length > 0)
                 {
-                    int strStart = str.IndexOf("f\":");
-                    int len = str.IndexOf(",", strStart + 3) - (strStart + 3);
-                    string strTmp = str.Substring(strStart + 3, len);
-                    resvalue[ii] = Convert.ToDouble(strTmp);
+                    resvalue[ii] = Convert.ToDouble(str);
 
                     double[] arrytemp = new double[3];
                     arrytemp[0] = refvalue[ii, 0];
@@ -3806,7 +3797,7 @@ namespace SCADA
                 bIsOK = true;
                 // ModbusTcp.DataMoubus[magchecki] = 0;//检测合格 
                 MainForm.Mag_Check[i - 1] = 0;
-                //202108 MeterlogFileadd(MetetrrecordFilePath);
+                MeterlogFileadd(MetetrrecordFilePath);
                 renewMeterDGV2 = true;
                 //MeterForm.Textmagno = MainForm.cnclist[1].MagNo;
                 MeterForm.Textmagno = MainForm.cncv2list[1].MagNum;
@@ -3817,7 +3808,7 @@ namespace SCADA
                 bIsOK = false;
                 //ModbusTcp.DataMoubus[magchecki] = 1;//检测不合格 
                 MainForm.Mag_Check[i - 1] = 1;
-                //202108  MeterlogFileadd(MetetrrecordFilePath);
+                MeterlogFileadd(MetetrrecordFilePath);
 
                 renewMeterDGV2 = true;
                // MeterForm.Textmagno = MainForm.cnclist[1].MagNo;
@@ -3965,15 +3956,7 @@ namespace SCADA
                     }
                     catch (Exception ex)
                     {
-                        if (language == "English")
-                        {
-                            MessageBox.Show("SQL operate error!");
-                        }
-                        else
-                        {
-
-                            MessageBox.Show("数据库操作错误!");
-                        }
+                    
                     }
                 }
             }
@@ -5846,11 +5829,7 @@ namespace SCADA
             {
                 if (dataGridVieworder.Rows[index2].Cells[2].Value.ToString() == "铣工序" || dataGridVieworder.Rows[index2].Cells[2].Value.ToString() == "CNC")
                 {
-                    //if (cncalarmcount2 > 0)//车床报警
-                    //{
-
-                    //    MainForm.magprocesss1tate[magno2 - 1] = (int)Processstate.Alarm;
-                    //}
+                  
                     if (MainForm.magprocesss1tate[magno2 - 1] == (int)Processstate.Loaded)
                     {
                         if (CNCState1 == "运行")
@@ -6669,8 +6648,9 @@ namespace SCADA
             {
                 int iii = 0; ;
             }
+          
             //机器人繁忙状态不能匹配下一步骤
-            if (ModbusTcp.DataMoubus[(int)SCADA.ModbusTcp.DataConfigArr.Mesans_Robot_position_comfirm] == 0 || ModbusTcp.DataMoubus[(int)SCADA.ModbusTcp.DataConfigArr.Mesans_Robot_speed] == 1|| ModbusTcp.Rack_number_write_flage == true)
+            if (ModbusTcp.DataMoubus[(int)SCADA.ModbusTcp.DataConfigArr.Mesans_Robot_speed] == 1||ModbusTcp.DataMoubus[(int)SCADA.ModbusTcp.DataConfigArr.Mesans_Robot_position_comfirm] == 0 || ModbusTcp.DataMoubus[(int)SCADA.ModbusTcp.DataConfigArr.Mesans_Robot_speed] == 1|| ModbusTcp.Rack_number_write_flage == true)
             {
                 return;
             }

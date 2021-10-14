@@ -17,7 +17,7 @@ namespace SCADA
 
     public partial class UserControlTaskData : UserControl
     {
-        public ShareData TaskDataObj; //2015.10.24
+        //public ShareData TaskDataObj; //2015.10.24
         const string taskListPathXml = ".\\TaskList"; //2015.10.25
         const string cncTaskListXml = "\\CNCTaskList.xml";
         const string oldcncTaskListXml = "\\oldCNCTaskList.xml";
@@ -96,30 +96,7 @@ namespace SCADA
 
         }
 
-        //private void UserControlTaskData_Load(object sender, EventArgs e)
-        //{
-        //    dataGridView_CNCGCode.Columns[0].Width = this.dataGridView_CNCGCode.Width / 5;
-        //    dataGridView_CNCGCode.Columns[1].Width = this.dataGridView_CNCGCode.Width / 5;
-        //    dataGridView_CNCGCode.Columns[2].Width = this.dataGridView_CNCGCode.Width * 2 / 5;
-        //    dataGridView_CNCGCode.Columns[3].Width = this.dataGridView_CNCGCode.Width - this.dataGridView_CNCGCode.Width * 4 / 5; 
-
-        //    dataGridView_GCodeSele.Columns[0].Width = this.dataGridView_GCodeSele.Width / 5;
-        //    dataGridView_GCodeSele.Columns[1].Width = this.dataGridView_GCodeSele.Width * 2 / 5;
-        //    dataGridView_GCodeSele.Columns[2].Width = this.dataGridView_GCodeSele.Width - this.dataGridView_GCodeSele.Width * 3 / 5;  
-
-        //    if (MainForm.cnclist != null && MainForm.cnclist.Count > 0)
-        //    {
-        //        for (int ii = 0; ii < MainForm.cnclist.Count; ii++)
-        //        {
-        //            string[] array = new string[STR_dataGridView_CNCGCode_Columns.Length];
-        //            array[0] = MainForm.cnclist[ii].BujianID;
-        //            array[1] = "";
-        //            array[2] = "";
-        //            dataGridView_CNCGCodeDb.Rows.Add(array);
-
-        //        }
-        //    }
-        //}
+ 
 
         private void UserControlTaskData_Loadv2(object sender, EventArgs e)
         {
@@ -319,12 +296,24 @@ namespace SCADA
                         {
                             if ((bool)dataGridView_GCodeSele.Rows[jj].Cells[0].EditedFormattedValue)
                             {
-                                string[] filename = dataGridView_GCodeSeleDb.Rows[jj][0].ToString().Split('\\');
-                                MainForm.cncv2list[0].SetProgPath = dataGridView_GCodeSeleDb.Rows[jj][0].ToString();
 
-                                if (MainForm.collectdatav2.GetCNCDataLst[0].SetProgFile())
+                                string[] filename = dataGridView_GCodeSeleDb.Rows[jj][0].ToString().Split('\\');
+
+                                MainForm.cncv2list[ii].SetProgPath = dataGridView_GCodeSeleDb.Rows[jj][0].ToString();
+                               
+                                MainForm.cncv2list[ii].SetProgPath = dataGridView_GCodeSeleDb.Rows[jj][0].ToString();
+
+                                if (MainForm.cncv2list[ii] != null)
                                 {
-                                    str1 += filename[filename.Length - 1] + "；";
+                                    if (MainForm.collectdatav2.GetCNCDataLst[ii].SetProgFile())
+                                    {
+                                        str1 += filename[filename.Length - 1] + "；";
+                                    }
+                                    else
+                                    {
+                                        str2 += filename[filename.Length - 1] + "；";
+
+                                    }
                                 }
                                 else
                                 {

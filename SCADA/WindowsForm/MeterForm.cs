@@ -517,11 +517,9 @@ namespace SCADA
                 }
                 if (str.Length > 0)
                 {
-                    int strStart = str.IndexOf("f\":");
-                    int len = str.IndexOf(",", strStart + 3) - (strStart + 3);
-                    string strTmp = str.Substring(strStart + 3, len);//获取到测量值
+                    
                     string strref = dataGridView2.Rows[ii].Cells[1].Value.ToString();
-                    double dact = Convert.ToDouble(strTmp);
+                    double dact = Convert.ToDouble(str);
                     double dref = Convert.ToDouble(strref);
                     double dif = dact - dref;
                     string sdif = dif.ToString("F2");
@@ -807,11 +805,11 @@ namespace SCADA
             string[] metervalus = new string[5];
 
             //50046开始-50050
-            metervalus[0] = MainForm.cncv2list[0].MeterValue[6].ToString("F4");
-            metervalus[1] = MainForm.cncv2list[0].MeterValue[7].ToString("F4");
-            metervalus[2] = MainForm.cncv2list[0].MeterValue[8].ToString("F4");
-            metervalus[3] = MainForm.cncv2list[0].MeterValue[9].ToString("F4");
-            metervalus[4] = MainForm.cncv2list[0].MeterValue[10].ToString("F4");
+            metervalus[0] = MainForm.cncv2list[1].MeterValue[6].ToString("F3");
+            metervalus[1] = MainForm.cncv2list[1].MeterValue[7].ToString("F3");
+            metervalus[2] = MainForm.cncv2list[1].MeterValue[8].ToString("F3");
+            metervalus[3] = MainForm.cncv2list[1].MeterValue[9].ToString("F3");
+            metervalus[4] = MainForm.cncv2list[1].MeterValue[10].ToString("F3");
             renewbiaodingfalge = true;
 
             for (int ii = 0; ii < 5; ii++)

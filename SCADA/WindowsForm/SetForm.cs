@@ -73,7 +73,7 @@ namespace SCADA
         public static string[] ip = new string[9];//读写器Ip
         public static string[] port = new string[9];//读写器端口
         public static byte[] ReaderID = new byte[9];//读写器ID
-        public static HFReader SGreader = new HFReader();
+     //   public static HFReader SGreader = new HFReader();
 
         //ResourceManager m_resource = new ResourceManager(typeof(SetForm));
         private string prelanguage; //记录切换语言之前的语言
@@ -1555,60 +1555,60 @@ namespace SCADA
         /// <param name="mark">子网掩码</param>
         /// <param name="gateway">网关</param>
         /// <param name="mac">MAC</param>
-        public void GetCommcfg()
-        {
-            CommCfg cfg = new CommCfg();
-            for (int jj = 0; jj < dgvRFIDSet.Rows.Count; jj++)
-            {
-                ReaderID[jj] = ConvertMethod.HexStringToSingleByte(dgvRFIDSet.Rows[jj].Cells[1].Value.ToString(), 0);
-                if (SGreader.GetCommCfg(ReaderID[jj], ref cfg) == Status_enum.SUCCESS)
-                {
-                    dgvRFIDSet.Rows[jj].Cells[2].Value = cfg.Mask; ;//子网掩码
-                    dgvRFIDSet.Rows[jj].Cells[3].Value = cfg.GateWay;//网关               
-                    dgvRFIDSet.Rows[jj].Cells[4].Value = cfg.IPAddr;//IP
-                    dgvRFIDSet.Rows[jj].Cells[6].Value = ConvertMethod.MacToString(cfg.MAC);//MAC
-                }
-            }
-        }
-        /// <summary>
+        //public void GetCommcfg()
+        //{
+        //    CommCfg cfg = new CommCfg();
+        //    for (int jj = 0; jj < dgvRFIDSet.Rows.Count; jj++)
+        //    {
+        //        ReaderID[jj] = ConvertMethod.HexStringToSingleByte(dgvRFIDSet.Rows[jj].Cells[1].Value.ToString(), 0);
+        //        if (SGreader.GetCommCfg(ReaderID[jj], ref cfg) == Status_enum.SUCCESS)
+        //        {
+        //            dgvRFIDSet.Rows[jj].Cells[2].Value = cfg.Mask; ;//子网掩码
+        //            dgvRFIDSet.Rows[jj].Cells[3].Value = cfg.GateWay;//网关               
+        //            dgvRFIDSet.Rows[jj].Cells[4].Value = cfg.IPAddr;//IP
+        //            dgvRFIDSet.Rows[jj].Cells[6].Value = ConvertMethod.MacToString(cfg.MAC);//MAC
+        //        }
+        //    }
+        //}
+        ///// <summary>
         /// 设置RFID通讯参数
         /// </summary>
-        public void SetCommcfg()
-        {
-            CommCfg cfg = new CommCfg();
-            for (int jj = 0; jj < dgvRFIDSet.Rows.Count; jj++)
-            {
-                ReaderID[jj] = ConvertMethod.HexStringToSingleByte(dgvRFIDSet.Rows[jj].Cells[1].Value.ToString(), 0);
-                if (SGreader.SetCommCfg(ReaderID[jj], cfg) == Status_enum.SUCCESS)
-                {
-                    cfg.Mask = dgvRFIDSet.Rows[jj].Cells[2].Value.ToString();//子网掩码
-                    cfg.GateWay = dgvRFIDSet.Rows[jj].Cells[3].Value.ToString();//网关                
-                    cfg.IPAddr = dgvRFIDSet.Rows[jj].Cells[4].Value.ToString();//IP
-                    cfg.MAC = ConvertMethod.StringToMac(dgvRFIDSet.Rows[jj].Cells[6].Value.ToString());//MAC
-                }
-            }
-        }
+        //public void SetCommcfg()
+        //{
+        //    CommCfg cfg = new CommCfg();
+        //    for (int jj = 0; jj < dgvRFIDSet.Rows.Count; jj++)
+        //    {
+        //        ReaderID[jj] = ConvertMethod.HexStringToSingleByte(dgvRFIDSet.Rows[jj].Cells[1].Value.ToString(), 0);
+        //        if (SGreader.SetCommCfg(ReaderID[jj], cfg) == Status_enum.SUCCESS)
+        //        {
+        //            cfg.Mask = dgvRFIDSet.Rows[jj].Cells[2].Value.ToString();//子网掩码
+        //            cfg.GateWay = dgvRFIDSet.Rows[jj].Cells[3].Value.ToString();//网关                
+        //            cfg.IPAddr = dgvRFIDSet.Rows[jj].Cells[4].Value.ToString();//IP
+        //            cfg.MAC = ConvertMethod.StringToMac(dgvRFIDSet.Rows[jj].Cells[6].Value.ToString());//MAC
+        //        }
+        //    }
+        //}
         #endregion
-        private void button1_Click(object sender, EventArgs e)
-        {
-            //2017.4.25 zxl
-            for (int i = 0; i < dgvRFIDSet.Rows.Count; i++)
-            {
-                ip[i] = dgvRFIDSet.Rows[i].Cells[13].Value.ToString();//读写器ip
-                port[i] = dgvRFIDSet.Rows[i].Cells[14].Value.ToString();//端口
-                if (SGreader.Connect(ip[i], int.Parse(port[i])))
-                {
-                    MessageBox.Show("读写器连接成功!");
-                    dgvRFIDSet.Rows[i].Cells[i].Value = "";
-                    //GetCommcfg();//获取通讯参数
-                    SetCommcfg();//设置通讯参数
-                }
-                else
-                {
-                    MessageBox.Show("读写器连接失败.请确保参数地址和线缆连接正确.");
-                }
-            }
-        }
+        //private void button1_Click(object sender, EventArgs e)
+        //{
+        //    //2017.4.25 zxl
+        //    for (int i = 0; i < dgvRFIDSet.Rows.Count; i++)
+        //    {
+        //        ip[i] = dgvRFIDSet.Rows[i].Cells[13].Value.ToString();//读写器ip
+        //        port[i] = dgvRFIDSet.Rows[i].Cells[14].Value.ToString();//端口
+        //        if (SGreader.Connect(ip[i], int.Parse(port[i])))
+        //        {
+        //            MessageBox.Show("读写器连接成功!");
+        //            dgvRFIDSet.Rows[i].Cells[i].Value = "";
+        //            //GetCommcfg();//获取通讯参数
+        //            SetCommcfg();//设置通讯参数
+        //        }
+        //        else
+        //        {
+        //            MessageBox.Show("读写器连接失败.请确保参数地址和线缆连接正确.");
+        //        }
+        //    }
+        //}
 
         private void btnSaveRFID_Click(object sender, EventArgs e)
         {

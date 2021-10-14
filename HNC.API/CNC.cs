@@ -1073,6 +1073,7 @@ namespace HNC.API
 
             //读本地文件数据并上传
             FileStream fs = f.OpenRead();
+            var ret = false;
             try
             {
                 Stream strm = reqFtp.GetRequestStream();
@@ -1086,14 +1087,65 @@ namespace HNC.API
                 fs.Close();
                 string path1 = "../prog/" + FileName;
                 Machine.HNC_SysCtrlSelectProg(0, path1);
-                return true;
+                ret= true;
 
             }
             catch (Exception ex)
             {
-                return false;
+                Console.WriteLine("Sent Prog Fail----------" + ":" + ex.Message);
+                ret = false;
             }
+            return ret;
 
+        }
+        public bool SysCtrlUpLoadFile(string remotepath, string localpath, string remoteip,bool t=true)
+        {
+            string FTPAddress = remoteip;//My.Repo.GetSingle<Equipment>(p => p.Type == EquipmentType.EDA).IP;
+            FileInfo f = new FileInfo(localpath);
+            string FileName = f.Name;
+            string ftpRemotePath = remotepath;
+            //string LocalPath = EDADesPath; //待上传文件
+            //FileInfo f = new FileInfo(LocalPath);
+            //string FileName = f.Name;
+            //string ftpRemotePath = "/Work File/";//"ftp://192.168.1.200/h/lnc8/prog/OMDI"
+            string FTPPath = "ftp://" + FTPAddress + ftpRemotePath + FileName; //上传到ftp路径,如ftp://***.***.***.**:21/home/test/test.txt
+                                                                               //实现文件传输协议 (FTP) 客户端
+
+            FtpWebRequest reqFtp = (FtpWebRequest)FtpWebRequest.Create(new Uri(FTPPath));
+            reqFtp.UseBinary = true;
+            reqFtp.Credentials = new NetworkCredential("root", "111111"); //设置通信凭据
+            reqFtp.KeepAlive = false; //请求完成后关闭ftp连接
+            reqFtp.Method = WebRequestMethods.Ftp.UploadFile;
+            reqFtp.ContentLength = f.Length;
+            int buffLength = 2048;
+            byte[] buff = new byte[buffLength];
+            int contentLen;
+
+            //读本地文件数据并上传
+            FileStream fs = f.OpenRead();
+            var ret = false;
+            try
+            {
+                Stream strm = reqFtp.GetRequestStream();
+                contentLen = fs.Read(buff, 0, buffLength);
+                while (contentLen != 0)
+                {
+                    strm.Write(buff, 0, contentLen);
+                    contentLen = fs.Read(buff, 0, buffLength);
+                }
+                strm.Close();
+                fs.Close();
+                string path1 = "../prog/" + FileName;
+                Machine.HNC_SysCtrlSelectProg(0, path1);
+                ret = true;
+
+            }
+            catch (Exception ex)
+            {
+                Console.WriteLine("Sent Prog Fail----------" + ":" + ex.Message);
+                ret = false;
+            }
+            return ret;
 
         }
         #endregion

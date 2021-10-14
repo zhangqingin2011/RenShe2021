@@ -214,53 +214,7 @@ namespace SCADA
                     CheckdataGridView_DB.Rows[ii][(int)CheckdataGridView_titleArr_Index.状态] = StateLang;
                 }
             }
-            else if (lang == "English")
-            {
-                for (int ii = 0; ii < ENCheckdataGridView_title.Length; ii++)
-                {
-                    CheckdataGridView_DB.Columns[ii].ColumnName = ENCheckdataGridView_title[ii];
-                }
-                for (int ii = 0; ii < CheckdataGridView_DB.Rows.Count; ii++)
-                {
-                    string PreName = CheckdataGridView_DB.Rows[ii][(int)CheckdataGridView_titleArr_Index.名称].ToString();
-                    string CurName = PreName.Replace("机台", "Machine");
-                    CheckdataGridView_DB.Rows[ii][(int)CheckdataGridView_titleArr_Index.名称] = CurName;
-                    string StateLang = CheckdataGridView_DB.Rows[ii][(int)CheckdataGridView_titleArr_Index.状态].ToString();
-                    String type = CheckdataGridView_DB.Rows[ii][(int)CheckdataGridView_titleArr_Index.名称].ToString();
-                    if (type == "PLC")
-                    {
-                        String PLCSystem = MainForm.m_xml.m_Read(m_xmlDociment.PathRoot_PLC, jj, m_xmlDociment.Default_Attributes_str1[(int)m_xmlDociment.Attributes_str1.system]);
-                   
-                        if(PLCSystem == m_xmlDociment.PLC_System[2])
-                        {
-                             if (MainForm.PLC_SIMES_ON_line == true)
-                            {
-                            StateLang = "OnLine";
-                            }
-                            else
-                            {
-                            StateLang = "Offline";
-                            }
-                        }
-                        jj++;
-                    }
-                    else
-                    {
-                        if (StateLang == "离线")
-                            StateLang = "Offline";
-                        else if (StateLang == "空闲")
-                            StateLang = "Free";
-                        else if (StateLang == "运行")
-                            StateLang = "Working";
-                        else if (StateLang == "保持进给")
-                            StateLang = "FeedHold";
-                        else if (StateLang == "急停")
-                            StateLang = "EmergencyStop";
-                    }
-                    
-                    CheckdataGridView_DB.Rows[ii][(int)CheckdataGridView_titleArr_Index.状态] = StateLang;
-                }
-            }
+            
             CheckdataGridView_DB_ChangeFlg = true;
         }
 

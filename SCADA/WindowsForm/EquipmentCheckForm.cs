@@ -13,17 +13,15 @@ namespace SCADA
 {
     public partial class EquipmentCheckForm : Form
     {
-        System.Data.DataTable CheckcontentDataSource = null;
-        System.Data.DataTable CheckcontentDataSource1 = null;
 
+        Dictionary<int, string> RobortAlarmDic = new Dictionary<int, string>();
+        Dictionary<int, string> LatheAlarmDic = new Dictionary<int, string>();
+        Dictionary<int, string> CNCAlarmDic = new Dictionary<int, string>();
+        Dictionary<int, string> PLCAlarmDic = new Dictionary<int, string>();
 
         public EquipmentCheckForm()
         {
             InitializeComponent();
-            dataGridView_Checkcontent.AllowUserToAddRows = false;
-            dataGridView_Checkcontent.EditMode = System.Windows.Forms.DataGridViewEditMode.EditOnEnter;
-            dataGridView_Checkcontent.ReadOnly = true;
-            dataGridView_Checkcontent.AutoSizeColumnsMode = System.Windows.Forms.DataGridViewAutoSizeColumnsMode.AllCells;
             timer1.Enabled = true;
         }
 
@@ -33,35 +31,11 @@ namespace SCADA
         }
 
         private void timer1_Tick(object sender, EventArgs e)
-        {
-            if (MainForm.m_CheckHander.CheckdataGridView_DB_ChangeFlg)
-            {
+        {          
                 UpDatadataGridView();
-            }
-            if (!checkBox_DongTai.Checked)
-            {
-                timer1.Enabled = false;
-            }
         }
 
-        private void dataGridView_Checkcontent_VisibleChanged(object sender, EventArgs e)
-        {
-            UpDatadataGridView();
-        }
-
-        private void checkBox_DongTai_CheckedChanged(object sender, EventArgs e)
-        {
-            if (checkBox_DongTai.Checked)
-            {
-                button_UpDataTable.Visible = false;
-                timer1.Enabled = true;
-            }
-            else
-            {
-                button_UpDataTable.Visible = true;
-                timer1.Enabled = false;
-            }
-        }
+   
 
         private void button_UpDataTable_Click(object sender, EventArgs e)
         {
@@ -70,129 +44,123 @@ namespace SCADA
 
         private void UpDatadataGridView()
         {
-            if (dataGridView_Checkcontent.Visible && MainForm.m_CheckHander != null)
+            Dictionary<int, string> TempDic = new Dictionary<int, string>();
+            if (!MainForm.robotconnect)
             {
-                CheckcontentDataSource = MainForm.m_CheckHander.GetCheckdataGridView_DB();
-                if (checkBox_ZhengChang.Checked && checkBox_YiChang.Checked && CheckcontentDataSource != null)
+                TempDic.Add(1, "离线");
+            }
+            else
+            {
+                RobortAlarmDic.Add(1, "在线");
+            }
+            if(RobortAlarmDic!= TempDic)
+            {
+                RobortAlarmDic.Clear();
+                RobortAlarmDic = TempDic;
+            }
+            TempDic = new Dictionary<int, string>();
+
+            if (!MainForm.SEquipmentlist[0].IsConnect)
+            {
+                TempDic.Add(1, "离线");
+            }
+            else
+            {
+                TempDic.Add(1, "在线");
+                if(MainForm.cncv2list[0] != null && MainForm.cncv2list[0].Alarms.Count>0)
                 {
-                    dataGridView_Checkcontent.DataSource = null;
-                    dataGridView_Checkcontent.DataSource = CheckcontentDataSource;
-                }
-                else if (checkBox_ZhengChang.Checked && CheckcontentDataSource != null)
-                {
-                    CheckcontentDataSource1 = CheckcontentDataSource.Copy();
-                    for (int ii = 0; ii < CheckcontentDataSource1.Rows.Count; ii++)
+             
+                    foreach( var item in MainForm.cncv2list[0].Alarms)
                     {
-                        if ((CheckcontentDataSource1.Rows[ii][(int)EquipmentCheck.CheckdataGridView_titleArr_Index.报警内容].ToString().Length == 0
-                                || CheckcontentDataSource1.Rows[ii][(int)EquipmentCheck.CheckdataGridView_titleArr_Index.报警内容].ToString() == "正常")
-                            && CheckcontentDataSource1.Rows[ii][(int)EquipmentCheck.CheckdataGridView_titleArr_Index.状态].ToString() != "离线")
-                        {
-                        }
-                        else
-                        {
-                            CheckcontentDataSource1.Rows[ii].Delete();
-                            ii--;
-                        }
+                        TempDic.Add(1, item.Value);
                     }
-                    dataGridView_Checkcontent.DataSource = null;
-                    dataGridView_Checkcontent.DataSource = CheckcontentDataSource1;
                 }
-                else if (checkBox_YiChang.Checked && CheckcontentDataSource != null)
+            }
+            if (LatheAlarmDic != TempDic)
+            {
+                LatheAlarmDic.Clear();
+                LatheAlarmDic = TempDic;
+            }
+            TempDic = new Dictionary<int, string>();
+            if (!MainForm.SEquipmentlist[1].IsConnect)
+            {
+                TempDic.Add(1, "离线");
+            }
+            else
+            {
+                TempDic.Add(1, "在线");
+                if (MainForm.cncv2list[1] != null&& MainForm.cncv2list[1].Alarms.Count > 0)
                 {
-                    CheckcontentDataSource1 = CheckcontentDataSource.Copy();
-                    for (int ii = 0; ii < CheckcontentDataSource1.Rows.Count; ii++)
+         
+                    foreach (var item in MainForm.cncv2list[0].Alarms)
                     {
-                        if ((CheckcontentDataSource1.Rows[ii][(int)EquipmentCheck.CheckdataGridView_titleArr_Index.报警内容].ToString().Length == 0
-                                || CheckcontentDataSource1.Rows[ii][(int)EquipmentCheck.CheckdataGridView_titleArr_Index.报警内容].ToString() == "正常")
-                            && CheckcontentDataSource1.Rows[ii][(int)EquipmentCheck.CheckdataGridView_titleArr_Index.状态].ToString() != "离线")
-                        {
-                            CheckcontentDataSource1.Rows[ii].Delete();
-                            ii--;
-                        }
-                        else
-                        {
-                        }
-                        if (CheckcontentDataSource1.Rows[ii][(int)EquipmentCheck.CheckdataGridView_titleArr_Index.状态].ToString() == "离线")
-                        {
-                            CheckcontentDataSource1.Rows[ii][(int)EquipmentCheck.CheckdataGridView_titleArr_Index.报警内容] = "";
-                        }
+                        TempDic.Add(1, item.Value);
                     }
-                    dataGridView_Checkcontent.DataSource = null;
-                    dataGridView_Checkcontent.DataSource = CheckcontentDataSource1;
                 }
-                else
+            }
+            if (CNCAlarmDic != TempDic)
+            {
+                CNCAlarmDic.Clear();
+                CNCAlarmDic = TempDic;
+            }
+            TempDic = new Dictionary<int, string>();
+            if (!MainForm.PLC_SIMES_ON_line)
+            {
+                TempDic.Add(1, "离线");
+            }
+            else
+            {
+                TempDic.Add(1, "在线");
+            }
+            if (PLCAlarmDic != TempDic)
+            {
+                PLCAlarmDic.Clear();
+                PLCAlarmDic = TempDic;
+            }
+           var TempDic1 = new Dictionary<string, string>();
+            int i = 1;
+            foreach( var item in RobortAlarmDic)
+            {
+                TempDic1.Add("机器人",item.Value);
+            }
+            foreach (var item in LatheAlarmDic)
+            {
+                TempDic1.Add("车床", item.Value);
+            }
+            foreach (var item in CNCAlarmDic)
+            {
+                TempDic1.Add("加工中心", item.Value);
+            }
+            foreach (var item in PLCAlarmDic)
+            {
+                TempDic1.Add("PLC", item.Value);
+            }
+
+            if (dataGridViewalarmdata.Visible)
+            {
+                int k = 0;
+                if (dataGridViewalarmdata.Rows.Count != TempDic1.Count)
                 {
-                    dataGridView_Checkcontent.DataSource = null;
+
+                    dataGridViewalarmdata.Rows.Clear();
+                    dataGridViewalarmdata.Rows.Add(TempDic1.Count);
                 }
+                foreach (var item in TempDic1)
+                {
+                    dataGridViewalarmdata.Rows[k].Cells[0].Value = k+1;
+                    dataGridViewalarmdata.Rows[k].Cells[1].Value = item.Key.ToString();
+                    dataGridViewalarmdata.Rows[k].Cells[2].Value = item.Value.ToString();
+                    k++;
+
+                }
+             
             }
         }
 
-        private void checkBox_ZhengChang_CheckedChanged(object sender, EventArgs e)
-        {
-            UpDatadataGridView();
-        }
+ 
+      
 
-        private void checkBox_YiChang_CheckedChanged(object sender, EventArgs e)
-        {
-            UpDatadataGridView();
-        }
 
-        private void dataGridView_Checkcontent_CellPainting(object sender, DataGridViewCellPaintingEventArgs e)
-        {
-            if (e.RowIndex >= 0 )
-            {
-               if (e.ColumnIndex == (int)EquipmentCheck.CheckdataGridView_titleArr_Index.报警内容)
-                {
-                    if ((this.dataGridView_Checkcontent.Rows[e.RowIndex].Cells[e.ColumnIndex].Value == DBNull.Value
-                        || this.dataGridView_Checkcontent.Rows[e.RowIndex].Cells[e.ColumnIndex].Value.ToString().Length == 0
-                        || this.dataGridView_Checkcontent.Rows[e.RowIndex].Cells[e.ColumnIndex].Value.ToString() == "正常")
-                        && this.dataGridView_Checkcontent.Rows[e.RowIndex].Cells[(int)EquipmentCheck.CheckdataGridView_titleArr_Index.状态].Value.ToString() != "离线")
-                    {
-                        if (this.dataGridView_Checkcontent.Rows[e.RowIndex].DefaultCellStyle.BackColor != Color.Green)
-                        {
-                            this.dataGridView_Checkcontent.Rows[e.RowIndex].DefaultCellStyle.BackColor = Color.Green;
-                        }
-                    }
-                    else
-                    {
-                        if (this.dataGridView_Checkcontent.Rows[e.RowIndex].DefaultCellStyle.BackColor != Color.Red)
-                        {
-                            this.dataGridView_Checkcontent.Rows[e.RowIndex].DefaultCellStyle.BackColor = Color.Red;
-                        }
-                    }
-                }
-            } 
-        }
-
-        private void button_StarLine_Click(object sender, EventArgs e)//开线
-        {
-
-        }
-
-        //private void button_ClreaLine_Click(object sender, EventArgs e)//清线
-        //{
-        //    if (SetForm.LogIn)
-        //    {
-        //        if (MessageBox.Show("是否确定执行清线操作！", "警告", MessageBoxButtons.YesNo) == DialogResult.Yes)
-        //        {
-        //            for (int ii = 0; ii < MainForm.cnclist.Count; ii++)
-        //            {
-        //                MainForm.cnclist[ii].NcTaskManage.ClearNCTask();
-        //            }
-        //            LogData.EventHandlerSendParm SendParm = new LogData.EventHandlerSendParm();
-        //            SendParm.Node1NameIndex = (int)LogData.Node1Name.System_security;
-        //            SendParm.LevelIndex = (int)LogData.Node2Level.MESSAGE;
-        //            SendParm.EventID = ((int)LogData.Node2Level.MESSAGE).ToString();
-        //            SendParm.Keywords = "清线操作";
-        //            SendParm.EventData = "用户:" + SetForm.LogInUserName;
-        //            SCADA.MainForm.m_Log.AddLogMsgHandler.BeginInvoke(this, SendParm, new AsyncCallback(SCADA.MainForm.m_Log.AddLogMsgHandlerFinished), "AddLogMsgHandlerFinished!");
-        //        }
-        //    }
-        //    else
-        //    {
-        //        MessageBox.Show("你的操作权限不够！", " 提示", MessageBoxButtons.OK, MessageBoxIcon.Warning);
-        //    }
-        //}
         
     }
 }

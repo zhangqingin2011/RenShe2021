@@ -93,6 +93,7 @@ namespace SCADA
             cncboard818B_2.Parent = Keyboard2;
             cncboard848B_2.Parent = Keyboard2;
             cncboard848C_2.Parent = Keyboard2;
+
         }
         public System.Threading.AutoResetEvent Get_Reg_threaFucEvent = new System.Threading.AutoResetEvent(true);
         bool threaFucRuningF = true;
@@ -413,6 +414,7 @@ namespace SCADA
             {
                 cncv2 = MainForm.cncv2list[comboBoxCNC.SelectedIndex];
                 tab_index = comboBoxCNC.SelectedIndex;
+
                 ClearAllCNCstate(cncv2);
                 if (cncv2.IsConnected())
                 {
@@ -539,9 +541,23 @@ namespace SCADA
             HNC_SYS_NC_VER.Text = "-";//版本
             txtCount.Text = "-";//加工数量
             //labCurToolNo.Text = "000";//当前刀号
+            if(comboBoxCNC.SelectedIndex == 0 && MainForm.SEquipmentlist[0].IsConnect )
+            {
 
-            pictureBoxLinckState.Image = SCADA.Properties.Resources.top_bar_black;//连接状态
-            ThreaSetLaBText(labelLinckText, ChangeLanguage.GetString("UnLinckedText"));
+                pictureBoxLinckState.Image = SCADA.Properties.Resources.top_bar_green;//连接状态   
+                ThreaSetLaBText(labelLinckText, ChangeLanguage.GetString("LinckedText"));
+            }
+            else if (comboBoxCNC.SelectedIndex == 1 && MainForm.SEquipmentlist[1].IsConnect)
+            {
+                pictureBoxLinckState.Image = SCADA.Properties.Resources.top_bar_green;//连接状态
+                ThreaSetLaBText(labelLinckText, ChangeLanguage.GetString("LinckedText"));
+            }
+            else
+            {
+                pictureBoxLinckState.Image = SCADA.Properties.Resources.top_bar_black;//连接状态
+                ThreaSetLaBText(labelLinckText, ChangeLanguage.GetString("UnLinckedText"));
+            }
+
 
 
             labPROGNAME.Text = "";//G代码名
@@ -1149,7 +1165,7 @@ namespace SCADA
             {
 
                 //if(cnc.Type == "HNC_848C")
-                if (cnctemp.cnctype == CNCType.CNC)
+                if (cnctemp.cnctype == CNCType.CNC|| cnctemp.cnctype == CNCType.Lathe)
                 {
                     int tmp = cnctemp.CNCButtonY480;
 
@@ -1915,8 +1931,12 @@ namespace SCADA
         {
             if (dataGridViewalarmdata.Visible)
             {
-                if (cncv2.Alarms == null)
+                if (cncv2.Alarms == null|| cncv2.Alarms.Count ==0)
                 {
+                    if(dataGridViewalarmdata.Rows.Count >0)
+                    {
+                        dataGridViewalarmdata.Rows.Clear();
+                    }
                     return;
                 }
                 int ii = 0;
@@ -2066,6 +2086,10 @@ namespace SCADA
             else if (tabControlCNC.SelectedTab.Name == "tabPageCutter")
             {
                 InitdataGridView_Comp();
+            }
+            else if(tabControlCNC.SelectedTab.Name == "tabPageAlarm")
+            {
+                Updata_Alarm_Value(true);
             }
         }
 
