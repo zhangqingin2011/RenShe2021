@@ -48,6 +48,7 @@ namespace SCADA
             }
 
         }
+        private bool flag = true;
         public void DataCollectThreadProc()
         {
             while (bCollect)
@@ -55,19 +56,28 @@ namespace SCADA
 
                 if (!CNC.IsConnected())
                 {
-                    CNC.EquipmentState = "离线";
-                    threaFucRuningF_OK = false;
-                    CollectDataV2.threaFucEvent.Set();
-                    SCADA.LogData.EventHandlerSendParm SendParm = new SCADA.LogData.EventHandlerSendParm();
-                    SendParm.Node1NameIndex = (int)SCADA.LogData.Node1Name.Equipment_CNC;
-                    SendParm.LevelIndex = (int)SCADA.LogData.Node2Level.MESSAGE;
-                    SendParm.EventID = ((int)SCADA.LogData.Node2Level.MESSAGE).ToString();
-                    SendParm.Keywords = "CNC采集器关闭";
-                    SendParm.EventData = CNC.IP.ToString() + "：网络连接失败";
-                    SCADA.MainForm.m_Log.AddLogMsgHandler.BeginInvoke(this, SendParm, null, null);
+                    if(flag)
+                    {
+                        CNC.EquipmentState = "离线";
+                        threaFucRuningF_OK = false;
+                        CollectDataV2.threaFucEvent.Set();
+                        SCADA.LogData.EventHandlerSendParm SendParm = new SCADA.LogData.EventHandlerSendParm();
+                        SendParm.Node1NameIndex = (int)SCADA.LogData.Node1Name.Equipment_CNC;
+                        SendParm.LevelIndex = (int)SCADA.LogData.Node2Level.MESSAGE;
+                        SendParm.EventID = ((int)SCADA.LogData.Node2Level.MESSAGE).ToString();
+                        SendParm.Keywords = "CNC采集器关闭";
+                        SendParm.EventData = CNC.IP.ToString() + "：网络连接失败";
+                        SCADA.MainForm.m_Log.AddLogMsgHandler.BeginInvoke(this, SendParm, null, null);
+                        flag = false;
+                    }
+                  
                 }
                 else
                 {
+                    if(!flag)
+                    {
+                        flag = true;
+                    }
                     CollectCNCStateData();
                     CollectAlarm();
                     CollectTool();

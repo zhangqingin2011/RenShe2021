@@ -705,8 +705,6 @@ namespace SCADA
                 DbHelper.SQL.Close();
                 try
                 {
-
-
                     renewWorkpieceCategory();
                     renewStoragebin();
                     //renewLathedata();
