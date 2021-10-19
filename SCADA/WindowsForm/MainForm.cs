@@ -572,10 +572,10 @@ namespace SCADA
             {
                 System.Windows.Forms.MessageBox.Show("订单状态文件不存在，已经生成默认的文件\r\n"); ;
             }
-            initmeter(MeterForm.MetersetFilePath1);
-            initmeter(MeterForm.MetersetFilePath2);
-            initmeter(MeterForm.MetersetFilePath3);
-            initmeter(MeterForm.MetersetFilePath4);
+            //initmeter(MeterForm.MetersetFilePath1);
+            //initmeter(MeterForm.MetersetFilePath2);
+            //initmeter(MeterForm.MetersetFilePath3);
+            //initmeter(MeterForm.MetersetFilePath4);
             initRacktype();
             //初始化自动排程参数
             AotoOrderForm.Fvalue1stop = false;//提示临界值停自动报警

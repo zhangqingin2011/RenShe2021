@@ -31,10 +31,22 @@ namespace SCADA
         public static string BIAODING_VALUE3 = "50048";  //存储测量状态值的用户宏变量
         public static string BIAODING_VALUE4 = "50049";  //存储测量状态值的用户宏变量
         public static string BIAODING_VALUE5 = "50050";  //存储测量状态值的用户宏变量
-        public static String MetersetFilePath1 = "..\\data\\measure\\MeterSetFile1";
-        public static String MetersetFilePath2 = "..\\data\\measure\\MeterSetFile2";
-        public static String MetersetFilePath3 = "..\\data\\measure\\MeterSetFile3";
-        public static String MetersetFilePath4 = "..\\data\\measure\\MeterSetFile4";
+        public static String MetersetFilePath1_1 = "..\\data\\measure\\MeterSetFile1_1";
+        public static String MetersetFilePath1_2 = "..\\data\\measure\\MeterSetFile1_2";
+        public static String MetersetFilePath1_3 = "..\\data\\measure\\MeterSetFile1_3";
+        public static String MetersetFilePath1_4 = "..\\data\\measure\\MeterSetFile1_4";
+        public static String MetersetFilePath2_1 = "..\\data\\measure\\MeterSetFile2_1";
+        public static String MetersetFilePath2_2 = "..\\data\\measure\\MeterSetFile2_2";
+        public static String MetersetFilePath2_3 = "..\\data\\measure\\MeterSetFile2_3";
+        public static String MetersetFilePath2_4 = "..\\data\\measure\\MeterSetFile2_4";
+        public static String MetersetFilePath3_1 = "..\\data\\measure\\MeterSetFile3_1";
+        public static String MetersetFilePath3_2 = "..\\data\\measure\\MeterSetFile3_2";
+        public static String MetersetFilePath3_3 = "..\\data\\measure\\MeterSetFile3_3";
+        public static String MetersetFilePath3_4 = "..\\data\\measure\\MeterSetFile3_4";
+        public static String MetersetFilePath4_1 = "..\\data\\measure\\MeterSetFile4_1";
+        public static String MetersetFilePath4_2 = "..\\data\\measure\\MeterSetFile4_2";
+        public static String MetersetFilePath4_3 = "..\\data\\measure\\MeterSetFile4_3";
+        public static String MetersetFilePath4_4 = "..\\data\\measure\\MeterSetFile4_4";
         public static String MetetrrecordFilePath = "..\\data\\measure\\MeterRecordFile";
 
         public static int Textmagno = 0;
@@ -43,12 +55,15 @@ namespace SCADA
         Hashtable m_Hashtable;
         public DataGridViewTextBoxEditingControl CellEdit = null;
         public static bool renewbiaodingfalge = false;
-        private static int curMeterMode = 0;// 当前加载的测量模型A-1，B-2，C-3，D-4
+        private static int curMeterMode = 0;// 当前加载的测量物料模型1-1，2-2，3-3，4-4
+        private static int curMeterType = 0;// 当前加载的测量物料类型A-1，B-2，C-3，D-4
         public MeterForm()
         {
             //aotosize.controllInitializeSize(this);
             InitializeComponent();
-            initdataGridView2(MetersetFilePath1);
+            initdataGridView2(MetersetFilePath1_1);
+            curMeterMode = 1;
+            curMeterType = 1;
             initdataGridView3(MetetrrecordFilePath);
             if (OrderForm1.ReProcessChoose)
             {
@@ -147,9 +162,12 @@ namespace SCADA
                 StreamReader sr = new StreamReader(aFile);
 
                 string item = "";
+                string type = "";
                 string refvalue = "";
                 string uppervalue = "";
                 string lowervalue = "";
+                string toolno = "";
+                string comptype = "";
                 string line;
                 int ii = 0;
                 line = sr.ReadLine();
@@ -232,11 +250,7 @@ namespace SCADA
                             }
                             else if (char1 > '9' || char1 < '0')
                             {
-                                if (language == "English")
-                                {
-                                    MessageBox.Show("Please enter number correct");
-                                }
-                                else MessageBox.Show("数据不合法");
+                               MessageBox.Show("数据不合法");
                                 return false;
                             }
                         }
@@ -551,42 +565,108 @@ namespace SCADA
 
         private void timer1_Tick(object sender, EventArgs e)
         {
-            if (Textmagno < 13)
+            //获取物料模型和物料类型
+            int maglength = (int)ModbusTcp.MagLength;//Mag1_Sheet_No
+            int typeindex = (int)ModbusTcp.DataConfigArr.Mag_Type + (Textmagno-1) * maglength;
+            int Modeindex = (int)ModbusTcp.DataConfigArr.Mag1_Sheet_No + Textmagno-1;
+            if(Modeindex ==0)
             {
-                textBox3.Text = "A";
-                if (MeterSetForm.refreshmeterdata != 0)
+                textBox4.Text = "1号";
+               
+                if (typeindex == 0)
                 {
-                    initdataGridView2(MetersetFilePath1);
-                    MeterSetForm.refreshmeterdata = 0;
+                    textBox3.Text = "A";
+                    initdataGridView2(MetersetFilePath1_1);
+                }
+                else if(typeindex == 1)
+                {
+                    textBox3.Text = "B";
+                    initdataGridView2(MetersetFilePath1_2);
+                }
+                else if (typeindex == 2)
+                {
+                    textBox3.Text = "C";
+                    initdataGridView2(MetersetFilePath1_3);
+                }
+                else if (typeindex == 3)
+                {
+                    textBox3.Text = "D";
+                    initdataGridView2(MetersetFilePath1_4);
                 }
             }
-            else if (Textmagno < 25)
+            else if (Modeindex == 1)
             {
-                textBox3.Text = "B";
-                if (MeterSetForm.refreshmeterdata != 1)
+                textBox4.Text = "2号";
+                if (typeindex == 0)
                 {
-                    initdataGridView2(MetersetFilePath2);
-                    MeterSetForm.refreshmeterdata = 1;
+                    textBox3.Text = "A";
+                    initdataGridView2(MetersetFilePath1_1);
+                }
+                else if (typeindex == 1)
+                {
+                    textBox3.Text = "B";
+                    initdataGridView2(MetersetFilePath1_2);
+                }
+                else if (typeindex == 2)
+                {
+                    textBox3.Text = "C";
+                    initdataGridView2(MetersetFilePath1_3);
+                }
+                else if (typeindex == 3)
+                {
+                    textBox3.Text = "D";
+                    initdataGridView2(MetersetFilePath1_4);
                 }
             }
-            else if (Textmagno < 28)
+            else if (Modeindex ==2)
             {
-                textBox3.Text = "C";
-                if (MeterSetForm.refreshmeterdata != 2)
+                textBox4.Text = "3号";
+                if (typeindex == 0)
                 {
-                    initdataGridView2(MetersetFilePath3);
-                    MeterSetForm.refreshmeterdata = 2;
+                    textBox3.Text = "A";
+                    initdataGridView2(MetersetFilePath1_1);
+                }
+                else if (typeindex == 1)
+                {
+                    textBox3.Text = "B";
+                    initdataGridView2(MetersetFilePath1_2);
+                }
+                else if (typeindex == 2)
+                {
+                    textBox3.Text = "C";
+                    initdataGridView2(MetersetFilePath1_3);
+                }
+                else if (typeindex == 3)
+                {
+                    textBox3.Text = "D";
+                    initdataGridView2(MetersetFilePath1_4);
                 }
             }
-            else if (Textmagno < 31)
+            else if (Modeindex == 3)
             {
-                textBox3.Text = "D";
-                if (MeterSetForm.refreshmeterdata != 3)
+                textBox4.Text = "4号";
+                if (typeindex == 0)
                 {
-                    initdataGridView2(MetersetFilePath4);
-                    MeterSetForm.refreshmeterdata = 3;
+                    textBox3.Text = "A";
+                    initdataGridView2(MetersetFilePath1_1);
+                }
+                else if (typeindex == 1)
+                {
+                    textBox3.Text = "B";
+                    initdataGridView2(MetersetFilePath1_2);
+                }
+                else if (typeindex == 2)
+                {
+                    textBox3.Text = "C";
+                    initdataGridView2(MetersetFilePath1_3);
+                }
+                else if (typeindex == 3)
+                {
+                    textBox3.Text = "D";
+                    initdataGridView2(MetersetFilePath1_4);
                 }
             }
+           
             foreach (var cnctemp in MainForm.cncv2list)
             {
                 if (cnctemp.cnctype == CNCType.CNC)
@@ -857,6 +937,6 @@ namespace SCADA
             buttonbiaoding_Clickv2(sender, e);
         }
 
-
+      
     }
 }
