@@ -9,7 +9,7 @@ namespace SCADA
    public partial class ModbusTcp
     {
         public static Int32 ModbusBufferHeadSize = 7;//7个字节的MBAP表头 其中只有长度需要服务端写190，其他的直接复制客户端数据
-        public static Int32 ModbusBufferSize = 245;//190
+        public static Int32 ModbusBufferSize = 293;//190
         public static Int32 ModbusBufferFunCodeSizeReq = 5;
         public static Int32 ModbusBufferFunCodeSizeWrite = 6;
         public static Int32 ResModbusBufferFunCodeSize = 2;
@@ -168,7 +168,7 @@ namespace SCADA
 
             Mag_Scene = 71,//	仓位1场次 A-Z
             Mag_Type,//	零件类型,零件的编号（0_A,1-B,2-C,3-D）
-            Mag_Mode,//零件模型，零件的类型（0-1型，1-2型，2-3型，3-4型）
+            Mag_material,//零件材质，零件的类型（0-铝件，1-钢件）
             Mag_state,//	零件状态0空，1待加工，2正在加工，3合格品，4不合格品，5车床加工完成，6加工中心加工完成，7异常状态
 
             p_MeterValue1 = 191,//测量标定值符号位0-正数，1负数
@@ -213,7 +213,7 @@ namespace SCADA
             FineMeter_Positive,
             FineMeter_int,
             FineMeter_Float,
-            //料仓对应的模型编号，共30各0-1号模型，1-2号模型，2-3号模型，3-4号模型，
+            //料仓对应的模型编号，共30各0-1号模型，1-2号模型，2-3号模型，3-4号模型，263-292
             Mag1_Sheet_No = 263,
 
 

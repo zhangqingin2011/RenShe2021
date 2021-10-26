@@ -75,19 +75,7 @@ namespace SCADA
 
         private void RackForm_Load(object sender, EventArgs e)
         {
-            //ChangeLanguage.LoadLanguage(this);
-
-            //language = ChangeLanguage.GetDefaultLanguage();
-            //if (language == "English")
-            //{
-            //    label8.Text = "port close";
-            //}
-            //else
-            //    label8.Text = "串口关闭";
-
-            //总控PLC只有一个  hxb  2017.4.27
-          //  string ip = MainForm.m_xml.m_Read(m_xmlDociment.PathRoot_PLC, 0, m_xmlDociment.Default_Attributes_str1[(int)m_xmlDociment.Attributes_str1.ip]);
-            //MacDataService.GetInstance().GetMachineDbNo(ip, ref rack_dbNo);
+          
             for (int ii = 0; ii < 30;ii++ )
             {
                 mag_state_change_flage[ii]=true;
@@ -102,6 +90,7 @@ namespace SCADA
             comboBoxmeterial.Items.Add("G");
             comboBoxmeterial.Items.Add("H");
             comboBoxmeterial.SelectedIndex = 0;
+            comboBoxcaizhi.SelectedIndex = 0;
             comboBoxq1.SelectedIndex = ModbusTcp.DataMoubus[(int)SCADA.ModbusTcp.DataConfigArr.Mag_Type + (int)ModbusTcp.MagLength * 0];
             comboBoxq2.SelectedIndex = ModbusTcp.DataMoubus[(int)SCADA.ModbusTcp.DataConfigArr.Mag_Type + (int)ModbusTcp.MagLength * 1];
             comboBoxq3.SelectedIndex = ModbusTcp.DataMoubus[(int)SCADA.ModbusTcp.DataConfigArr.Mag_Type + (int)ModbusTcp.MagLength * 2];
@@ -132,6 +121,36 @@ namespace SCADA
             comboBoxq28.SelectedIndex = ModbusTcp.DataMoubus[(int)SCADA.ModbusTcp.DataConfigArr.Mag_Type + (int)ModbusTcp.MagLength * 27];
             comboBoxq29.SelectedIndex = ModbusTcp.DataMoubus[(int)SCADA.ModbusTcp.DataConfigArr.Mag_Type + (int)ModbusTcp.MagLength * 28];
             comboBoxq30.SelectedIndex = ModbusTcp.DataMoubus[(int)SCADA.ModbusTcp.DataConfigArr.Mag_Type + (int)ModbusTcp.MagLength * 29];
+            comboBoxp1.SelectedIndex = ModbusTcp.DataMoubus[(int)SCADA.ModbusTcp.DataConfigArr.Mag1_Sheet_No + 0];
+            comboBoxp2.SelectedIndex = ModbusTcp.DataMoubus[(int)SCADA.ModbusTcp.DataConfigArr.Mag1_Sheet_No + 1]; 
+            comboBoxp3.SelectedIndex = ModbusTcp.DataMoubus[(int)SCADA.ModbusTcp.DataConfigArr.Mag1_Sheet_No + 2]; 
+            comboBoxp4.SelectedIndex = ModbusTcp.DataMoubus[(int)SCADA.ModbusTcp.DataConfigArr.Mag1_Sheet_No + 3]; 
+            comboBoxp5.SelectedIndex = ModbusTcp.DataMoubus[(int)SCADA.ModbusTcp.DataConfigArr.Mag1_Sheet_No + 4]; 
+            comboBoxp6.SelectedIndex = ModbusTcp.DataMoubus[(int)SCADA.ModbusTcp.DataConfigArr.Mag1_Sheet_No + 5]; 
+            comboBoxp7.SelectedIndex = ModbusTcp.DataMoubus[(int)SCADA.ModbusTcp.DataConfigArr.Mag1_Sheet_No +6];
+            comboBoxp8.SelectedIndex = ModbusTcp.DataMoubus[(int)SCADA.ModbusTcp.DataConfigArr.Mag1_Sheet_No + 7];
+            comboBoxp9.SelectedIndex = ModbusTcp.DataMoubus[(int)SCADA.ModbusTcp.DataConfigArr.Mag1_Sheet_No + 8];
+            comboBoxp10.SelectedIndex = ModbusTcp.DataMoubus[(int)SCADA.ModbusTcp.DataConfigArr.Mag1_Sheet_No + 9];
+            comboBoxp11.SelectedIndex = ModbusTcp.DataMoubus[(int)SCADA.ModbusTcp.DataConfigArr.Mag1_Sheet_No + 10];
+            comboBoxp12.SelectedIndex = ModbusTcp.DataMoubus[(int)SCADA.ModbusTcp.DataConfigArr.Mag1_Sheet_No + 11];
+            comboBoxp13.SelectedIndex = ModbusTcp.DataMoubus[(int)SCADA.ModbusTcp.DataConfigArr.Mag1_Sheet_No + 12];
+            comboBoxp14.SelectedIndex = ModbusTcp.DataMoubus[(int)SCADA.ModbusTcp.DataConfigArr.Mag1_Sheet_No + 13];
+            comboBoxp15.SelectedIndex = ModbusTcp.DataMoubus[(int)SCADA.ModbusTcp.DataConfigArr.Mag1_Sheet_No + 14];
+            comboBoxp16.SelectedIndex = ModbusTcp.DataMoubus[(int)SCADA.ModbusTcp.DataConfigArr.Mag1_Sheet_No + 15];
+            comboBoxp17.SelectedIndex = ModbusTcp.DataMoubus[(int)SCADA.ModbusTcp.DataConfigArr.Mag1_Sheet_No + 16];
+            comboBoxp18.SelectedIndex = ModbusTcp.DataMoubus[(int)SCADA.ModbusTcp.DataConfigArr.Mag1_Sheet_No + 17];
+            comboBoxp19.SelectedIndex = ModbusTcp.DataMoubus[(int)SCADA.ModbusTcp.DataConfigArr.Mag1_Sheet_No + 18];
+            comboBoxp20.SelectedIndex = ModbusTcp.DataMoubus[(int)SCADA.ModbusTcp.DataConfigArr.Mag1_Sheet_No + 19];
+            comboBoxp21.SelectedIndex = ModbusTcp.DataMoubus[(int)SCADA.ModbusTcp.DataConfigArr.Mag1_Sheet_No + 20];
+            comboBoxp22.SelectedIndex = ModbusTcp.DataMoubus[(int)SCADA.ModbusTcp.DataConfigArr.Mag1_Sheet_No + 21];
+            comboBoxp23.SelectedIndex = ModbusTcp.DataMoubus[(int)SCADA.ModbusTcp.DataConfigArr.Mag1_Sheet_No + 22];
+            comboBoxp24.SelectedIndex = ModbusTcp.DataMoubus[(int)SCADA.ModbusTcp.DataConfigArr.Mag1_Sheet_No + 23];
+            comboBoxp25.SelectedIndex = ModbusTcp.DataMoubus[(int)SCADA.ModbusTcp.DataConfigArr.Mag1_Sheet_No + 24];
+            comboBoxp26.SelectedIndex = ModbusTcp.DataMoubus[(int)SCADA.ModbusTcp.DataConfigArr.Mag1_Sheet_No + 25];
+            comboBoxp27.SelectedIndex = ModbusTcp.DataMoubus[(int)SCADA.ModbusTcp.DataConfigArr.Mag1_Sheet_No + 26];
+            comboBoxp28.SelectedIndex = ModbusTcp.DataMoubus[(int)SCADA.ModbusTcp.DataConfigArr.Mag1_Sheet_No + 27];
+            comboBoxp29.SelectedIndex = ModbusTcp.DataMoubus[(int)SCADA.ModbusTcp.DataConfigArr.Mag1_Sheet_No + 28];
+            comboBoxp30.SelectedIndex = ModbusTcp.DataMoubus[(int)SCADA.ModbusTcp.DataConfigArr.Mag1_Sheet_No + 29];
         }
         public static void initlightstate()
         {
@@ -643,7 +662,7 @@ namespace SCADA
                     int magnum =    (int)ModbusTcp.MagAllNum;
                     int maglength = (int)ModbusTcp.MagLength;
                     int magtypei=0;
-                    int magmateriali=0;
+                    int magmodenum=0;
          
                     index = names.IndexOf('x');
                     type = names.Substring(index + 1, 1);                    
@@ -652,12 +671,12 @@ namespace SCADA
                     number = Convert.ToInt32(numbers);
                     if(type =="p")
                     {
-                        magmateriali = magstart + maglength * (number - 1) + 2;
+                        magmodenum = (int)SCADA.ModbusTcp.DataConfigArr.Mag1_Sheet_No + number-1;
                         if (temp.SelectedIndex<0)
                         {
                             temp.SelectedIndex=0;
                         }
-                        ModbusTcp.DataMoubus[magmateriali] = temp.SelectedIndex;
+                        ModbusTcp.DataMoubus[magmodenum] = temp.SelectedIndex;
                     }
                     else if(type =="q")
                     {
@@ -1359,10 +1378,23 @@ namespace SCADA
             
           //  meterialchange = true;
         }
+        //材质变化
+        private void comboBox1_SelectedIndexChanged(object sender, EventArgs e)
+        {
 
-      
+            ModbusTcp.DataMoubus[(int)SCADA.ModbusTcp.DataConfigArr.Meterial] = comboBoxcaizhi.SelectedIndex;
+            int magstart = (int)SCADA.ModbusTcp.DataConfigArr.Mag_material;
+         
+            int maglength = (int)ModbusTcp.MagLength;
+            for(int i=0;i<30;i++)
+            {
+                int meterialnum = magstart + maglength * i;
+                ModbusTcp.DataMoubus[meterialnum] = comboBoxcaizhi.SelectedIndex; ;
+            }
+            codechangeflage = true;
+        }
 
-      
+    
     }
 
 }

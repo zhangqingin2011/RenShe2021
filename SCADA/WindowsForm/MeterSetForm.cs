@@ -151,7 +151,6 @@ namespace SCADA
                         dgv.Rows[i].Cells[3].Value = "0.000";
                         dgv.Rows[i].Cells[4].Value = "0.000";
                         dgv.Rows[i].Cells[5].Value = "0";
-                        dgv.Rows[i].Cells[6].Value = "长度";
                     }
                 }
                 while (line != null)
@@ -162,7 +161,6 @@ namespace SCADA
                     uppervalue = getvalueformstring(line, "upper=");
                     lowervalue = getvalueformstring(line, "lower=");
                     toolno = getvalueformstring(line, "toolno=");
-                    comptype = getvalueformstring(line, "comptype=");
                     if (item != "null")
                     {
                         dgv.Rows[ii].Cells[0].Value = item;
@@ -211,18 +209,7 @@ namespace SCADA
 
                         dgv.Rows[ii].Cells[5].Value = toolno;
                     }
-                    if (comptype != "null")
-                    {
-                         if (comptype == "0")
-                        {
-                            dgv.Rows[ii].Cells[6].Value = "长度";
-                        }
-                        else if (comptype == "1")
-                        {
-                            dgv.Rows[ii].Cells[6].Value = "半径";
-                        }               
-                        
-                    }
+                 
                     line = sr.ReadLine();
                     ii++;
                 }
@@ -330,14 +317,7 @@ namespace SCADA
                     StValues = refvalued.ToString("F3");
                     toolno = dgv.Rows[jj].Cells[5].Value.ToString();
               
-                    if (dgv.Rows[jj].Cells[6].Value.ToString() == "长度")
-                    {
-                        comptype = "0";
-                    }
-                    else if (dgv.Rows[jj].Cells[6].Value.ToString() == "半径")
-                    {
-                        comptype = "1";
-                    }
+                    
                     
                     if (refvalued >= 0)
                     {
@@ -356,16 +336,12 @@ namespace SCADA
                     }
                     else
                     {
-                        if ((refvalued - uppervalued) > (refvalued - lowerdatad))
-                        {
-                            temps = dgv.Rows[jj].Cells[0].Value.ToString();
-                           tempvalues = "测量上下限设置错误";
-                            tempvalues = temps + tempvalues;
-                            sr.Close();
-                            aFile.Close();
-                            MessageBox.Show(tempvalues);
-                            return false;
-                        }
+                        tempvalues = "测量标准值不能为负数";           
+                        sr.Close();
+                        aFile.Close();
+                        MessageBox.Show(tempvalues);
+                        return false;
+                       
                     }
 
                     meterdatas = "item=" + dgv.Rows[jj].Cells[0].Value.ToString();
@@ -374,7 +350,6 @@ namespace SCADA
                     meterdatas = meterdatas + ",upper=" + UpValues;
                     meterdatas = meterdatas + ",lower=" + LowValues;
                     meterdatas = meterdatas + ",toolno=" + toolno; 
-                    meterdatas = meterdatas + ",comptype=" + comptype;
                     meterdatas = meterdatas + ",";
                     sr.WriteLine(meterdatas);
                 }

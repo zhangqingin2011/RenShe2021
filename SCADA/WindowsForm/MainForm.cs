@@ -378,7 +378,7 @@ namespace SCADA
 
         private String GetzhuceEndtime(String str)
         {
-            string miyao = "HNC8";
+            string miyao = "GYHL";
             return jiemi(str, miyao);
 
         }
@@ -3375,7 +3375,7 @@ namespace SCADA
                 MainForm.sptcp1.SendData((byte)SCADA.ModbusTcp.Func_Code.req, 1, 0, (int)SCADA.ModbusTcp.DataConfigArr.Mesans_Robot_status, 28);//请求61、62号寄存器存储内容是料位有无料信息      
                 MainForm.sptcp1.ReceiveData();
 
-                MainForm.sptcp1.SendData((byte)SCADA.ModbusTcp.Func_Code.writereg, (int)SCADA.ModbusTcp.DataConfigArr.p_MeterValue1, 54, 1, 0);//写机器人位置
+                MainForm.sptcp1.SendData((byte)SCADA.ModbusTcp.Func_Code.writereg, (int)SCADA.ModbusTcp.DataConfigArr.p_MeterValue1, 102, 1, 0);//写机器人位置
                 MainForm.sptcp1.ReceiveData();
                 //   MainForm.sptcp1.SendData((byte)SCADA.ModbusTcp.Func_Code.writereg, (int)SCADA.ModbusTcp.DataConfigArr.p_MeterValue1, 15, 1, 0);//请求61、62号寄存器存储内容是料位有无料信息      
                 //if (MeterForm.renewbiaodingfalge)
@@ -3586,6 +3586,7 @@ namespace SCADA
                 posarry[4] = SRobortdata.SiteJ5;
                 posarry[5] = SRobortdata.SiteJ6;
                 posarry[6] = SRobortdata.SiteJ7;
+                int zerosum = 1;
                 for (int i = 0; i < 7; i++)
                 {
                     double tempd = Convert.ToDouble(posarry[i]);
@@ -3601,6 +3602,21 @@ namespace SCADA
                         }
                         string refvalue1 = temps.Substring(0, index);//整数部分
                         string refvalue2 = temps.Substring(index + 1);//小数部分
+                        if (refvalue2.Substring(0, 1) == "0")
+                        {
+                            if (refvalue2.Substring(1, 1) == "0")
+                            {
+                                zerosum = 100;
+                            }
+                            else
+                            {
+                                zerosum = 10;
+                            }
+                        }
+                        else
+                        {
+                            zerosum = 1;
+                        }
                         if (flage == -1)
                         {
 
@@ -3616,7 +3632,7 @@ namespace SCADA
                         {
                             ModbusTcp.DataMoubus[(int)ModbusTcp.DataConfigArr.p_Jpos + i * 3 + 1] = (-1) * ModbusTcp.DataMoubus[(int)ModbusTcp.DataConfigArr.p_Jpos + i * 3 + 1];
                         }
-                        ModbusTcp.DataMoubus[(int)ModbusTcp.DataConfigArr.p_Jpos + i * 3 + 2] = Convert.ToInt32(refvalue2);
+                        ModbusTcp.DataMoubus[(int)ModbusTcp.DataConfigArr.p_Jpos + i * 3 + 2] = Convert.ToInt32(refvalue2)* zerosum;
                     }
                 }
                 //更新mes to plc 信息
@@ -3726,6 +3742,8 @@ namespace SCADA
             posarry[5] = SRobortdata.SiteJ6;
             posarry[6] = SRobortdata.SiteJ7;
 
+            int zerosum = 1;
+
             for (int i = 0; i < 7; i++)
             {
                 double tempd = Convert.ToDouble(posarry[i]);
@@ -3748,6 +3766,21 @@ namespace SCADA
                     {
                         refvalue1 = temps.Substring(0, index);//整数部分
                         refvalue2 = temps.Substring(index + 1);//小数部分
+                        if(refvalue2.Substring(0,1)=="0")
+                        {
+                            if(refvalue2.Substring(1, 1) == "0")
+                            {
+                                zerosum = 100;
+                            }
+                            else
+                            {
+                                zerosum = 10;
+                            }
+                        }
+                        else
+                        {
+                            zerosum = 1;
+                        }
                     }
                 }
                 else
@@ -3778,7 +3811,7 @@ namespace SCADA
                 {
                     ModbusTcp.DataMoubus[(int)ModbusTcp.DataConfigArr.p_Jpos + i * 3 + 1] = (-1) * ModbusTcp.DataMoubus[(int)ModbusTcp.DataConfigArr.p_Jpos + i * 3 + 1];
                 }
-                ModbusTcp.DataMoubus[(int)ModbusTcp.DataConfigArr.p_Jpos + i * 3 + 2] = Convert.ToInt32(refvalue2);
+                ModbusTcp.DataMoubus[(int)ModbusTcp.DataConfigArr.p_Jpos + i * 3 + 2] = Convert.ToInt32(refvalue2)* zerosum;
             }
         }
 
@@ -3807,8 +3840,8 @@ namespace SCADA
 
                 Slathedata.Chuck = EnumLatheChuckState.Loose;
             }
-            string Fspeeds = cncv2.SpeedRate.ToString("F1");
-            string Spdlspeeds = cncv2.SpindleSpeed.ToString("F1");
+            string Fspeeds = cncv2.SpeedRate.ToString("F3");
+            string Spdlspeeds = cncv2.SpindleSpeed.ToString("F3");
 
             Slathedata.SpindleSpeed = Convert.ToDouble(Spdlspeeds);
             Slathedata.Feedrate = Convert.ToDouble(Fspeeds);
@@ -3912,8 +3945,8 @@ namespace SCADA
             {
                 SCNCdata.Chuck2 = EnumMachiningCenterChuckState.Loose;
             }
-            string Fspeeds = cncv2.SpeedRate.ToString("F1");
-            string Spdlspeeds = cncv2.SpindleSpeed.ToString("F1");
+            string Fspeeds = cncv2.SpeedRate.ToString("F3");
+            string Spdlspeeds = cncv2.SpindleSpeed.ToString("F3");
 
             SCNCdata.SpindleSpeed = Convert.ToDouble(Spdlspeeds);
             SCNCdata.Feedrate = Convert.ToDouble(Fspeeds);

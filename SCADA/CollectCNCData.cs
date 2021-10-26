@@ -129,7 +129,7 @@ namespace SCADA
                         CNC.InstructionsTool = Convert.ToInt32(value);
                     }
                     //主轴速度
-                    if (CNC.AxisGetValue(HncAxis.HNC_AXIS_ACT_VEL, out datatype, out value))
+                    if (CNC.ChannelGetValue(HncChannel.HNC_CHAN_CMD_SPDL_SPEED, out datatype, out value))
                     {
                         CNC.SpindleSpeed = Convert.ToDouble(value);
                     }

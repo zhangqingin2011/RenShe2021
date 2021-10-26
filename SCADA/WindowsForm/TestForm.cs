@@ -613,17 +613,17 @@ namespace SCADA
                     {
                         if (MainForm.cncv2list[0] == null)
                         {
-                            speeds = "0.0";
+                            speeds = "0.000";
                         }
-                        else speeds = MainForm.cncv2list[0].SpindleSpeed.ToString("F1");
+                        else speeds = MainForm.cncv2list[0].SpindleSpeed.ToString("F3");
                         if (speeds == null)
                         {
-                            speeds = "0.0";
+                            speeds = "0.000";
                         }
                     }
                     
                     speed = Convert.ToDouble(speeds);
-                    dataGridViewcnc1.Rows[i].Cells[2].Value = speed.ToString("F1");
+                    dataGridViewcnc1.Rows[i].Cells[2].Value = speed.ToString("F3");
                     DataGridViewCell aa = dataGridViewcnc1.Rows[i].Cells[2];
                     double standspeed = Convert.ToDouble(textBoxspeed2.Text);
                     if (((standspeed - speed) > -1) && ((standspeed - speed) < 1))
@@ -1002,9 +1002,10 @@ namespace SCADA
             metervalud[4] = MainForm.cncv2list[1].MeterValue[10];
             // metervalud[5] = MainForm.cncv2list[0].MeterValue[5];
 
-
+            int zerosum = 1;
             for (int ii = 0; ii < 5; ii++)
             {
+                zerosum = 1;
                 string temps = metervalud[ii].ToString("F3");
                 if (temps.Length > 0)
                 {
@@ -1024,6 +1025,22 @@ namespace SCADA
                         }
                         string refvalue1 = temps.Substring(0, index);//整数部分
                         string refvalue2 = temps.Substring(index + 1);//小数部分
+
+                        if (refvalue2.Substring(0, 1) == "0")
+                        {
+                            if (refvalue2.Substring(1, 1) == "0")
+                            {
+                                zerosum = 100;
+                            }
+                            else
+                            {
+                                zerosum = 10;
+                            }
+                        }
+                        else
+                        {
+                            zerosum = 1;
+                        }
                         int i = ii;
                         if (flage == -1)
                         {
@@ -1040,7 +1057,7 @@ namespace SCADA
                         {
                             ModbusTcp.DataMoubus[(int)ModbusTcp.DataConfigArr.p_MeterValue1 + i * 3 + 1] = (-1) * ModbusTcp.DataMoubus[(int)ModbusTcp.DataConfigArr.p_MeterValue1 + i * 3 + 1];
                         }
-                        ModbusTcp.DataMoubus[(int)ModbusTcp.DataConfigArr.p_MeterValue1 + i * 3 + 2] = Convert.ToInt32(refvalue2);
+                        ModbusTcp.DataMoubus[(int)ModbusTcp.DataConfigArr.p_MeterValue1 + i * 3 + 2] = Convert.ToInt32(refvalue2) * zerosum;
                     }
 
                 }

@@ -617,12 +617,11 @@ namespace SCADA
 
                 if (radioadd > 0.0 || radioadd < 0.0)
                 {
-                    string toolStr1 = "";
+                   // string toolStr1 = "";
                     var temp = radioadd.ToString("f2");
                     cncv2.TOOLDataChange[i].RadiusCompAdd = Convert.ToDouble(temp);
                     cncv2.TOOLDataChange[i].ToolChangeflag = true;
                     renewtoolflag = true;
-
                 }
 
             }
@@ -657,14 +656,14 @@ namespace SCADA
                 }
               
             }
-
-
             for (int ii = 0; ii < dataGridViewtool1.Rows.Count; ii++)
             {
                 dataGridViewtool1.Rows[ii].Cells[6].Value = "0.00";
                 dataGridViewtool1.Rows[ii].Cells[5].Value = "0.00";
             }
         }
+
+      
         private void timerupdata_Tick(object sender, EventArgs e)
         {
             if (cncv2.EquipmentState != "离线")
@@ -692,32 +691,12 @@ namespace SCADA
 
         }
 
-        //private void OrderForm_SizeChanged(object sender, EventArgs e)
-        //{
-        //    size.controlAutoSize(this);
-        //    if (dataGridViewtool1.ColumnCount > 0)
-        //    {
-        //        dataGridViewtool1.Columns[0].Width = dataGridViewtool1.Width / 6 - 100;
-        //        dataGridViewtool1.Columns[1].Width = dataGridViewtool1.Width / 6 - 40;
-        //        dataGridViewtool1.Columns[2].Width = dataGridViewtool1.Width / 6;
-        //        dataGridViewtool1.Columns[3].Width = dataGridViewtool1.Width / 6 - 100;
-        //        dataGridViewtool1.Columns[4].Width = dataGridViewtool1.Width / 6;
-        //        dataGridViewtool1.Columns[5].Width = dataGridViewtool1.Width / 6 + 220;
-        //    }
-        //}
+
 
         private void ToolForm_SizeChanged(object sender, EventArgs e)
         {
             size.controlAutoSize(this);
-            //if (dataGridViewtool1.ColumnCount > 0)
-            //{
-            //    dataGridViewtool1.Columns[0].Width = dataGridViewtool1.Width / 6 - 100;
-            //    dataGridViewtool1.Columns[1].Width = dataGridViewtool1.Width / 6 - 40;
-            //    dataGridViewtool1.Columns[2].Width = dataGridViewtool1.Width / 6;
-            //    dataGridViewtool1.Columns[3].Width = dataGridViewtool1.Width / 6 - 100;
-            //    dataGridViewtool1.Columns[4].Width = dataGridViewtool1.Width / 6;
-            //    dataGridViewtool1.Columns[5].Width = dataGridViewtool1.Width / 6 + 220;
-            //}
+       
         }
 
         private void dataGridViewtool1_EditingControlShowing(object sender, DataGridViewEditingControlShowingEventArgs e)

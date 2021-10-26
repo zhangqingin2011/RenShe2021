@@ -49,7 +49,7 @@ namespace SCADA
         public static String MetersetFilePath4_4 = "..\\data\\measure\\MeterSetFile4_4";
         public static String MetetrrecordFilePath = "..\\data\\measure\\MeterRecordFile";
 
-        public static int Textmagno = 0;
+        public static int Textmagno = 0;//当前测量工件编号
         public string language = "";
         private string prelanguage; //记录切换语言之前的语言
         Hashtable m_Hashtable;
@@ -69,6 +69,7 @@ namespace SCADA
             {
                 buttonreprocess.Enabled = true;
                 buttontorack.Enabled = true;
+                button1.Enabled = true;
             }
 
         }
@@ -681,11 +682,13 @@ namespace SCADA
             {
                 buttonreprocess.Enabled = true;
                 buttontorack.Enabled = true;
+                button1.Enabled = true;
             }
             else
             {
                 buttonreprocess.Enabled = false;
                 buttontorack.Enabled = false;
+                button1.Enabled = false;
             }
             if (MainForm.cncv2list[1].EquipmentState!="离线")
             {
@@ -712,82 +715,46 @@ namespace SCADA
         {
             if (MainForm.PLC_SIMES_ON_line == false)//plc离线
             {
-                if (language == "English")
-                {
-                    MessageBox.Show("PLC is off-line,can't reprocess!");
-                }
-                else MessageBox.Show("PLC离线，不允许返修!");
+                MessageBox.Show("PLC离线，不允许返修!");
                 return;
             }
             if (MainForm.linereseting)//产线复位中不能盘点
             {
-                if (language == "English")
-                {
-                    MessageBox.Show("The Line is resetting,can't reprocess!");
-                }
-                else MessageBox.Show("产线复位进行中，不允许返修!");
+                MessageBox.Show("产线复位进行中，不允许返修!");
                 return;
             }
             if (MainForm.linestarting)//产线复位中不能盘点
             {
-                if (language == "English")
-                {
-                    MessageBox.Show("The Line is starting,can't reprocess!");
-                }
-                else MessageBox.Show("产线启动进行中，不允许返修!");
+                 MessageBox.Show("产线启动进行中，不允许返修!");
                 return;
             }
             if (MainForm.linestoping)//产线复位中不能盘点
             {
-                if (language == "English")
-                {
-                    MessageBox.Show("The Line is stopping,can't reprocess!");
-                }
-                else MessageBox.Show("产线停止进行中，不允许返修!");
+                 MessageBox.Show("产线停止进行中，不允许返修!");
                 return;
             }
             if (!MainForm.cncv2list[1].IsConnected())//产线复位中不能盘点
             {
-                if (language == "English")
-                {
-                    MessageBox.Show("The CNC is off line,can't reprocess!");
-                }
-                else MessageBox.Show("铣床离线，不允许返修!");
+                MessageBox.Show("铣床离线，不允许返修!");
                 return;
             }
             if (!RackForm.Inventoryflag)
             {
-                if (language == "English")
-                {
-                    MessageBox.Show("The rackis Inventorying!");
-                }
-                else MessageBox.Show("当前正在盘点，不允许返修!");
+                 MessageBox.Show("当前正在盘点，不允许返修!");
             }
             if (!RackForm.rfidreadflag)
             {
-                if (language == "English")
-                {
-                    MessageBox.Show("The rfid is reading ,can't reprocess!");
-                }
-                else MessageBox.Show("RFID信息读取中，不允许返修!");
+                 MessageBox.Show("RFID信息读取中，不允许返修!");
                 return;
             }
             if (!RackForm.rfidwriteflag)
             {
-                if (language == "English")
-                {
-                    MessageBox.Show("The rfid is writting,can't reprosessing!");
-                }
-                else MessageBox.Show("RFID信息写入中，不允许返修!");
+                 MessageBox.Show("RFID信息写入中，不允许返修!");
                 return;
             }
             if (MainForm.linestart)
             {
-                if (language == "English")
-                {
-                    MessageBox.Show("The line is stop!");
-                }
-                else MessageBox.Show("产线未开启!");
+               MessageBox.Show("产线未开启!");
                 return;// 产线没启动
             }
             OrderForm1.ReProcessChoose = false;
@@ -891,9 +858,10 @@ namespace SCADA
             metervalus[3] = MainForm.cncv2list[1].MeterValue[9].ToString("F3");
             metervalus[4] = MainForm.cncv2list[1].MeterValue[10].ToString("F3");
             renewbiaodingfalge = true;
-
+            int zerosum = 1;
             for (int ii = 0; ii < 5; ii++)
             {
+                zerosum = 1;
                 string str = metervalus[ii];
                 if (str.Length > 0)
                 {
@@ -911,6 +879,21 @@ namespace SCADA
                         }
                         string refvalue1 = temps.Substring(0, index);//整数部分
                         string refvalue2 = temps.Substring(index + 1);//小数部分
+                        if (refvalue2.Substring(0, 1) == "0")
+                        {
+                            if (refvalue2.Substring(1, 1) == "0")
+                            {
+                                zerosum = 100;
+                            }
+                            else
+                            {
+                                zerosum = 10;
+                            }
+                        }
+                        else
+                        {
+                            zerosum = 1;
+                        }
                         if (flage == -1)
                         {
 
@@ -925,7 +908,7 @@ namespace SCADA
                         {
                             ModbusTcp.DataMoubus[(int)ModbusTcp.DataConfigArr.p_MeterValue1 + ii * 3 + 1] = (-1) * ModbusTcp.DataMoubus[(int)ModbusTcp.DataConfigArr.p_MeterValue1 + ii * 3 + 1];
                         }
-                        ModbusTcp.DataMoubus[(int)ModbusTcp.DataConfigArr.p_MeterValue1 + ii * 3 + 2] = Convert.ToInt32(refvalue2);
+                        ModbusTcp.DataMoubus[(int)ModbusTcp.DataConfigArr.p_MeterValue1 + ii * 3 + 2] = Convert.ToInt32(refvalue2)* zerosum;
                     }
 
                 }
@@ -937,6 +920,63 @@ namespace SCADA
             buttonbiaoding_Clickv2(sender, e);
         }
 
-      
+        private void button1_Click_1(object sender, EventArgs e)
+        {
+            bool renewtoolflag = false;
+            if (MainForm.cncv2list[1].IsConnected() == false)//产线复位中不能盘点
+            {
+                MessageBox.Show("铣床离线，不能自动补偿!");
+                return;
+            }
+            else//自动补偿
+            {
+                //获取补偿数据
+                for (int i = 0; i < 6; i++)
+                {
+                    var data = OrderForm1.AotoToolComDataList[i];
+
+                    if (data.toolno != 0 && data.compValue != 0)
+                    {
+                        if (data.type == 0)//长度
+                        {
+
+                            MainForm.cncv2list[1].TOOLDataChange[data.toolno].LengthCompAdd = data.compValue;
+                            MainForm.cncv2list[1].TOOLDataChange[data.toolno].RadiusCompAdd = 0;
+                            MainForm.cncv2list[1].TOOLDataChange[data.toolno].ToolChangeflag = true;
+                            renewtoolflag = true;
+                        }
+                        else//半径
+                        {
+                            MainForm.cncv2list[1].TOOLDataChange[data.toolno].LengthCompAdd = 0;
+                            MainForm.cncv2list[1].TOOLDataChange[data.toolno].RadiusCompAdd = data.compValue;
+                            MainForm.cncv2list[1].TOOLDataChange[data.toolno].ToolChangeflag = true;
+                            renewtoolflag = true;
+                        }
+
+                    }
+                    else
+                    {
+                        MainForm.cncv2list[1].TOOLDataChange[data.toolno].RadiusCompAdd = 0;
+                        MainForm.cncv2list[1].TOOLDataChange[data.toolno].LengthCompAdd = 0;
+                        MainForm.cncv2list[1].TOOLDataChange[data.toolno].ToolChangeflag = false;
+                    }
+                }
+                //下发补偿值
+                if (renewtoolflag)
+                {
+                    var ret = MainForm.collectdatav2.GetCNCDataLst[1].SetTool();
+                    if (!ret)
+                    {
+                        MessageBox.Show("补偿失败，请确认网络是否连接！");
+                    }
+                    else
+                    {
+                        MessageBox.Show("自动刀补完成！");
+                        renewtoolflag = true;
+                        button1.Enabled = false;
+                    }
+                }
+            }
+        }
     }
 }

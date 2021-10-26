@@ -51,11 +51,12 @@ namespace SCADA
             myCommand.Connection = myConnection;
             treeView1.Nodes.Clear();
 
-            tabControl1.TabPages.Remove(tabPLMEBOM); 
-            tabControl1.TabPages.Remove(tabPLMPBOM);
+            tabControl1.TabPages.Remove(tabButtonPDM);
+            tabControl1.TabPages.Remove(tabButtonCAPP);
             tabControl1.TabPages.Remove(tabEBOM);
             tabControl1.TabPages.Remove(tabPBOM); 
             tabControl1.TabPages.Remove(tabCard);
+      
         }
 
         private void tabControl1_SelectedIndexChanged(object sender, EventArgs e)
@@ -257,27 +258,27 @@ namespace SCADA
                MessageBox.Show("文件不存在");
                 return;
             }
-            dataGridView1.Rows.Clear();
+            dataGridView2.Rows.Clear();
             try
             {
                 using (Stream stream = File.Open(path, FileMode.Open, FileAccess.Read))
                 {
                     int ii = 0;
 
-                    dataGridView1.Rows.Clear();
+                    dataGridView2.Rows.Clear();
                     IExcelDataReader reader = ExcelReaderFactory.CreateOpenXmlReader(stream);
                     DataSet result = reader.AsDataSet();
                     int count = result.Tables[0].Rows.Count;
                     if(count>5)
                     {
-                        dataGridView1.Rows.Add(count - 4);
+                        dataGridView2.Rows.Add(count - 4);
                     }
-                   
-                    textBoxljmc.Text = result.Tables[0].Rows[1][2].ToString();
-                    textBoxcl.Text = result.Tables[0].Rows[1][6].ToString();
-                    textBoxjs.Text = result.Tables[0].Rows[1][10].ToString();
-                    textBoxmpsl.Text = result.Tables[0].Rows[1][13].ToString();
-                    textBoxth.Text = result.Tables[0].Rows[1][16].ToString();
+                    textBoxCardname2021.Text = result.Tables[0].Rows[0][0].ToString();
+                    textBoxname2021.Text = result.Tables[0].Rows[1][1].ToString();
+                    textBoxcailiao2021.Text = result.Tables[0].Rows[1][3].ToString();
+                    textBoxtuhao2021.Text = result.Tables[0].Rows[1][7].ToString();
+
+            
                    
                     for ( ii = 4; ii < count; ii++)
                     {
@@ -288,24 +289,15 @@ namespace SCADA
                         }
                         else
                         {
-                            dataGridView1.Rows[ii - 4].Cells[0].Value = result.Tables[0].Rows[ii][0].ToString();
-                            dataGridView1.Rows[ii - 4].Cells[1].Value = result.Tables[0].Rows[ii][1].ToString();
-                            dataGridView1.Rows[ii - 4].Cells[2].Value = result.Tables[0].Rows[ii][2].ToString();
-                            dataGridView1.Rows[ii - 4].Cells[3].Value = result.Tables[0].Rows[ii][3].ToString();
-                            dataGridView1.Rows[ii - 4].Cells[4].Value = result.Tables[0].Rows[ii][4].ToString();
-                            dataGridView1.Rows[ii - 4].Cells[5].Value = result.Tables[0].Rows[ii][5].ToString();
-                            dataGridView1.Rows[ii - 4].Cells[6].Value = result.Tables[0].Rows[ii][6].ToString();
-                            dataGridView1.Rows[ii - 4].Cells[7].Value = result.Tables[0].Rows[ii][7].ToString();
-                            dataGridView1.Rows[ii - 4].Cells[8].Value = result.Tables[0].Rows[ii][8].ToString();
-                            dataGridView1.Rows[ii - 4].Cells[9].Value = result.Tables[0].Rows[ii][9].ToString();
-                            dataGridView1.Rows[ii - 4].Cells[10].Value = result.Tables[0].Rows[ii][10].ToString();
-                            dataGridView1.Rows[ii - 4].Cells[11].Value = result.Tables[0].Rows[ii][11].ToString();
-                            dataGridView1.Rows[ii - 4].Cells[12].Value = result.Tables[0].Rows[ii][12].ToString();
-                            dataGridView1.Rows[ii - 4].Cells[13].Value = result.Tables[0].Rows[ii][13].ToString();
-                            dataGridView1.Rows[ii - 4].Cells[14].Value = result.Tables[0].Rows[ii][14].ToString();
-                            dataGridView1.Rows[ii - 4].Cells[15].Value = result.Tables[0].Rows[ii][15].ToString();
-                            dataGridView1.Rows[ii - 4].Cells[16].Value = result.Tables[0].Rows[ii][16].ToString();
-                            dataGridView1.Rows[ii - 4].Cells[17].Value = result.Tables[0].Rows[ii][17].ToString();
+                            dataGridView2.Rows[ii - 4].Cells[0].Value = result.Tables[0].Rows[ii][0].ToString();
+                            dataGridView2.Rows[ii - 4].Cells[1].Value = result.Tables[0].Rows[ii][1].ToString();
+                            dataGridView2.Rows[ii - 4].Cells[2].Value = result.Tables[0].Rows[ii][2].ToString();
+                            dataGridView2.Rows[ii - 4].Cells[3].Value = result.Tables[0].Rows[ii][3].ToString();
+                            dataGridView2.Rows[ii - 4].Cells[4].Value = result.Tables[0].Rows[ii][4].ToString();
+                            dataGridView2.Rows[ii - 4].Cells[5].Value = result.Tables[0].Rows[ii][5].ToString();
+                            dataGridView2.Rows[ii - 4].Cells[6].Value = result.Tables[0].Rows[ii][6].ToString();
+                            dataGridView2.Rows[ii - 4].Cells[7].Value = result.Tables[0].Rows[ii][7].ToString();
+                            dataGridView2.Rows[ii - 4].Cells[8].Value = result.Tables[0].Rows[ii][8].ToString();
                         }
                       
                     }
@@ -322,6 +314,10 @@ namespace SCADA
         }
 
         private void ComboBoxchoose_Click(object sender, EventArgs e)
+        {
+            CardItemGenerate();
+        }
+        private void ComboBoxchoose2021_Click(object sender, EventArgs e)
         {
             CardItemGenerate();
         }
@@ -367,19 +363,19 @@ namespace SCADA
                         }
                     }
                 }
-                comboBoxchoose.Items.Clear();
+                ComboBoxchoose2021.Items.Clear();
                 foreach (var temp in Cardlist)
                 {
-                    comboBoxchoose.Items.Add(temp);
+                    ComboBoxchoose2021.Items.Add(temp);
                 }
             }
             catch (Exception ex)
             {
                 Cardlist.Clear();
-                comboBoxchoose.Items.Clear();
+                ComboBoxchoose2021.Items.Clear();
                 foreach (var temp in Cardlist)
                 {
-                    comboBoxchoose.Items.Add(temp);
+                    ComboBoxchoose2021.Items.Add(temp);
                 }
                 MessageBox.Show("获取工艺失败，请检查文件是否存在");
             }
@@ -1466,6 +1462,29 @@ namespace SCADA
 
             }
         }
+
+        private void Buttonmadelist2021_Click(object sender, EventArgs e)
+        {
+            int ii = 0;//图号数据总行数
+            int jj = 0;//
+            int kk = 1;//textbox写入行行编号
+            //string ConnectionSql = "data source = localhost;initial catalog=BOM;usr id = sa;password = sa";
+            if (ComboBoxchoose2021.Text == null || ComboBoxchoose2021.Text == "" || ComboBoxchoose2021.Text == "请选择工艺卡")
+            {
+
+                MessageBox.Show("请选择文件");
+                return;
+            }
+            if (ComboBoxchoose2021.Text.Length < 1)
+            {
+                MessageBox.Show("选择文件错误");
+                return;
+            }
+            string tuhao = ComboBoxchoose2021.Text;
+            renewCard(tuhao);
+        }
+
+       
     }
     public class FEBOMData
     {
