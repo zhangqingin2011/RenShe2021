@@ -8,13 +8,14 @@ using System.Text;
 using System.Windows.Forms;
 using HNCAPI;
 using HNC_MacDataService;
-using ScadaHncData;
 using System.Threading;
 using System.Globalization;
 using System.Resources;
 using System.Collections;
 using System.Net.NetworkInformation;
 using HNC.API;
+using HNCAPI_INTERFACE;
+using ScadaHncData;
 
 namespace SCADA
 {
@@ -1165,7 +1166,7 @@ namespace SCADA
             {
 
                 //if(cnc.Type == "HNC_848C")
-                if (cnctemp.cnctype == CNCType.CNC|| cnctemp.cnctype == CNCType.Lathe)
+                if (cnctemp.cnctype == CNCType.CNC || cnctemp.cnctype == CNCType.Lathe)
                 {
                     int tmp = cnctemp.CNCButtonY480;
 

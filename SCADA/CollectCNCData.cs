@@ -54,9 +54,10 @@ namespace SCADA
             while (bCollect)
             {
 
+
                 if (!CNC.IsConnected())
                 {
-                    if(flag)
+                    if (flag)
                     {
                         CNC.EquipmentState = "离线";
                         threaFucRuningF_OK = false;
@@ -70,11 +71,11 @@ namespace SCADA
                         SCADA.MainForm.m_Log.AddLogMsgHandler.BeginInvoke(this, SendParm, null, null);
                         flag = false;
                     }
-                  
+                    Thread.Sleep(5000);
                 }
                 else
                 {
-                    if(!flag)
+                    if (!flag)
                     {
                         flag = true;
                     }
@@ -83,8 +84,8 @@ namespace SCADA
                     CollectTool();
                     CollectProgFile();
                     CollectMeter();
-                   // CollectVersion();
                 }
+
 
 
             }
@@ -204,7 +205,7 @@ namespace SCADA
                             if (Convert.ToDouble(value1) != 0)
                             {
                                 CNC.LoadX = (int)((Convert.ToDouble(value) / Convert.ToDouble(value1)) * 100);
-                                if(CNC.LoadX<0)
+                                if (CNC.LoadX < 0)
                                 {
                                     CNC.LoadX = (-1) * CNC.LoadX;
                                 }
@@ -236,7 +237,7 @@ namespace SCADA
                                 CNC.LoadZ = (int)((Convert.ToDouble(value) / Convert.ToDouble(value1)) * 100);
                                 if (CNC.LoadZ < 0)
                                 {
-                                    CNC.LoadZ = (-1)*CNC.LoadZ;
+                                    CNC.LoadZ = (-1) * CNC.LoadZ;
                                 }
                             }
 
@@ -419,14 +420,14 @@ namespace SCADA
                     {
                         CNC.NCVersion = Convert.ToString(datavalue);
                     }
-                  
+
                     if (CNC.SystemGetValue(HncSystem.HNC_SYS_MACHINE_NUM, out datatType, out datavalue))
                     {
                         CNC.MachineSN = Convert.ToString(datavalue);
                     }
-                    if(CNC.AxisGetValue(HncAxis.HNC_AXIS_TYPE, out datatType, out datavalue, 1))
+                    if (CNC.AxisGetValue(HncAxis.HNC_AXIS_TYPE, out datatType, out datavalue, 1))
                     {
-                        if(Convert.ToString(datavalue) == "0"|| Convert.ToString(datavalue) == "")
+                        if (Convert.ToString(datavalue) == "0" || Convert.ToString(datavalue) == "")
                         {
                             CNC.cnctype = CNCType.Lathe;
                         }
@@ -437,8 +438,8 @@ namespace SCADA
                     }
                     if (!CNC.AxisGetValue(HncAxis.HNC_AXIS_TYPE, out datatType, out datavalue, 1))
                     {
-                         CNC.cnctype = CNCType.Lathe;
-                     
+                        CNC.cnctype = CNCType.Lathe;
+
                     }
                 }
 
@@ -550,6 +551,10 @@ namespace SCADA
 
             }
         }
+        /// <summary>
+        /// 50040-50045测量值，50046-50050测量标定值，50061-50065，粗加工直径、粗加工直径补偿、粗加工刀具半径值，股加工刀具半径补偿，粗加工测量值
+        /// 50066-50070精加工直径、精加工直径补偿、加工刀具半径值，股加工刀具半径补偿，粗加工测量值，
+        /// </summary>
         private void CollectMeter()
         {
             try
@@ -565,7 +570,7 @@ namespace SCADA
                         CNC.MeterValue[i] = 0.0;
                     }
                 }
-                for (int i = 0; i < 20; i++)
+                for (int i = 0; i < 25; i++)
                 {
                     CNC.MacroVarGetValue(50040 + i, out MacroVale);
 
@@ -573,7 +578,7 @@ namespace SCADA
                     var temp = temps.ToString("F3");
                     CNC.MeterValue[i] = Convert.ToDouble(temp);
 
-
+                    
                 }
             }
             catch

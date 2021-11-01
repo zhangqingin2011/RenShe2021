@@ -18,34 +18,7 @@ using HNC.API;
 
 namespace SCADA
 {
-    /// <summary>
-    /// IP配置
-    /// </summary>
-    public class MeterSetData
-    {
-        public string item;
-        public int type;//0-无，1长度，2外轮廓，3内轮廓
-        public double StaValue;
-        public double UpValue;
-        public double LowValue;
-        public int toolno;
-    }
-    public class AotoToolComData
-    {
-        /// <summary>
-        /// 刀具编号
-        /// </summary>
-        public int toolno;
-        /// <summary>
-        /// 0-长度补偿，1-半径补偿
-        /// </summary>
-        public int type;
-        /// <summary>
-        /// 补偿值
-        /// </summary>
-        public double compValue;
 
-    }
     public partial class OrderForm1 : Form
     {
         //订单的保存格式
@@ -3910,7 +3883,7 @@ namespace SCADA
                     toolno = getvalueformstring(line, "toolno=");
                     datatemp.item = item;
                     datatemp.type = Convert.ToInt32(type);
-                    datatemp.toolno = Convert.ToInt32(refvalue);
+                    datatemp.toolno = Convert.ToInt32(toolno);
                     datatemp.StaValue = Convert.ToDouble(refvalue);
                     datatemp.UpValue = Convert.ToDouble(uppervalue);
                     datatemp.LowValue = Convert.ToDouble(lowervalue);
@@ -3956,7 +3929,7 @@ namespace SCADA
             string path = GetMagMeterRoad(cncv2.MagNum);
             getmeterSetData(path, ref MeterSetDataList);
 
-       //     getrefvalue(MetersetFilePath, ref refvalue);//获取参考值
+            //     getrefvalue(MetersetFilePath, ref refvalue);//获取参考值
 
             valuestrarry[0] = cncv2.MeterValue[0].ToString();
             valuestrarry[1] = cncv2.MeterValue[1].ToString();
@@ -3967,7 +3940,7 @@ namespace SCADA
 
 
             List<AotoToolComData> tooldadas = new List<AotoToolComData>();
-             AotoToolComData temp1 = new AotoToolComData();
+            AotoToolComData temp1 = new AotoToolComData();
             temp1.toolno = 0;
             temp1.type = 0;
             temp1.compValue = 0;
@@ -3977,7 +3950,7 @@ namespace SCADA
             tooldadas.Add(temp1);
             tooldadas.Add(temp1);
             tooldadas.Add(temp1);
-           
+
             for (int ii = 0; ii < 6; ii++)
             {
                 double Rvalue = Convert.ToDouble(valuestrarry[ii]);
@@ -3989,11 +3962,14 @@ namespace SCADA
                         tooldadas[ii].type = 0;
                         break;
                     case 1://高度
+                        valueb[ii] = true;//检测合格  
+                        tooldadas[ii].toolno = 0;
+                        tooldadas[ii].type = 0;
                         if (Rvalue >= 0)
                         {
                             if (Rvalue >= (MeterSetDataList[ii].StaValue + MeterSetDataList[ii].LowValue) && Rvalue <= (MeterSetDataList[ii].StaValue + MeterSetDataList[ii].UpValue))
                             {
-                                valueb[ii] = true;                                
+                                valueb[ii] = true;
                             }
                             else
                             {
@@ -4001,25 +3977,28 @@ namespace SCADA
                                 if (Rvalue <= (MeterSetDataList[ii].StaValue + MeterSetDataList[ii].LowValue))
                                 {
                                     var addvalue = Rvalue - MeterSetDataList[ii].StaValue;
-                                    if(addvalue>=0)
+                                    if (addvalue >= 0)
                                     {
                                         tooldadas[ii].compValue = addvalue;
                                     }
-                                    if(addvalue<0)
+                                    if (addvalue < 0)
                                     {
-                                        tooldadas[ii].compValue = (-1)*addvalue;
+                                        tooldadas[ii].compValue = (-1) * addvalue;
                                     }
                                     tooldadas[ii].toolno = MeterSetDataList[ii].toolno;
-                                    tooldadas[ii].type = MeterSetDataList[ii].type;                                 
+                                    tooldadas[ii].type = MeterSetDataList[ii].type;
                                 }
-                            }                           
+                            }
                         }
                         else if (Rvalue < 0)
                         {
                             valueb[ii] = false;
-                        }                      
+                        }
                         break;
                     case 2://外轮廓
+                        valueb[ii] = true;//检测合格  
+                        tooldadas[ii].toolno = 0;
+                        tooldadas[ii].type = 0;
                         if (Rvalue >= 0)
                         {
                             if (Rvalue >= (MeterSetDataList[ii].StaValue + MeterSetDataList[ii].LowValue) && Rvalue <= (MeterSetDataList[ii].StaValue + MeterSetDataList[ii].UpValue))
@@ -4048,10 +4027,13 @@ namespace SCADA
                         }
                         else if (Rvalue < 0)
                         {
-                           valueb[ii] = false;
+                            valueb[ii] = false;
                         }
                         break;
                     case 3://内轮廓
+                        valueb[ii] = true;//检测合格  
+                        tooldadas[ii].toolno = 0;
+                        tooldadas[ii].type = 0;
                         if (Rvalue >= 0)
                         {
                             if (Rvalue >= (MeterSetDataList[ii].StaValue + MeterSetDataList[ii].LowValue) && Rvalue <= (MeterSetDataList[ii].StaValue + MeterSetDataList[ii].UpValue))
@@ -4084,7 +4066,7 @@ namespace SCADA
                         break;
                     default:
                         break;
-                }                  
+                }
             }
             if (valueb[0] && valueb[1] && valueb[2] && valueb[3] && valueb[4] && valueb[5])
             {
@@ -4114,14 +4096,14 @@ namespace SCADA
 
             //计算需要补偿的测量项，第一个测量类型不为无的测量项
             int compindex = 0;
-            for(int ii=0;i<6;i++)
+            for (int ii = 0; i < 6; i++)
             {
-             if(MeterSetDataList[ii].type!=0)
+                if (MeterSetDataList[ii].type != 0)
                 {
-                    if (compindex ==0)
+                    if (compindex == 0)
                     {
                         compindex = ii;
-                    }                 
+                    }
                 }
             }
             int toonoA = MeterSetDataList[compindex].toolno;
@@ -4143,17 +4125,37 @@ namespace SCADA
             int Sign = 0;
             int Inter = 0;
             int dec = 0;
-            DoubleToInt(MainForm.cncv2list[1].TOOLData[toolno - 1].Radius, ref Sign, ref Inter, ref dec);
+            DoubleToInt(MainForm.cncv2list[1].MeterValue[11], ref Sign, ref Inter, ref dec);
+
+            //DoubleToInt(MainForm.cncv2list[1].TOOLData[toolno - 1].Radius, ref Sign, ref Inter, ref dec);
+            ModbusTcp.DataMoubus[(int)ModbusTcp.DataConfigArr.RoughLength_Positive] = Sign;
+            ModbusTcp.DataMoubus[(int)ModbusTcp.DataConfigArr.RoughLength_int] = Inter;
+            ModbusTcp.DataMoubus[(int)ModbusTcp.DataConfigArr.RoughLength_Float] = dec;
+
+            DoubleToInt(MainForm.cncv2list[1].MeterValue[12], ref Sign, ref Inter, ref dec);
+
+            //DoubleToInt(MainForm.cncv2list[1].TOOLData[toolno - 1].Radius, ref Sign, ref Inter, ref dec);
+            ModbusTcp.DataMoubus[(int)ModbusTcp.DataConfigArr.RoughLengthWear_Positive] = Sign;
+            ModbusTcp.DataMoubus[(int)ModbusTcp.DataConfigArr.RoughLengthWear_int] = Inter;
+            ModbusTcp.DataMoubus[(int)ModbusTcp.DataConfigArr.RoughLengthWear_Float] = dec;
+
+            DoubleToInt(MainForm.cncv2list[1].MeterValue[13], ref Sign, ref Inter, ref dec);
+
+            //DoubleToInt(MainForm.cncv2list[1].TOOLData[toolno - 1].Radius, ref Sign, ref Inter, ref dec);
             ModbusTcp.DataMoubus[(int)ModbusTcp.DataConfigArr.RoughRadius_Positive] = Sign;
             ModbusTcp.DataMoubus[(int)ModbusTcp.DataConfigArr.RoughRadius_int] = Inter;
             ModbusTcp.DataMoubus[(int)ModbusTcp.DataConfigArr.RoughRadius_Float] = dec;
 
-            DoubleToInt(MainForm.cncv2list[1].TOOLData[toolno - 1].Radius, ref Sign, ref Inter, ref dec);
+            DoubleToInt(MainForm.cncv2list[1].MeterValue[14], ref Sign, ref Inter, ref dec);
+            
+
+           // DoubleToInt(MainForm.cncv2list[1].TOOLData[toolno - 1].Radius, ref Sign, ref Inter, ref dec);
             ModbusTcp.DataMoubus[(int)ModbusTcp.DataConfigArr.RoughRadiusWear_Positive] = Sign;
             ModbusTcp.DataMoubus[(int)ModbusTcp.DataConfigArr.RoughRadiusWear_int] = Inter;
             ModbusTcp.DataMoubus[(int)ModbusTcp.DataConfigArr.RoughRadiusWear_Float] = dec;
 
-            DoubleToInt(Metervalue, ref Sign, ref Inter, ref dec);
+            DoubleToInt(MainForm.cncv2list[1].MeterValue[15], ref Sign, ref Inter, ref dec);
+            //DoubleToInt(Metervalue, ref Sign, ref Inter, ref dec);
             ModbusTcp.DataMoubus[(int)ModbusTcp.DataConfigArr.RoughMeter_Positive] = Sign;
             ModbusTcp.DataMoubus[(int)ModbusTcp.DataConfigArr.RoughMeter_int] = Inter;
             ModbusTcp.DataMoubus[(int)ModbusTcp.DataConfigArr.RoughMeter_Float] = dec;
@@ -4179,7 +4181,7 @@ namespace SCADA
             {
                 sign = 1;
             }
-            string temps = value.ToString("F2");
+            string temps = value.ToString("F3");
             if (temps != "null")
             {
 
@@ -4209,7 +4211,7 @@ namespace SCADA
                 }
 
                 integepart = Convert.ToInt32(integepartrs);
-                decimalpart = Convert.ToInt32(decimalparts)* zerosum;
+                decimalpart = Convert.ToInt32(decimalparts) * zerosum;
             }
             else
             {
@@ -4223,18 +4225,36 @@ namespace SCADA
             int Sign = 0;
             int Inter = 0;
             int dec = 0;
-            DoubleToInt(MainForm.cncv2list[1].TOOLData[toolno - 1].Radius, ref Sign, ref Inter, ref dec);
+            DoubleToInt(MainForm.cncv2list[1].MeterValue[16], ref Sign, ref Inter, ref dec);
+
+            //DoubleToInt(MainForm.cncv2list[1].TOOLData[toolno - 1].Radius, ref Sign, ref Inter, ref dec);
+            ModbusTcp.DataMoubus[(int)ModbusTcp.DataConfigArr.FineLength_Positive] = Sign;
+            ModbusTcp.DataMoubus[(int)ModbusTcp.DataConfigArr.FineLength_int] = Inter;
+            ModbusTcp.DataMoubus[(int)ModbusTcp.DataConfigArr.FineLength_Float] = dec;
+
+
+            DoubleToInt(MainForm.cncv2list[1].MeterValue[17], ref Sign, ref Inter, ref dec);
+
+            //DoubleToInt(MainForm.cncv2list[1].TOOLData[toolno - 1].Radius, ref Sign, ref Inter, ref dec);
+            ModbusTcp.DataMoubus[(int)ModbusTcp.DataConfigArr.FineLengthWear_Positive] = Sign;
+            ModbusTcp.DataMoubus[(int)ModbusTcp.DataConfigArr.FineLengthWear_int] = Inter;
+            ModbusTcp.DataMoubus[(int)ModbusTcp.DataConfigArr.FineLengthWear_Float] = dec;
+
+            DoubleToInt(MainForm.cncv2list[1].MeterValue[18], ref Sign, ref Inter, ref dec);
+            //DoubleToInt(MainForm.cncv2list[1].TOOLData[toolno - 1].Radius, ref Sign, ref Inter, ref dec);
             ModbusTcp.DataMoubus[(int)ModbusTcp.DataConfigArr.FineRadiusWear_Positive] = Sign;
             ModbusTcp.DataMoubus[(int)ModbusTcp.DataConfigArr.FineRadius_int] = Inter;
             ModbusTcp.DataMoubus[(int)ModbusTcp.DataConfigArr.FineRadius_Float] = dec;
 
-            DoubleToInt(MainForm.cncv2list[1].TOOLData[toolno - 1].Radius, ref Sign, ref Inter, ref dec);
+            DoubleToInt(MainForm.cncv2list[1].MeterValue[19], ref Sign, ref Inter, ref dec);
+            //DoubleToInt(MainForm.cncv2list[1].TOOLData[toolno - 1].Radius, ref Sign, ref Inter, ref dec);
             ModbusTcp.DataMoubus[(int)ModbusTcp.DataConfigArr.FineRadiusWear_Positive] = Sign;
             ModbusTcp.DataMoubus[(int)ModbusTcp.DataConfigArr.FineRadiusWear_int] = Inter;
             ModbusTcp.DataMoubus[(int)ModbusTcp.DataConfigArr.FineRadiusWear_Float] = dec;
 
 
-            DoubleToInt(Mertervalue, ref Sign, ref Inter, ref dec);
+            DoubleToInt(MainForm.cncv2list[1].MeterValue[20], ref Sign, ref Inter, ref dec);
+            //DoubleToInt(Mertervalue, ref Sign, ref Inter, ref dec);
             ModbusTcp.DataMoubus[(int)ModbusTcp.DataConfigArr.FineMeter_Positive] = Sign;
             ModbusTcp.DataMoubus[(int)ModbusTcp.DataConfigArr.FineMeter_int] = Inter;
             ModbusTcp.DataMoubus[(int)ModbusTcp.DataConfigArr.FineMeter_Float] = dec;
@@ -5369,46 +5389,48 @@ namespace SCADA
             string[] toolcompmessage = new string[6];
             int k = 0;
             int magchecki = MainForm.Mag_Check[finishmag - 1];
-            foreach(var data in AotoToolComDataList)
+            bool toolcompmessageShow = false;
+            foreach (var data in AotoToolComDataList)
             {
                 string typestring = "";
-                if(data.type==0)
+                if (data.type == 0)
                 {
-                    typestring="长度";
+                    typestring = "长度";
                 }
-                else 
+                else
                 {
                     typestring = "半径";
                 }
-                if(data.toolno!=0&& data.compValue!=0)
+                if (data.toolno != 0 && data.compValue != 0)//有补偿提示
                 {
-                    toolcompmessage[k] = data.toolno.ToString() + "号刀" + typestring + "补偿" + data.compValue+";"+"\r\n";
+                    toolcompmessageShow = true;
+                    //toolcompmessage[k] = data.toolno.ToString() + "号刀" + typestring + "补偿" + data.compValue.ToString() + ";" ;
                 }
                 else
                 {
                     toolcompmessage[k] = "";
                 }
-               
+
                 k++;
 
             }
             if (magchecki == 1)//不合格
             {
                 //dataGridVieworder2.Rows[index].Cells[7].Value = "不合格";
-                
-                ShowForm.compmessage = toolcompmessage[0] + toolcompmessage[1]+ toolcompmessage[2]+ toolcompmessage[3]+ toolcompmessage[4]+ toolcompmessage[5];
-                if (ShowForm.compmessage == "")
+
+               // ShowForm.compmessage = toolcompmessage[0] + toolcompmessage[1] + toolcompmessage[2] + toolcompmessage[3] + toolcompmessage[4] + toolcompmessage[5];
+                if (!toolcompmessageShow)
                 {
-                    ShowForm.messagestring = finishmag.ToString() + "仓位工件不合格，工件过切，建议下料 !";
+                    ShowForm.messagestring = "仓位工件不合格!";
                 }
                 else
                 {
-                    ShowForm.messagestring = finishmag.ToString() + "仓位工件不合格，工件欠切，建议自动补偿并返修 !";
+                    ShowForm.messagestring =  "仓位工件不合格!";
                 }
 
                 //生成测量结果提示和选择
                 ReProcessChoose = true;
-
+                ShowForm.compmessage = "";
                 if (form1 == null)
                 {
                     form1 = new ShowForm();
@@ -5421,14 +5443,15 @@ namespace SCADA
             }
             else
             {
+                //ShowForm.compmessage = "无刀补数据";
                 dataGridVieworder2.Rows[index].Cells[5].Value = "Yes";
-                ShowForm.messagestring = finishmag.ToString() + "仓位工件合格，建议下料  !";
+                ShowForm.messagestring =  "仓位工件合格!";
                 ShowForm.compmessage = "";
-               // ShowForm form1 = new ShowForm();
+                // ShowForm form1 = new ShowForm();
 
 
-               //生成测量结果提示和选择
-               ReProcessChoose = true;
+                //生成测量结果提示和选择
+                ReProcessChoose = true;
                 if (form1 == null)
                 {
                     form1 = new ShowForm();
@@ -6425,7 +6448,7 @@ namespace SCADA
 
                     aotomode = false;
                     aotostop = true;
-                   MessageBox.Show(" 订单信息读取错误，自动加工暂停!");
+                    MessageBox.Show(" 订单信息读取错误，自动加工暂停!");
                     return;
                 }
 
@@ -6525,7 +6548,7 @@ namespace SCADA
                         aotomode = false;
                         aotostop = true;
                         messagestring = messagestring + "车床有报警或者提示，自动加工暂停";
-                       
+
                         return 2;
                     }
                     if (MainForm.magprocesss1tate[number - 1] == (int)Processstate.Notstart)//上料
@@ -6620,7 +6643,7 @@ namespace SCADA
                             aotomode = false;
                             aotostop = true;
                             messagestring = "订单下发失败,自动加工暂停";
-                           
+
                             MessageBox.Show(messagestring);
                             return 2;
                         }
@@ -6635,7 +6658,7 @@ namespace SCADA
                 aotomode = false;
                 aotostop = true;
                 messagestring = "订单下发失败,自动加工暂停";
-               
+
                 return 2;
             }
         }
@@ -6657,7 +6680,7 @@ namespace SCADA
                         aotomode = false;
                         aotostop = true;
                         messagestring = messagestring + "机床有报警或者提示，自动加工暂停";
-                      
+
                         return 2;
                     }
                     if (MainForm.magprocesss1tate[number - 1] == (int)Processstate.Notstart)//上料
@@ -6928,7 +6951,7 @@ namespace SCADA
                 aotomode = false;
                 aotostop = true;
 
-              MessageBox.Show("PLC未连接，不能下达订单!");
+                MessageBox.Show("PLC未连接，不能下达订单!");
 
                 return;
             }
@@ -6937,7 +6960,7 @@ namespace SCADA
 
                 aotomode = false;
                 aotostop = true;
-               MessageBox.Show("订单下达失败，请先启动产线!");
+                MessageBox.Show("订单下达失败，请先启动产线!");
 
                 return;
             }
@@ -6976,14 +6999,14 @@ namespace SCADA
                         MessageBox.Show(message1);
                         return;
                     }
-                
+
                 }
 
             }
             // bool ret = renewmeterresult(aotorunmagcnc, ref message1);
             if (ModbusTcp.DataMoubus[(int)SCADA.ModbusTcp.DataConfigArr.Mesans_Robot_speed] == 0)
             {
-                int iii = 0; 
+                int iii = 0;
             }
 
             //机器人繁忙状态不能匹配下一步骤
@@ -7005,14 +7028,14 @@ namespace SCADA
 
             //20211025 车床和铣床同时空闲，哪个优先级高下哪个床的工序
             bool LatheFirst = false; //车床优先
-            if(aotorunmaglathe>0 && aotorunmagcnc>0)
+            if (aotorunmaglathe > 0 && aotorunmagcnc > 0)
             {
                 int latheM = 0;
                 int latheT = 0;
                 int CNCM = 0;
                 int CNCT = 0;
                 int maglength = (int)ModbusTcp.MagLength;
-                int LatheML = 0;         
+                int LatheML = 0;
                 int CNCML = 0;
                 int LatheTL = 0;
                 int CNCTL = 0;
@@ -7041,7 +7064,7 @@ namespace SCADA
 
                 if (latheT == 0)
                 {
-                    LatheTL = AotoOrderForm.Aleavel;                  
+                    LatheTL = AotoOrderForm.Aleavel;
                 }
                 else if (latheT == 1)
                 {
@@ -7093,10 +7116,10 @@ namespace SCADA
                 }
 
                 //模型优先级不一致，模型高优先级的有限加工
-                if(LatheML!= CNCML)
+                if (LatheML != CNCML)
                 {
                     //车床加工优先级高的
-                    if(LatheML < CNCML)
+                    if (LatheML < CNCML)
                     {
                         LatheFirst = true;
                     }
@@ -7107,7 +7130,7 @@ namespace SCADA
                 }
                 else//模型优先级一致
                 {
-                    if(LatheTL<CNCTL)
+                    if (LatheTL < CNCTL)
                     {
                         LatheFirst = true;
                     }
@@ -7117,7 +7140,11 @@ namespace SCADA
                     }
                 }
             }
-            if(LatheFirst)//车工序先执行
+            else if (aotorunmaglathe > 0)
+            {
+                LatheFirst = true;
+            }
+            if (LatheFirst)//车工序先执行
             {
                 if (aotorunmaglathe > 0)
                 {
@@ -7127,7 +7154,7 @@ namespace SCADA
                 {
                     retlathe = 0;
                 }
-               
+
                 if (retlathe == 2)//订单下发时出错，切换暂停状态
                 {
                     aotomode = false;
@@ -7195,7 +7222,7 @@ namespace SCADA
                 }
             }
 
-          
+
 
         }
 
@@ -7211,7 +7238,7 @@ namespace SCADA
             int mode = -1;
             int modelevel = -1;
             int modelevelold = 5;
-           
+
             //获取模型好等级最高的订单
             for (int ii = 0; ii < dataGridVieworder.Rows.Count; ii++)
             {
@@ -7243,20 +7270,20 @@ namespace SCADA
                     {
                         leavel = AotoOrderForm.Dleavel;
                     }
-                    if (mode == 1)
+                    if (mode == 0)
                     {
                         modelevel = AotoOrderForm.Modeleavel1;
                     }
-                    else if (mode == 2)
+                    else if (mode == 1)
                     {
                         modelevel = AotoOrderForm.Modeleavel2;
 
                     }
-                    else if (mode == 3)
+                    else if (mode == 2)
                     {
                         modelevel = AotoOrderForm.Modeleavel3;
                     }
-                    else if (mode == 4)
+                    else if (mode == 3)
                     {
                         modelevel = AotoOrderForm.Modeleavel4;
                     }
@@ -7282,21 +7309,26 @@ namespace SCADA
 
                                 }
                             }
-                            else if (leavel < leavelold)
+                            else if (modelevel == modelevelold)
                             {
+                                if (leavel < leavelold)
+                                {
 
-                                if (ModbusTcp.DataMoubus[magstatei] != (int)ModbusTcp.Mag_state_config.Statenull)
-                                {
-                                    aotorunmaglathe = number;
-                                    indexlathe = ii;
-                                    leavelold = leavel;
-                                }
-                                else
-                                {
-                                    message = number.ToString() + "号仓位缺料";
-                                    MessageBox.Show(message);
+                                    if (ModbusTcp.DataMoubus[magstatei] != (int)ModbusTcp.Mag_state_config.Statenull)
+                                    {
+                                        aotorunmaglathe = number;
+                                        indexlathe = ii;
+                                        leavelold = leavel;
+                                    }
+                                    else
+                                    {
+                                        message = number.ToString() + "号仓位缺料";
+                                        MessageBox.Show(message);
+                                    }
                                 }
                             }
+
+
                         }
                     }
                     else if (dataGridVieworder.Rows[ii].Cells[3].Value.ToString() == "Lathe" ||
@@ -7323,20 +7355,25 @@ namespace SCADA
 
                                 }
                             }
-                            else if (leavel < leavelold)
+                            else if (modelevel == modelevelold)
                             {
-                                if (ModbusTcp.DataMoubus[magstatei] != (int)ModbusTcp.Mag_state_config.Statenull)
+                                if (leavel < leavelold)
                                 {
-                                    aotorunmaglathe = number;
-                                    indexlathe = ii;
-                                    leavelold = leavel;
-                                }
-                                else
-                                {
-                                    message = number.ToString() + "号仓位缺料";
-                                    MessageBox.Show(message);
+
+                                    if (ModbusTcp.DataMoubus[magstatei] != (int)ModbusTcp.Mag_state_config.Statenull)
+                                    {
+                                        aotorunmaglathe = number;
+                                        indexlathe = ii;
+                                        leavelold = leavel;
+                                    }
+                                    else
+                                    {
+                                        message = number.ToString() + "号仓位缺料";
+                                        MessageBox.Show(message);
+                                    }
                                 }
                             }
+
                         }
                     }
                 }
@@ -7352,7 +7389,8 @@ namespace SCADA
             int leavel = -1;
             int leavelold = 5;
             int mode = -1;
-            int modeold = 5;
+            int modelevel = 5;
+            int modelevelold = 5;
             for (int ii = 0; ii < dataGridVieworder.Rows.Count; ii++)
             {
                 if (dataGridVieworder.Rows[ii].Cells[5].Value.ToString() == "自动"
@@ -7382,84 +7420,64 @@ namespace SCADA
                     else if (type == 3)
                     {
                         leavel = AotoOrderForm.Dleavel;
+                    }
 
-                        if (dataGridVieworder.Rows[ii].Cells[2].Value.ToString() == "Cnc" || dataGridVieworder.Rows[ii].Cells[2].Value.ToString() == "铣工序")//工序一为车工序
+                    if (mode == 0)
+                    {
+                        modelevel = AotoOrderForm.Modeleavel1;
+                    }
+                    else if (mode == 1)
+                    {
+                        modelevel = AotoOrderForm.Modeleavel2;
+
+                    }
+                    else if (mode == 2)
+                    {
+                        modelevel = AotoOrderForm.Modeleavel3;
+                    }
+                    else if (mode == 3)
+                    {
+                        modelevel = AotoOrderForm.Modeleavel4;
+                    }
+
+
+
+                    if (dataGridVieworder.Rows[ii].Cells[2].Value.ToString() == "Cnc" || dataGridVieworder.Rows[ii].Cells[2].Value.ToString() == "铣工序")//工序一为车工序
+                    {
+                        if (MainForm.magprocesss1tate[number - 1] == (int)Processstate.Notstart
+                            || MainForm.magprocesss1tate[number - 1] == (int)Processstate.Runned)
                         {
-                            if (MainForm.magprocesss1tate[number - 1] == (int)Processstate.Notstart
-                                || MainForm.magprocesss1tate[number - 1] == (int)Processstate.Runned)
+                            if (MainForm.magprocesss1tate[number - 1] == (int)Processstate.Runned)
                             {
-                                if (MainForm.magprocesss1tate[number - 1] == (int)Processstate.Runned)
+                                SkipMeterflage = true;
+                            }
+                            if (modelevel < modelevelold)
+                            {
+                                if (ModbusTcp.DataMoubus[magstatei] != (int)ModbusTcp.Mag_state_config.Statenull)
                                 {
-                                    SkipMeterflage = true;
+                                    aotorunmagcnc = number;
+                                    indexcnc = ii;
+                                    leavelold = leavel;
+                                    modelevelold = modelevel;
                                 }
-                                if (mode < modeold)
+                                else
                                 {
-                                    if (ModbusTcp.DataMoubus[magstatei] != (int)ModbusTcp.Mag_state_config.Statenull)
-                                    {
-                                        aotorunmagcnc = number;
-                                        indexcnc = ii;
-                                        leavelold = leavel;
-                                        modeold = mode;
-                                    }
-                                    else
-                                    {
-                                        message = number.ToString() + "号仓位缺料";
-                                        MessageBox.Show(message);
+                                    message = number.ToString() + "号仓位缺料";
+                                    MessageBox.Show(message);
 
-                                    }
-                                }
-                                else if (leavel < leavelold)
-                                {
-
-                                    if (ModbusTcp.DataMoubus[magstatei] != (int)ModbusTcp.Mag_state_config.Statenull)
-                                    {
-                                        aotorunmagcnc = number;
-
-                                        indexcnc = ii;
-                                        leavelold = leavel;
-                                    }
-                                    else
-                                    {
-                                        message = number.ToString() + "号仓位缺料";
-                                        MessageBox.Show(message);
-                                    }
                                 }
                             }
-                        }
-                        else if (dataGridVieworder.Rows[ii].Cells[3].Value.ToString() == "Cnc" || dataGridVieworder.Rows[ii].Cells[3].Value.ToString() == "铣工序")  //工序二为车工序
-                        {
-                            if ((MainForm.magprocesss1tate[number - 1] == (int)Processstate.Unloaded
-                                || MainForm.magprocesss1tate[number - 1] == (int)Processstate.None)
-                                && (MainForm.magprocesss2tate[number - 1] == (int)Processstate.Notstart
-                                || MainForm.magprocesss2tate[number - 1] == (int)Processstate.Runned))
+                            else if (modelevel == modelevelold)
                             {
-                                if (MainForm.magprocesss2tate[number - 1] == (int)Processstate.Runned)
+                                if (leavel < leavelold)
                                 {
-                                    SkipMeterflage = true;
-                                }
-                                if (mode < modeold)
-                                {
-                                    if (ModbusTcp.DataMoubus[magstatei] != (int)ModbusTcp.Mag_state_config.Statenull)
-                                    {
-                                        aotorunmagcnc = number;
-                                        indexcnc = ii;
-                                        leavelold = leavel;
-                                        modeold = mode;
-                                    }
-                                    else
-                                    {
-                                        message = number.ToString() + "号仓位缺料";
-                                        MessageBox.Show(message);
 
-                                    }
-                                }
-                                else if (leavel < leavelold)
-                                {
                                     if (ModbusTcp.DataMoubus[magstatei] != (int)ModbusTcp.Mag_state_config.Statenull)
                                     {
                                         aotorunmagcnc = number;
-                                        leavelold = leavel;
+
                                         indexcnc = ii;
+                                        leavelold = leavel;
                                     }
                                     else
                                     {
@@ -7467,13 +7485,63 @@ namespace SCADA
                                         MessageBox.Show(message);
                                     }
                                 }
+
+                            }
+                        }
+                    }
+                    else if (dataGridVieworder.Rows[ii].Cells[3].Value.ToString() == "Cnc" || dataGridVieworder.Rows[ii].Cells[3].Value.ToString() == "铣工序")  //工序二为车工序
+                    {
+                        if ((MainForm.magprocesss1tate[number - 1] == (int)Processstate.Unloaded
+                            || MainForm.magprocesss1tate[number - 1] == (int)Processstate.None)
+                            && (MainForm.magprocesss2tate[number - 1] == (int)Processstate.Notstart
+                            || MainForm.magprocesss2tate[number - 1] == (int)Processstate.Runned))
+                        {
+                            if (MainForm.magprocesss2tate[number - 1] == (int)Processstate.Runned)
+                            {
+                                SkipMeterflage = true;
+                            }
+                            if (modelevel < modelevelold)
+                            {
+                                if (ModbusTcp.DataMoubus[magstatei] != (int)ModbusTcp.Mag_state_config.Statenull)
+                                {
+                                    aotorunmagcnc = number;
+                                    indexcnc = ii;
+                                    leavelold = leavel;
+                                    modelevelold = modelevel;
+                                }
+                                else
+                                {
+                                    message = number.ToString() + "号仓位缺料";
+                                    MessageBox.Show(message);
+
+                                }
+                            }
+                            else if (modelevel == modelevelold)
+                            {
+                                if (leavel < leavelold)
+                                {
+
+                                    if (ModbusTcp.DataMoubus[magstatei] != (int)ModbusTcp.Mag_state_config.Statenull)
+                                    {
+                                        aotorunmagcnc = number;
+                                        indexcnc = ii;
+                                        leavelold = leavel;
+                                    }
+                                    else
+                                    {
+                                        message = number.ToString() + "号仓位缺料";
+                                        MessageBox.Show(message);
+                                    }
+                                }
+
                             }
                         }
                     }
                 }
-
             }
+
         }
+
 
         private void OrderForm1_SizeChanged(object sender, EventArgs e)
         {
@@ -7724,7 +7792,7 @@ namespace SCADA
             //批量加工开始后，不允许置顶，不允许下发订单
             for (int ii = 0; ii < dataGridVieworder.Rows.Count; ii++)
             {
-                dataGridVieworder.Rows[ii].Cells[6].Style.BackColor = Color.Gray;
+               // dataGridVieworder.Rows[ii].Cells[6].Style.BackColor = Color.Gray;
                 dataGridVieworder.Rows[ii].Cells[7].Style.BackColor = Color.Gray;
             }
             /*搜索数据表，从第一行往下找到第一个自动状态的订单，取到料位号，根据料位号逐个下发操作，
@@ -7777,6 +7845,35 @@ namespace SCADA
         }
 
 
+
+    }
+
+    /// <summary>
+    /// IP配置
+    /// </summary>
+    public class MeterSetData
+    {
+        public string item;
+        public int type;//0-无，1长度，2外轮廓，3内轮廓
+        public double StaValue;
+        public double UpValue;
+        public double LowValue;
+        public int toolno;
+    }
+    public class AotoToolComData
+    {
+        /// <summary>
+        /// 刀具编号
+        /// </summary>
+        public int toolno;
+        /// <summary>
+        /// 0-长度补偿，1-半径补偿
+        /// </summary>
+        public int type;
+        /// <summary>
+        /// 补偿值
+        /// </summary>
+        public double compValue;
 
     }
 }

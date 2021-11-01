@@ -8,7 +8,7 @@ using System.Text;
 using System.Threading.Tasks;
 using System.Windows.Forms;
 
-namespace SCADA.WindowsForm
+namespace SCADA
 {
     public partial class ToolCompForm : Form
     {
@@ -58,6 +58,27 @@ namespace SCADA.WindowsForm
             }
             textBoxA3.Text = val.ToString("F3");
 
+            Sign = ModbusTcp.DataMoubus[(int)ModbusTcp.DataConfigArr.RoughLength_Positive];
+            Inter = ModbusTcp.DataMoubus[(int)ModbusTcp.DataConfigArr.RoughLength_int];
+            dec = ModbusTcp.DataMoubus[(int)ModbusTcp.DataConfigArr.RoughLength_Float];
+            val = 0.0;
+            val = Inter + 0.001 * dec;
+            if (Sign == 1)
+            {
+                val = -1 * val;
+            }
+            textBoxA4.Text = val.ToString("F3");
+            Sign = ModbusTcp.DataMoubus[(int)ModbusTcp.DataConfigArr.RoughLengthWear_Positive];
+            Inter = ModbusTcp.DataMoubus[(int)ModbusTcp.DataConfigArr.RoughLengthWear_int];
+            dec = ModbusTcp.DataMoubus[(int)ModbusTcp.DataConfigArr.RoughLengthWear_Float];
+            val = 0.0;
+            val = Inter + 0.001 * dec;
+            if (Sign == 1)
+            {
+                val = -1 * val;
+            }
+            textBoxA5.Text = val.ToString("F3");
+
             Sign = ModbusTcp.DataMoubus[(int)ModbusTcp.DataConfigArr.FineRadius_Positive];
             Inter = ModbusTcp.DataMoubus[(int)ModbusTcp.DataConfigArr.FineRadius_int];
             dec = ModbusTcp.DataMoubus[(int)ModbusTcp.DataConfigArr.FineRadius_Float];
@@ -90,7 +111,28 @@ namespace SCADA.WindowsForm
                 val = -1 * val;
             }
             textBoxB2.Text = val.ToString("F3");
-
+            Sign = ModbusTcp.DataMoubus[(int)ModbusTcp.DataConfigArr.FineLength_Positive];
+            Inter = ModbusTcp.DataMoubus[(int)ModbusTcp.DataConfigArr.FineLength_int];
+            dec = ModbusTcp.DataMoubus[(int)ModbusTcp.DataConfigArr.FineLength_Float];
+            val = 0.0;
+            val = Inter + 0.001 * dec;
+            if (Sign == 1)
+            {
+                val = -1 * val;
+            }
+            textBoxB4.Text = val.ToString("F3");
+            Sign = ModbusTcp.DataMoubus[(int)ModbusTcp.DataConfigArr.FineLengthWear_Positive];
+            Inter = ModbusTcp.DataMoubus[(int)ModbusTcp.DataConfigArr.FineLengthWear_int];
+            dec = ModbusTcp.DataMoubus[(int)ModbusTcp.DataConfigArr.FineLengthWear_Float];
+            val = 0.0;
+            val = Inter + 0.001 * dec;
+            if (Sign == 1)
+            {
+                val = -1 * val;
+            }
+            textBoxB5.Text = val.ToString("F3");
         }
+
+     
     }
 }

@@ -117,7 +117,7 @@
             this.panel1.Controls.Add(this.groupBox3);
             this.panel1.Controls.Add(this.groupBox1);
             this.panel1.Location = new System.Drawing.Point(0, -4);
-            this.panel1.Margin = new System.Windows.Forms.Padding(4, 4, 4, 4);
+            this.panel1.Margin = new System.Windows.Forms.Padding(4);
             this.panel1.Name = "panel1";
             this.panel1.Size = new System.Drawing.Size(2113, 154);
             this.panel1.TabIndex = 3;
@@ -146,7 +146,7 @@
             this.buttonstop1.FlatAppearance.BorderSize = 0;
             this.buttonstop1.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
             this.buttonstop1.Location = new System.Drawing.Point(129, 91);
-            this.buttonstop1.Margin = new System.Windows.Forms.Padding(4, 4, 4, 4);
+            this.buttonstop1.Margin = new System.Windows.Forms.Padding(4);
             this.buttonstop1.Name = "buttonstop1";
             this.buttonstop1.Size = new System.Drawing.Size(107, 38);
             this.buttonstop1.TabIndex = 8;
@@ -161,7 +161,7 @@
             this.buttonstart1.FlatAppearance.BorderSize = 0;
             this.buttonstart1.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
             this.buttonstart1.Location = new System.Drawing.Point(15, 91);
-            this.buttonstart1.Margin = new System.Windows.Forms.Padding(4, 4, 4, 4);
+            this.buttonstart1.Margin = new System.Windows.Forms.Padding(4);
             this.buttonstart1.Name = "buttonstart1";
             this.buttonstart1.Size = new System.Drawing.Size(107, 38);
             this.buttonstart1.TabIndex = 7;
@@ -173,7 +173,7 @@
             // 
             this.checkBox1.AutoSize = true;
             this.checkBox1.Location = new System.Drawing.Point(64, 54);
-            this.checkBox1.Margin = new System.Windows.Forms.Padding(4, 4, 4, 4);
+            this.checkBox1.Margin = new System.Windows.Forms.Padding(4);
             this.checkBox1.Name = "checkBox1";
             this.checkBox1.Size = new System.Drawing.Size(140, 28);
             this.checkBox1.TabIndex = 6;
@@ -208,9 +208,9 @@
             this.groupBox5.Controls.Add(this.label3);
             this.groupBox5.Font = new System.Drawing.Font("微软雅黑", 10.5F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(134)));
             this.groupBox5.Location = new System.Drawing.Point(865, 4);
-            this.groupBox5.Margin = new System.Windows.Forms.Padding(4, 4, 4, 4);
+            this.groupBox5.Margin = new System.Windows.Forms.Padding(4);
             this.groupBox5.Name = "groupBox5";
-            this.groupBox5.Padding = new System.Windows.Forms.Padding(4, 4, 4, 4);
+            this.groupBox5.Padding = new System.Windows.Forms.Padding(4);
             this.groupBox5.Size = new System.Drawing.Size(228, 144);
             this.groupBox5.TabIndex = 15;
             this.groupBox5.TabStop = false;
@@ -222,7 +222,7 @@
             this.button2.FlatAppearance.BorderSize = 0;
             this.button2.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
             this.button2.Location = new System.Drawing.Point(121, 90);
-            this.button2.Margin = new System.Windows.Forms.Padding(4, 4, 4, 4);
+            this.button2.Margin = new System.Windows.Forms.Padding(4);
             this.button2.Name = "button2";
             this.button2.Size = new System.Drawing.Size(107, 38);
             this.button2.TabIndex = 2;
@@ -258,9 +258,9 @@
             this.groupBox6.Controls.Add(this.textBoxorderno);
             this.groupBox6.Font = new System.Drawing.Font("微软雅黑", 10.5F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(134)));
             this.groupBox6.Location = new System.Drawing.Point(619, 4);
-            this.groupBox6.Margin = new System.Windows.Forms.Padding(4, 4, 4, 4);
+            this.groupBox6.Margin = new System.Windows.Forms.Padding(4);
             this.groupBox6.Name = "groupBox6";
-            this.groupBox6.Padding = new System.Windows.Forms.Padding(4, 4, 4, 4);
+            this.groupBox6.Padding = new System.Windows.Forms.Padding(4);
             this.groupBox6.Size = new System.Drawing.Size(239, 144);
             this.groupBox6.TabIndex = 14;
             this.groupBox6.TabStop = false;
@@ -283,7 +283,7 @@
             this.button1.FlatAppearance.BorderSize = 0;
             this.button1.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
             this.button1.Location = new System.Drawing.Point(128, 90);
-            this.button1.Margin = new System.Windows.Forms.Padding(4, 4, 4, 4);
+            this.button1.Margin = new System.Windows.Forms.Padding(4);
             this.button1.Name = "button1";
             this.button1.Size = new System.Drawing.Size(107, 38);
             this.button1.TabIndex = 1;
@@ -372,9 +372,9 @@
             this.groupBox1.Controls.Add(this.labelmagno);
             this.groupBox1.Font = new System.Drawing.Font("微软雅黑", 10.5F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(134)));
             this.groupBox1.Location = new System.Drawing.Point(15, 4);
-            this.groupBox1.Margin = new System.Windows.Forms.Padding(4, 4, 4, 4);
+            this.groupBox1.Margin = new System.Windows.Forms.Padding(4);
             this.groupBox1.Name = "groupBox1";
-            this.groupBox1.Padding = new System.Windows.Forms.Padding(4, 4, 4, 4);
+            this.groupBox1.Padding = new System.Windows.Forms.Padding(4);
             this.groupBox1.Size = new System.Drawing.Size(596, 144);
             this.groupBox1.TabIndex = 0;
             this.groupBox1.TabStop = false;
@@ -386,7 +386,7 @@
             this.buttonmadeorder.FlatAppearance.BorderSize = 0;
             this.buttonmadeorder.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
             this.buttonmadeorder.Location = new System.Drawing.Point(445, 92);
-            this.buttonmadeorder.Margin = new System.Windows.Forms.Padding(4, 4, 4, 4);
+            this.buttonmadeorder.Margin = new System.Windows.Forms.Padding(4);
             this.buttonmadeorder.Name = "buttonmadeorder";
             this.buttonmadeorder.Size = new System.Drawing.Size(107, 38);
             this.buttonmadeorder.TabIndex = 11;
@@ -479,7 +479,7 @@
             this.panel2.Controls.Add(this.groupBox2);
             this.panel2.Font = new System.Drawing.Font("微软雅黑", 9F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(134)));
             this.panel2.Location = new System.Drawing.Point(0, 151);
-            this.panel2.Margin = new System.Windows.Forms.Padding(4, 4, 4, 4);
+            this.panel2.Margin = new System.Windows.Forms.Padding(4);
             this.panel2.Name = "panel2";
             this.panel2.Size = new System.Drawing.Size(1604, 775);
             this.panel2.TabIndex = 4;
@@ -759,6 +759,7 @@
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(8F, 15F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
+            this.AutoSize = true;
             this.BackColor = System.Drawing.Color.White;
             this.ClientSize = new System.Drawing.Size(1605, 928);
             this.Controls.Add(this.panel2);

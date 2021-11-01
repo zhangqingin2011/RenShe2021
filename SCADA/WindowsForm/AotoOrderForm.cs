@@ -337,12 +337,7 @@ namespace SCADA
         }
 
         private void button1_Click(object sender, EventArgs e)
-        {
-            if (OrderForm1.manmode == false)
-            {
-                MessageBox.Show("请在手动模式下设置自动排程参数");
-                return;
-            }
+        {         
             int value1 = 0;
             int value2 = 1;
             int Avalue = 0;
@@ -355,24 +350,6 @@ namespace SCADA
             int mode4 = 0;
 
 
-            try
-             {
-                 value1 = Convert.ToInt32(textBoxFvalue1.Text);
-                 value2 = Convert.ToInt32(textBoxFvalue2.Text);
-             }
-             catch
-            {
-                 MessageBox.Show("请确认临界值设定是否正确");
-                 return;
-            }
-
-
-            if(value1>value2)
-            {
-                MessageBox.Show("报警临界值必须大于提示临界值");
-                return; ;
-            }
-           
             try
             {
                 Avalue = Convert.ToInt32(textBoxA.Text);
@@ -439,6 +416,7 @@ namespace SCADA
                 {
                     mode1 = 1;
                     textBox1hao.Text = "1";
+                    MessageBox.Show("模型1优先级设置是否正确");
                 }
             }
             catch
@@ -453,6 +431,7 @@ namespace SCADA
                 {
                     mode2 = 1;
                     textBox2hao.Text = "1";
+                    MessageBox.Show("模型2优先级设置是否正确");
                 }
             }
             catch
@@ -467,6 +446,7 @@ namespace SCADA
                 {
                     mode3 = 1;
                     textBox3hao.Text = "1";
+                    MessageBox.Show("模型3优先级设置是否正确");
                 }
             }
             catch
@@ -481,6 +461,7 @@ namespace SCADA
                 {
                     mode4 = 1;
                     textBox4hao.Text = "1";
+                    MessageBox.Show("模型4优先级设置是否正确");
                 }
             }
             catch
@@ -509,6 +490,7 @@ namespace SCADA
             }
             Fvalue1 = value1;
             Fvalue2 = value2;
+
             Aleavel = Avalue;
             Bleavel = Bvalue;
             Cleavel = Cvalue;

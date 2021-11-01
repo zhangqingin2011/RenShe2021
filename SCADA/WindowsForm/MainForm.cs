@@ -585,6 +585,11 @@ namespace SCADA
             AotoOrderForm.Bleavel = 1;//A中物料的等级
             AotoOrderForm.Cleavel = 1;//A中物料的等级
             AotoOrderForm.Dleavel = 1;//A中物料的等级
+
+            AotoOrderForm.Modeleavel1 = 1;//A中物料的等级
+            AotoOrderForm.Modeleavel2 = 1;//A中物料的等级
+            AotoOrderForm.Modeleavel3 = 1;//A中物料的等级
+            AotoOrderForm.Modeleavel4 = 1;//A中物料的等级
             AotoOrderForm.Fvalue1 = 60;//提示临界值
             AotoOrderForm.Fvalue2 = 80;//报警临界值
                                        // initRacktype();

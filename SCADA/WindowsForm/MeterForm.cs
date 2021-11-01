@@ -69,7 +69,7 @@ namespace SCADA
             {
                 buttonreprocess.Enabled = true;
                 buttontorack.Enabled = true;
-                button1.Enabled = true;
+             //   buttoncomp.Enabled = true;
             }
 
         }
@@ -537,8 +537,8 @@ namespace SCADA
                     double dact = Convert.ToDouble(str);
                     double dref = Convert.ToDouble(strref);
                     double dif = dact - dref;
-                    string sdif = dif.ToString("F2");
-                    string strTempshort = dact.ToString("F2");
+                    string sdif = dif.ToString("F3");
+                    string strTempshort = dact.ToString("F3");
 
                     dataGridView2.Rows[ii].Cells[4].Value = strTempshort;
 
@@ -546,11 +546,11 @@ namespace SCADA
                     dataGridView2.Rows[ii].Cells[5].Value = sdif;
                     if (OrderForm1.valueb[ii] == false)
                     {
-                        dataGridView2.Rows[ii].Cells[6].Value = "No";
+                        dataGridView2.Rows[ii].Cells[6].Value = "不合格";
                     }
                     else
                     {
-                        dataGridView2.Rows[ii].Cells[6].Value = "Yes";
+                        dataGridView2.Rows[ii].Cells[6].Value = "合格";
                     }
                 }
 
@@ -682,13 +682,13 @@ namespace SCADA
             {
                 buttonreprocess.Enabled = true;
                 buttontorack.Enabled = true;
-                button1.Enabled = true;
+              //  buttoncomp.Enabled = true;
             }
             else
             {
                 buttonreprocess.Enabled = false;
                 buttontorack.Enabled = false;
-                button1.Enabled = false;
+                buttoncomp.Enabled = false;
             }
             if (MainForm.cncv2list[1].EquipmentState!="离线")
             {
@@ -973,7 +973,7 @@ namespace SCADA
                     {
                         MessageBox.Show("自动刀补完成！");
                         renewtoolflag = true;
-                        button1.Enabled = false;
+                        buttoncomp.Enabled = false;
                     }
                 }
             }

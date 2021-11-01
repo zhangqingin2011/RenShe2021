@@ -9,7 +9,7 @@ using System.Collections;
 using System.Threading.Tasks;
 using System.Windows.Forms;
 using HNC_MacDataService;
-using ScadaHncData;
+
 using HNC.API;
 
 namespace SCADA

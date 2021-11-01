@@ -9,7 +9,7 @@ namespace SCADA
    public partial class ModbusTcp
     {
         public static Int32 ModbusBufferHeadSize = 7;//7个字节的MBAP表头 其中只有长度需要服务端写190，其他的直接复制客户端数据
-        public static Int32 ModbusBufferSize = 293;//190
+        public static Int32 ModbusBufferSize = 314;//190
         public static Int32 ModbusBufferFunCodeSizeReq = 5;
         public static Int32 ModbusBufferFunCodeSizeWrite = 6;
         public static Int32 ResModbusBufferFunCodeSize = 2;
@@ -194,8 +194,14 @@ namespace SCADA
             p_InsideMeterpos = 227,
             i_InsideMeterpos,
             f_InsideMeterpos,
-
-            RoughRadius_Positive = 245,
+            //刀补补偿 3*10=30个，245-274
+            RoughLength_Positive = 245,
+            RoughLength_int,
+            RoughLength_Float,
+            RoughLengthWear_Positive,
+            RoughLengthWear_int,
+            RoughLengthWear_Float,
+            RoughRadius_Positive ,
             RoughRadius_int,
             RoughRadius_Float,
             RoughRadiusWear_Positive,
@@ -204,6 +210,13 @@ namespace SCADA
             RoughMeter_Positive,
             RoughMeter_int,
             RoughMeter_Float,
+
+            FineLength_Positive,
+            FineLength_int,
+            FineLength_Float,
+            FineLengthWear_Positive,
+            FineLengthWear_int,
+            FineLengthWear_Float,
             FineRadius_Positive,
             FineRadius_int,
             FineRadius_Float,
@@ -213,8 +226,8 @@ namespace SCADA
             FineMeter_Positive,
             FineMeter_int,
             FineMeter_Float,
-            //料仓对应的模型编号，共30各0-1号模型，1-2号模型，2-3号模型，3-4号模型，263-292
-            Mag1_Sheet_No = 263,
+            //料仓对应的模型编号，共30各0-1号模型，1-2号模型，2-3号模型，3-4号模型，275-314
+            Mag1_Sheet_No = 275,
 
 
 

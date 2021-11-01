@@ -3,6 +3,7 @@ using System.Collections.Generic;
 using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
+using ScadaHncData;
 
 namespace SCADA
 {
@@ -18,8 +19,6 @@ namespace SCADA
             状态,
             报警内容
         }
-        public bool CheckdataGridView_DB_ChangeFlg = false;
-        private System.Data.DataTable CheckdataGridView_DB = new System.Data.DataTable();
         public class AlarmSendData
         {
             public AlarmSendData()
@@ -32,10 +31,12 @@ namespace SCADA
             public String BujianID;
             public ScadaHncData.AlarmData alardat;
         }
+        public bool CheckdataGridView_DB_ChangeFlg = false;
+        private System.Data.DataTable CheckdataGridView_DB = new System.Data.DataTable();
+        
         private Dictionary<int, string> PLCAlarmTab = new Dictionary<int, string>();//PLC报警内容和报警号的对照字典
 
         public System.EventHandler<AlarmSendData> AlarmSendDataEvenHandle;
-        public System.EventHandler<ScadaHncData.EQUIP_STATE> StateChageEvenHandle;
         public EquipmentCheck()
         {
             InitPLCAlarmNoTb();

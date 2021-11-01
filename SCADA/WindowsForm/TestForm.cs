@@ -508,7 +508,7 @@ namespace SCADA
                         {
                             speeds = "0.0";
                         }
-                        else  speeds = MainForm.cncv2list[1].SpeedRate.ToString("F1");
+                        else  speeds = MainForm.cncv2list[1].SpindleSpeed.ToString("F3");
                         if (speeds == null)
                         {
                             speeds = "0.0" ;
