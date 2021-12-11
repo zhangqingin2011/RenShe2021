@@ -269,7 +269,6 @@
             resources.ApplyResources(this.labellathe, "labellathe");
             this.labellathe.ForeColor = System.Drawing.Color.White;
             this.labellathe.Name = "labellathe";
-          //  this.labellathe.Click += new System.EventHandler(this.labellathe_Click);
             // 
             // label_CNCbaojingNum
             // 
@@ -661,7 +660,6 @@
             this.timesText,
             this.alarmshow});
             this.statusStrip.Name = "statusStrip";
-            //this.statusStrip.ItemClicked += new System.Windows.Forms.ToolStripItemClickedEventHandler(this.statusStrip_ItemClicked);
             // 
             // totaltimeText
             // 

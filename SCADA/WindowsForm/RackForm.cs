@@ -1032,11 +1032,7 @@ namespace SCADA
  
         }
 
-        private void panel3_SizeChanged(object sender, EventArgs e)
-        {
-            aotosize.controlAutoSize(this);
-
-        }
+     
         /// <summary>
         /// 读取RFID
         /// </summary>

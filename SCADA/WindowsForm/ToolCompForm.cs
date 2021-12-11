@@ -110,7 +110,7 @@ namespace SCADA
             {
                 val = -1 * val;
             }
-            textBoxB2.Text = val.ToString("F3");
+            textBoxB3.Text = val.ToString("F3");
             Sign = ModbusTcp.DataMoubus[(int)ModbusTcp.DataConfigArr.FineLength_Positive];
             Inter = ModbusTcp.DataMoubus[(int)ModbusTcp.DataConfigArr.FineLength_int];
             dec = ModbusTcp.DataMoubus[(int)ModbusTcp.DataConfigArr.FineLength_Float];

@@ -969,8 +969,8 @@
             // 
             this.comboBoxcaizhi.FormattingEnabled = true;
             this.comboBoxcaizhi.Items.AddRange(new object[] {
-            "钢",
-            "铝"});
+            "铝",
+            "钢"});
             this.comboBoxcaizhi.Location = new System.Drawing.Point(20, 73);
             this.comboBoxcaizhi.Name = "comboBoxcaizhi";
             this.comboBoxcaizhi.Size = new System.Drawing.Size(83, 35);

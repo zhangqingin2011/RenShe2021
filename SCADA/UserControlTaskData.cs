@@ -114,7 +114,14 @@ namespace SCADA
                 for (int ii = 0; ii < MainForm.cncv2list.Count; ii++)
                 {
                     string[] array = new string[STR_dataGridView_CNCGCode_Columns.Length];
-                    array[0] = MainForm.cncv2list[ii].MachineSN;
+                    if(ii==0)
+                    {
+                        array[0] = "车床";
+                    }
+                    else if(ii == 1)
+                    {
+                        array[0] = "加工中心";
+                    }
                     array[1] = "";
                     array[2] = "";
                     dataGridView_CNCGCodeDb.Rows.Add(array);

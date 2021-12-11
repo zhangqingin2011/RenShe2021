@@ -579,8 +579,8 @@ namespace SCADA
             initRacktype();
             //初始化自动排程参数
             AotoOrderForm.Fvalue1stop = false;//提示临界值停自动报警
-            AotoOrderForm.zhiliangflage = false;//质量优先
-            AotoOrderForm.xiaolvflage = true;//效率优先
+            AotoOrderForm.zhiliangflage = true;//质量优先
+            AotoOrderForm.xiaolvflage = false;//效率优先
             AotoOrderForm.Aleavel = 1;//A中物料的等级
             AotoOrderForm.Bleavel = 1;//A中物料的等级
             AotoOrderForm.Cleavel = 1;//A中物料的等级
@@ -1097,8 +1097,8 @@ namespace SCADA
                         {
                             string temp = jj.ToString();
                             ModbusTcp.DataMoubus[magstatei] = (int)ModbusTcp.Mag_state_config.Statenull;
-                            temp = temp + "号物料信息加载失败，恢复默认信息";
-                            MessageBox.Show(temp);
+                            //temp = temp + "号物料信息加载失败，恢复默认信息";
+                            //MessageBox.Show(temp);
                         }
                     }
                     else
@@ -1107,8 +1107,8 @@ namespace SCADA
                         {
                             string temp = jj.ToString();
                             ModbusTcp.DataMoubus[magstatei] = (int)ModbusTcp.Mag_state_config.Statenull;
-                            temp = temp + "号物料信息加载失败，恢复默认信息";
-                            MessageBox.Show(temp);
+                            //temp = temp + "号物料信息加载失败，恢复默认信息";
+                            //MessageBox.Show(temp);
                         }
                     }
 
@@ -1122,8 +1122,8 @@ namespace SCADA
                         {
                             string temp = jj.ToString();
                             ModbusTcp.DataMoubus[magstatei] = (int)ModbusTcp.Mag_state_config.Statenull;
-                            temp = temp + "号物料信息加载失败，恢复默认信息";
-                            MessageBox.Show(temp);
+                            //temp = temp + "号物料信息加载失败，恢复默认信息";
+                            //MessageBox.Show(temp);
                         }
                     }
                     else
@@ -1132,8 +1132,8 @@ namespace SCADA
                         {
                             string temp = jj.ToString();
                             ModbusTcp.DataMoubus[magstatei] = (int)ModbusTcp.Mag_state_config.Statenull;
-                            temp = temp + "号物料信息加载失败，恢复默认信息";
-                            MessageBox.Show(temp);
+                            //temp = temp + "号物料信息加载失败，恢复默认信息";
+                            //MessageBox.Show(temp);
                         }
                     }
                 }
@@ -3380,7 +3380,7 @@ namespace SCADA
                 MainForm.sptcp1.SendData((byte)SCADA.ModbusTcp.Func_Code.req, 1, 0, (int)SCADA.ModbusTcp.DataConfigArr.Mesans_Robot_status, 28);//请求61、62号寄存器存储内容是料位有无料信息      
                 MainForm.sptcp1.ReceiveData();
 
-                MainForm.sptcp1.SendData((byte)SCADA.ModbusTcp.Func_Code.writereg, (int)SCADA.ModbusTcp.DataConfigArr.p_MeterValue1, 102, 1, 0);//写机器人位置
+                MainForm.sptcp1.SendData((byte)SCADA.ModbusTcp.Func_Code.writereg, (int)SCADA.ModbusTcp.DataConfigArr.p_MeterValue1, 113, 1, 0);//写机器人位置
                 MainForm.sptcp1.ReceiveData();
                 //   MainForm.sptcp1.SendData((byte)SCADA.ModbusTcp.Func_Code.writereg, (int)SCADA.ModbusTcp.DataConfigArr.p_MeterValue1, 15, 1, 0);//请求61、62号寄存器存储内容是料位有无料信息      
                 //if (MeterForm.renewbiaodingfalge)

@@ -113,7 +113,7 @@
             this.groupBoxzhiliangfazhi.Margin = new System.Windows.Forms.Padding(4);
             this.groupBoxzhiliangfazhi.Name = "groupBoxzhiliangfazhi";
             this.groupBoxzhiliangfazhi.Padding = new System.Windows.Forms.Padding(4);
-            this.groupBoxzhiliangfazhi.Size = new System.Drawing.Size(1601, 38);
+            this.groupBoxzhiliangfazhi.Size = new System.Drawing.Size(1601, 10);
             this.groupBoxzhiliangfazhi.TabIndex = 0;
             this.groupBoxzhiliangfazhi.TabStop = false;
             this.groupBoxzhiliangfazhi.Text = "质量设置";
@@ -241,11 +241,11 @@
             this.groupBoxmoshi.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
             this.groupBoxmoshi.Font = new System.Drawing.Font("微软雅黑", 14.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(134)));
             this.groupBoxmoshi.ForeColor = System.Drawing.Color.Black;
-            this.groupBoxmoshi.Location = new System.Drawing.Point(1, 54);
+            this.groupBoxmoshi.Location = new System.Drawing.Point(1, 16);
             this.groupBoxmoshi.Margin = new System.Windows.Forms.Padding(4);
             this.groupBoxmoshi.Name = "groupBoxmoshi";
             this.groupBoxmoshi.Padding = new System.Windows.Forms.Padding(4);
-            this.groupBoxmoshi.Size = new System.Drawing.Size(1601, 194);
+            this.groupBoxmoshi.Size = new System.Drawing.Size(1601, 190);
             this.groupBoxmoshi.TabIndex = 1;
             this.groupBoxmoshi.TabStop = false;
             this.groupBoxmoshi.Text = "效率设置";
@@ -346,11 +346,11 @@
             this.groupBoxtype.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
             this.groupBoxtype.Font = new System.Drawing.Font("微软雅黑", 14.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(134)));
             this.groupBoxtype.ForeColor = System.Drawing.Color.Black;
-            this.groupBoxtype.Location = new System.Drawing.Point(1, 271);
+            this.groupBoxtype.Location = new System.Drawing.Point(1, 214);
             this.groupBoxtype.Margin = new System.Windows.Forms.Padding(4);
             this.groupBoxtype.Name = "groupBoxtype";
             this.groupBoxtype.Padding = new System.Windows.Forms.Padding(4);
-            this.groupBoxtype.Size = new System.Drawing.Size(1601, 246);
+            this.groupBoxtype.Size = new System.Drawing.Size(1601, 213);
             this.groupBoxtype.TabIndex = 2;
             this.groupBoxtype.TabStop = false;
             this.groupBoxtype.Text = "类型优先级设置";
@@ -521,19 +521,18 @@
             // 
             // button1
             // 
-            this.button1.Anchor = System.Windows.Forms.AnchorStyles.None;
             this.button1.AutoSize = true;
             this.button1.BackColor = System.Drawing.Color.LightGreen;
             this.button1.FlatAppearance.BorderSize = 0;
             this.button1.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
             this.button1.Font = new System.Drawing.Font("微软雅黑", 14.25F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(134)));
             this.button1.ForeColor = System.Drawing.Color.Black;
-            this.button1.Location = new System.Drawing.Point(667, 847);
+            this.button1.Location = new System.Drawing.Point(671, 661);
             this.button1.Margin = new System.Windows.Forms.Padding(4);
             this.button1.Name = "button1";
-            this.button1.Size = new System.Drawing.Size(133, 50);
+            this.button1.Size = new System.Drawing.Size(128, 41);
             this.button1.TabIndex = 18;
-            this.button1.Text = "提交";
+            this.button1.Text = "    提交    ";
             this.button1.UseVisualStyleBackColor = false;
             this.button1.Click += new System.EventHandler(this.button1_Click);
             // 
@@ -557,11 +556,11 @@
             this.groupBox1.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
             this.groupBox1.Font = new System.Drawing.Font("微软雅黑", 14.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(134)));
             this.groupBox1.ForeColor = System.Drawing.Color.Black;
-            this.groupBox1.Location = new System.Drawing.Point(1, 525);
+            this.groupBox1.Location = new System.Drawing.Point(1, 435);
             this.groupBox1.Margin = new System.Windows.Forms.Padding(4);
             this.groupBox1.Name = "groupBox1";
             this.groupBox1.Padding = new System.Windows.Forms.Padding(4);
-            this.groupBox1.Size = new System.Drawing.Size(1601, 245);
+            this.groupBox1.Size = new System.Drawing.Size(1601, 205);
             this.groupBox1.TabIndex = 27;
             this.groupBox1.TabStop = false;
             this.groupBox1.Text = "成套优先级设置";
@@ -726,7 +725,6 @@
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(8F, 15F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
-            this.AutoSize = true;
             this.BackColor = System.Drawing.Color.White;
             this.ClientSize = new System.Drawing.Size(1605, 928);
             this.Controls.Add(this.groupBox1);
@@ -736,6 +734,7 @@
             this.Controls.Add(this.groupBoxzhiliangfazhi);
             this.Margin = new System.Windows.Forms.Padding(4);
             this.Name = "AotoOrderForm";
+            this.ShowInTaskbar = false;
             this.Text = "自动排程";
             this.SizeChanged += new System.EventHandler(this.AotoOrderForm_SizeChanged);
             this.groupBoxzhiliangfazhi.ResumeLayout(false);

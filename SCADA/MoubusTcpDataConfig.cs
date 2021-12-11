@@ -9,7 +9,7 @@ namespace SCADA
    public partial class ModbusTcp
     {
         public static Int32 ModbusBufferHeadSize = 7;//7个字节的MBAP表头 其中只有长度需要服务端写190，其他的直接复制客户端数据
-        public static Int32 ModbusBufferSize = 314;//190
+        public static Int32 ModbusBufferSize = 315;//190
         public static Int32 ModbusBufferFunCodeSizeReq = 5;
         public static Int32 ModbusBufferFunCodeSizeWrite = 6;
         public static Int32 ResModbusBufferFunCodeSize = 2;

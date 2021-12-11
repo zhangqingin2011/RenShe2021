@@ -154,7 +154,7 @@ namespace SCADA
                     }
                     else
                     {
-                        MessageBox.Show("自动刀补完成！");
+                      //  MessageBox.Show("自动刀补完成！");
                         renewtoolflag = true;
 
                     }

@@ -565,12 +565,12 @@ namespace SCADA
                 SDataUnion v1 = new SDataUnion();
                 if (CNC.MeterValue == null)
                 {
-                    for (int i = 0; i < 20; i++)
+                    for (int i = 0; i < 31; i++)
                     {
                         CNC.MeterValue[i] = 0.0;
                     }
                 }
-                for (int i = 0; i < 25; i++)
+                for (int i = 0; i < 31; i++)
                 {
                     CNC.MacroVarGetValue(50040 + i, out MacroVale);
 

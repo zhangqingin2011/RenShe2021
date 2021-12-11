@@ -97,6 +97,15 @@
             this.ComboBoxchoose2021 = new System.Windows.Forms.ComboBox();
             this.tableLayoutPanel24 = new System.Windows.Forms.TableLayoutPanel();
             this.dataGridView2 = new System.Windows.Forms.DataGridView();
+            this.dataGridViewTextBoxColumn1 = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.dataGridViewTextBoxColumn2 = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.dataGridViewTextBoxColumn3 = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.dataGridViewTextBoxColumn4 = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.dataGridViewTextBoxColumn5 = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.dataGridViewTextBoxColumn6 = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.dataGridViewTextBoxColumn7 = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.dataGridViewTextBoxColumn8 = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.dataGridViewTextBoxColumn9 = new System.Windows.Forms.DataGridViewTextBoxColumn();
             this.textBoxCardname2021 = new System.Windows.Forms.TextBox();
             this.tableLayoutPanel25 = new System.Windows.Forms.TableLayoutPanel();
             this.textBox6 = new System.Windows.Forms.TextBox();
@@ -255,15 +264,6 @@
             this.textBoxzhongwenmingcheng2 = new System.Windows.Forms.TextBox();
             this.textBoxshengmingzhuangtai2 = new System.Windows.Forms.TextBox();
             this.textBoxtuhao2 = new System.Windows.Forms.TextBox();
-            this.dataGridViewTextBoxColumn1 = new System.Windows.Forms.DataGridViewTextBoxColumn();
-            this.dataGridViewTextBoxColumn2 = new System.Windows.Forms.DataGridViewTextBoxColumn();
-            this.dataGridViewTextBoxColumn3 = new System.Windows.Forms.DataGridViewTextBoxColumn();
-            this.dataGridViewTextBoxColumn4 = new System.Windows.Forms.DataGridViewTextBoxColumn();
-            this.dataGridViewTextBoxColumn5 = new System.Windows.Forms.DataGridViewTextBoxColumn();
-            this.dataGridViewTextBoxColumn6 = new System.Windows.Forms.DataGridViewTextBoxColumn();
-            this.dataGridViewTextBoxColumn7 = new System.Windows.Forms.DataGridViewTextBoxColumn();
-            this.dataGridViewTextBoxColumn8 = new System.Windows.Forms.DataGridViewTextBoxColumn();
-            this.dataGridViewTextBoxColumn9 = new System.Windows.Forms.DataGridViewTextBoxColumn();
             this.tabControl1.SuspendLayout();
             this.tabButtonPDM.SuspendLayout();
             this.panel1.SuspendLayout();
@@ -1138,14 +1138,79 @@
             this.dataGridViewTextBoxColumn8,
             this.dataGridViewTextBoxColumn9});
             this.dataGridView2.Enabled = false;
-            this.dataGridView2.Location = new System.Drawing.Point(1, 170);
+            this.dataGridView2.Location = new System.Drawing.Point(0, 170);
             this.dataGridView2.Margin = new System.Windows.Forms.Padding(0);
             this.dataGridView2.Name = "dataGridView2";
             this.dataGridView2.RowHeadersVisible = false;
             this.dataGridView2.RowHeadersWidth = 51;
             this.dataGridView2.RowTemplate.Height = 27;
-            this.dataGridView2.Size = new System.Drawing.Size(1142, 420);
+            this.dataGridView2.Size = new System.Drawing.Size(1146, 420);
             this.dataGridView2.TabIndex = 1;
+            // 
+            // dataGridViewTextBoxColumn1
+            // 
+            this.dataGridViewTextBoxColumn1.AutoSizeMode = System.Windows.Forms.DataGridViewAutoSizeColumnMode.Fill;
+            this.dataGridViewTextBoxColumn1.HeaderText = "Column1";
+            this.dataGridViewTextBoxColumn1.MinimumWidth = 6;
+            this.dataGridViewTextBoxColumn1.Name = "dataGridViewTextBoxColumn1";
+            // 
+            // dataGridViewTextBoxColumn2
+            // 
+            this.dataGridViewTextBoxColumn2.AutoSizeMode = System.Windows.Forms.DataGridViewAutoSizeColumnMode.Fill;
+            this.dataGridViewTextBoxColumn2.FillWeight = 200F;
+            this.dataGridViewTextBoxColumn2.HeaderText = "Column2";
+            this.dataGridViewTextBoxColumn2.MinimumWidth = 6;
+            this.dataGridViewTextBoxColumn2.Name = "dataGridViewTextBoxColumn2";
+            // 
+            // dataGridViewTextBoxColumn3
+            // 
+            this.dataGridViewTextBoxColumn3.AutoSizeMode = System.Windows.Forms.DataGridViewAutoSizeColumnMode.Fill;
+            this.dataGridViewTextBoxColumn3.HeaderText = "Column3";
+            this.dataGridViewTextBoxColumn3.MinimumWidth = 6;
+            this.dataGridViewTextBoxColumn3.Name = "dataGridViewTextBoxColumn3";
+            // 
+            // dataGridViewTextBoxColumn4
+            // 
+            this.dataGridViewTextBoxColumn4.AutoSizeMode = System.Windows.Forms.DataGridViewAutoSizeColumnMode.Fill;
+            this.dataGridViewTextBoxColumn4.HeaderText = "Column4";
+            this.dataGridViewTextBoxColumn4.MinimumWidth = 6;
+            this.dataGridViewTextBoxColumn4.Name = "dataGridViewTextBoxColumn4";
+            // 
+            // dataGridViewTextBoxColumn5
+            // 
+            this.dataGridViewTextBoxColumn5.AutoSizeMode = System.Windows.Forms.DataGridViewAutoSizeColumnMode.Fill;
+            this.dataGridViewTextBoxColumn5.HeaderText = "Column5";
+            this.dataGridViewTextBoxColumn5.MinimumWidth = 6;
+            this.dataGridViewTextBoxColumn5.Name = "dataGridViewTextBoxColumn5";
+            // 
+            // dataGridViewTextBoxColumn6
+            // 
+            this.dataGridViewTextBoxColumn6.AutoSizeMode = System.Windows.Forms.DataGridViewAutoSizeColumnMode.Fill;
+            this.dataGridViewTextBoxColumn6.HeaderText = "Column6";
+            this.dataGridViewTextBoxColumn6.MinimumWidth = 6;
+            this.dataGridViewTextBoxColumn6.Name = "dataGridViewTextBoxColumn6";
+            // 
+            // dataGridViewTextBoxColumn7
+            // 
+            this.dataGridViewTextBoxColumn7.AutoSizeMode = System.Windows.Forms.DataGridViewAutoSizeColumnMode.Fill;
+            this.dataGridViewTextBoxColumn7.HeaderText = "Column7";
+            this.dataGridViewTextBoxColumn7.MinimumWidth = 6;
+            this.dataGridViewTextBoxColumn7.Name = "dataGridViewTextBoxColumn7";
+            // 
+            // dataGridViewTextBoxColumn8
+            // 
+            this.dataGridViewTextBoxColumn8.AutoSizeMode = System.Windows.Forms.DataGridViewAutoSizeColumnMode.Fill;
+            this.dataGridViewTextBoxColumn8.HeaderText = "Column8";
+            this.dataGridViewTextBoxColumn8.MinimumWidth = 6;
+            this.dataGridViewTextBoxColumn8.Name = "dataGridViewTextBoxColumn8";
+            // 
+            // dataGridViewTextBoxColumn9
+            // 
+            this.dataGridViewTextBoxColumn9.AutoSizeMode = System.Windows.Forms.DataGridViewAutoSizeColumnMode.Fill;
+            this.dataGridViewTextBoxColumn9.FillWeight = 50F;
+            this.dataGridViewTextBoxColumn9.HeaderText = "Column9";
+            this.dataGridViewTextBoxColumn9.MinimumWidth = 6;
+            this.dataGridViewTextBoxColumn9.Name = "dataGridViewTextBoxColumn9";
             // 
             // textBoxCardname2021
             // 
@@ -1178,12 +1243,12 @@
             this.tableLayoutPanel25.Controls.Add(this.tableLayoutPanel28, 3, 0);
             this.tableLayoutPanel25.Controls.Add(this.tableLayoutPanel30, 4, 0);
             this.tableLayoutPanel25.Controls.Add(this.textBox7, 1, 0);
-            this.tableLayoutPanel25.Location = new System.Drawing.Point(0, 66);
+            this.tableLayoutPanel25.Location = new System.Drawing.Point(0, 68);
             this.tableLayoutPanel25.Margin = new System.Windows.Forms.Padding(0);
             this.tableLayoutPanel25.Name = "tableLayoutPanel25";
             this.tableLayoutPanel25.RowCount = 1;
             this.tableLayoutPanel25.RowStyles.Add(new System.Windows.Forms.RowStyle(System.Windows.Forms.SizeType.Percent, 100F));
-            this.tableLayoutPanel25.Size = new System.Drawing.Size(1144, 102);
+            this.tableLayoutPanel25.Size = new System.Drawing.Size(1146, 102);
             this.tableLayoutPanel25.TabIndex = 4;
             // 
             // textBox6
@@ -1211,13 +1276,13 @@
             this.tableLayoutPanel26.ColumnStyles.Add(new System.Windows.Forms.ColumnStyle(System.Windows.Forms.SizeType.Percent, 50F));
             this.tableLayoutPanel26.Controls.Add(this.textBox10, 0, 0);
             this.tableLayoutPanel26.Controls.Add(this.tableLayoutPanel27, 0, 1);
-            this.tableLayoutPanel26.Location = new System.Drawing.Point(360, 0);
+            this.tableLayoutPanel26.Location = new System.Drawing.Point(361, 0);
             this.tableLayoutPanel26.Margin = new System.Windows.Forms.Padding(0);
             this.tableLayoutPanel26.Name = "tableLayoutPanel26";
             this.tableLayoutPanel26.RowCount = 2;
             this.tableLayoutPanel26.RowStyles.Add(new System.Windows.Forms.RowStyle(System.Windows.Forms.SizeType.Percent, 50F));
             this.tableLayoutPanel26.RowStyles.Add(new System.Windows.Forms.RowStyle(System.Windows.Forms.SizeType.Percent, 50F));
-            this.tableLayoutPanel26.Size = new System.Drawing.Size(481, 102);
+            this.tableLayoutPanel26.Size = new System.Drawing.Size(482, 102);
             this.tableLayoutPanel26.TabIndex = 12;
             // 
             // textBox10
@@ -1231,7 +1296,7 @@
             this.textBox10.Margin = new System.Windows.Forms.Padding(0);
             this.textBox10.Multiline = true;
             this.textBox10.Name = "textBox10";
-            this.textBox10.Size = new System.Drawing.Size(481, 51);
+            this.textBox10.Size = new System.Drawing.Size(482, 51);
             this.textBox10.TabIndex = 0;
             this.textBox10.Text = "切削用量";
             this.textBox10.TextAlign = System.Windows.Forms.HorizontalAlignment.Center;
@@ -1255,7 +1320,7 @@
             this.tableLayoutPanel27.Name = "tableLayoutPanel27";
             this.tableLayoutPanel27.RowCount = 1;
             this.tableLayoutPanel27.RowStyles.Add(new System.Windows.Forms.RowStyle(System.Windows.Forms.SizeType.Percent, 100F));
-            this.tableLayoutPanel27.Size = new System.Drawing.Size(481, 51);
+            this.tableLayoutPanel27.Size = new System.Drawing.Size(482, 51);
             this.tableLayoutPanel27.TabIndex = 1;
             // 
             // textBox11
@@ -1269,7 +1334,7 @@
             this.textBox11.Margin = new System.Windows.Forms.Padding(0);
             this.textBox11.Multiline = true;
             this.textBox11.Name = "textBox11";
-            this.textBox11.Size = new System.Drawing.Size(121, 51);
+            this.textBox11.Size = new System.Drawing.Size(122, 51);
             this.textBox11.TabIndex = 3;
             this.textBox11.Text = "加工余量(mm)";
             this.textBox11.TextAlign = System.Windows.Forms.HorizontalAlignment.Center;
@@ -1329,13 +1394,13 @@
             this.tableLayoutPanel28.Controls.Add(this.textBox39, 0, 0);
             this.tableLayoutPanel28.Controls.Add(this.tableLayoutPanel29, 0, 1);
             this.tableLayoutPanel28.Dock = System.Windows.Forms.DockStyle.Fill;
-            this.tableLayoutPanel28.Location = new System.Drawing.Point(841, 0);
+            this.tableLayoutPanel28.Location = new System.Drawing.Point(843, 0);
             this.tableLayoutPanel28.Margin = new System.Windows.Forms.Padding(0);
             this.tableLayoutPanel28.Name = "tableLayoutPanel28";
             this.tableLayoutPanel28.RowCount = 2;
             this.tableLayoutPanel28.RowStyles.Add(new System.Windows.Forms.RowStyle(System.Windows.Forms.SizeType.Percent, 50F));
             this.tableLayoutPanel28.RowStyles.Add(new System.Windows.Forms.RowStyle(System.Windows.Forms.SizeType.Percent, 50F));
-            this.tableLayoutPanel28.Size = new System.Drawing.Size(240, 102);
+            this.tableLayoutPanel28.Size = new System.Drawing.Size(241, 102);
             this.tableLayoutPanel28.TabIndex = 13;
             // 
             // textBox39
@@ -1349,7 +1414,7 @@
             this.textBox39.Margin = new System.Windows.Forms.Padding(0);
             this.textBox39.Multiline = true;
             this.textBox39.Name = "textBox39";
-            this.textBox39.Size = new System.Drawing.Size(240, 51);
+            this.textBox39.Size = new System.Drawing.Size(241, 51);
             this.textBox39.TabIndex = 0;
             this.textBox39.Text = "刀具";
             this.textBox39.TextAlign = System.Windows.Forms.HorizontalAlignment.Center;
@@ -1367,7 +1432,7 @@
             this.tableLayoutPanel29.Name = "tableLayoutPanel29";
             this.tableLayoutPanel29.RowCount = 1;
             this.tableLayoutPanel29.RowStyles.Add(new System.Windows.Forms.RowStyle(System.Windows.Forms.SizeType.Percent, 50F));
-            this.tableLayoutPanel29.Size = new System.Drawing.Size(240, 51);
+            this.tableLayoutPanel29.Size = new System.Drawing.Size(241, 51);
             this.tableLayoutPanel29.TabIndex = 1;
             // 
             // textBox40
@@ -1397,7 +1462,7 @@
             this.textBox45.Margin = new System.Windows.Forms.Padding(0);
             this.textBox45.Multiline = true;
             this.textBox45.Name = "textBox45";
-            this.textBox45.Size = new System.Drawing.Size(120, 51);
+            this.textBox45.Size = new System.Drawing.Size(121, 51);
             this.textBox45.TabIndex = 1;
             this.textBox45.Text = "刀具直径";
             this.textBox45.TextAlign = System.Windows.Forms.HorizontalAlignment.Center;
@@ -1408,13 +1473,13 @@
             this.tableLayoutPanel30.ColumnStyles.Add(new System.Windows.Forms.ColumnStyle(System.Windows.Forms.SizeType.Percent, 50F));
             this.tableLayoutPanel30.Controls.Add(this.textBox46, 0, 0);
             this.tableLayoutPanel30.Dock = System.Windows.Forms.DockStyle.Fill;
-            this.tableLayoutPanel30.Location = new System.Drawing.Point(1081, 0);
+            this.tableLayoutPanel30.Location = new System.Drawing.Point(1084, 0);
             this.tableLayoutPanel30.Margin = new System.Windows.Forms.Padding(0);
             this.tableLayoutPanel30.Name = "tableLayoutPanel30";
             this.tableLayoutPanel30.RowCount = 1;
             this.tableLayoutPanel30.RowStyles.Add(new System.Windows.Forms.RowStyle(System.Windows.Forms.SizeType.Percent, 50F));
             this.tableLayoutPanel30.RowStyles.Add(new System.Windows.Forms.RowStyle(System.Windows.Forms.SizeType.Percent, 50F));
-            this.tableLayoutPanel30.Size = new System.Drawing.Size(63, 102);
+            this.tableLayoutPanel30.Size = new System.Drawing.Size(62, 102);
             this.tableLayoutPanel30.TabIndex = 14;
             // 
             // textBox46
@@ -1428,7 +1493,7 @@
             this.textBox46.Margin = new System.Windows.Forms.Padding(0);
             this.textBox46.Multiline = true;
             this.textBox46.Name = "textBox46";
-            this.textBox46.Size = new System.Drawing.Size(63, 102);
+            this.textBox46.Size = new System.Drawing.Size(62, 102);
             this.textBox46.TabIndex = 1;
             this.textBox46.Text = "工\r\n时\r\n定\r\n额";
             this.textBox46.TextAlign = System.Windows.Forms.HorizontalAlignment.Center;
@@ -1444,7 +1509,7 @@
             this.textBox7.Margin = new System.Windows.Forms.Padding(0);
             this.textBox7.Multiline = true;
             this.textBox7.Name = "textBox7";
-            this.textBox7.Size = new System.Drawing.Size(240, 102);
+            this.textBox7.Size = new System.Drawing.Size(241, 102);
             this.textBox7.TabIndex = 5;
             this.textBox7.Text = "\r\n加工方式(轨迹名称)";
             this.textBox7.TextAlign = System.Windows.Forms.HorizontalAlignment.Center;
@@ -1472,7 +1537,7 @@
             this.tableLayoutPanel31.Name = "tableLayoutPanel31";
             this.tableLayoutPanel31.RowCount = 1;
             this.tableLayoutPanel31.RowStyles.Add(new System.Windows.Forms.RowStyle(System.Windows.Forms.SizeType.Percent, 100F));
-            this.tableLayoutPanel31.Size = new System.Drawing.Size(1144, 34);
+            this.tableLayoutPanel31.Size = new System.Drawing.Size(1146, 34);
             this.tableLayoutPanel31.TabIndex = 5;
             // 
             // textBoxtuhao2021
@@ -1481,10 +1546,10 @@
             | System.Windows.Forms.AnchorStyles.Left) 
             | System.Windows.Forms.AnchorStyles.Right)));
             this.textBoxtuhao2021.Enabled = false;
-            this.textBoxtuhao2021.Location = new System.Drawing.Point(961, 0);
+            this.textBoxtuhao2021.Location = new System.Drawing.Point(962, 0);
             this.textBoxtuhao2021.Margin = new System.Windows.Forms.Padding(0);
             this.textBoxtuhao2021.Name = "textBoxtuhao2021";
-            this.textBoxtuhao2021.Size = new System.Drawing.Size(183, 34);
+            this.textBoxtuhao2021.Size = new System.Drawing.Size(184, 34);
             this.textBoxtuhao2021.TabIndex = 5;
             // 
             // textBox5
@@ -1493,7 +1558,7 @@
             | System.Windows.Forms.AnchorStyles.Left) 
             | System.Windows.Forms.AnchorStyles.Right)));
             this.textBox5.Enabled = false;
-            this.textBox5.Location = new System.Drawing.Point(841, 0);
+            this.textBox5.Location = new System.Drawing.Point(842, 0);
             this.textBox5.Margin = new System.Windows.Forms.Padding(0);
             this.textBox5.Name = "textBox5";
             this.textBox5.Size = new System.Drawing.Size(120, 34);
@@ -1507,7 +1572,7 @@
             | System.Windows.Forms.AnchorStyles.Left) 
             | System.Windows.Forms.AnchorStyles.Right)));
             this.textBoxcailiao2021.Enabled = false;
-            this.textBoxcailiao2021.Location = new System.Drawing.Point(480, 0);
+            this.textBoxcailiao2021.Location = new System.Drawing.Point(481, 0);
             this.textBoxcailiao2021.Margin = new System.Windows.Forms.Padding(0);
             this.textBoxcailiao2021.Name = "textBoxcailiao2021";
             this.textBoxcailiao2021.Size = new System.Drawing.Size(361, 34);
@@ -1519,7 +1584,7 @@
             | System.Windows.Forms.AnchorStyles.Left) 
             | System.Windows.Forms.AnchorStyles.Right)));
             this.textBox3.Enabled = false;
-            this.textBox3.Location = new System.Drawing.Point(360, 0);
+            this.textBox3.Location = new System.Drawing.Point(361, 0);
             this.textBox3.Margin = new System.Windows.Forms.Padding(0);
             this.textBox3.Name = "textBox3";
             this.textBox3.Size = new System.Drawing.Size(120, 34);
@@ -1536,7 +1601,7 @@
             this.textBoxname2021.Location = new System.Drawing.Point(120, 0);
             this.textBoxname2021.Margin = new System.Windows.Forms.Padding(0);
             this.textBoxname2021.Name = "textBoxname2021";
-            this.textBoxname2021.Size = new System.Drawing.Size(240, 34);
+            this.textBoxname2021.Size = new System.Drawing.Size(241, 34);
             this.textBoxname2021.TabIndex = 1;
             // 
             // textBox2
@@ -3237,71 +3302,6 @@
             this.textBoxtuhao2.Name = "textBoxtuhao2";
             this.textBoxtuhao2.Size = new System.Drawing.Size(582, 34);
             this.textBoxtuhao2.TabIndex = 27;
-            // 
-            // dataGridViewTextBoxColumn1
-            // 
-            this.dataGridViewTextBoxColumn1.AutoSizeMode = System.Windows.Forms.DataGridViewAutoSizeColumnMode.Fill;
-            this.dataGridViewTextBoxColumn1.HeaderText = "Column1";
-            this.dataGridViewTextBoxColumn1.MinimumWidth = 6;
-            this.dataGridViewTextBoxColumn1.Name = "dataGridViewTextBoxColumn1";
-            // 
-            // dataGridViewTextBoxColumn2
-            // 
-            this.dataGridViewTextBoxColumn2.AutoSizeMode = System.Windows.Forms.DataGridViewAutoSizeColumnMode.Fill;
-            this.dataGridViewTextBoxColumn2.FillWeight = 200F;
-            this.dataGridViewTextBoxColumn2.HeaderText = "Column2";
-            this.dataGridViewTextBoxColumn2.MinimumWidth = 6;
-            this.dataGridViewTextBoxColumn2.Name = "dataGridViewTextBoxColumn2";
-            // 
-            // dataGridViewTextBoxColumn3
-            // 
-            this.dataGridViewTextBoxColumn3.AutoSizeMode = System.Windows.Forms.DataGridViewAutoSizeColumnMode.Fill;
-            this.dataGridViewTextBoxColumn3.HeaderText = "Column3";
-            this.dataGridViewTextBoxColumn3.MinimumWidth = 6;
-            this.dataGridViewTextBoxColumn3.Name = "dataGridViewTextBoxColumn3";
-            // 
-            // dataGridViewTextBoxColumn4
-            // 
-            this.dataGridViewTextBoxColumn4.AutoSizeMode = System.Windows.Forms.DataGridViewAutoSizeColumnMode.Fill;
-            this.dataGridViewTextBoxColumn4.HeaderText = "Column4";
-            this.dataGridViewTextBoxColumn4.MinimumWidth = 6;
-            this.dataGridViewTextBoxColumn4.Name = "dataGridViewTextBoxColumn4";
-            // 
-            // dataGridViewTextBoxColumn5
-            // 
-            this.dataGridViewTextBoxColumn5.AutoSizeMode = System.Windows.Forms.DataGridViewAutoSizeColumnMode.Fill;
-            this.dataGridViewTextBoxColumn5.HeaderText = "Column5";
-            this.dataGridViewTextBoxColumn5.MinimumWidth = 6;
-            this.dataGridViewTextBoxColumn5.Name = "dataGridViewTextBoxColumn5";
-            // 
-            // dataGridViewTextBoxColumn6
-            // 
-            this.dataGridViewTextBoxColumn6.AutoSizeMode = System.Windows.Forms.DataGridViewAutoSizeColumnMode.Fill;
-            this.dataGridViewTextBoxColumn6.HeaderText = "Column6";
-            this.dataGridViewTextBoxColumn6.MinimumWidth = 6;
-            this.dataGridViewTextBoxColumn6.Name = "dataGridViewTextBoxColumn6";
-            // 
-            // dataGridViewTextBoxColumn7
-            // 
-            this.dataGridViewTextBoxColumn7.AutoSizeMode = System.Windows.Forms.DataGridViewAutoSizeColumnMode.Fill;
-            this.dataGridViewTextBoxColumn7.HeaderText = "Column7";
-            this.dataGridViewTextBoxColumn7.MinimumWidth = 6;
-            this.dataGridViewTextBoxColumn7.Name = "dataGridViewTextBoxColumn7";
-            // 
-            // dataGridViewTextBoxColumn8
-            // 
-            this.dataGridViewTextBoxColumn8.AutoSizeMode = System.Windows.Forms.DataGridViewAutoSizeColumnMode.Fill;
-            this.dataGridViewTextBoxColumn8.HeaderText = "Column8";
-            this.dataGridViewTextBoxColumn8.MinimumWidth = 6;
-            this.dataGridViewTextBoxColumn8.Name = "dataGridViewTextBoxColumn8";
-            // 
-            // dataGridViewTextBoxColumn9
-            // 
-            this.dataGridViewTextBoxColumn9.AutoSizeMode = System.Windows.Forms.DataGridViewAutoSizeColumnMode.Fill;
-            this.dataGridViewTextBoxColumn9.FillWeight = 50F;
-            this.dataGridViewTextBoxColumn9.HeaderText = "Column9";
-            this.dataGridViewTextBoxColumn9.MinimumWidth = 6;
-            this.dataGridViewTextBoxColumn9.Name = "dataGridViewTextBoxColumn9";
             // 
             // BOMForm
             // 

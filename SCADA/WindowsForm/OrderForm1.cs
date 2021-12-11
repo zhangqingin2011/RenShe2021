@@ -29,9 +29,9 @@ namespace SCADA
         //订单下发 0、未下发，1、已下发
         //工序状态 0、无此工序，1、未开始，2、进行中，3、完成，4、返修中
         public string language = "";
-        static public bool[] valueb = new bool[6];
-        static public string[] valuestrarry = new string[6];
-        static public double[,] refvalue = new double[6, 3];
+        static public bool[] valueb = new bool[6];//单项检查是否合格
+        static public string[] valuestrarry = new string[6];//单项检测结果
+        static public double[] refvalue = new double[6];
         static public double[] resvalue = new double[6];
         public static bool bIsOK = false;  //是否合格 
         public static bool measureenable = false;//测量使能
@@ -86,14 +86,14 @@ namespace SCADA
         private static int aotorunmag = 0;//自动加工的仓位号
         private static int aotorunmaglathe = 0;//自动加工的仓位号
         private static int aotorunmagcnc = 0;//自动加工的仓位号
-        private static int indexlathe = -1;//车床当前自动运行的订单编号
-        private static int indexcnc = -1;//加工中心当前自动运行的订单编号
+        private static int indexlathe = 0;//车床当前自动运行的订单编号
+        private static int indexcnc = 0;//加工中心当前自动运行的订单编号
         public static bool IsRerunning = false;
         public static bool SkipMeterflage = false;
         private static bool MessageHasshow1 = true;//车床完成信号仓位错误提示标志
         private static bool MessageHasshow2 = true;//铣床完成信号仓位错误提示标志
-        private List<MeterSetData> MeterSetDataList = new List<MeterSetData>();
-        public static List<AotoToolComData> AotoToolComDataList = new List<AotoToolComData>();
+        private List<MeterSetData> MeterSetDataList = new List<MeterSetData>();//测量模板数据
+        public static List<AotoToolComData> AotoToolComDataList = new List<AotoToolComData>();//刀补补偿信息
         public static bool FineProcess = false;//是否是精加工，0粗加工，1精加工
         public enum Processstate : int//
         {
@@ -1105,7 +1105,7 @@ namespace SCADA
                     }
                 }
                 dataGridVieworder2.Rows[index2].Cells[4].Value = "未开始";
-                dataGridVieworder2.Rows[index2].Cells[5].Value = "None";
+                dataGridVieworder2.Rows[index2].Cells[5].Value = "未检测";
             }
 
             if (language == "English")
@@ -2476,13 +2476,13 @@ namespace SCADA
                     }
                     else if (e.ColumnIndex == 7)//置顶
                     {
-                        for (int ii = 0; ii < dataGridVieworder.RowCount; ii++)
-                        {
-                            if (MainForm.ordertate[ii] == (int)Orderstate.Processing)
-                            {
-                                return; //如果预订单正在进行，不允许置顶
-                            }
-                        }
+                        //for (int ii = 0; ii < dataGridVieworder.RowCount; ii++)
+                        //{
+                        //    if (MainForm.ordertate[ii] == (int)Orderstate.Processing)
+                        //    {
+                        //        return; //如果预订单正在进行，不允许置顶
+                        //    }
+                        //}
                         //订单置顶，其他顺序往下
                         TopRangeDataGridView(e.RowIndex);
                     }
@@ -2494,6 +2494,10 @@ namespace SCADA
 
         private void TopRangeDataGridView(int rowindex)
         {
+            if(rowindex==0)
+            {
+                return;
+            }
             string OrderNoStr = dataGridVieworder.Rows[rowindex].Cells[1].Value.ToString();
             if (OrderNoStr == "")
             {
@@ -2578,6 +2582,94 @@ namespace SCADA
 
         }
 
+        private void TopTwoRangeDataGridView(int rowindex)
+        {
+            if (rowindex == 0)
+            {
+                return;
+            }
+            string OrderNoStr = dataGridVieworder.Rows[rowindex].Cells[1].Value.ToString();
+            if (OrderNoStr == "")
+            {
+                return;
+            }
+            int OrderNo = Convert.ToInt16(OrderNoStr);
+
+            string item0 = dataGridVieworder.Rows[rowindex].Cells[0].Value.ToString();
+            string item1 = dataGridVieworder.Rows[rowindex].Cells[1].Value.ToString();
+            string item2 = dataGridVieworder.Rows[rowindex].Cells[2].Value.ToString();
+            string item3 = dataGridVieworder.Rows[rowindex].Cells[3].Value.ToString();
+            string item4 = dataGridVieworder.Rows[rowindex].Cells[4].Value.ToString();
+            string item5 = dataGridVieworder.Rows[rowindex].Cells[5].Value.ToString();
+            string item6 = dataGridVieworder.Rows[rowindex].Cells[6].Value.ToString();
+            string item7 = dataGridVieworder.Rows[rowindex].Cells[7].Value.ToString();
+            string item8 = dataGridVieworder.Rows[rowindex].Cells[8].Value.ToString();
+
+
+            string itema0 = dataGridVieworder2.Rows[rowindex].Cells[0].Value.ToString();
+            string itema1 = dataGridVieworder2.Rows[rowindex].Cells[1].Value.ToString();
+            string itema2 = dataGridVieworder2.Rows[rowindex].Cells[2].Value.ToString();
+            string itema3 = dataGridVieworder2.Rows[rowindex].Cells[3].Value.ToString();
+            string itema4 = dataGridVieworder2.Rows[rowindex].Cells[4].Value.ToString();
+            string itema5 = dataGridVieworder2.Rows[rowindex].Cells[5].Value.ToString();
+            dataGridVieworder2.Rows.RemoveAt(rowindex);
+            dataGridVieworder.Rows.RemoveAt(rowindex);
+            int itemcount = 0;
+            for (int jj = 1; jj < dataGridVieworder.Rows.Count; jj++)
+            {
+                itemcount = jj + 2;
+                dataGridVieworder.Rows[jj].Cells[0].Value = itemcount.ToString();
+
+            }
+            for (int jj = 0; jj < dataGridVieworder2.Rows.Count; jj++)
+            {
+                itemcount = jj + 2;
+                dataGridVieworder2.Rows[jj].Cells[0].Value = itemcount.ToString();
+            }
+
+            dataGridVieworder2.Rows.Add();
+            dataGridVieworder.Rows.Add();
+            for (int jj = dataGridVieworder.Rows.Count - 1; jj > 1; jj--)
+            {
+                dataGridVieworder.Rows[jj].Cells[0].Value = (jj + 1).ToString();
+                dataGridVieworder.Rows[jj].Cells[1].Value = dataGridVieworder.Rows[jj - 1].Cells[1].Value.ToString();
+                dataGridVieworder.Rows[jj].Cells[2].Value = dataGridVieworder.Rows[jj - 1].Cells[2].Value.ToString();
+                dataGridVieworder.Rows[jj].Cells[3].Value = dataGridVieworder.Rows[jj - 1].Cells[3].Value.ToString();
+                dataGridVieworder.Rows[jj].Cells[4].Value = dataGridVieworder.Rows[jj - 1].Cells[4].Value.ToString();
+                dataGridVieworder.Rows[jj].Cells[5].Value = dataGridVieworder.Rows[jj - 1].Cells[5].Value.ToString();
+                dataGridVieworder.Rows[jj].Cells[6].Value = dataGridVieworder.Rows[jj - 1].Cells[6].Value.ToString();
+                dataGridVieworder.Rows[jj].Cells[7].Value = dataGridVieworder.Rows[jj - 1].Cells[7].Value.ToString();
+                dataGridVieworder.Rows[jj].Cells[8].Value = dataGridVieworder.Rows[jj - 1].Cells[8].Value.ToString();
+
+            }
+            dataGridVieworder.Rows[1].Cells[0].Value = "2";
+            dataGridVieworder.Rows[1].Cells[1].Value = item1;
+            dataGridVieworder.Rows[1].Cells[2].Value = item2;
+            dataGridVieworder.Rows[1].Cells[3].Value = item3;
+            dataGridVieworder.Rows[1].Cells[4].Value = item4;
+            dataGridVieworder.Rows[1].Cells[5].Value = item5;
+            dataGridVieworder.Rows[1].Cells[6].Value = item6;
+            dataGridVieworder.Rows[1].Cells[7].Value = item7;
+            dataGridVieworder.Rows[1].Cells[8].Value = item8;
+            for (int jj = dataGridVieworder2.Rows.Count - 1; jj > 1; jj--)
+            {
+                itemcount = jj;
+                dataGridVieworder2.Rows[jj].Cells[0].Value = (jj + 1).ToString();
+                dataGridVieworder2.Rows[jj].Cells[1].Value = dataGridVieworder2.Rows[jj - 1].Cells[1].Value.ToString();
+                dataGridVieworder2.Rows[jj].Cells[2].Value = dataGridVieworder2.Rows[jj - 1].Cells[2].Value.ToString();
+                dataGridVieworder2.Rows[jj].Cells[3].Value = dataGridVieworder2.Rows[jj - 1].Cells[3].Value.ToString();
+                dataGridVieworder2.Rows[jj].Cells[4].Value = dataGridVieworder2.Rows[jj - 1].Cells[4].Value.ToString();
+                dataGridVieworder2.Rows[jj].Cells[5].Value = dataGridVieworder2.Rows[jj - 1].Cells[5].Value.ToString();
+
+            }
+            dataGridVieworder2.Rows[1].Cells[0].Value = "2";
+            dataGridVieworder2.Rows[1].Cells[1].Value = itema1;
+            dataGridVieworder2.Rows[1].Cells[2].Value = itema2;
+            dataGridVieworder2.Rows[1].Cells[3].Value = itema3;
+            dataGridVieworder2.Rows[1].Cells[4].Value = itema4;
+            dataGridVieworder2.Rows[1].Cells[5].Value = itema5;
+
+        }
 
         private string getvalueformstring(string line, string indexstring)
         {
@@ -3755,8 +3847,8 @@ namespace SCADA
         private string GetMagMeterRoad(int magno)
         {
             int maglength = (int)ModbusTcp.MagLength;//Mag1_Sheet_No
-            int typeindex = (int)ModbusTcp.DataConfigArr.Mag_Type + (magno - 1) * maglength;
-            int Modeindex = (int)ModbusTcp.DataConfigArr.Mag1_Sheet_No + magno - 1;
+            int typeindex = ModbusTcp.DataMoubus[(int)ModbusTcp.DataConfigArr.Mag_Type + (magno - 1) * maglength];
+            int Modeindex = ModbusTcp.DataMoubus[(int)ModbusTcp.DataConfigArr.Mag1_Sheet_No + magno - 1];
             if (Modeindex == 0)
             {
                 if (typeindex == 0)
@@ -3800,7 +3892,7 @@ namespace SCADA
                 }
                 else
                 {
-                    return MetersetFilePath1_1;
+                    return MetersetFilePath2_1;
                 }
             }
             else if (Modeindex == 2)
@@ -3823,7 +3915,7 @@ namespace SCADA
                 }
                 else
                 {
-                    return MetersetFilePath1_1;
+                    return MetersetFilePath3_1;
                 }
             }
             else if (Modeindex == 3)
@@ -3846,7 +3938,7 @@ namespace SCADA
                 }
                 else
                 {
-                    return MetersetFilePath1_1;
+                    return MetersetFilePath4_1;
                 }
             }
             else
@@ -3871,10 +3963,13 @@ namespace SCADA
                 string line;
                 int ii = 0;
                 line = sr.ReadLine();
-                MeterSetDataList.Clear();
-                MeterSetData datatemp = new MeterSetData();
+                datas.Clear();
+               // MeterSetDataList.Clear();
+                //MeterSetData datatemp = new MeterSetData();
                 while (line != null && line != "")
                 {
+                    MeterSetData datatemp = new MeterSetData();
+                    datatemp = new MeterSetData();
                     refvalue = getvalueformstring(line, "ref=");
                     uppervalue = getvalueformstring(line, "upper=");
                     lowervalue = getvalueformstring(line, "lower=");
@@ -3891,7 +3986,7 @@ namespace SCADA
                     line = sr.ReadLine();
                     ii++;
                 }
-
+                //MeterSetDataList = datas;
                 sr.Close();
                 aFile.Close();
             }
@@ -3938,6 +4033,19 @@ namespace SCADA
             valuestrarry[4] = cncv2.MeterValue[4].ToString();
             valuestrarry[5] = cncv2.MeterValue[5].ToString();
 
+            refvalue[0] = Convert.ToDouble(valuestrarry[0]);
+            refvalue[1] = Convert.ToDouble(valuestrarry[1]);
+            refvalue[2] = Convert.ToDouble(valuestrarry[2]);
+            refvalue[3] = Convert.ToDouble(valuestrarry[3]);
+            refvalue[4] = Convert.ToDouble(valuestrarry[4]);
+            refvalue[5] = Convert.ToDouble(valuestrarry[5]);
+
+            resvalue[0] = MeterSetDataList[0].StaValue;
+            resvalue[1] = MeterSetDataList[1].StaValue;
+            resvalue[2] = MeterSetDataList[2].StaValue;
+            resvalue[3] = MeterSetDataList[3].StaValue;
+            resvalue[4] = MeterSetDataList[4].StaValue;
+            resvalue[5] = MeterSetDataList[5].StaValue;
 
             List<AotoToolComData> tooldadas = new List<AotoToolComData>();
             AotoToolComData temp1 = new AotoToolComData();
@@ -4034,6 +4142,7 @@ namespace SCADA
                         valueb[ii] = true;//检测合格  
                         tooldadas[ii].toolno = 0;
                         tooldadas[ii].type = 0;
+                    
                         if (Rvalue >= 0)
                         {
                             if (Rvalue >= (MeterSetDataList[ii].StaValue + MeterSetDataList[ii].LowValue) && Rvalue <= (MeterSetDataList[ii].StaValue + MeterSetDataList[ii].UpValue))
@@ -4108,15 +4217,17 @@ namespace SCADA
             }
             int toonoA = MeterSetDataList[compindex].toolno;
             double RvalueA = Convert.ToDouble(valuestrarry[compindex]);
-            //粗加工
-            if (!FineProcess)
-            {
-                GetRoughToolData(toonoA, RvalueA);
-            }
-            else//精加工
-            {
-                GetFineToolData(toonoA, RvalueA);
-            }
+          //  //粗加工
+          //  //if (!FineProcess)
+          //  //{
+          ////  GetRoughToolData(toonoA, RvalueA);
+          //  GetRoughToolData();
+          //  // }
+          //  //else//精加工
+          //  //{
+          //  //GetFineToolData(toonoA, RvalueA);
+          //  GetFineToolData();
+          //  //}
 
         }
 
@@ -4125,36 +4236,61 @@ namespace SCADA
             int Sign = 0;
             int Inter = 0;
             int dec = 0;
-            DoubleToInt(MainForm.cncv2list[1].MeterValue[11], ref Sign, ref Inter, ref dec);
+     
+
+            DoubleToInt(MainForm.cncv2list[1].TOOLData[toolno - 1].Radius, ref Sign, ref Inter, ref dec);
+            ModbusTcp.DataMoubus[(int)ModbusTcp.DataConfigArr.RoughRadius_Positive] = Sign;
+            ModbusTcp.DataMoubus[(int)ModbusTcp.DataConfigArr.RoughRadius_int] = Inter;
+            ModbusTcp.DataMoubus[(int)ModbusTcp.DataConfigArr.RoughRadius_Float] = dec;
+
+          
+           DoubleToInt(MainForm.cncv2list[1].TOOLData[toolno - 1].RadiusComp, ref Sign, ref Inter, ref dec);
+            ModbusTcp.DataMoubus[(int)ModbusTcp.DataConfigArr.RoughRadiusWear_Positive] = Sign;
+            ModbusTcp.DataMoubus[(int)ModbusTcp.DataConfigArr.RoughRadiusWear_int] = Inter;
+            ModbusTcp.DataMoubus[(int)ModbusTcp.DataConfigArr.RoughRadiusWear_Float] = dec;
+
+            DoubleToInt(Metervalue, ref Sign, ref Inter, ref dec);
+            ModbusTcp.DataMoubus[(int)ModbusTcp.DataConfigArr.RoughMeter_Positive] = Sign;
+            ModbusTcp.DataMoubus[(int)ModbusTcp.DataConfigArr.RoughMeter_int] = Inter;
+            ModbusTcp.DataMoubus[(int)ModbusTcp.DataConfigArr.RoughMeter_Float] = dec;
+        }
+
+         
+        private void GetRoughToolData()
+        {
+            int Sign = 0;
+            int Inter = 0;
+            int dec = 0;
+            DoubleToInt(MainForm.cncv2list[1].MeterValue[21], ref Sign, ref Inter, ref dec);
 
             //DoubleToInt(MainForm.cncv2list[1].TOOLData[toolno - 1].Radius, ref Sign, ref Inter, ref dec);
             ModbusTcp.DataMoubus[(int)ModbusTcp.DataConfigArr.RoughLength_Positive] = Sign;
             ModbusTcp.DataMoubus[(int)ModbusTcp.DataConfigArr.RoughLength_int] = Inter;
             ModbusTcp.DataMoubus[(int)ModbusTcp.DataConfigArr.RoughLength_Float] = dec;
 
-            DoubleToInt(MainForm.cncv2list[1].MeterValue[12], ref Sign, ref Inter, ref dec);
+            DoubleToInt(MainForm.cncv2list[1].MeterValue[22], ref Sign, ref Inter, ref dec);
 
             //DoubleToInt(MainForm.cncv2list[1].TOOLData[toolno - 1].Radius, ref Sign, ref Inter, ref dec);
             ModbusTcp.DataMoubus[(int)ModbusTcp.DataConfigArr.RoughLengthWear_Positive] = Sign;
             ModbusTcp.DataMoubus[(int)ModbusTcp.DataConfigArr.RoughLengthWear_int] = Inter;
             ModbusTcp.DataMoubus[(int)ModbusTcp.DataConfigArr.RoughLengthWear_Float] = dec;
 
-            DoubleToInt(MainForm.cncv2list[1].MeterValue[13], ref Sign, ref Inter, ref dec);
+            DoubleToInt(MainForm.cncv2list[1].MeterValue[23], ref Sign, ref Inter, ref dec);
 
             //DoubleToInt(MainForm.cncv2list[1].TOOLData[toolno - 1].Radius, ref Sign, ref Inter, ref dec);
             ModbusTcp.DataMoubus[(int)ModbusTcp.DataConfigArr.RoughRadius_Positive] = Sign;
             ModbusTcp.DataMoubus[(int)ModbusTcp.DataConfigArr.RoughRadius_int] = Inter;
             ModbusTcp.DataMoubus[(int)ModbusTcp.DataConfigArr.RoughRadius_Float] = dec;
 
-            DoubleToInt(MainForm.cncv2list[1].MeterValue[14], ref Sign, ref Inter, ref dec);
-            
+            DoubleToInt(MainForm.cncv2list[1].MeterValue[24], ref Sign, ref Inter, ref dec);
 
-           // DoubleToInt(MainForm.cncv2list[1].TOOLData[toolno - 1].Radius, ref Sign, ref Inter, ref dec);
+
+            // DoubleToInt(MainForm.cncv2list[1].TOOLData[toolno - 1].Radius, ref Sign, ref Inter, ref dec);
             ModbusTcp.DataMoubus[(int)ModbusTcp.DataConfigArr.RoughRadiusWear_Positive] = Sign;
             ModbusTcp.DataMoubus[(int)ModbusTcp.DataConfigArr.RoughRadiusWear_int] = Inter;
             ModbusTcp.DataMoubus[(int)ModbusTcp.DataConfigArr.RoughRadiusWear_Float] = dec;
 
-            DoubleToInt(MainForm.cncv2list[1].MeterValue[15], ref Sign, ref Inter, ref dec);
+            DoubleToInt(MainForm.cncv2list[1].MeterValue[25], ref Sign, ref Inter, ref dec);
             //DoubleToInt(Metervalue, ref Sign, ref Inter, ref dec);
             ModbusTcp.DataMoubus[(int)ModbusTcp.DataConfigArr.RoughMeter_Positive] = Sign;
             ModbusTcp.DataMoubus[(int)ModbusTcp.DataConfigArr.RoughMeter_int] = Inter;
@@ -4191,7 +4327,15 @@ namespace SCADA
                 {
                     flage = -1;
                 }
-                string integepartrs = temps.Substring(0, index);//整数部分
+                string integepartrs = "";
+                if (value >= 0)
+                {
+                    integepartrs = temps.Substring(0, index);//整数部分
+                }
+                else
+                {
+                     integepartrs = temps.Substring(1, index - 1);//整数部分
+                }
                 string decimalparts = temps.Substring(index + 1);//小数部分
                 int zerosum = 1;
                 if (decimalparts.Substring(0, 1) == "0")
@@ -4211,7 +4355,7 @@ namespace SCADA
                 }
 
                 integepart = Convert.ToInt32(integepartrs);
-                decimalpart = Convert.ToInt32(decimalparts) * zerosum;
+                decimalpart = Convert.ToInt32(decimalparts)* zerosum;
             }
             else
             {
@@ -4225,7 +4369,30 @@ namespace SCADA
             int Sign = 0;
             int Inter = 0;
             int dec = 0;
-            DoubleToInt(MainForm.cncv2list[1].MeterValue[16], ref Sign, ref Inter, ref dec);
+           
+            DoubleToInt(MainForm.cncv2list[1].TOOLData[toolno - 1].Radius, ref Sign, ref Inter, ref dec);
+            ModbusTcp.DataMoubus[(int)ModbusTcp.DataConfigArr.FineRadiusWear_Positive] = Sign;
+            ModbusTcp.DataMoubus[(int)ModbusTcp.DataConfigArr.FineRadius_int] = Inter;
+            ModbusTcp.DataMoubus[(int)ModbusTcp.DataConfigArr.FineRadius_Float] = dec;
+
+            DoubleToInt(MainForm.cncv2list[1].TOOLData[toolno - 1].RadiusComp, ref Sign, ref Inter, ref dec);
+            ModbusTcp.DataMoubus[(int)ModbusTcp.DataConfigArr.FineRadiusWear_Positive] = Sign;
+            ModbusTcp.DataMoubus[(int)ModbusTcp.DataConfigArr.FineRadiusWear_int] = Inter;
+            ModbusTcp.DataMoubus[(int)ModbusTcp.DataConfigArr.FineRadiusWear_Float] = dec;
+
+
+            DoubleToInt(Mertervalue, ref Sign, ref Inter, ref dec);
+            ModbusTcp.DataMoubus[(int)ModbusTcp.DataConfigArr.FineMeter_Positive] = Sign;
+            ModbusTcp.DataMoubus[(int)ModbusTcp.DataConfigArr.FineMeter_int] = Inter;
+            ModbusTcp.DataMoubus[(int)ModbusTcp.DataConfigArr.FineMeter_Float] = dec;
+
+        }
+        private void GetFineToolData()
+        {
+            int Sign = 0;
+            int Inter = 0;
+            int dec = 0;
+            DoubleToInt(MainForm.cncv2list[1].MeterValue[26], ref Sign, ref Inter, ref dec);
 
             //DoubleToInt(MainForm.cncv2list[1].TOOLData[toolno - 1].Radius, ref Sign, ref Inter, ref dec);
             ModbusTcp.DataMoubus[(int)ModbusTcp.DataConfigArr.FineLength_Positive] = Sign;
@@ -4233,27 +4400,27 @@ namespace SCADA
             ModbusTcp.DataMoubus[(int)ModbusTcp.DataConfigArr.FineLength_Float] = dec;
 
 
-            DoubleToInt(MainForm.cncv2list[1].MeterValue[17], ref Sign, ref Inter, ref dec);
+            DoubleToInt(MainForm.cncv2list[1].MeterValue[27], ref Sign, ref Inter, ref dec);
 
             //DoubleToInt(MainForm.cncv2list[1].TOOLData[toolno - 1].Radius, ref Sign, ref Inter, ref dec);
             ModbusTcp.DataMoubus[(int)ModbusTcp.DataConfigArr.FineLengthWear_Positive] = Sign;
             ModbusTcp.DataMoubus[(int)ModbusTcp.DataConfigArr.FineLengthWear_int] = Inter;
             ModbusTcp.DataMoubus[(int)ModbusTcp.DataConfigArr.FineLengthWear_Float] = dec;
 
-            DoubleToInt(MainForm.cncv2list[1].MeterValue[18], ref Sign, ref Inter, ref dec);
+            DoubleToInt(MainForm.cncv2list[1].MeterValue[28], ref Sign, ref Inter, ref dec);
             //DoubleToInt(MainForm.cncv2list[1].TOOLData[toolno - 1].Radius, ref Sign, ref Inter, ref dec);
             ModbusTcp.DataMoubus[(int)ModbusTcp.DataConfigArr.FineRadiusWear_Positive] = Sign;
             ModbusTcp.DataMoubus[(int)ModbusTcp.DataConfigArr.FineRadius_int] = Inter;
             ModbusTcp.DataMoubus[(int)ModbusTcp.DataConfigArr.FineRadius_Float] = dec;
 
-            DoubleToInt(MainForm.cncv2list[1].MeterValue[19], ref Sign, ref Inter, ref dec);
+            DoubleToInt(MainForm.cncv2list[1].MeterValue[29], ref Sign, ref Inter, ref dec);
             //DoubleToInt(MainForm.cncv2list[1].TOOLData[toolno - 1].Radius, ref Sign, ref Inter, ref dec);
             ModbusTcp.DataMoubus[(int)ModbusTcp.DataConfigArr.FineRadiusWear_Positive] = Sign;
             ModbusTcp.DataMoubus[(int)ModbusTcp.DataConfigArr.FineRadiusWear_int] = Inter;
             ModbusTcp.DataMoubus[(int)ModbusTcp.DataConfigArr.FineRadiusWear_Float] = dec;
 
 
-            DoubleToInt(MainForm.cncv2list[1].MeterValue[20], ref Sign, ref Inter, ref dec);
+            DoubleToInt(MainForm.cncv2list[1].MeterValue[30], ref Sign, ref Inter, ref dec);
             //DoubleToInt(Mertervalue, ref Sign, ref Inter, ref dec);
             ModbusTcp.DataMoubus[(int)ModbusTcp.DataConfigArr.FineMeter_Positive] = Sign;
             ModbusTcp.DataMoubus[(int)ModbusTcp.DataConfigArr.FineMeter_int] = Inter;
@@ -4276,52 +4443,47 @@ namespace SCADA
                 string res = "";
                 if (bIsOK)
                 {
-                    if (language == "English")
-                    {
-                        res = "Yes";
-                    }
-                    else res = "Yes";
+                    res = "合格";
                 }
                 else
                 {
-                    if (language == "English")
-                    {
-                        res = "No";
-                    }
-                    else res = "No";
+                    res = "不合格";
                 }
 
                 string type = "";
-                if (MainForm.cncv2list[1].MagNum <= 12)
+
+                int maglength = (int)ModbusTcp.MagLength;//Mag1_Sheet_No
+                int typeindex = ModbusTcp.DataMoubus[(int)ModbusTcp.DataConfigArr.Mag_Type + (MainForm.cncv2list[1].MagNum - 1) * maglength];
+                int Modeindex = ModbusTcp.DataMoubus[(int)ModbusTcp.DataConfigArr.Mag1_Sheet_No + MainForm.cncv2list[1].MagNum - 1];
+                if (typeindex == 0)
                 {
                     type = "A";
                 }
-                else if (MainForm.cncv2list[1].MagNum <= 24)
+                else if (typeindex == 1)
                 {
                     type = "B";
                 }
-                else if (MainForm.cncv2list[1].MagNum <= 27)
+                else if (typeindex == 2)
                 {
                     type = "C";
                 }
-                else
+                else if (typeindex == 3)
                 {
                     type = "D";
                 }
-
                 string magno = MainForm.cncv2list[1].MagNum.ToString();
                 timenow = DateTime.Now.ToString();
-                string ref1 = refvalue[0, 0].ToString();
+                string ref1 = refvalue[0].ToString();
                 string res1 = resvalue[0].ToString();
-                string ref2 = refvalue[1, 0].ToString();
+                string ref2 = refvalue[1].ToString();
                 string res2 = resvalue[1].ToString();
-                string ref3 = refvalue[2, 0].ToString();
+                string ref3 = refvalue[2].ToString();
                 string res3 = resvalue[2].ToString();
-                string ref4 = refvalue[3, 0].ToString();
+                string ref4 = refvalue[3].ToString();
                 string res4 = resvalue[3].ToString();
-                string ref5 = refvalue[4, 0].ToString();
+                string ref5 = refvalue[4].ToString();
                 string res5 = resvalue[4].ToString();
-                string ref6 = refvalue[5, 0].ToString();
+                string ref6 = refvalue[5].ToString();
                 string res6 = resvalue[5].ToString();
 
                 newlog = "type=" + type + ",magno=" + magno + ",res=" + res + ",timenow=" + timenow + ",ref1=" + ref1 + ",res1=" + res1 + ",ref2=" + ref2 + ",res2=" + res2
@@ -4357,7 +4519,7 @@ namespace SCADA
                         {
                             return;
                         }
-                        res = "Yes";
+                        res = "未检测";
                         System.DateTime date;
                         date = DateTime.Now;
                         DbHelper.Insert(new Gauge
@@ -4379,7 +4541,7 @@ namespace SCADA
                         {
                             DbHelper.Insert(new GaugeDetail
                             {
-                                ActualValue = refvalue[i, 0],
+                                ActualValue = refvalue[i],
                                 GaugeId = temp3.Id,
                                 ReferenceValue = resvalue[i],
                                 SN = i + 1,
@@ -4752,7 +4914,10 @@ namespace SCADA
                     {
                         tempstring = finishmags + "is error";
                     }
+
+                    MessageBox.Show(tempstring);
                     return;
+
                 }
 
 
@@ -4884,7 +5049,7 @@ namespace SCADA
                         ModbusTcp.PLC_MES_comfim_req_flage = false;
                         ModbusTcp.PLC_MES_comfim_back_flage = false;
 
-                        MessageBox.Show(tempstring);
+                      //  MessageBox.Show(tempstring);
 
                     }
                 }
@@ -4921,6 +5086,7 @@ namespace SCADA
                     {
                         tempstring = finishmags + "Load finished";
                     }
+                    MessageBox.Show(tempstring);
                     return;
                 }
 
@@ -5086,7 +5252,7 @@ namespace SCADA
                         //    dataGridVieworder2.Rows[index].Cells[5].Value = "Yes";
 
                         //}
-                        MessageBox.Show(tempstring);
+                     //   MessageBox.Show(tempstring);
                     }
                 }
             }
@@ -5392,24 +5558,24 @@ namespace SCADA
             bool toolcompmessageShow = false;
             foreach (var data in AotoToolComDataList)
             {
-                string typestring = "";
-                if (data.type == 0)
-                {
-                    typestring = "长度";
-                }
-                else
-                {
-                    typestring = "半径";
-                }
+                //string typestring = "";
+                //if (data.type == 0)
+                //{
+                //    typestring = "长度";
+                //}
+                //else
+                //{
+                //    typestring = "半径";
+                //}
                 if (data.toolno != 0 && data.compValue != 0)//有补偿提示
                 {
                     toolcompmessageShow = true;
                     //toolcompmessage[k] = data.toolno.ToString() + "号刀" + typestring + "补偿" + data.compValue.ToString() + ";" ;
                 }
-                else
-                {
-                    toolcompmessage[k] = "";
-                }
+                //else
+                //{
+                //    toolcompmessage[k] = "";
+                //}
 
                 k++;
 
@@ -5418,16 +5584,17 @@ namespace SCADA
             {
                 //dataGridVieworder2.Rows[index].Cells[7].Value = "不合格";
 
-               // ShowForm.compmessage = toolcompmessage[0] + toolcompmessage[1] + toolcompmessage[2] + toolcompmessage[3] + toolcompmessage[4] + toolcompmessage[5];
+                // ShowForm.compmessage = toolcompmessage[0] + toolcompmessage[1] + toolcompmessage[2] + toolcompmessage[3] + toolcompmessage[4] + toolcompmessage[5];
                 if (!toolcompmessageShow)
                 {
                     ShowForm.messagestring = "仓位工件不合格!";
                 }
                 else
                 {
-                    ShowForm.messagestring =  "仓位工件不合格!";
+                    ShowForm.messagestring = "仓位工件不合格!";
                 }
 
+                dataGridVieworder2.Rows[index].Cells[5].Value = "不合格";
                 //生成测量结果提示和选择
                 ReProcessChoose = true;
                 ShowForm.compmessage = "";
@@ -5444,8 +5611,8 @@ namespace SCADA
             else
             {
                 //ShowForm.compmessage = "无刀补数据";
-                dataGridVieworder2.Rows[index].Cells[5].Value = "Yes";
-                ShowForm.messagestring =  "仓位工件合格!";
+                dataGridVieworder2.Rows[index].Cells[5].Value = "合格";
+                ShowForm.messagestring = "仓位工件合格!";
                 ShowForm.compmessage = "";
                 // ShowForm form1 = new ShowForm();
 
@@ -5823,13 +5990,13 @@ namespace SCADA
                     {
                         ModbusTcp.DataMoubus[magstatei] = (int)ModbusTcp.Mag_state_config.StateFinishNotStandard;
 
-                        dataGridVieworder2.Rows[jj].Cells[5].Value = "No";
+                        dataGridVieworder2.Rows[jj].Cells[5].Value = "不合格";
                     }
                     else
                     {
                         ModbusTcp.DataMoubus[magstatei] = (int)ModbusTcp.Mag_state_config.StateFinishStandard;
 
-                        dataGridVieworder2.Rows[jj].Cells[5].Value = "Yes";
+                        dataGridVieworder2.Rows[jj].Cells[5].Value = "合格";
                     }
 
 
@@ -6208,11 +6375,7 @@ namespace SCADA
             {
                 if (dataGridVieworder.Rows[index1].Cells[2].Value.ToString() == "车工序" || dataGridVieworder.Rows[index1].Cells[2].Value.ToString() == "Lathe")
                 {
-                    //if (cncalarmcount1 > 0)//车床报警
-                    //{
-
-                    //    MainForm.magprocesss1tate[magno1 - 1] = (int)Processstate.Alarm;
-                    //}
+                    
                     if (MainForm.magprocesss1tate[magno1 - 1] == (int)Processstate.Loaded)
                     {
                         if (CNCState0 == "运行")
@@ -6302,8 +6465,6 @@ namespace SCADA
         private void timer1_Tick_1(object sender, EventArgs e)
         {
 
-
-
             cncprocessstate();
             orderstaterecord();
 
@@ -6317,7 +6478,16 @@ namespace SCADA
                 for (int ii = 0; ii < dataGridVieworder.Rows.Count; ii++)
                 {
                     dataGridVieworder.Rows[ii].Cells[6].Style.BackColor = Color.Gray;
-                    dataGridVieworder.Rows[ii].Cells[7].Style.BackColor = Color.Gray;
+                    // dataGridVieworder.Rows[ii].Cells[7].Style.BackColor = Color.Gray;
+                    if (ii == 0)
+                    {
+                        dataGridVieworder.Rows[ii].Cells[7].Style.BackColor = Color.Gray;
+                    }
+                    else
+                    {
+                        dataGridVieworder.Rows[ii].Cells[7].Style.BackColor = Color.LightGreen;
+
+                    }
                 }
             }
             else if (aotostop)
@@ -6415,7 +6585,7 @@ namespace SCADA
             //if (MeterForm.renewbiaodingfalge)
             //{
             //MeterForm.renewbiaodingfalge =false;
-            MainForm.sptcp1.SendData((byte)SCADA.ModbusTcp.Func_Code.writereg, (int)SCADA.ModbusTcp.DataConfigArr.p_MeterValue1, 102, 1, 0);//请求61、62号寄存器存储内容是料位有无料信息      
+            MainForm.sptcp1.SendData((byte)SCADA.ModbusTcp.Func_Code.writereg, (int)SCADA.ModbusTcp.DataConfigArr.p_MeterValue1, 113, 1, 0);//请求61、62号寄存器存储内容是料位有无料信息      
             MainForm.sptcp1.ReceiveData();
             //}
 
@@ -6423,6 +6593,10 @@ namespace SCADA
             {
                 AotoOrderRun();
             }
+
+            GetRoughToolData();
+            GetFineToolData();
+           
         }
 
         /// <summary>
@@ -6557,7 +6731,7 @@ namespace SCADA
                         if (ret == 0)
                         {
                             MainForm.magprocesss1tate[number - 1] = (int)Processstate.Loading;
-                            TopRangeDataGridView(rowindex);
+                            TopTwoRangeDataGridView(rowindex);
                             return 1;
                         }
                         else
@@ -6615,7 +6789,7 @@ namespace SCADA
                         if (ret == 0)
                         {
                             MainForm.magprocesss2tate[number - 1] = (int)Processstate.Loading;
-                            TopRangeDataGridView(rowindex);
+                            TopTwoRangeDataGridView(rowindex);
                             return 1;
                         }
                         else
@@ -6667,6 +6841,7 @@ namespace SCADA
         private int AotoRunCncfun(int number, int rowindex, ref string messagestring)
         {
             messagestring = "";
+
             if (dataGridVieworder.Rows[rowindex].Cells[2].Value.ToString() == "CNC" ||
                  dataGridVieworder.Rows[rowindex].Cells[2].Value.ToString() == "铣工序")//车床工序
             {
@@ -6689,7 +6864,7 @@ namespace SCADA
                         if (ret == 0)
                         {
                             MainForm.magprocesss1tate[number - 1] = (int)Processstate.Loading;
-                            TopRangeDataGridView(rowindex);
+                            TopTwoRangeDataGridView(rowindex);
                             return 1;
                         }
                         else
@@ -6777,7 +6952,7 @@ namespace SCADA
                         if (ret == 0)
                         {
                             MainForm.magprocesss2tate[number - 1] = (int)Processstate.Loading;
-                            TopRangeDataGridView(rowindex);
+                            TopTwoRangeDataGridView(rowindex);
                             return 1;
                         }
                         else
@@ -6899,6 +7074,7 @@ namespace SCADA
                 }
                 else
                 {
+                    return false;//取消不合格暂停功能
                     if (MainForm.Mag_Check[number - 1] == 1)//测量不合格
                     {
                         messagestring = "测量不合格，自动加工暂停";
@@ -7006,11 +7182,11 @@ namespace SCADA
             // bool ret = renewmeterresult(aotorunmagcnc, ref message1);
             if (ModbusTcp.DataMoubus[(int)SCADA.ModbusTcp.DataConfigArr.Mesans_Robot_speed] == 0)
             {
-                int iii = 0;
+
             }
 
             //机器人繁忙状态不能匹配下一步骤
-            if (ModbusTcp.DataMoubus[(int)SCADA.ModbusTcp.DataConfigArr.Mesans_Robot_speed] == 1 || ModbusTcp.DataMoubus[(int)SCADA.ModbusTcp.DataConfigArr.Mesans_Robot_position_comfirm] == 0 || ModbusTcp.DataMoubus[(int)SCADA.ModbusTcp.DataConfigArr.Mesans_Robot_speed] == 1 || ModbusTcp.Rack_number_write_flage == true)
+            if (ModbusTcp.DataMoubus[(int)SCADA.ModbusTcp.DataConfigArr.Mesans_Robot_speed] == 1 || ModbusTcp.DataMoubus[(int)SCADA.ModbusTcp.DataConfigArr.Mesans_Robot_position_comfirm] == 0 || ModbusTcp.Rack_number_write_flage == true)
             {
                 return;
             }
@@ -7140,10 +7316,20 @@ namespace SCADA
                     }
                 }
             }
-            else if (aotorunmaglathe > 0)
+             if (aotorunmaglathe > 0 && aotorunmagcnc==0)
             {
                 LatheFirst = true;
             }
+
+             if(dataGridVieworder.Rows.Count >=1)
+            {
+                if (dataGridVieworder.Rows[0].Cells[1].Value.ToString() == aotorunmaglathe.ToString())
+                {
+                    LatheFirst = true;
+                }
+            }
+            
+
             if (LatheFirst)//车工序先执行
             {
                 if (aotorunmaglathe > 0)
@@ -7239,8 +7425,77 @@ namespace SCADA
             int modelevel = -1;
             int modelevelold = 5;
 
+            //第一个订单优先级最高，查询第一个订单是否有车工序未执行
+            if (dataGridVieworder.Rows.Count == 0)
+            {
+                return;
+            }
+            else
+            {
+                string numbers = dataGridVieworder.Rows[0].Cells[1].Value.ToString();
+                int number = Convert.ToInt32(numbers);
+                int MagNo = number;
+                int magstart = (int)SCADA.ModbusTcp.DataConfigArr.Mag_state;//零件类型
+                int maglength = (int)ModbusTcp.MagLength;
+                int magstatei = magstart + maglength * (MagNo - 1);
+                string message = "";
+                if (dataGridVieworder.Rows[0].Cells[5].Value.ToString() == "自动" && dataGridVieworder.Rows[0].Cells[2].Value.ToString() == "车工序")
+                {
+
+                    if (MainForm.magprocesss1tate[number - 1] == (int)Processstate.Notstart
+                               || MainForm.magprocesss1tate[number - 1] == (int)Processstate.Runned)
+                    {
+                        if (ModbusTcp.DataMoubus[magstatei] != (int)ModbusTcp.Mag_state_config.Statenull)
+                        {
+                            aotorunmaglathe = number;
+                            indexlathe =0;
+                            return;
+                        }
+                        else
+                        {
+                            message = number.ToString() + "号仓位缺料";
+                            MessageBox.Show(message);
+
+                        }
+
+                    }
+
+                }
+                else if (dataGridVieworder.Rows[0].Cells[5].Value.ToString() == "自动" && dataGridVieworder.Rows[0].Cells[3].Value.ToString() == "车工序")
+                {
+                    if (MainForm.magprocesss1tate[number - 1] == (int)Processstate.Unloaded || MainForm.magprocesss1tate[number - 1] == (int)Processstate.None)
+                    {
+                        if (MainForm.magprocesss2tate[number - 1] == (int)Processstate.Notstart
+                              || MainForm.magprocesss2tate[number - 1] == (int)Processstate.Runned)
+                        {
+                            if (ModbusTcp.DataMoubus[magstatei] != (int)ModbusTcp.Mag_state_config.Statenull)
+                            {
+                                aotorunmaglathe = number;
+                                indexlathe = 0;
+                                return;
+                            }
+                            else
+                            {
+                                message = number.ToString() + "号仓位缺料";
+                                MessageBox.Show(message);
+
+                            }
+                        }
+                    }
+
+
+
+                }
+
+            }
+
+            if (dataGridVieworder.Rows.Count==1)
+            {
+                aotorunmaglathe = 0;
+                return;
+            }
             //获取模型好等级最高的订单
-            for (int ii = 0; ii < dataGridVieworder.Rows.Count; ii++)
+            for (int ii = 1; ii < dataGridVieworder.Rows.Count; ii++)
             {
                 if (dataGridVieworder.Rows[ii].Cells[5].Value.ToString() == "自动"
                      || dataGridVieworder.Rows[ii].Cells[5].Value.ToString() == "Aoto")
@@ -7391,7 +7646,80 @@ namespace SCADA
             int mode = -1;
             int modelevel = 5;
             int modelevelold = 5;
-            for (int ii = 0; ii < dataGridVieworder.Rows.Count; ii++)
+
+
+
+            if (dataGridVieworder.Rows.Count == 0)
+            {
+                return;
+            }
+            else
+            {
+                string numbers = dataGridVieworder.Rows[0].Cells[1].Value.ToString();
+                int number = Convert.ToInt32(numbers);
+                int MagNo = number;
+                int magstart = (int)SCADA.ModbusTcp.DataConfigArr.Mag_state;//零件类型
+                int maglength = (int)ModbusTcp.MagLength;
+                int magstatei = magstart + maglength * (MagNo - 1);
+                string message = "";
+                if (dataGridVieworder.Rows[0].Cells[5].Value.ToString() == "自动" && dataGridVieworder.Rows[0].Cells[2].Value.ToString() == "铣工序")
+                {
+
+                    if (MainForm.magprocesss1tate[number - 1] == (int)Processstate.Notstart
+                               || MainForm.magprocesss1tate[number - 1] == (int)Processstate.Runned)
+                    {
+                        if (MainForm.magprocesss1tate[number - 1] == (int)Processstate.Runned)
+                        {
+                            SkipMeterflage = true;
+                        }
+                        if (ModbusTcp.DataMoubus[magstatei] != (int)ModbusTcp.Mag_state_config.Statenull)
+                        {
+                            aotorunmagcnc = number;
+                            indexcnc = 0;
+                            return;
+                        }
+                        else
+                        {
+                            message = number.ToString() + "号仓位缺料";
+                            MessageBox.Show(message);
+
+                        }
+
+                    }
+
+                }
+                else if (dataGridVieworder.Rows[0].Cells[5].Value.ToString() == "自动" && dataGridVieworder.Rows[0].Cells[3].Value.ToString() == "铣工序")
+                {
+
+                    if (MainForm.magprocesss1tate[number - 1] == (int)Processstate.Unloaded || MainForm.magprocesss1tate[number - 1] == (int)Processstate.None)
+                    {
+                        if (MainForm.magprocesss2tate[number - 1] == (int)Processstate.Notstart
+                               || MainForm.magprocesss2tate[number - 1] == (int)Processstate.Runned)
+                        {
+                            if (ModbusTcp.DataMoubus[magstatei] != (int)ModbusTcp.Mag_state_config.Statenull)
+                            {
+                                aotorunmagcnc = number;
+                                indexcnc = 0;
+                                return;
+                            }
+                            else
+                            {
+                                message = number.ToString() + "号仓位缺料";
+                                MessageBox.Show(message);
+
+                            }
+                        }
+                    }
+
+                }
+
+            }
+            if (dataGridVieworder.Rows.Count == 1)
+            {
+                aotorunmagcnc = 0;
+                return;
+            }
+            for (int ii = 1; ii < dataGridVieworder.Rows.Count; ii++)
             {
                 if (dataGridVieworder.Rows[ii].Cells[5].Value.ToString() == "自动"
                      || dataGridVieworder.Rows[ii].Cells[5].Value.ToString() == "Aoto")
@@ -7790,10 +8118,10 @@ namespace SCADA
             buttonstop1.Enabled = true;
             buttonstop1.BackColor = Color.LightGreen;
             //批量加工开始后，不允许置顶，不允许下发订单
+            dataGridVieworder.Rows[0].Cells[7].Style.BackColor = Color.Gray;
             for (int ii = 0; ii < dataGridVieworder.Rows.Count; ii++)
             {
-               // dataGridVieworder.Rows[ii].Cells[6].Style.BackColor = Color.Gray;
-                dataGridVieworder.Rows[ii].Cells[7].Style.BackColor = Color.Gray;
+                dataGridVieworder.Rows[ii].Cells[6].Style.BackColor = Color.Gray;   
             }
             /*搜索数据表，从第一行往下找到第一个自动状态的订单，取到料位号，根据料位号逐个下发操作，
             直到该料位加工完成后寻找下一个自动订单，在寻找下一个自动状态的订单，取料位号下发和跟踪，直到所有自动订单完成*/

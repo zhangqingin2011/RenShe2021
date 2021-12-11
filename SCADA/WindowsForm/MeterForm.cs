@@ -205,10 +205,6 @@ namespace SCADA
                     uppervalue = getvalueformstring(line, "upper=");
                     lowervalue = getvalueformstring(line, "lower=");
 
-
-
-
-
                     if (item != "null")
                     {
                         dataGridView2.Rows[ii].Cells[0].Value = item;
@@ -567,115 +563,120 @@ namespace SCADA
         private void timer1_Tick(object sender, EventArgs e)
         {
             //获取物料模型和物料类型
-            int maglength = (int)ModbusTcp.MagLength;//Mag1_Sheet_No
-            int typeindex = (int)ModbusTcp.DataConfigArr.Mag_Type + (Textmagno-1) * maglength;
-            int Modeindex = (int)ModbusTcp.DataConfigArr.Mag1_Sheet_No + Textmagno-1;
-            if(Modeindex ==0)
+            if (Textmagno.ToString()!= textBox1.Text)
             {
-                textBox4.Text = "1号";
-               
-                if (typeindex == 0)
+                int maglength = (int)ModbusTcp.MagLength;//Mag1_Sheet_No
+                int typeindex = ModbusTcp.DataMoubus[(int)ModbusTcp.DataConfigArr.Mag_Type + (Textmagno - 1) * maglength];
+                int Modeindex = ModbusTcp.DataMoubus[(int)ModbusTcp.DataConfigArr.Mag1_Sheet_No + Textmagno - 1];
+                if (Modeindex == 0)
                 {
-                    textBox3.Text = "A";
-                    initdataGridView2(MetersetFilePath1_1);
+                    textBox4.Text = "1号";
+
+                    if (typeindex == 0)
+                    {
+                        textBox3.Text = "A";
+                        initdataGridView2(MetersetFilePath1_1);
+                    }
+                    else if (typeindex == 1)
+                    {
+                        textBox3.Text = "B";
+                        initdataGridView2(MetersetFilePath1_2);
+                    }
+                    else if (typeindex == 2)
+                    {
+                        textBox3.Text = "C";
+                        initdataGridView2(MetersetFilePath1_3);
+                    }
+                    else if (typeindex == 3)
+                    {
+                        textBox3.Text = "D";
+                        initdataGridView2(MetersetFilePath1_4);
+                    }
                 }
-                else if(typeindex == 1)
+                else if (Modeindex == 1)
                 {
-                    textBox3.Text = "B";
-                    initdataGridView2(MetersetFilePath1_2);
+                    textBox4.Text = "2号";
+                    if (typeindex == 0)
+                    {
+                        textBox3.Text = "A";
+                        initdataGridView2(MetersetFilePath2_1);
+                    }
+                    else if (typeindex == 1)
+                    {
+                        textBox3.Text = "B";
+                        initdataGridView2(MetersetFilePath2_2);
+                    }
+                    else if (typeindex == 2)
+                    {
+                        textBox3.Text = "C";
+                        initdataGridView2(MetersetFilePath2_3);
+                    }
+                    else if (typeindex == 3)
+                    {
+                        textBox3.Text = "D";
+                        initdataGridView2(MetersetFilePath2_4);
+                    }
                 }
-                else if (typeindex == 2)
+                else if (Modeindex == 2)
                 {
-                    textBox3.Text = "C";
-                    initdataGridView2(MetersetFilePath1_3);
+                    textBox4.Text = "3号";
+                    if (typeindex == 0)
+                    {
+                        textBox3.Text = "A";
+                        initdataGridView2(MetersetFilePath3_1);
+                    }
+                    else if (typeindex == 1)
+                    {
+                        textBox3.Text = "B";
+                        initdataGridView2(MetersetFilePath3_2);
+                    }
+                    else if (typeindex == 2)
+                    {
+                        textBox3.Text = "C";
+                        initdataGridView2(MetersetFilePath3_3);
+                    }
+                    else if (typeindex == 3)
+                    {
+                        textBox3.Text = "D";
+                        initdataGridView2(MetersetFilePath3_4);
+                    }
                 }
-                else if (typeindex == 3)
+                else if (Modeindex == 3)
                 {
-                    textBox3.Text = "D";
-                    initdataGridView2(MetersetFilePath1_4);
+                    textBox4.Text = "4号";
+                    if (typeindex == 0)
+                    {
+                        textBox3.Text = "A";
+                        initdataGridView2(MetersetFilePath4_1);
+                    }
+                    else if (typeindex == 1)
+                    {
+                        textBox3.Text = "B";
+                        initdataGridView2(MetersetFilePath4_2);
+                    }
+                    else if (typeindex == 2)
+                    {
+                        textBox3.Text = "C";
+                        initdataGridView2(MetersetFilePath4_3);
+                    }
+                    else if (typeindex == 3)
+                    {
+                        textBox3.Text = "D";
+                        initdataGridView2(MetersetFilePath4_4);
+                    }
                 }
+
+                foreach (var cnctemp in MainForm.cncv2list)
+                {
+                    if (cnctemp.cnctype == CNCType.CNC)
+                    {
+                        UpdateMeasurevalue(cnctemp);
+                        UpdatadataGridView3(MetetrrecordFilePath);
+                    }
+                }
+
             }
-            else if (Modeindex == 1)
-            {
-                textBox4.Text = "2号";
-                if (typeindex == 0)
-                {
-                    textBox3.Text = "A";
-                    initdataGridView2(MetersetFilePath1_1);
-                }
-                else if (typeindex == 1)
-                {
-                    textBox3.Text = "B";
-                    initdataGridView2(MetersetFilePath1_2);
-                }
-                else if (typeindex == 2)
-                {
-                    textBox3.Text = "C";
-                    initdataGridView2(MetersetFilePath1_3);
-                }
-                else if (typeindex == 3)
-                {
-                    textBox3.Text = "D";
-                    initdataGridView2(MetersetFilePath1_4);
-                }
-            }
-            else if (Modeindex ==2)
-            {
-                textBox4.Text = "3号";
-                if (typeindex == 0)
-                {
-                    textBox3.Text = "A";
-                    initdataGridView2(MetersetFilePath1_1);
-                }
-                else if (typeindex == 1)
-                {
-                    textBox3.Text = "B";
-                    initdataGridView2(MetersetFilePath1_2);
-                }
-                else if (typeindex == 2)
-                {
-                    textBox3.Text = "C";
-                    initdataGridView2(MetersetFilePath1_3);
-                }
-                else if (typeindex == 3)
-                {
-                    textBox3.Text = "D";
-                    initdataGridView2(MetersetFilePath1_4);
-                }
-            }
-            else if (Modeindex == 3)
-            {
-                textBox4.Text = "4号";
-                if (typeindex == 0)
-                {
-                    textBox3.Text = "A";
-                    initdataGridView2(MetersetFilePath1_1);
-                }
-                else if (typeindex == 1)
-                {
-                    textBox3.Text = "B";
-                    initdataGridView2(MetersetFilePath1_2);
-                }
-                else if (typeindex == 2)
-                {
-                    textBox3.Text = "C";
-                    initdataGridView2(MetersetFilePath1_3);
-                }
-                else if (typeindex == 3)
-                {
-                    textBox3.Text = "D";
-                    initdataGridView2(MetersetFilePath1_4);
-                }
-            }
-           
-            foreach (var cnctemp in MainForm.cncv2list)
-            {
-                if (cnctemp.cnctype == CNCType.CNC)
-                {
-                    UpdateMeasurevalue(cnctemp);
-                    UpdatadataGridView3(MetetrrecordFilePath);
-                }
-            }
+
 
 
             if (OrderForm1.ReProcessChoose)
@@ -692,19 +693,11 @@ namespace SCADA
             }
             if (MainForm.cncv2list[1].EquipmentState!="离线")
             {
-                if (language == "English")
-                {
-                    textBox2.Text = "OnLine";
-                }
-                else textBox2.Text = "在线";
+               textBox2.Text = "在线";
             }
             else
             {
-                if (language == "English")
-                {
-                    textBox2.Text = "OffLine";
-                }
-                else textBox2.Text = "离线";
+                textBox2.Text = "离线";
             }
             textBox1.Text = Textmagno.ToString();
 
