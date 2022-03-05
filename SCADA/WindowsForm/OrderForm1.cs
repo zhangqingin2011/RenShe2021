@@ -4338,21 +4338,37 @@ namespace SCADA
                 }
                 string decimalparts = temps.Substring(index + 1);//小数部分
                 int zerosum = 1;
-                if (decimalparts.Substring(0, 1) == "0")
+                if (decimalparts.Length == 1)
                 {
-                    if (decimalparts.Substring(1, 1) == "0")
-                    {
-                        zerosum = 100;
-                    }
-                    else
-                    {
-                        zerosum = 10;
-                    }
+                    zerosum = 100;
                 }
-                else
+                else if (decimalparts.Length == 2)
                 {
-                    zerosum = 1;
+                    zerosum = 10;
                 }
+                if (decimalparts.Length == 1)
+                {
+                    zerosum = 100;
+                }
+                else if (decimalparts.Length == 2)
+                {
+                    zerosum = 10;
+                }
+                //if (decimalparts.Substring(0, 1) == "0")
+                //{
+                //    if (decimalparts.Substring(1, 1) == "0")
+                //    {
+                //        zerosum = 100;
+                //    }
+                //    else
+                //    {
+                //        zerosum = 10;
+                //    }
+                //}
+                //else
+                //{
+                //    zerosum = 1;
+                //}
 
                 integepart = Convert.ToInt32(integepartrs);
                 decimalpart = Convert.ToInt32(decimalparts)* zerosum;

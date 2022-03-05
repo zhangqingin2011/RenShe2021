@@ -60,7 +60,8 @@ namespace SCADA
                 meterdatasave(MetersetFilePath1_2, dataGridView2);
                 meterdatasave(MetersetFilePath1_3, dataGridView3);
                 meterdatasave(MetersetFilePath1_4, dataGridView4);
-         
+                freshdataGridView(1);
+
             }
             else if (comboBoxModeSel.SelectedIndex == 1)
             {
@@ -68,7 +69,8 @@ namespace SCADA
                 meterdatasave(MetersetFilePath2_2, dataGridView2);
                 meterdatasave(MetersetFilePath2_3, dataGridView3);
                 meterdatasave(MetersetFilePath2_4, dataGridView4);
-                
+                freshdataGridView(2);
+
             }
             else if (comboBoxModeSel.SelectedIndex == 2)
             {
@@ -76,6 +78,7 @@ namespace SCADA
                 meterdatasave(MetersetFilePath3_2, dataGridView2);
                 meterdatasave(MetersetFilePath3_3, dataGridView3);
                 meterdatasave(MetersetFilePath3_4, dataGridView4);
+                freshdataGridView(3);
 
             }
             else if (comboBoxModeSel.SelectedIndex == 3)
@@ -84,11 +87,9 @@ namespace SCADA
                 meterdatasave(MetersetFilePath4_2, dataGridView2);
                 meterdatasave(MetersetFilePath4_3, dataGridView3);
                 meterdatasave(MetersetFilePath4_4, dataGridView4);
+                freshdataGridView(4);
             }
-            freshdataGridView(1);
-            freshdataGridView(2);
-            freshdataGridView(3); 
-            freshdataGridView(4);
+       
 
         }
 
@@ -245,7 +246,34 @@ namespace SCADA
         }
         private void freshdataGridView(int dgvname)//文件
         {
-            int refreshmeterdata = dgvname;
+            if (dgvname == 1)
+            {
+                initdataGridView(MetersetFilePath1_1, dataGridView1);
+                initdataGridView(MetersetFilePath1_2, dataGridView2);
+                initdataGridView(MetersetFilePath1_3, dataGridView3);
+                initdataGridView(MetersetFilePath1_4, dataGridView4);
+            }
+            else if (dgvname == 2)
+            {
+                initdataGridView(MetersetFilePath2_1, dataGridView1);
+                initdataGridView(MetersetFilePath2_2, dataGridView2);
+                initdataGridView(MetersetFilePath2_3, dataGridView3);
+                initdataGridView(MetersetFilePath2_4, dataGridView4);
+            }
+            else if (dgvname == 3)
+            {
+                initdataGridView(MetersetFilePath3_1, dataGridView1);
+                initdataGridView(MetersetFilePath3_2, dataGridView2);
+                initdataGridView(MetersetFilePath3_3, dataGridView3);
+                initdataGridView(MetersetFilePath3_4, dataGridView4);
+            }
+            else if (dgvname == 4)
+            {
+                initdataGridView(MetersetFilePath4_1, dataGridView1);
+                initdataGridView(MetersetFilePath4_2, dataGridView2);
+                initdataGridView(MetersetFilePath4_3, dataGridView3);
+                initdataGridView(MetersetFilePath4_4, dataGridView4);
+            }
             return;
         }
         private bool meterdatasave(string path, DataGridView dgv)
@@ -349,8 +377,12 @@ namespace SCADA
                     }
                     
                     toolno = dgv.Rows[jj].Cells[5].Value.ToString();
-
-
+                    int index = toolno.IndexOf('.');
+                    if(index>=1)
+                    {
+                        toolno = toolno.Substring(0, index - 1);
+                    }
+                    
 
                     if (refvalued >= 0)
                     {
@@ -431,7 +463,7 @@ namespace SCADA
 
         private void dataGridView_EditingControlShowing(object sender, DataGridViewEditingControlShowingEventArgs e)
         {
-           // return;
+            return;
             if (e.Control is DataGridViewTextBoxEditingControl)
             {
                 CellEdit = (DataGridViewTextBoxEditingControl)e.Control;

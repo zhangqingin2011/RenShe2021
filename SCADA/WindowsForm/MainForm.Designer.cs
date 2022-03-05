@@ -55,7 +55,6 @@
             this.label6 = new System.Windows.Forms.Label();
             this.labelplc = new System.Windows.Forms.Label();
             this.tabPagemain = new System.Windows.Forms.TabControl();
-            this.tabPage1 = new System.Windows.Forms.TabPage();
             this.tabPageschedule = new System.Windows.Forms.TabPage();
             this.tabPagedevice = new System.Windows.Forms.TabPage();
             this.tabPageMT = new System.Windows.Forms.TabPage();
@@ -320,7 +319,6 @@
             // 
             // tabPagemain
             // 
-            this.tabPagemain.Controls.Add(this.tabPage1);
             this.tabPagemain.Controls.Add(this.tabPageschedule);
             this.tabPagemain.Controls.Add(this.tabPagedevice);
             this.tabPagemain.Controls.Add(this.tabPageMT);
@@ -335,13 +333,6 @@
             this.tabPagemain.SelectedIndex = 0;
             this.tabPagemain.DrawItem += new System.Windows.Forms.DrawItemEventHandler(this.tabPagemain_DrawItem);
             this.tabPagemain.SelectedIndexChanged += new System.EventHandler(this.tabControlMain_SelectedIndexChanged);
-            // 
-            // tabPage1
-            // 
-            resources.ApplyResources(this.tabPage1, "tabPage1");
-            this.tabPage1.Name = "tabPage1";
-            this.tabPage1.Tag = "SCADA.BOMForm";
-            this.tabPage1.UseVisualStyleBackColor = true;
             // 
             // tabPageschedule
             // 
@@ -820,7 +811,6 @@
         private System.Windows.Forms.TabPage tabPage4;
         private System.Windows.Forms.Button buttonsqlconnect;
         private System.Windows.Forms.PictureBox pictureBox1;
-        private System.Windows.Forms.TabPage tabPage1;
         private System.Windows.Forms.TabPage tabPagettarsk;
     }
 }

@@ -2680,7 +2680,7 @@
             // 
             this.comboBoxEBOM.Anchor = System.Windows.Forms.AnchorStyles.None;
             this.comboBoxEBOM.FormattingEnabled = true;
-            this.comboBoxEBOM.Location = new System.Drawing.Point(50, 20);
+            this.comboBoxEBOM.Location = new System.Drawing.Point(50, 14);
             this.comboBoxEBOM.Name = "comboBoxEBOM";
             this.comboBoxEBOM.Size = new System.Drawing.Size(231, 35);
             this.comboBoxEBOM.TabIndex = 3;
@@ -3031,7 +3031,7 @@
             // 
             this.comboBoxPBOM.Anchor = System.Windows.Forms.AnchorStyles.None;
             this.comboBoxPBOM.FormattingEnabled = true;
-            this.comboBoxPBOM.Location = new System.Drawing.Point(50, 14);
+            this.comboBoxPBOM.Location = new System.Drawing.Point(50, 20);
             this.comboBoxPBOM.Name = "comboBoxPBOM";
             this.comboBoxPBOM.Size = new System.Drawing.Size(231, 35);
             this.comboBoxPBOM.TabIndex = 3;

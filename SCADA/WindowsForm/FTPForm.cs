@@ -580,5 +580,7 @@ namespace SCADA
             buttondiconnect.Enabled = false;
             buttonconnect.Enabled = true;
         }
+
+     
     }
 }

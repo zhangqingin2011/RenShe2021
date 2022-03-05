@@ -1729,7 +1729,7 @@ namespace SCADA
                     //           + "/" + m_xmlDociment.Default_Path_str[7];
                     //refreshXmlData2DGV(pathstr, DGVRobotOutputSignalS);
                     //BindingLisReadValue(DGVRobotOutputSignalS);
-                    break;
+                   
                 //case 3:
                 //    refreshXmlData2DGV(m_xmlDociment.PathRoot_PLC, dgvPLCSet);
                 //    BindingLisReadValue(dgvPLCSet);

@@ -872,21 +872,30 @@ namespace SCADA
                         }
                         string refvalue1 = temps.Substring(0, index);//整数部分
                         string refvalue2 = temps.Substring(index + 1);//小数部分
-                        if (refvalue2.Substring(0, 1) == "0")
+                        zerosum = 1;
+                        if(refvalue2.Length==1)
                         {
-                            if (refvalue2.Substring(1, 1) == "0")
-                            {
-                                zerosum = 100;
-                            }
-                            else
-                            {
-                                zerosum = 10;
-                            }
+                            zerosum = 100;
                         }
-                        else
+                        else if(refvalue2.Length == 2)
                         {
-                            zerosum = 1;
+                            zerosum = 10;
                         }
+                        //if (refvalue2.Substring(0, 1) == "0")
+                        //{
+                        //    if (refvalue2.Substring(1, 1) == "0")
+                        //    {
+                        //        zerosum = 1;
+                        //    }
+                        //    else
+                        //    {
+                        //        zerosum = 10;
+                        //    }
+                        //}
+                        //else
+                        //{
+                        //    zerosum = 1;
+                        //}
                         if (flage == -1)
                         {
 
