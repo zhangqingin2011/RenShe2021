@@ -140,7 +140,7 @@
             // 
             // buttonsub1
             // 
-            this.buttonsub1.BackColor = System.Drawing.Color.LightGreen;
+            this.buttonsub1.BackColor = System.Drawing.Color.DarkTurquoise;
             this.buttonsub1.FlatAppearance.BorderSize = 0;
             this.buttonsub1.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
             this.buttonsub1.Location = new System.Drawing.Point(206, 267);
@@ -208,7 +208,7 @@
             // button1
             // 
             this.button1.AutoSizeMode = System.Windows.Forms.AutoSizeMode.GrowAndShrink;
-            this.button1.BackColor = System.Drawing.Color.LightGreen;
+            this.button1.BackColor = System.Drawing.Color.DarkTurquoise;
             this.button1.FlatAppearance.BorderColor = System.Drawing.Color.White;
             this.button1.FlatAppearance.BorderSize = 0;
             this.button1.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
@@ -402,7 +402,7 @@
             // 
             // button7
             // 
-            this.button7.BackColor = System.Drawing.Color.LightGreen;
+            this.button7.BackColor = System.Drawing.Color.DarkTurquoise;
             this.button7.FlatAppearance.BorderSize = 0;
             this.button7.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
             this.button7.Location = new System.Drawing.Point(206, 267);
@@ -562,7 +562,7 @@
             // 
             // button5
             // 
-            this.button5.BackColor = System.Drawing.Color.LightGreen;
+            this.button5.BackColor = System.Drawing.Color.DarkTurquoise;
             this.button5.FlatAppearance.BorderSize = 0;
             this.button5.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
             this.button5.Location = new System.Drawing.Point(206, 267);
@@ -721,7 +721,7 @@
             // 
             // button3
             // 
-            this.button3.BackColor = System.Drawing.Color.LightGreen;
+            this.button3.BackColor = System.Drawing.Color.DarkTurquoise;
             this.button3.FlatAppearance.BorderSize = 0;
             this.button3.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
             this.button3.Location = new System.Drawing.Point(206, 267);
@@ -751,7 +751,7 @@
             // 
             // button8
             // 
-            this.button8.BackColor = System.Drawing.Color.LightGreen;
+            this.button8.BackColor = System.Drawing.Color.DarkTurquoise;
             this.button8.FlatAppearance.BorderColor = System.Drawing.Color.White;
             this.button8.FlatAppearance.BorderSize = 0;
             this.button8.FlatStyle = System.Windows.Forms.FlatStyle.Flat;

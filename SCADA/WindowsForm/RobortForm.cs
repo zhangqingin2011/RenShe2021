@@ -54,94 +54,94 @@ namespace SCADA
 
             if(ModbusTcp.DataMoubus[(int)ModbusTcp.DataConfigArr.Mesans_Robot_status] ==1)
             {
-                if (language == "English")
-                 {
-                     labelstate.Text = "alarm";
-                 }
-                 else
-                 {
+                //if (language == "English")
+                // {
+                //     labelstate.Text = "alarm";
+                // }
+                // else
+                // {
                      labelstate.Text = "报警";
-                }
+                //}
             }
             if (ModbusTcp.DataMoubus[(int)ModbusTcp.DataConfigArr.Mesans_Robot_status] == 0)
             {
-                if (language == "English")
-                {
-                    labelstate.Text = "run";
-                }
-                else
-                {
-                    labelstate.Text = "运行";
-                }
+                //if (language == "English")
+                //{
+                //    labelstate.Text = "run";
+                //}
+                //else
+                //{
+                  labelstate.Text = "运行";
+                //}
             }
 
             if (ModbusTcp.DataMoubus[(int)ModbusTcp.DataConfigArr.Mesans_Robot_mode] == 0)
             {
-                if (language == "English")
-                {
-                    labelmode.Text = "null";
-                }
-                else
-                {
+                //if (language == "English")
+                //{
+                //    labelmode.Text = "null";
+                //}
+                //else
+                //{
                     labelmode.Text = "无";
-                }
+                //}
             }
             if(ModbusTcp.DataMoubus[(int)ModbusTcp.DataConfigArr.Mesans_Robot_mode] ==1)
             {
-                if (language == "English")
-                 {
-                     labelmode.Text = "HAND";
-                 }
-                 else
-                 {
-                     labelmode.Text = "手动";
-                }
+                //if (language == "English")
+                // {
+                //     labelmode.Text = "HAND";
+                // }
+                // else
+                // {
+                    labelmode.Text = "手动";
+                //}
             }
             if(ModbusTcp.DataMoubus[(int)ModbusTcp.DataConfigArr.Mesans_Robot_mode] ==2)
             {
-                if (language == "English")
-                 {
-                     labelmode.Text = "AUTO";
-                 }
-                 else
-                 {
+                //if (language == "English")
+                // {
+                //     labelmode.Text = "AUTO";
+                // }
+                // else
+                // {
                      labelmode.Text = "自动";
-                }
+                //}
             }
             if(ModbusTcp.DataMoubus[(int)ModbusTcp.DataConfigArr.Mesans_Robot_mode] ==3)
             {
-                if (language == "English")
-                 {
-                     labelmode.Text = "EXTERNAL";
-                 }
-                 else
-                 {
+                //if (language == "English")
+                // {
+                //     labelmode.Text = "EXTERNAL";
+                // }
+                // else
+                // {
                      labelmode.Text = "外部";
-                }
+                //}
             }
 
             string clampno = ModbusTcp.DataMoubus[(int)ModbusTcp.DataConfigArr.Robot_clamp_number].ToString();
             if (clampno == "0")
             {
-                if (language == "English")
-                {
-                    labelno.Text = "No clamp";
-                }
-                else
-                {
+                //if (language == "English")
+                //{
+                //    labelno.Text = "No clamp";
+                //}
+                //else
+                //{
                     labelno.Text = "无料抓";
-                }
+                //}
             }
             else
             {
-                if (language == "English")
-                {
-                    labelno.Text = "clamp NO." + clampno;
-                }
-                else
-                {
+                //if (language == "English")
+                //{
+                //    labelno.Text = "clamp NO." + clampno;
+                //}
+                //else
+                //{
                     labelno.Text = clampno+"号料抓";
-                }
+                //}
             }
             
             
@@ -183,23 +183,23 @@ namespace SCADA
 
                 prelanguage = lang;
             }
-            if(lang=="English")
-            {
+            //if(lang=="English")
+            //{
                 
-                labelrobot1.Text = "communication :";
-                robortpos.Text = "robot position :";
-                labelstates.Text = "State :";
-                labelmodes.Text = "Mode :";
-                labelhomes.Text = "Home :";
-            }
-            else
-            {
+            //    labelrobot1.Text = "communication :";
+            //    robortpos.Text = "robot position :";
+            //    labelstates.Text = "State :";
+            //    labelmodes.Text = "Mode :";
+            //    labelhomes.Text = "Home :";
+            //}
+            //else
+            //{
                 labelrobot1.Text = "机器人通信：";
                 robortpos.Text = "机器人实际位置：";
                 labelstates.Text = "状态：";
                 labelmodes.Text = "模式：";
                 labelhomes.Text = "Home点：";
-            }
+            //}
         }
 
        

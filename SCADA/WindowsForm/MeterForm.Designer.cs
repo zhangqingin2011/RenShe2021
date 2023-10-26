@@ -456,7 +456,7 @@
             // 
             // buttoncomp
             // 
-            this.buttoncomp.BackColor = System.Drawing.Color.LightGreen;
+            this.buttoncomp.BackColor = System.Drawing.Color.DarkTurquoise;
             this.buttoncomp.Enabled = false;
             this.buttoncomp.FlatAppearance.BorderSize = 0;
             this.buttoncomp.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
@@ -490,7 +490,7 @@
             // 
             // buttonbiaoding
             // 
-            this.buttonbiaoding.BackColor = System.Drawing.Color.LightGreen;
+            this.buttonbiaoding.BackColor = System.Drawing.Color.DarkTurquoise;
             this.buttonbiaoding.FlatAppearance.BorderSize = 0;
             this.buttonbiaoding.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
             this.buttonbiaoding.Location = new System.Drawing.Point(840, 274);
@@ -523,7 +523,7 @@
             // 
             // buttontorack
             // 
-            this.buttontorack.BackColor = System.Drawing.Color.LightGreen;
+            this.buttontorack.BackColor = System.Drawing.Color.DarkTurquoise;
             this.buttontorack.Enabled = false;
             this.buttontorack.FlatAppearance.BorderSize = 0;
             this.buttontorack.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
@@ -538,7 +538,7 @@
             // 
             // buttonreprocess
             // 
-            this.buttonreprocess.BackColor = System.Drawing.Color.LightGreen;
+            this.buttonreprocess.BackColor = System.Drawing.Color.DarkTurquoise;
             this.buttonreprocess.Enabled = false;
             this.buttonreprocess.FlatAppearance.BorderSize = 0;
             this.buttonreprocess.FlatStyle = System.Windows.Forms.FlatStyle.Flat;

@@ -15,6 +15,7 @@ using System.Collections;
 using HNC.MOHRSS.Model;
 using HNC.MOHRSS.Common;
 using HNC.API;
+using System.Reflection;
 
 namespace SCADA
 {
@@ -127,6 +128,8 @@ namespace SCADA
             InitOrderdata(OrderdataFilePath);
             InitOrderstate(OrderstateFilePath);
             form1.Visible = false;
+            //Thread t = new System.Threading.Thread(MESToPLCorderfun);
+            //t.Start();
 
         }
         private bool ReInitOrderdata()
@@ -180,20 +183,14 @@ namespace SCADA
                         dataGridVieworder.Rows[ii].Cells[4].Value = fun;
                         dataGridVieworder.Rows[ii].Cells[5].Value = step;
                         dataGridVieworder.Rows[ii].Cells[8].Value = state;
-                        if (language == "English")
-                        {
-                            dataGridVieworder.Rows[ii].Cells[6].Value = "OK";
-                            dataGridVieworder.Rows[ii].Cells[7].Value = "Top";
-                        }
-                        else
-                        {
-                            dataGridVieworder.Rows[ii].Cells[6].Value = "确定";
 
-                            dataGridVieworder.Rows[ii].Cells[7].Value = "置顶";
-                        }
+                        dataGridVieworder.Rows[ii].Cells[6].Value = "确定";
 
-                        dataGridVieworder.Rows[ii].Cells[6].Style.BackColor = Color.LightGreen;
-                        dataGridVieworder.Rows[ii].Cells[7].Style.BackColor = Color.LightGreen;
+                        dataGridVieworder.Rows[ii].Cells[7].Value = "置顶";
+
+
+                        dataGridVieworder.Rows[ii].Cells[6].Style.BackColor = Color.DarkTurquoise;
+                        dataGridVieworder.Rows[ii].Cells[7].Style.BackColor = Color.DarkTurquoise;
                         int magnoi = Convert.ToInt32(magno);
                         MainForm.magisordered[magnoi - 1] = 1;
                         line = sr.ReadLine();
@@ -270,8 +267,8 @@ namespace SCADA
                             dataGridVieworder.Rows[ii].Cells[7].Value = "置顶";
                         }
 
-                        dataGridVieworder.Rows[ii].Cells[6].Style.BackColor = Color.LightGreen;
-                        dataGridVieworder.Rows[ii].Cells[7].Style.BackColor = Color.LightGreen;
+                        dataGridVieworder.Rows[ii].Cells[6].Style.BackColor = Color.DarkTurquoise;
+                        dataGridVieworder.Rows[ii].Cells[7].Style.BackColor = Color.DarkTurquoise;
                         int magnoi = Convert.ToInt32(magno);
                         MainForm.magisordered[magnoi - 1] = 1;
                         line = sr.ReadLine();
@@ -443,49 +440,26 @@ namespace SCADA
                 }
                 if (dataGridVieworder.Rows.Count > 1)
                 {
-                    if (language == "English")
-                    {
-                        this.Column5.Items.Clear();
-                        this.Column5.Items.AddRange(new object[] {
-                                "None",
-                                "Processes1",
-                                "Processes2",});
-
-                    }
-                    if (language == "Chinese")
-                    {
+                    
+                    
                         this.Column5.Items.Clear();
                         this.Column5.Items.AddRange(new object[] {
                                         "无",
                                         "工序一",
                                         "工序二",});
-                    }
-                    if (language == "English")
-                    {
-                        this.Column6.Items.Clear();
-                        this.Column6.Items.AddRange(new object[] {
-                                "Load",
-                                "Unload",
-                                "Change",
-                                "Aoto",});
-
-                    }
-                    if (language == "Chinese")
-                    {
+                  
+                 
+                   
                         this.Column6.Items.Clear();
                         this.Column6.Items.AddRange(new object[] {
                                         "上料",
                                         "下料",
                                         "换料",
                                         "自动",});
-                    }
+                    
                 }
                 for (jj = 0; jj < dataGridVieworder.Rows.Count; jj++)
                 {
-
-
-
-
 
                     if (dataGridVieworder.Rows[jj].Cells[0].Value == null
                         || dataGridVieworder.Rows[jj].Cells[1].Value == null
@@ -524,63 +498,63 @@ namespace SCADA
                         }
                         else
                         {
-                            if (language == "English")
-                            {
-                                for (int kk = 2; kk < 4; kk++)
-                                {
-                                    if (dataGridVieworder.Rows[jj].Cells[kk].Value.ToString() == "无")
-                                    {
-                                        dataGridVieworder.Rows[jj].Cells[kk].Value = "None";
-                                    }
-                                    if (dataGridVieworder.Rows[jj].Cells[kk].Value.ToString() == "车工序")
-                                    {
-                                        dataGridVieworder.Rows[jj].Cells[kk].Value = "Lathe";
-                                    }
-                                    if (dataGridVieworder.Rows[jj].Cells[kk].Value.ToString() == "铣工序")
-                                    {
-                                        dataGridVieworder.Rows[jj].Cells[kk].Value = "CNC";
-                                    }
-                                }
-                                if (dataGridVieworder.Rows[jj].Cells[4].Value.ToString() == "工序二")
-                                {
-                                    dataGridVieworder.Rows[jj].Cells[4].Value = "Processes2";
-                                }
-                                if (dataGridVieworder.Rows[jj].Cells[4].Value.ToString() == "工序一")
-                                {
-                                    dataGridVieworder.Rows[jj].Cells[4].Value = "Processes1";
-                                }
+                            //if (language == "English")
+                            //{
+                            //    for (int kk = 2; kk < 4; kk++)
+                            //    {
+                            //        if (dataGridVieworder.Rows[jj].Cells[kk].Value.ToString() == "无")
+                            //        {
+                            //            dataGridVieworder.Rows[jj].Cells[kk].Value = "None";
+                            //        }
+                            //        if (dataGridVieworder.Rows[jj].Cells[kk].Value.ToString() == "车工序")
+                            //        {
+                            //            dataGridVieworder.Rows[jj].Cells[kk].Value = "Lathe";
+                            //        }
+                            //        if (dataGridVieworder.Rows[jj].Cells[kk].Value.ToString() == "铣工序")
+                            //        {
+                            //            dataGridVieworder.Rows[jj].Cells[kk].Value = "CNC";
+                            //        }
+                            //    }
+                            //    if (dataGridVieworder.Rows[jj].Cells[4].Value.ToString() == "工序二")
+                            //    {
+                            //        dataGridVieworder.Rows[jj].Cells[4].Value = "Processes2";
+                            //    }
+                            //    if (dataGridVieworder.Rows[jj].Cells[4].Value.ToString() == "工序一")
+                            //    {
+                            //        dataGridVieworder.Rows[jj].Cells[4].Value = "Processes1";
+                            //    }
 
-                                if (dataGridVieworder.Rows[jj].Cells[4].Value.ToString() == "无")
-                                {
-                                    dataGridVieworder.Rows[jj].Cells[4].Value = "None";
-                                }
-                                if (dataGridVieworder.Rows[jj].Cells[5].Value.ToString() == "上料")
-                                {
-                                    dataGridVieworder.Rows[jj].Cells[5].Value = "Load";
-                                }
-                                if (dataGridVieworder.Rows[jj].Cells[5].Value.ToString() == "下料")
-                                {
-                                    dataGridVieworder.Rows[jj].Cells[5].Value = "Unload";
-                                }
-                                if (dataGridVieworder.Rows[jj].Cells[5].Value.ToString() == "换料")
-                                {
-                                    dataGridVieworder.Rows[jj].Cells[5].Value = "Change";
-                                }
-                                if (dataGridVieworder.Rows[jj].Cells[5].Value.ToString() == "自动")
-                                {
-                                    dataGridVieworder.Rows[jj].Cells[5].Value = "Aoto";
-                                }
-                                //DataGridViewComboBoxCell cell = new DataGridViewComboBoxCell();
-                                //     cell = (DataGridViewComboBoxCell)dataGridVieworder.Rows[jj].Cells[7];
-                                //ComboBox cell1 = new ComboBox();
+                            //    if (dataGridVieworder.Rows[jj].Cells[4].Value.ToString() == "无")
+                            //    {
+                            //        dataGridVieworder.Rows[jj].Cells[4].Value = "None";
+                            //    }
+                            //    if (dataGridVieworder.Rows[jj].Cells[5].Value.ToString() == "上料")
+                            //    {
+                            //        dataGridVieworder.Rows[jj].Cells[5].Value = "Load";
+                            //    }
+                            //    if (dataGridVieworder.Rows[jj].Cells[5].Value.ToString() == "下料")
+                            //    {
+                            //        dataGridVieworder.Rows[jj].Cells[5].Value = "Unload";
+                            //    }
+                            //    if (dataGridVieworder.Rows[jj].Cells[5].Value.ToString() == "换料")
+                            //    {
+                            //        dataGridVieworder.Rows[jj].Cells[5].Value = "Change";
+                            //    }
+                            //    if (dataGridVieworder.Rows[jj].Cells[5].Value.ToString() == "自动")
+                            //    {
+                            //        dataGridVieworder.Rows[jj].Cells[5].Value = "Aoto";
+                            //    }
+                            //    //DataGridViewComboBoxCell cell = new DataGridViewComboBoxCell();
+                            //    //     cell = (DataGridViewComboBoxCell)dataGridVieworder.Rows[jj].Cells[7];
+                            //    //ComboBox cell1 = new ComboBox();
 
 
-                                dataGridVieworder.Rows[jj].Cells[6].Value = "OK";
-                                dataGridVieworder.Rows[jj].Cells[7].Value = "Top";
+                            //    dataGridVieworder.Rows[jj].Cells[6].Value = "OK";
+                            //    dataGridVieworder.Rows[jj].Cells[7].Value = "Top";
 
-                            }
-                            else
-                            {
+                            //}
+                            //else
+                            //{
                                 for (int kk = 2; kk < 4; kk++)
                                 {
                                     if (dataGridVieworder.Rows[jj].Cells[kk].Value.ToString() == "None")
@@ -628,7 +602,7 @@ namespace SCADA
                                 }
                                 dataGridVieworder.Rows[jj].Cells[6].Value = "确定";
                                 dataGridVieworder.Rows[jj].Cells[7].Value = "置顶";
-                            }
+                            //}
                             orderdatas = "item=" + dataGridVieworder.Rows[jj].Cells[0].Value.ToString();
                             orderdatas = orderdatas + ",magno=" + dataGridVieworder.Rows[jj].Cells[1].Value.ToString();
                             orderdatas = orderdatas + ",fun1=" + dataGridVieworder.Rows[jj].Cells[2].Value.ToString();
@@ -689,42 +663,42 @@ namespace SCADA
 
                 if (dataGridVieworder.Rows.Count > 1)
                 {
-                    if (language == "English")
-                    {
-                        this.Column5.Items.Clear();
-                        this.Column5.Items.AddRange(new object[] {
-                                "None",
-                                "Processes1",
-                                "Processes2",});
+                    //if (language == "English")
+                    //{
+                    //    this.Column5.Items.Clear();
+                    //    this.Column5.Items.AddRange(new object[] {
+                    //            "None",
+                    //            "Processes1",
+                    //            "Processes2",});
 
-                    }
-                    if (language == "Chinese")
-                    {
+                    //}
+                    //if (language == "Chinese")
+                    //{
                         this.Column5.Items.Clear();
                         this.Column5.Items.AddRange(new object[] {
                                         "无",
                                         "工序一",
                                         "工序二",});
-                    }
-                    if (language == "English")
-                    {
-                        this.Column6.Items.Clear();
-                        this.Column6.Items.AddRange(new object[] {
-                                "Load",
-                                "Unload",
-                                "Change",
-                                "Aoto",});
+                    //}
+                    //if (language == "English")
+                    //{
+                    //    this.Column6.Items.Clear();
+                    //    this.Column6.Items.AddRange(new object[] {
+                    //            "Load",
+                    //            "Unload",
+                    //            "Change",
+                    //            "Aoto",});
 
-                    }
-                    if (language == "Chinese")
-                    {
+                    //}
+                    //if (language == "Chinese")
+                    //{
                         this.Column6.Items.Clear();
                         this.Column6.Items.AddRange(new object[] {
                                         "上料",
                                         "下料",
                                         "换料",
                                         "自动",});
-                    }
+                    //}
                 }
 
                 for (jj = 0; jj < dataGridVieworder2.Rows.Count; jj++)
@@ -868,12 +842,12 @@ namespace SCADA
             }
             else
             {
-                if (language == "English")
-                {
-                    MessageBox.Show("Please enter number");
-                }
-                else
-                    MessageBox.Show("请输入数字");
+                //if (language == "English")
+                //{
+                //    MessageBox.Show("Please enter number");
+                //}
+                //else
+                //    MessageBox.Show("请输入数字");
                 textBox1magno.Focus();
             }
         }
@@ -888,14 +862,14 @@ namespace SCADA
             try
             {
                 int MagNo = Convert.ToInt32(MagNoStr);
-                if (MagNo > 30 || MagNo <= 0)
+                if (MagNo > 27 || MagNo <= 0)
                 {
-                    if (language == "English")
-                    {
-                        MessageBox.Show("Please enter number between 1 to 30");
-                    }
-                    else
-                        MessageBox.Show("请输入1-30之间的数字");
+                    //if (language == "English")
+                    //{
+                    //    MessageBox.Show("Please enter number between 1 to 30");
+                    //}
+                    //else
+                    //    MessageBox.Show("请输入1-27之间的数字");
                     textBox1magno.Focus();
                 }
                 else
@@ -905,12 +879,12 @@ namespace SCADA
             }
             catch
             {
-                if (language == "English")
-                {
-                    MessageBox.Show("Please enter number between 1 to 30");
-                }
-                else
-                    MessageBox.Show("请输入1-30之间的数字");
+                //if (language == "English")
+                //{
+                //    MessageBox.Show("Please enter number between 1 to 30");
+                //}
+                //else
+                //    MessageBox.Show("请输入1-30之间的数字");
                 textBox1magno.Focus();
             }
 
@@ -944,12 +918,12 @@ namespace SCADA
 
             if (MagNoStr == "")
             {
-                if (language == "English")
-                {
-                    MessageBox.Show("The Mag is null");
-                }
-                else
-                    MessageBox.Show("料仓编号为空，不能生成订单");
+                //if (language == "English")
+                //{
+                //    MessageBox.Show("The Mag is null");
+                //}
+                //else
+                //    MessageBox.Show("料仓编号为空，不能生成订单");
                 return;
             }
 
@@ -959,24 +933,24 @@ namespace SCADA
             }
             catch
             {
-                if (language == "English")
-                {
-                    MessageBox.Show("The Mag number is err");
-                }
-                else
-                    MessageBox.Show("料仓编号错误");
+                //if (language == "English")
+                //{
+                //    MessageBox.Show("The Mag number is err");
+                //}
+                //else
+                   MessageBox.Show("料仓编号错误");
                 return;
             }
             for (int jj = 0; jj < dataGridVieworder.RowCount; jj++)
             {
                 if (dataGridVieworder.Rows[jj].Cells[1].Value.ToString() == MagNoStr)
                 {
-                    if (language == "English")
-                    {
-                        MessageBox.Show("The Mag have been chosed already,please choose another");
-                    }
-                    else
-                        MessageBox.Show("当前仓位已经绑定工艺，请选择其他料仓");
+                    //if (language == "English")
+                    //{
+                    //    MessageBox.Show("The Mag have been chosed already,please choose another");
+                    //}
+                    //else
+                    //    MessageBox.Show("当前仓位已经绑定工艺，请选择其他料仓");
                     return;
                 }
             }
@@ -994,10 +968,10 @@ namespace SCADA
                 return;
             }
 
-            if (fun1string == "None"
-                && fun2string == "None")
+            if (fun1string == "无"
+                && fun2string == "无")
             {
-                MessageBox.Show("The processes is null");
+                MessageBox.Show("工序全部未空，不能生成订单");
                 return;
             }
 
@@ -1011,42 +985,42 @@ namespace SCADA
 
             MainForm.ordertate[MagNo1 - 1] = (int)Orderstate.Notstart;
             MainForm.Mag_Check[MagNo1 - 1] = 0;//测量结果初始化为0
-            if (language == "English")
-            {
-                dataGridVieworder.Rows[index].Cells[4].Value = "Processes1";
-                dataGridVieworder.Rows[index].Cells[5].Value = "Load";
-                dataGridVieworder.Rows[index].Cells[6].Value = "OK";
-                dataGridVieworder.Rows[index].Cells[7].Value = "TOP";
-                dataGridVieworder.Rows[index].Cells[8].Value = "None";
-                dataGridVieworder.Rows[index].Cells[6].Style.BackColor = Color.LightGreen;
-                dataGridVieworder.Rows[index].Cells[7].Style.BackColor = Color.LightGreen;
-                if (comboBoxFun1.Text == "None")
-                {
-                    MainForm.magprocesss1tate[MagNo1 - 1] = (int)Processstate.None;
-                }
-                else
-                {
-                    MainForm.magprocesss1tate[MagNo1 - 1] = (int)Processstate.Notstart;
-                }
-                if (comboBoxFun2.Text == "None")
-                {
-                    MainForm.magprocesss2tate[MagNo1 - 1] = (int)Processstate.None;
-                }
-                else
-                {
-                    MainForm.magprocesss2tate[MagNo1 - 1] = (int)Processstate.Notstart;
-                }
-            }
-            else
-            {
+            //if (language == "English")
+            //{
+            //    dataGridVieworder.Rows[index].Cells[4].Value = "Processes1";
+            //    dataGridVieworder.Rows[index].Cells[5].Value = "Load";
+            //    dataGridVieworder.Rows[index].Cells[6].Value = "OK";
+            //    dataGridVieworder.Rows[index].Cells[7].Value = "TOP";
+            //    dataGridVieworder.Rows[index].Cells[8].Value = "None";
+            //    dataGridVieworder.Rows[index].Cells[6].Style.BackColor = Color.DarkTurquoise;
+            //    dataGridVieworder.Rows[index].Cells[7].Style.BackColor = Color.DarkTurquoise;
+            //    if (comboBoxFun1.Text == "None")
+            //    {
+            //        MainForm.magprocesss1tate[MagNo1 - 1] = (int)Processstate.None;
+            //    }
+            //    else
+            //    {
+            //        MainForm.magprocesss1tate[MagNo1 - 1] = (int)Processstate.Notstart;
+            //    }
+            //    if (comboBoxFun2.Text == "None")
+            //    {
+            //        MainForm.magprocesss2tate[MagNo1 - 1] = (int)Processstate.None;
+            //    }
+            //    else
+            //    {
+            //        MainForm.magprocesss2tate[MagNo1 - 1] = (int)Processstate.Notstart;
+            //    }
+            //}
+            //else
+            //{
                 dataGridVieworder.Rows[index].Cells[4].Value = "工序一";
                 dataGridVieworder.Rows[index].Cells[5].Value = "上料";
                 dataGridVieworder.Rows[index].Cells[6].Value = "确定";
                 dataGridVieworder.Rows[index].Cells[7].Value = "置顶";
                 dataGridVieworder.Rows[index].Cells[8].Value = "无";
 
-                dataGridVieworder.Rows[index].Cells[6].Style.BackColor = Color.LightGreen;
-                dataGridVieworder.Rows[index].Cells[7].Style.BackColor = Color.LightGreen;
+                dataGridVieworder.Rows[index].Cells[6].Style.BackColor = Color.DarkTurquoise;
+                dataGridVieworder.Rows[index].Cells[7].Style.BackColor = Color.DarkTurquoise;
                 if (comboBoxFun1.Text == "无")
                 {
                     MainForm.magprocesss1tate[MagNo1 - 1] = (int)Processstate.None;
@@ -1063,7 +1037,7 @@ namespace SCADA
                 {
                     MainForm.magprocesss2tate[MagNo1 - 1] = (int)Processstate.Notstart;
                 }
-            }
+            //}
 
 
             int index2 = dataGridVieworder2.Rows.Add();
@@ -1071,26 +1045,26 @@ namespace SCADA
             //dataGridVieworder2.Rows[index2].Cells[0].Value = dataGridVieworder2.Rows.Count - 1;
             dataGridVieworder2.Rows[index2].Cells[0].Value = dataGridVieworder2.Rows.Count;
             dataGridVieworder2.Rows[index2].Cells[1].Value = dataGridVieworder.Rows[index].Cells[1].Value;
-            if (language == "English")
-            {
-                for (int ii = 2; ii < 4; ii++)
-                {
-                    string temp = dataGridVieworder.Rows[index].Cells[ii].Value.ToString();
-                    if (temp != "None")
-                    {
-                        dataGridVieworder2.Rows[index2].Cells[ii].Value = "NotStarted";
+            //if (language == "English")
+            //{
+            //    for (int ii = 2; ii < 4; ii++)
+            //    {
+            //        string temp = dataGridVieworder.Rows[index].Cells[ii].Value.ToString();
+            //        if (temp != "None")
+            //        {
+            //            dataGridVieworder2.Rows[index2].Cells[ii].Value = "NotStarted";
 
-                    }
-                    else
-                    {
-                        dataGridVieworder2.Rows[index2].Cells[ii].Value = "None";
-                    }
-                }
-                dataGridVieworder2.Rows[index2].Cells[4].Value = "NotDownload";
-                dataGridVieworder2.Rows[index2].Cells[5].Value = "None";
-            }
-            else
-            {
+            //        }
+            //        else
+            //        {
+            //            dataGridVieworder2.Rows[index2].Cells[ii].Value = "None";
+            //        }
+            //    }
+            //    dataGridVieworder2.Rows[index2].Cells[4].Value = "NotDownload";
+            //    dataGridVieworder2.Rows[index2].Cells[5].Value = "None";
+            //}
+            //else
+            //{
                 for (int ii = 2; ii < 4; ii++)
                 {
                     string temp = dataGridVieworder.Rows[index].Cells[ii].Value.ToString();
@@ -1106,20 +1080,20 @@ namespace SCADA
                 }
                 dataGridVieworder2.Rows[index2].Cells[4].Value = "未开始";
                 dataGridVieworder2.Rows[index2].Cells[5].Value = "未检测";
-            }
+            //}
 
-            if (language == "English")
-            {
-                MessageBox.Show("The order is made");
-            }
-            else
+            //if (language == "English")
+            //{
+            //    MessageBox.Show("The order is made");
+            //}
+            //else
                 MessageBox.Show("当前订单生成成功");
             return;
 
 
         }
 
-
+     
 
 
         /// <summary>
@@ -1159,29 +1133,32 @@ namespace SCADA
                         }
                         else if (Gcodeloadreturn == -1)
                         {
-                            if (language1 == "English")
-                            {
-                                message = "The Gcode name err!";
-                            }
-                            else message = "没有找到匹配的G代码!";
+                            //if (language1 == "English")
+                            //{
+                            //    message = "The Gcode name err!";
+                            //}
+                            //else 
+                                message = "没有找到匹配的G代码!";
                             return -1;
                         }
                         else
                         {
-                            if (language1 == "English")
-                            {
-                                message = "The Gcode download err!";
-                            }
-                            else message = "G代码下发失败!";
+                            //if (language1 == "English")
+                            //{
+                            //    message = "The Gcode download err!";
+                            //}
+                            //else
+                                message = "G代码下发失败!";
                             return -1;
                         }
                         if (ModbusTcp.Rack_number_write_flage)
                         {
-                            if (language1 == "English")
-                            {
-                                message = "The order before is sentting,please wait a miniter!";
-                            }
-                            else message = "前一个订单正在下发，请稍后下发下一订单！";
+                            //if (language1 == "English")
+                            //{
+                            //    message = "The order before is sentting,please wait a miniter!";
+                            //}
+                            //else
+                                message = "前一个订单正在下发，请稍后下发下一订单！";
                             return -1;
                         }
                         MainForm.cncv2list[0].MagNum = magno;//机床绑定料仓号 
@@ -1195,21 +1172,23 @@ namespace SCADA
                         ModbusTcp.DataMoubus[magstatei] = (int)ModbusTcp.Mag_state_config.StateProcessing;
 
                         dataGridVieworder.Rows[index].Cells[6].Style.BackColor = Color.Gray;
-                        if (language1 == "English")
-                        {
-                            message = "Load succeed！";
-                        }
-                        else message = "上料命令下发成功！";
+                        //if (language1 == "English")
+                        //{
+                        //    message = "Load succeed！";
+                        //}
+                        //else 
+                            message = "上料命令下发成功！";
                         // magprocesss1tate[magno - 1] = (int)Processstate.Loading;
                         return 0;
                     }
                     else
                     {
-                        if (language1 == "English")
-                        {
-                            message = "The Lathe is processing,can not download！";
-                        }
-                        else message = "车床有未完成订单，本次订单下达失败！";    //20180312              
+                        //if (language1 == "English")
+                        //{
+                        //    message = "The Lathe is processing,can not download！";
+                        //}
+                        //else 
+                            message = "车床有未完成订单，本次订单下达失败！";    //20180312              
                         return -1;
                     }
                 }
@@ -1237,30 +1216,33 @@ namespace SCADA
                         }
                         else if (Gcodeloadreturn == -1)
                         {
-                            if (language1 == "English")
-                            {
-                                message = "The Gcode name err!";
-                            }
-                            else message = "没有找到匹配的G代码!";
+                            //if (language1 == "English")
+                            //{
+                            //    message = "The Gcode name err!";
+                            //}
+                            //else
+                                message = "没有找到匹配的G代码!";
                             return -1;
                         }
                         else
                         {
-                            if (language1 == "English")
-                            {
-                                message = "The Gcode download err!";
-                            }
-                            else message = "G代码下发失败!";
+                            //if (language1 == "English")
+                            //{
+                            //    message = "The Gcode download err!";
+                            //}
+                            //else
+                                message = "G代码下发失败!";
                             return -1;
                         }
 
                         if (ModbusTcp.Rack_number_write_flage)
                         {
-                            if (language1 == "English")
-                            {
-                                message = "The order before is sentting,please wait a miniter!";
-                            }
-                            else message = "前一个订单正在下发，请稍后下发下一订单！";
+                            //if (language1 == "English")
+                            //{
+                            //    message = "The order before is sentting,please wait a miniter!";
+                            //}
+                            //else 
+                                message = "前一个订单正在下发，请稍后下发下一订单！";
                             return -1;
                         }
                         MainForm.cncv2list[1].MagNum = magno;//机床绑定料仓号 
@@ -1274,30 +1256,33 @@ namespace SCADA
                         ModbusTcp.DataMoubus[magstatei] = (int)ModbusTcp.Mag_state_config.StateProcessing;
 
                         dataGridVieworder.Rows[index].Cells[6].Style.BackColor = Color.Gray;
-                        if (language1 == "English")
-                        {
-                            message = "Load succeed！";
-                        }
-                        else message = "上料命令下发成功！";
+                        //if (language1 == "English")
+                        //{
+                        //    message = "Load succeed！";
+                        //}
+                        //else 
+                            message = "上料命令下发成功！";
                         return 0;
                     }
                     else
                     {
-                        if (language1 == "English")
-                        {
-                            message = "The Lathe is processing,can not download！";
-                        }
-                        else message = "加工中心有未完成订单，本次订单下达失败！";    //20180312              
+                        //if (language1 == "English")
+                        //{
+                        //    message = "The Lathe is processing,can not download！";
+                        //}
+                        //else 
+                        message = "加工中心有未完成订单，本次订单下达失败！";    //20180312              
                         return -1;
                     }
                 }
                 else
                 {
-                    if (language1 == "English")
-                    {
-                        message = "The Lathe is off line,can not download";
-                    }
-                    else message = "加工中心离线，上料下达失败!";    //20180312   
+                //    if (language1 == "English")
+                //    {
+                //        message = "The Lathe is off line,can not download";
+                //    }
+                //    else 
+                        message = "加工中心离线，上料下达失败!";    //20180312   
                     return -1;
                 }
             }
@@ -1394,11 +1379,12 @@ namespace SCADA
 
                         if (ModbusTcp.Rack_number_write_flage)
                         {
-                            if (language1 == "English")
-                            {
-                                message = "The order before is sentting,please wait a miniter!";
-                            }
-                            else message = "前一个订单正在下发，请稍后下发下一订单！";
+                            //if (language1 == "English")
+                            //{
+                            //    message = "The order before is sentting,please wait a miniter!";
+                            //}
+                            //else
+                                message = "前一个订单正在下发，请稍后下发下一订单！";
                             return -1;
                         }
                         MainForm.cncv2list[1].MagNum = magno;//机床绑定料仓号 
@@ -1414,30 +1400,33 @@ namespace SCADA
 
                         OrderForm1.rerunningflage = false;
                         dataGridVieworder.Rows[index].Cells[6].Style.BackColor = Color.Gray;
-                        if (language1 == "English")
-                        {
-                            message = "Load succeed！";
-                        }
-                        else message = "下料命令下发成功！";
+                        //if (language1 == "English")
+                        //{
+                        //    message = "Load succeed！";
+                        //}
+                        //else
+                            message = "下料命令下发成功！";
                         return 0;
                     }
                     else
                     {
-                        if (language1 == "English")
-                        {
-                            message = "The Lathe is processing,can not download！";
-                        }
-                        else message = "加工中心有未完成订单，本次订单下达失败！";    //20180312              
+                        //if (language1 == "English")
+                        //{
+                        //    message = "The Lathe is processing,can not download！";
+                        //}
+                        //else 
+                            message = "加工中心有未完成订单，本次订单下达失败！";    //20180312              
                         return -1;
                     }
                 }
                 else
                 {
-                    if (language1 == "English")
-                    {
-                        message = "The Lathe is off line,can not download";
-                    }
-                    else message = "加工中心离线，下料下达失败!";    //20180312   
+                    //if (language1 == "English")
+                    //{
+                    //    message = "The Lathe is off line,can not download";
+                    //}
+                    //else 
+                        message = "加工中心离线，下料下达失败!";    //20180312   
                     return -1;
                 }
             }
@@ -1478,11 +1467,12 @@ namespace SCADA
                     int rowindex = -1;
                     if (MainForm.cncv2list[0].MagNum == 0)
                     {
-                        if (language1 == "English")
-                        {
-                            message = "The Lathe has no order,please choose Load!";
-                        }
-                        else message = "当前车床没有订单，请选择上料!";
+                        //if (language1 == "English")
+                        //{
+                        //    message = "The Lathe has no order,please choose Load!";
+                        //}
+                        //else 
+                            message = "当前车床没有订单，请选择上料!";
                         return -1;
                     }
                     for (int jj = 0; jj < dataGridVieworder.RowCount; jj++)
@@ -1494,11 +1484,12 @@ namespace SCADA
                     }
                     if (rowindex == -1)
                     {
-                        if (language1 == "English")
-                        {
-                            message = "message err!";
-                        }
-                        else message = "车床与订单信息不符";
+                        //if (language1 == "English")
+                        //{
+                        //    message = "message err!";
+                        //}
+                        //else
+                            message = "车床与订单信息不符";
                         return -1;
                     }
                     if (dataGridVieworder.Rows[rowindex].Cells[2].Value.ToString() == "车工序" || dataGridVieworder.Rows[rowindex].Cells[2].Value.ToString() == "Lathe")
@@ -1513,31 +1504,34 @@ namespace SCADA
                             }
                             else if (Gcodeloadreturn == -1)
                             {
-                                if (language1 == "English")
-                                {
-                                    message = "The Gcode name err!";
-                                }
-                                else message = "没有找到匹配的G代码!";
+                                //if (language1 == "English")
+                                //{
+                                //    message = "The Gcode name err!";
+                                //}
+                                //else 
+                                    message = "没有找到匹配的G代码!";
                                 return -1;
 
                             }
                             else
                             {
-                                if (language1 == "English")
-                                {
-                                    message = "The Gcode download err!";
-                                }
-                                else message = "G代码下发失败!";
+                                //if (language1 == "English")
+                                //{
+                                //    message = "The Gcode download err!";
+                                //}
+                                //else 
+                                    message = "G代码下发失败!";
                                 return -1;
                             }
 
                             if (ModbusTcp.Rack_number_write_flage)
                             {
-                                if (language1 == "English")
-                                {
-                                    message = "The order before is sentting,please wait a miniter!";
-                                }
-                                else message = "前一个订单正在下发，请稍后下发下一订单！";
+                                //if (language1 == "English")
+                                //{
+                                //    message = "The order before is sentting,please wait a miniter!";
+                                //}
+                                //else 
+                                    message = "前一个订单正在下发，请稍后下发下一订单！";
                                 return -1;
                             }
                             ModbusTcp.Rack_number_write_flage = true;
@@ -1562,21 +1556,23 @@ namespace SCADA
                             //  magprocesss1tate[magno - 1] = (int)Processstate.Loading;
 
                             MainForm.cncv2list[0].MagNum = magno;//机床绑定料仓号 
-                            if (language1 == "English")
-                            {
-                                message = "Load succeed！";
-                            }
-                            else message = "换料命令下发成功！";
+                            //if (language1 == "English")
+                            //{
+                            //    message = "Load succeed！";
+                            //}
+                            //else 
+                                message = "换料命令下发成功！";
 
                             return 0;
                         }
                         else
                         {
-                            if (language1 == "English")
-                            {
-                                message = "The Lathe is not loaded state!";
-                            }
-                            else message = "车床不是加工完成状态，不允许换料!";
+                            //if (language1 == "English")
+                            //{
+                            //    message = "The Lathe is not loaded state!";
+                            //}
+                            //else 
+                                message = "车床不是加工完成状态，不允许换料!";
                             return -1;
                         }
 
@@ -1593,31 +1589,34 @@ namespace SCADA
                             }
                             else if (Gcodeloadreturn == -1)
                             {
-                                if (language1 == "English")
-                                {
-                                    message = "The Gcode name err!";
-                                }
-                                else message = "没有找到匹配的G代码!";
+                                //if (language1 == "English")
+                                //{
+                                //    message = "The Gcode name err!";
+                                //}
+                                //else 
+                                    message = "没有找到匹配的G代码!";
                                 return -1;
 
                             }
                             else
                             {
-                                if (language1 == "English")
-                                {
-                                    message = "The Gcode download err!";
-                                }
-                                else message = "G代码下发失败!";
+                                //if (language1 == "English")
+                                //{
+                                //    message = "The Gcode download err!";
+                                //}
+                                //else 
+                                    message = "G代码下发失败!";
                                 return -1;
                             }
 
                             if (ModbusTcp.Rack_number_write_flage)
                             {
-                                if (language1 == "English")
-                                {
-                                    message = "The order before is sentting,please wait a miniter!";
-                                }
-                                else message = "前一个订单正在下发，请稍后下发下一订单！";
+                                //if (language1 == "English")
+                                //{
+                                //    message = "The order before is sentting,please wait a miniter!";
+                                //}
+                                //else
+                                    message = "前一个订单正在下发，请稍后下发下一订单！";
                                 return -1;
                             }
                             ModbusTcp.Rack_number_write_flage = true;
@@ -1631,11 +1630,12 @@ namespace SCADA
 
                             dataGridVieworder.Rows[index].Cells[6].Style.BackColor = Color.Gray;
                             MainForm.cncv2list[0].MagNum = magno;//机床绑定料仓号 
-                            if (language1 == "English")
-                            {
-                                message = "Load succeed！";
-                            }
-                            else message = "换料命令下发成功！";
+                            //if (language1 == "English")
+                            //{
+                            //    message = "Load succeed！";
+                            //}
+                            //else
+                                message = "换料命令下发成功！";
                             if (MainForm.magprocesss1tate[cnccurmag - 1] == (int)Processstate.Runned)
                             {
                                 MainForm.magprocesss1tate[cnccurmag - 1] = (int)Processstate.Unloading;
@@ -1651,32 +1651,35 @@ namespace SCADA
                         }
                         else
                         {
-                            if (language1 == "English")
-                            {
-                                message = "The Lathe is not loaded state!";
-                            }
-                            else message = "车床不是加工完成状态，不允许换料!";
+                            //if (language1 == "English")
+                            //{
+                            //    message = "The Lathe is not loaded state!";
+                            //}
+                            //else 
+                                message = "车床不是加工完成状态，不允许换料!";
                             return -1;
                         }
 
                     }
                     else
                     {
-                        if (language1 == "English")
-                        {
-                            message = "message err!";
-                        }
-                        else message = "车床与订单信息不符";
+                        //if (language1 == "English")
+                        //{
+                        //    message = "message err!";
+                        //}
+                        //else 
+                            message = "车床与订单信息不符";
                         return -1;
                     }
                 }
                 else
                 {
-                    if (language1 == "English")
-                    {
-                        message = "The Lathe is off line,can not download";
-                    }
-                    else message = "车床离线，上料下达失败!";    //20180312   
+                    //if (language1 == "English")
+                    //{
+                    //    message = "The Lathe is off line,can not download";
+                    //}
+                    //else
+                        message = "车床离线，上料下达失败!";    //20180312   
                     return -1;
                 }
             }
@@ -1689,11 +1692,12 @@ namespace SCADA
                     int rowindex = -1;
                     if (MainForm.cncv2list[1].MagNum == 0)
                     {
-                        if (language1 == "English")
-                        {
-                            message = "The CNChas no order,please choose Load!";
-                        }
-                        else message = "当前加工中心没有订单，请选择上料!";
+                        //if (language1 == "English")
+                        //{
+                        //    message = "The CNChas no order,please choose Load!";
+                        //}
+                        //else
+                            message = "当前加工中心没有订单，请选择上料!";
                         return -1;
                     }
                     for (int jj = 0; jj < dataGridVieworder.RowCount; jj++)
@@ -1705,11 +1709,12 @@ namespace SCADA
                     }
                     if (rowindex == -1)
                     {
-                        if (language1 == "English")
-                        {
-                            message = "message err!";
-                        }
-                        else message = "加工中心与订单信息不符";
+                        //if (language1 == "English")
+                        //{
+                        //    message = "message err!";
+                        //}
+                        //else 
+                            message = "加工中心与订单信息不符";
                         return -1;
                     }
                     if (dataGridVieworder.Rows[rowindex].Cells[2].Value.ToString() == "铣工序" || dataGridVieworder.Rows[rowindex].Cells[2].Value.ToString() == "CNC")
@@ -1724,31 +1729,34 @@ namespace SCADA
                             }
                             else if (Gcodeloadreturn == -1)
                             {
-                                if (language1 == "English")
-                                {
-                                    message = "The Gcode name err!";
-                                }
-                                else message = "没有找到匹配的G代码!";
+                                //if (language1 == "English")
+                                //{
+                                //    message = "The Gcode name err!";
+                                //}
+                                //else 
+                                    message = "没有找到匹配的G代码!";
                                 return -1;
 
                             }
                             else
                             {
-                                if (language1 == "English")
-                                {
-                                    message = "The Gcode download err!";
-                                }
-                                else message = "G代码下发失败!";
+                                //if (language1 == "English")
+                                //{
+                                //    message = "The Gcode download err!";
+                                //}
+                                //else
+                                    message = "G代码下发失败!";
                                 return -1;
                             }
 
                             if (ModbusTcp.Rack_number_write_flage)
                             {
-                                if (language1 == "English")
-                                {
-                                    message = "The order before is sentting,please wait a miniter!";
-                                }
-                                else message = "前一个订单正在下发，请稍后下发下一订单！";
+                                //if (language1 == "English")
+                                //{
+                                //    message = "The order before is sentting,please wait a miniter!";
+                                //}
+                                //else 
+                                    message = "前一个订单正在下发，请稍后下发下一订单！";
                                 return -1;
                             }
                             ModbusTcp.Rack_number_write_flage = true;
@@ -1766,11 +1774,12 @@ namespace SCADA
                             OrderForm1.rerunningflage = false;
                             dataGridVieworder.Rows[index].Cells[6].Style.BackColor = Color.Gray;
                             MainForm.cncv2list[1].MagNum = magno;//机床绑定料仓号 
-                            if (language1 == "English")
-                            {
-                                message = "Load succeed！";
-                            }
-                            else message = "换料料命令下发成功！";
+                            //if (language1 == "English")
+                            //{
+                            //    message = "Load succeed！";
+                            //}
+                            //else
+                                message = "换料料命令下发成功！";
 
                             if (MainForm.magprocesss1tate[cnccurmag - 1] == (int)Processstate.Runned)
                             {
@@ -1787,11 +1796,12 @@ namespace SCADA
                         }
                         else
                         {
-                            if (language1 == "English")
-                            {
-                                message = "The Lathe is not loaded state!";
-                            }
-                            else message = "加工中心不是加工完成状态，不允许换料!";
+                            //if (language1 == "English")
+                            //{
+                            //    message = "The Lathe is not loaded state!";
+                            //}
+                            //else 
+                                message = "加工中心不是加工完成状态，不允许换料!";
                             return -1;
                         }
                     }
@@ -1807,31 +1817,34 @@ namespace SCADA
                             }
                             else if (Gcodeloadreturn == -1)
                             {
-                                if (language1 == "English")
-                                {
-                                    message = "The Gcode name err!";
-                                }
-                                else message = "没有找到匹配的G代码!";
+                                //if (language1 == "English")
+                                //{
+                                //    message = "The Gcode name err!";
+                                //}
+                                //else 
+                                    message = "没有找到匹配的G代码!";
                                 return -1;
 
                             }
                             else
                             {
-                                if (language1 == "English")
-                                {
-                                    message = "The Gcode download err!";
-                                }
-                                else message = "G代码下发失败!";
+                                //if (language1 == "English")
+                                //{
+                                //    message = "The Gcode download err!";
+                                //}
+                                //else 
+                                    message = "G代码下发失败!";
                                 return -1;
                             }
 
                             if (ModbusTcp.Rack_number_write_flage)
                             {
-                                if (language1 == "English")
-                                {
-                                    message = "The order before is sentting,please wait a miniter!";
-                                }
-                                else message = "前一个订单正在下发，请稍后下发下一订单！";
+                                //if (language1 == "English")
+                                //{
+                                //    message = "The order before is sentting,please wait a miniter!";
+                                //}
+                                //else
+                                    message = "前一个订单正在下发，请稍后下发下一订单！";
                                 return -1;
                             }
                             ModbusTcp.Rack_number_write_flage = true;
@@ -1845,11 +1858,12 @@ namespace SCADA
 
                             dataGridVieworder.Rows[index].Cells[6].Style.BackColor = Color.Gray;
                             MainForm.cncv2list[1].MagNum = magno;//机床绑定料仓号 
-                            if (language1 == "English")
-                            {
-                                message = "Load succeed！";
-                            }
-                            else message = "换料命令下发成功！";
+                            //if (language1 == "English")
+                            //{
+                            //    message = "Load succeed！";
+                            //}
+                            //else
+                                message = "换料命令下发成功！";
                             if (MainForm.magprocesss1tate[cnccurmag - 1] == (int)Processstate.Runned)
                             {
                                 MainForm.magprocesss1tate[cnccurmag - 1] = (int)Processstate.Unloading;
@@ -1868,11 +1882,12 @@ namespace SCADA
                         }
                         else
                         {
-                            if (language1 == "English")
-                            {
-                                message = "The Lathe is not loaded state!";
-                            }
-                            else message = "加工中心不是加工完成状态，不允许换料!";
+                            //if (language1 == "English")
+                            //{
+                            //    message = "The Lathe is not loaded state!";
+                            //}
+                            //else
+                                message = "加工中心不是加工完成状态，不允许换料!";
 
 
                             return -1;
@@ -1881,21 +1896,23 @@ namespace SCADA
                     }
                     else
                     {
-                        if (language1 == "English")
-                        {
-                            message = "message err!";
-                        }
-                        else message = "加工中心与订单信息不符";
+                        //if (language1 == "English")
+                        //{
+                        //    message = "message err!";
+                        //}
+                        //else
+                            message = "加工中心与订单信息不符";
                         return -1;
                     }
                 }
                 else
                 {
-                    if (language1 == "English")
-                    {
-                        message = "The Lathe is off line,can not download";
-                    }
-                    else message = "加工中心离线，上料下达失败!";    //20180312   
+                    //if (language1 == "English")
+                    //{
+                    //    message = "The Lathe is off line,can not download";
+                    //}
+                    //else 
+                        message = "加工中心离线，上料下达失败!";    //20180312   
                     return -1;
                 }
             }
@@ -1915,7 +1932,7 @@ namespace SCADA
                 if (column is DataGridViewButtonColumn)
                 {
                     //行列都是0开始计算，表头不算， MessageBox.Show("x: " + e.RowIndex.ToString() + ",y:" + e.ColumnIndex.ToString());
-                    if (e.ColumnIndex == 6)//确定按钮按下//BackColor = System.Drawing.Color.LightGreen;
+                    if (e.ColumnIndex == 6)//确定按钮按下//BackColor = System.Drawing.Color.DarkTurquoise;
                     {
                         int ret = -1;
                         string messagestring = "";
@@ -1929,309 +1946,315 @@ namespace SCADA
 
                         if (manmode == false)
                         {
-                            if (language == "English")
-                            {
-                                MessageBox.Show("Please turn off the aotomatic scheduling");
-                            }
-                            else MessageBox.Show("请关闭自动排程功能！");
+                            //if (language == "English")
+                            //{
+                            //    MessageBox.Show("Please turn off the aotomatic scheduling");
+                            //}
+                            //else 
+                                MessageBox.Show("请关闭自动排程功能！");
                             return;
                         }
                         if (MainForm.PLC_SIMES_ON_line == false)
                         {
-                            if (language == "English")
-                            {
-                                MessageBox.Show("Load failure,because PLC is off line！");
-                            }
-                            else MessageBox.Show("PLC未连接，不能下达订单!");
+                            //if (language == "English")
+                            //{
+                            //    MessageBox.Show("Load failure,because PLC is off line！");
+                            //}
+                            //else 
+                                MessageBox.Show("PLC未连接，不能下达订单!");
                             return;
                         }
                         if (!MainForm.linestop)//产线停止状态
                         {
-                            if (language == "English")
-                            {
-                                MessageBox.Show("Load failure,Please start line!");
-                            }
-                            else MessageBox.Show("订单下达失败，请先启动产线!");
+                            //if (language == "English")
+                            //{
+                            //    MessageBox.Show("Load failure,Please start line!");
+                            //}
+                            //else
+                                MessageBox.Show("订单下达失败，请先启动产线!");
                             return;
                         }
                         if (ModbusTcp.DataMoubus[magstatei] == (int)ModbusTcp.Mag_state_config.Statenull)
                         {
-                            if (language == "English")
-                            {
-                                MessageBox.Show("Current Mag is empty ,Please make a new Order!");
-                            }
-                            else MessageBox.Show("指定仓位无料，请重新下达订单!");
+                            //if (language == "English")
+                            //{
+                            //    MessageBox.Show("Current Mag is empty ,Please make a new Order!");
+                            //}
+                            //else 
+                                MessageBox.Show("指定仓位无料，请重新下达订单!");
                             return;
                         }
                         if (ModbusTcp.DataMoubus[(int)SCADA.ModbusTcp.DataConfigArr.Mesans_Robot_speed] == 1)
                         {
-                            if (language == "English")
-                            {
-                                MessageBox.Show("The robot is busy,please down the order later!");
-                            }
-                            else MessageBox.Show("机器人繁忙，请稍后下订单!");
+                            //if (language == "English")
+                            //{
+                            //    MessageBox.Show("The robot is busy,please down the order later!");
+                            //}
+                            //else
+                                MessageBox.Show("机器人繁忙，请稍后下订单!");
                             return;
                         }
                         if (robortishome == 0)
                         {
-                            if (language == "English")
-                            {
-                                MessageBox.Show("Robort is not at home!");
-                            }
-                            else MessageBox.Show("机器人不在HOME位置无法下达订单！");
+                            //if (language == "English")
+                            //{
+                            //    MessageBox.Show("Robort is not at home!");
+                            //}
+                            //else
+                                MessageBox.Show("机器人不在HOME位置无法下达订单！");
                             return;
                         }
-                        if (language == "English")
-                        {
-                            if (dataGridVieworder.Rows[e.RowIndex].Cells[e.ColumnIndex].Style.BackColor == Color.LightGreen)//订单未下达
-                            {
-                                string magnumbers = dataGridVieworder2.Rows[e.RowIndex].Cells[1].Value.ToString();
-                                int magnumber = Convert.ToInt32(magnumbers);
-                                if (dataGridVieworder.Rows[e.RowIndex].Cells[4].Value.ToString() == "Processes1")
-                                {
-                                    //订单逻辑是否满足
-                                    if (dataGridVieworder.Rows[e.RowIndex].Cells[5].Value.ToString() == "Load")
-                                    {
-                                        if (MainForm.magprocesss1tate[magnumber - 1] == (int)Processstate.Notstart)
-                                        {
-                                            if (dataGridVieworder.Rows[e.RowIndex].Cells[2].Value.ToString() == "Lathe")
-                                            {
+                        //if (language == "English")
+                        //{
+                        //    if (dataGridVieworder.Rows[e.RowIndex].Cells[e.ColumnIndex].Style.BackColor == Color.DarkTurquoise)//订单未下达
+                        //    {
+                        //        string magnumbers = dataGridVieworder2.Rows[e.RowIndex].Cells[1].Value.ToString();
+                        //        int magnumber = Convert.ToInt32(magnumbers);
+                        //        if (dataGridVieworder.Rows[e.RowIndex].Cells[4].Value.ToString() == "Processes1")
+                        //        {
+                        //            //订单逻辑是否满足
+                        //            if (dataGridVieworder.Rows[e.RowIndex].Cells[5].Value.ToString() == "Load")
+                        //            {
+                        //                if (MainForm.magprocesss1tate[magnumber - 1] == (int)Processstate.Notstart)
+                        //                {
+                        //                    if (dataGridVieworder.Rows[e.RowIndex].Cells[2].Value.ToString() == "Lathe")
+                        //                    {
 
-                                                ret = CNCLoadfun(magnumber, 1, ref messagestring);//车床上料 ;//机床是否能执行
-                                                if (ret == 0)
-                                                {
-                                                    MainForm.magprocesss1tate[magnumber - 1] = (int)Processstate.Loading;
-                                                }
+                        //                        ret = CNCLoadfun(magnumber, 1, ref messagestring);//车床上料 ;//机床是否能执行
+                        //                        if (ret == 0)
+                        //                        {
+                        //                            MainForm.magprocesss1tate[magnumber - 1] = (int)Processstate.Loading;
+                        //                        }
 
-                                            }
-                                            else if (dataGridVieworder.Rows[e.RowIndex].Cells[2].Value.ToString() == "CNC")
-                                            {
-                                                ret = CNCLoadfun(magnumber, 2, ref messagestring);//铣床上料 ;
-                                                if (ret == 0)
-                                                {
-                                                    MainForm.magprocesss1tate[magnumber - 1] = (int)Processstate.Loading;
-                                                }
-                                            }
-                                            else
-                                            {
-                                                messagestring = "Process 1 is null";
-                                            }
+                        //                    }
+                        //                    else if (dataGridVieworder.Rows[e.RowIndex].Cells[2].Value.ToString() == "CNC")
+                        //                    {
+                        //                        ret = CNCLoadfun(magnumber, 2, ref messagestring);//铣床上料 ;
+                        //                        if (ret == 0)
+                        //                        {
+                        //                            MainForm.magprocesss1tate[magnumber - 1] = (int)Processstate.Loading;
+                        //                        }
+                        //                    }
+                        //                    else
+                        //                    {
+                        //                        messagestring = "Process 1 is null";
+                        //                    }
 
-                                        }
-                                        else
-                                        {
-                                            messagestring = "Process 1 already Loaded";
-                                        }
-                                    }
+                        //                }
+                        //                else
+                        //                {
+                        //                    messagestring = "Process 1 already Loaded";
+                        //                }
+                        //            }
 
-                                    else if (dataGridVieworder.Rows[e.RowIndex].Cells[5].Value.ToString() == "UnLoad")
-                                    {
-                                        if (MainForm.magprocesss1tate[magnumber - 1] == (int)Processstate.Runned)
-                                        {
-                                            if (dataGridVieworder.Rows[e.RowIndex].Cells[2].Value.ToString() == "Lathe")
-                                            {
-                                                ret = CNCUnLoadfun(magnumber, 1, ref messagestring);//车床上料 ;//机床是否能执行
-                                                if (ret == 0)
-                                                {
-                                                    MainForm.magprocesss1tate[magnumber - 1] = (int)Processstate.Unloading;
-                                                }
+                        //            else if (dataGridVieworder.Rows[e.RowIndex].Cells[5].Value.ToString() == "UnLoad")
+                        //            {
+                        //                if (MainForm.magprocesss1tate[magnumber - 1] == (int)Processstate.Runned)
+                        //                {
+                        //                    if (dataGridVieworder.Rows[e.RowIndex].Cells[2].Value.ToString() == "Lathe")
+                        //                    {
+                        //                        ret = CNCUnLoadfun(magnumber, 1, ref messagestring);//车床上料 ;//机床是否能执行
+                        //                        if (ret == 0)
+                        //                        {
+                        //                            MainForm.magprocesss1tate[magnumber - 1] = (int)Processstate.Unloading;
+                        //                        }
 
-                                            }
-                                            else if (dataGridVieworder.Rows[e.RowIndex].Cells[2].Value.ToString() == "CNC")
-                                            {
-                                                ret = CNCUnLoadfun(magnumber, 2, ref messagestring);//铣床上料 ;
-                                                if (ret == 0)
-                                                {
-                                                    MainForm.magprocesss1tate[magnumber - 1] = (int)Processstate.Unloading;
-                                                }
-                                            }
-                                            else
-                                            {
-                                                messagestring = "Process 1 is null";
-                                            }
+                        //                    }
+                        //                    else if (dataGridVieworder.Rows[e.RowIndex].Cells[2].Value.ToString() == "CNC")
+                        //                    {
+                        //                        ret = CNCUnLoadfun(magnumber, 2, ref messagestring);//铣床上料 ;
+                        //                        if (ret == 0)
+                        //                        {
+                        //                            MainForm.magprocesss1tate[magnumber - 1] = (int)Processstate.Unloading;
+                        //                        }
+                        //                    }
+                        //                    else
+                        //                    {
+                        //                        messagestring = "Process 1 is null";
+                        //                    }
 
-                                        }
-                                        else if (MainForm.magprocesss1tate[magnumber - 1] == (int)Processstate.Notstart
-                                            || MainForm.magprocesss1tate[magnumber - 1] == (int)Processstate.Loading)
-                                        {
-                                            messagestring = "Process 1 have not loaded";
-                                        }
-                                        else if (MainForm.magprocesss1tate[magnumber - 1] == (int)Processstate.Running)
-                                        {
-                                            messagestring = "Process 1 is running";
-                                        }
-                                        else if (MainForm.magprocesss1tate[magnumber - 1] == (int)Processstate.Unloading
-                                           || MainForm.magprocesss1tate[magnumber - 1] == (int)Processstate.Unloaded)
-                                        {
-                                            messagestring = "Process 1 already Unloaded";
-                                        }
-                                    }
-                                    else if (dataGridVieworder.Rows[e.RowIndex].Cells[5].Value.ToString() == "Change")
-                                    {
-                                        if (MainForm.magprocesss1tate[magnumber - 1] == (int)Processstate.Notstart)
-                                        {
-                                            if (dataGridVieworder.Rows[e.RowIndex].Cells[2].Value.ToString() == "Lathe")
-                                            {
-                                                ret = CNCChangefun(magnumber, 1, ref messagestring);//车床上料 ;//机床是否能执行
-                                                if (ret == 0)
-                                                {
-                                                    MainForm.magprocesss1tate[magnumber - 1] = (int)Processstate.Loading;
-                                                }
-                                            }
-                                            else if (dataGridVieworder.Rows[e.RowIndex].Cells[2].Value.ToString() == "CNC")
-                                            {
-                                                ret = CNCChangefun(magnumber, 2, ref messagestring);//铣床上料 ;
-                                                if (ret == 0)
-                                                {
-                                                    MainForm.magprocesss1tate[magnumber - 1] = (int)Processstate.Loading;
-                                                }
-                                            }
-                                            else
-                                            {
-                                                messagestring = "Process 1 is null";
-                                            }
-                                        }
-                                        else
-                                        {
-                                            messagestring = "Process 1 already Loaded";
-                                        }
-                                    }
+                        //                }
+                        //                else if (MainForm.magprocesss1tate[magnumber - 1] == (int)Processstate.Notstart
+                        //                    || MainForm.magprocesss1tate[magnumber - 1] == (int)Processstate.Loading)
+                        //                {
+                        //                    messagestring = "Process 1 have not loaded";
+                        //                }
+                        //                else if (MainForm.magprocesss1tate[magnumber - 1] == (int)Processstate.Running)
+                        //                {
+                        //                    messagestring = "Process 1 is running";
+                        //                }
+                        //                else if (MainForm.magprocesss1tate[magnumber - 1] == (int)Processstate.Unloading
+                        //                   || MainForm.magprocesss1tate[magnumber - 1] == (int)Processstate.Unloaded)
+                        //                {
+                        //                    messagestring = "Process 1 already Unloaded";
+                        //                }
+                        //            }
+                        //            else if (dataGridVieworder.Rows[e.RowIndex].Cells[5].Value.ToString() == "Change")
+                        //            {
+                        //                if (MainForm.magprocesss1tate[magnumber - 1] == (int)Processstate.Notstart)
+                        //                {
+                        //                    if (dataGridVieworder.Rows[e.RowIndex].Cells[2].Value.ToString() == "Lathe")
+                        //                    {
+                        //                        ret = CNCChangefun(magnumber, 1, ref messagestring);//车床上料 ;//机床是否能执行
+                        //                        if (ret == 0)
+                        //                        {
+                        //                            MainForm.magprocesss1tate[magnumber - 1] = (int)Processstate.Loading;
+                        //                        }
+                        //                    }
+                        //                    else if (dataGridVieworder.Rows[e.RowIndex].Cells[2].Value.ToString() == "CNC")
+                        //                    {
+                        //                        ret = CNCChangefun(magnumber, 2, ref messagestring);//铣床上料 ;
+                        //                        if (ret == 0)
+                        //                        {
+                        //                            MainForm.magprocesss1tate[magnumber - 1] = (int)Processstate.Loading;
+                        //                        }
+                        //                    }
+                        //                    else
+                        //                    {
+                        //                        messagestring = "Process 1 is null";
+                        //                    }
+                        //                }
+                        //                else
+                        //                {
+                        //                    messagestring = "Process 1 already Loaded";
+                        //                }
+                        //            }
 
-                                }
-                                else if (dataGridVieworder.Rows[e.RowIndex].Cells[4].Value.ToString() == "Processes2")
-                                {
+                        //        }
+                        //        else if (dataGridVieworder.Rows[e.RowIndex].Cells[4].Value.ToString() == "Processes2")
+                        //        {
 
-                                    //订单逻辑是否满足
-                                    if (dataGridVieworder.Rows[e.RowIndex].Cells[5].Value.ToString() == "Load")
-                                    {
-                                        if (MainForm.magprocesss2tate[magnumber - 1] == (int)Processstate.Notstart)
-                                        {
-                                            if (dataGridVieworder.Rows[e.RowIndex].Cells[3].Value.ToString() == "Lathe")
-                                            {
-                                                ret = CNCLoadfun(magnumber, 1, ref messagestring);//车床上料 ;//机床是否能执行
-                                                if (ret == 0)
-                                                {
-                                                    MainForm.magprocesss2tate[magnumber - 1] = (int)Processstate.Loading;
-                                                }
-                                            }
-                                            else if (dataGridVieworder.Rows[e.RowIndex].Cells[3].Value.ToString() == "CNC")
-                                            {
-                                                ret = CNCLoadfun(magnumber, 2, ref messagestring);//铣床上料 ;
-                                                if (ret == 0)
-                                                {
-                                                    MainForm.magprocesss2tate[magnumber - 1] = (int)Processstate.Loading;
-                                                }
+                        //            //订单逻辑是否满足
+                        //            if (dataGridVieworder.Rows[e.RowIndex].Cells[5].Value.ToString() == "Load")
+                        //            {
+                        //                if (MainForm.magprocesss2tate[magnumber - 1] == (int)Processstate.Notstart)
+                        //                {
+                        //                    if (dataGridVieworder.Rows[e.RowIndex].Cells[3].Value.ToString() == "Lathe")
+                        //                    {
+                        //                        ret = CNCLoadfun(magnumber, 1, ref messagestring);//车床上料 ;//机床是否能执行
+                        //                        if (ret == 0)
+                        //                        {
+                        //                            MainForm.magprocesss2tate[magnumber - 1] = (int)Processstate.Loading;
+                        //                        }
+                        //                    }
+                        //                    else if (dataGridVieworder.Rows[e.RowIndex].Cells[3].Value.ToString() == "CNC")
+                        //                    {
+                        //                        ret = CNCLoadfun(magnumber, 2, ref messagestring);//铣床上料 ;
+                        //                        if (ret == 0)
+                        //                        {
+                        //                            MainForm.magprocesss2tate[magnumber - 1] = (int)Processstate.Loading;
+                        //                        }
 
-                                            }
-                                            else
-                                            {
-                                                messagestring = "Processes 2 is null";
-                                            }
+                        //                    }
+                        //                    else
+                        //                    {
+                        //                        messagestring = "Processes 2 is null";
+                        //                    }
 
-                                        }
-                                        else
-                                        {
-                                            messagestring = "Processes 2 already Loaded";
-                                        }
-                                    }
+                        //                }
+                        //                else
+                        //                {
+                        //                    messagestring = "Processes 2 already Loaded";
+                        //                }
+                        //            }
 
-                                    else if (dataGridVieworder.Rows[e.RowIndex].Cells[5].Value.ToString() == "UnLoad")
-                                    {
-                                        if (MainForm.magprocesss2tate[magnumber - 1] == (int)Processstate.Runned)
-                                        {
-                                            if (dataGridVieworder.Rows[e.RowIndex].Cells[3].Value.ToString() == "Lathe")
-                                            {
-                                                ret = CNCUnLoadfun(magnumber, 1, ref messagestring);//车床上料 ;//机床是否能执行
-                                                if (ret == 0)
-                                                {
-                                                    MainForm.magprocesss2tate[magnumber - 1] = (int)Processstate.Unloading;
-                                                }
+                        //            else if (dataGridVieworder.Rows[e.RowIndex].Cells[5].Value.ToString() == "UnLoad")
+                        //            {
+                        //                if (MainForm.magprocesss2tate[magnumber - 1] == (int)Processstate.Runned)
+                        //                {
+                        //                    if (dataGridVieworder.Rows[e.RowIndex].Cells[3].Value.ToString() == "Lathe")
+                        //                    {
+                        //                        ret = CNCUnLoadfun(magnumber, 1, ref messagestring);//车床上料 ;//机床是否能执行
+                        //                        if (ret == 0)
+                        //                        {
+                        //                            MainForm.magprocesss2tate[magnumber - 1] = (int)Processstate.Unloading;
+                        //                        }
 
-                                            }
-                                            else if (dataGridVieworder.Rows[e.RowIndex].Cells[3].Value.ToString() == "CNC")
-                                            {
-                                                ret = CNCUnLoadfun(magnumber, 2, ref messagestring);//铣床上料 ;
-                                                if (ret == 0)
-                                                {
-                                                    MainForm.magprocesss2tate[magnumber - 1] = (int)Processstate.Unloading;
-                                                }
-                                            }
-                                            else
-                                            {
-                                                messagestring = "Processes 2 is null";
-                                            }
+                        //                    }
+                        //                    else if (dataGridVieworder.Rows[e.RowIndex].Cells[3].Value.ToString() == "CNC")
+                        //                    {
+                        //                        ret = CNCUnLoadfun(magnumber, 2, ref messagestring);//铣床上料 ;
+                        //                        if (ret == 0)
+                        //                        {
+                        //                            MainForm.magprocesss2tate[magnumber - 1] = (int)Processstate.Unloading;
+                        //                        }
+                        //                    }
+                        //                    else
+                        //                    {
+                        //                        messagestring = "Processes 2 is null";
+                        //                    }
 
-                                        }
-                                        else if (MainForm.magprocesss2tate[magnumber - 1] == (int)Processstate.Notstart
-                                            || MainForm.magprocesss2tate[magnumber - 1] == (int)Processstate.Loading)
-                                        {
-                                            messagestring = "Processes 2 have not loaded";
-                                        }
-                                        else if (MainForm.magprocesss2tate[magnumber - 1] == (int)Processstate.Running)
-                                        {
-                                            messagestring = "Processes 2 is running";
-                                        }
-                                        else if (MainForm.magprocesss2tate[magnumber - 1] == (int)Processstate.Unloading
-                                           || MainForm.magprocesss2tate[magnumber - 1] == (int)Processstate.Unloaded)
-                                        {
-                                            messagestring = "Processes 2 already Unloaded";
-                                        }
-                                    }
-                                    else if (dataGridVieworder.Rows[e.RowIndex].Cells[5].Value.ToString() == "Change")
-                                    {
-                                        if (MainForm.magprocesss2tate[magnumber - 1] == (int)Processstate.Notstart)
-                                        {
-                                            if (dataGridVieworder.Rows[e.RowIndex].Cells[3].Value.ToString() == "Lathe")
-                                            {
-                                                ret = CNCChangefun(magnumber, 1, ref messagestring);//车床上料 ;//机床是否能执行
-                                                if (ret == 0)
-                                                {
-                                                    MainForm.magprocesss2tate[magnumber - 1] = (int)Processstate.Loading;
-                                                }
-                                            }
-                                            else if (dataGridVieworder.Rows[e.RowIndex].Cells[3].Value.ToString() == "CNC")
-                                            {
-                                                ret = CNCChangefun(magnumber, 2, ref messagestring);//铣床上料 ;
-                                                if (ret == 0)
-                                                {
-                                                    MainForm.magprocesss2tate[magnumber - 1] = (int)Processstate.Loading;
-                                                }
-                                            }
-                                            else
-                                            {
-                                                messagestring = "Processes 2 is null";
-                                            }
-                                        }
-                                        else
-                                        {
-                                            messagestring = "Processes 2 already Loaded";
-                                        }
-                                    }
-                                }
+                        //                }
+                        //                else if (MainForm.magprocesss2tate[magnumber - 1] == (int)Processstate.Notstart
+                        //                    || MainForm.magprocesss2tate[magnumber - 1] == (int)Processstate.Loading)
+                        //                {
+                        //                    messagestring = "Processes 2 have not loaded";
+                        //                }
+                        //                else if (MainForm.magprocesss2tate[magnumber - 1] == (int)Processstate.Running)
+                        //                {
+                        //                    messagestring = "Processes 2 is running";
+                        //                }
+                        //                else if (MainForm.magprocesss2tate[magnumber - 1] == (int)Processstate.Unloading
+                        //                   || MainForm.magprocesss2tate[magnumber - 1] == (int)Processstate.Unloaded)
+                        //                {
+                        //                    messagestring = "Processes 2 already Unloaded";
+                        //                }
+                        //            }
+                        //            else if (dataGridVieworder.Rows[e.RowIndex].Cells[5].Value.ToString() == "Change")
+                        //            {
+                        //                if (MainForm.magprocesss2tate[magnumber - 1] == (int)Processstate.Notstart)
+                        //                {
+                        //                    if (dataGridVieworder.Rows[e.RowIndex].Cells[3].Value.ToString() == "Lathe")
+                        //                    {
+                        //                        ret = CNCChangefun(magnumber, 1, ref messagestring);//车床上料 ;//机床是否能执行
+                        //                        if (ret == 0)
+                        //                        {
+                        //                            MainForm.magprocesss2tate[magnumber - 1] = (int)Processstate.Loading;
+                        //                        }
+                        //                    }
+                        //                    else if (dataGridVieworder.Rows[e.RowIndex].Cells[3].Value.ToString() == "CNC")
+                        //                    {
+                        //                        ret = CNCChangefun(magnumber, 2, ref messagestring);//铣床上料 ;
+                        //                        if (ret == 0)
+                        //                        {
+                        //                            MainForm.magprocesss2tate[magnumber - 1] = (int)Processstate.Loading;
+                        //                        }
+                        //                    }
+                        //                    else
+                        //                    {
+                        //                        messagestring = "Processes 2 is null";
+                        //                    }
+                        //                }
+                        //                else
+                        //                {
+                        //                    messagestring = "Processes 2 already Loaded";
+                        //                }
+                        //            }
+                        //        }
 
-                                //for (int jj = 0; jj < dataGridVieworder.RowCount; jj++)
+                        //        //for (int jj = 0; jj < dataGridVieworder.RowCount; jj++)
 
 
-                                if (ret == 0)//操作成功
-                                {
-                                    dataGridVieworder.Rows[e.RowIndex].Cells[6].Style.BackColor = Color.Gray;
+                        //        if (ret == 0)//操作成功
+                        //        {
+                        //            dataGridVieworder.Rows[e.RowIndex].Cells[6].Style.BackColor = Color.Gray;
 
-                                }
-                                if (ret == -1)
-                                {
-                                    MessageBox.Show(messagestring);
-                                }
-                            }
-                            else
-                            {
-                                return;
-                            }
-                        }
-                        else  //中文
+                        //        }
+                        //        if (ret == -1)
+                        //        {
+                        //            MessageBox.Show(messagestring);
+                        //        }
+                        //    }
+                        //    else
+                        //    {
+                        //        return;
+                        //    }
+                        //}
+                       // else  //中文
                         {
                             Color color1;
                             color1 = dataGridVieworder.Rows[e.RowIndex].Cells[e.ColumnIndex].Style.BackColor;
-                            if (dataGridVieworder.Rows[e.RowIndex].Cells[e.ColumnIndex].Style.BackColor == Color.LightGreen)//订单未下达
+                            if (dataGridVieworder.Rows[e.RowIndex].Cells[e.ColumnIndex].Style.BackColor == Color.DarkTurquoise)//订单未下达
                             {
                                 string magnumbers = dataGridVieworder2.Rows[e.RowIndex].Cells[1].Value.ToString();
                                 int magnumber = Convert.ToInt32(magnumbers);
@@ -2494,7 +2517,7 @@ namespace SCADA
 
         private void TopRangeDataGridView(int rowindex)
         {
-            if(rowindex==0)
+            if (rowindex == 0)
             {
                 return;
             }
@@ -3964,7 +3987,7 @@ namespace SCADA
                 int ii = 0;
                 line = sr.ReadLine();
                 datas.Clear();
-               // MeterSetDataList.Clear();
+                // MeterSetDataList.Clear();
                 //MeterSetData datatemp = new MeterSetData();
                 while (line != null && line != "")
                 {
@@ -4142,7 +4165,7 @@ namespace SCADA
                         valueb[ii] = true;//检测合格  
                         tooldadas[ii].toolno = 0;
                         tooldadas[ii].type = 0;
-                    
+
                         if (Rvalue >= 0)
                         {
                             if (Rvalue >= (MeterSetDataList[ii].StaValue + MeterSetDataList[ii].LowValue) && Rvalue <= (MeterSetDataList[ii].StaValue + MeterSetDataList[ii].UpValue))
@@ -4217,17 +4240,17 @@ namespace SCADA
             }
             int toonoA = MeterSetDataList[compindex].toolno;
             double RvalueA = Convert.ToDouble(valuestrarry[compindex]);
-          //  //粗加工
-          //  //if (!FineProcess)
-          //  //{
-          ////  GetRoughToolData(toonoA, RvalueA);
-          //  GetRoughToolData();
-          //  // }
-          //  //else//精加工
-          //  //{
-          //  //GetFineToolData(toonoA, RvalueA);
-          //  GetFineToolData();
-          //  //}
+            //  //粗加工
+            //  //if (!FineProcess)
+            //  //{
+            ////  GetRoughToolData(toonoA, RvalueA);
+            //  GetRoughToolData();
+            //  // }
+            //  //else//精加工
+            //  //{
+            //  //GetFineToolData(toonoA, RvalueA);
+            //  GetFineToolData();
+            //  //}
 
         }
 
@@ -4236,15 +4259,15 @@ namespace SCADA
             int Sign = 0;
             int Inter = 0;
             int dec = 0;
-     
+
 
             DoubleToInt(MainForm.cncv2list[1].TOOLData[toolno - 1].Radius, ref Sign, ref Inter, ref dec);
             ModbusTcp.DataMoubus[(int)ModbusTcp.DataConfigArr.RoughRadius_Positive] = Sign;
             ModbusTcp.DataMoubus[(int)ModbusTcp.DataConfigArr.RoughRadius_int] = Inter;
             ModbusTcp.DataMoubus[(int)ModbusTcp.DataConfigArr.RoughRadius_Float] = dec;
 
-          
-           DoubleToInt(MainForm.cncv2list[1].TOOLData[toolno - 1].RadiusComp, ref Sign, ref Inter, ref dec);
+
+            DoubleToInt(MainForm.cncv2list[1].TOOLData[toolno - 1].RadiusComp, ref Sign, ref Inter, ref dec);
             ModbusTcp.DataMoubus[(int)ModbusTcp.DataConfigArr.RoughRadiusWear_Positive] = Sign;
             ModbusTcp.DataMoubus[(int)ModbusTcp.DataConfigArr.RoughRadiusWear_int] = Inter;
             ModbusTcp.DataMoubus[(int)ModbusTcp.DataConfigArr.RoughRadiusWear_Float] = dec;
@@ -4255,7 +4278,7 @@ namespace SCADA
             ModbusTcp.DataMoubus[(int)ModbusTcp.DataConfigArr.RoughMeter_Float] = dec;
         }
 
-         
+
         private void GetRoughToolData()
         {
             int Sign = 0;
@@ -4334,7 +4357,7 @@ namespace SCADA
                 }
                 else
                 {
-                     integepartrs = temps.Substring(1, index - 1);//整数部分
+                    integepartrs = temps.Substring(1, index - 1);//整数部分
                 }
                 string decimalparts = temps.Substring(index + 1);//小数部分
                 int zerosum = 1;
@@ -4371,7 +4394,7 @@ namespace SCADA
                 //}
 
                 integepart = Convert.ToInt32(integepartrs);
-                decimalpart = Convert.ToInt32(decimalparts)* zerosum;
+                decimalpart = Convert.ToInt32(decimalparts) * zerosum;
             }
             else
             {
@@ -4385,7 +4408,7 @@ namespace SCADA
             int Sign = 0;
             int Inter = 0;
             int dec = 0;
-           
+
             DoubleToInt(MainForm.cncv2list[1].TOOLData[toolno - 1].Radius, ref Sign, ref Inter, ref dec);
             ModbusTcp.DataMoubus[(int)ModbusTcp.DataConfigArr.FineRadiusWear_Positive] = Sign;
             ModbusTcp.DataMoubus[(int)ModbusTcp.DataConfigArr.FineRadius_int] = Inter;
@@ -4633,7 +4656,7 @@ namespace SCADA
 
                     return;
                 }
-                MainForm.sptcp1.SendData((byte)ModbusTcp.Func_Code.writereg, (int)ModbusTcp.DataConfigArr.Mag_Scene, 120, 1, 0);//给plc写订单信息
+                MainForm.sptcp1.SendData((byte)ModbusTcp.Func_Code.writereg, (int)ModbusTcp.DataConfigArr.Mag_Scene, 120, 1, 0);//给plc写立库信息
                 MainForm.sptcp1.ReceiveData();
             }
             if (RackForm.getrfidflag)//获取plc的料仓整体信息
@@ -4644,7 +4667,7 @@ namespace SCADA
                     RackForm.recivemagmessage = false;
                     return;
                 }
-                MainForm.sptcp1.SendData((byte)ModbusTcp.Func_Code.req, 1, 0, (int)ModbusTcp.DataConfigArr.Mag_Scene, 120);//给plc写订单信息
+                MainForm.sptcp1.SendData((byte)ModbusTcp.Func_Code.req, 1, 0, (int)ModbusTcp.DataConfigArr.Mag_Scene, 120);//给plc写立库信息
                 MainForm.sptcp1.ReceiveData();
             }
             if (RackForm.magstatesyncflag)//只有在mes执行写rfid功能后，才同步仓位信息给plc
@@ -4664,7 +4687,7 @@ namespace SCADA
 
 
         }
-
+       
 
         //下达订单或者下达返修取料命令
         private void MESToPLCorderfun()
@@ -4672,23 +4695,12 @@ namespace SCADA
             if (ModbusTcp.Rack_number_write_flage == true)
             {
                 ModbusTcp.Rack_number_write_count++;
-                //if (timermodbus.Interval * ModbusTcp.Rack_number_write_count > 60 * 1000)//指令下达交互时间1min无回应，报错
-                //{
-                //    MessageBox.Show("订单下达超时，订单撤回！");
-                //    ModbusTcp.Rack_number_write_count = 0;
-                //    ModbusTcp.Rack_number_write_flage = false;
-                //    RebackOrder();
-                //    return;
-                //}
-                //if (ModbusTcp.DataMoubus[(int)SCADA.ModbusTcp.DataConfigArr.Mesans_Robot_speed] == 1)
-                //{
-                //    return;
-                //}
-                MainForm.sptcp1.SendData((byte)ModbusTcp.Func_Code.writereg, (int)ModbusTcp.DataConfigArr.MES_PLC_comfirm, 4, 1, 0);//给plc写订单信息
+              
+                MainForm.sptcp1.SendData((byte)ModbusTcp.Func_Code.writereg, (int)ModbusTcp.DataConfigArr.MES_PLC_comfirm, 4, 1, 0);//给plc写机器人任务信息
                 MainForm.sptcp1.ReceiveData();
 
                 Thread.Sleep(20);
-                MainForm.sptcp1.SendData((byte)ModbusTcp.Func_Code.req, 1, 0, (int)ModbusTcp.DataConfigArr.PLC_MES_respone, 4);//给plc写订单信息
+                MainForm.sptcp1.SendData((byte)ModbusTcp.Func_Code.req, 1, 0, (int)ModbusTcp.DataConfigArr.PLC_MES_respone, 4);//请求机器人任务反馈信息
                 MainForm.sptcp1.ReceiveData();
 
                 Thread.Sleep(20);
@@ -4717,11 +4729,11 @@ namespace SCADA
             ModbusTcp.DataMoubus[(int)ModbusTcp.DataConfigArr.Rack_number_UnLoad_comfirm] = 0;
             ModbusTcp.DataMoubus[(int)ModbusTcp.DataConfigArr.Order_type_comfirm] = 0;
             ModbusTcp.DataMoubus[(int)ModbusTcp.DataConfigArr.PLC_MES_respone] = 0;
-            MainForm.sptcp1.SendData((byte)ModbusTcp.Func_Code.writereg, (int)ModbusTcp.DataConfigArr.MES_PLC_comfirm, 4, 1, 0);//给plc写订单信息
+            MainForm.sptcp1.SendData((byte)ModbusTcp.Func_Code.writereg, (int)ModbusTcp.DataConfigArr.MES_PLC_comfirm, 4, 1, 0);//给plc写机器人任务信息
             MainForm.sptcp1.ReceiveData();
 
             Thread.Sleep(2);
-            MainForm.sptcp1.SendData((byte)ModbusTcp.Func_Code.writereg, (int)ModbusTcp.DataConfigArr.MES_PLC_comfirm, 4, 1, 0);//给plc写订单信息
+            MainForm.sptcp1.SendData((byte)ModbusTcp.Func_Code.writereg, (int)ModbusTcp.DataConfigArr.MES_PLC_comfirm, 4, 1, 0);//给plc写机器人任务信息
             MainForm.sptcp1.ReceiveData();
             Thread.Sleep(2);
 
@@ -4757,9 +4769,9 @@ namespace SCADA
 
                         ModbusTcp.DataMoubus[(int)ModbusTcp.DataConfigArr.PLC_MES_respone] = 0;
                         ModbusTcp.DataMoubus[(int)ModbusTcp.DataConfigArr.MES_PLC_comfirm] = 0;
-                        MainForm.sptcp1.SendData((byte)ModbusTcp.Func_Code.writereg, (int)ModbusTcp.DataConfigArr.MES_PLC_comfirm, 1, 1, 0);//给plc写订单信息
+                        MainForm.sptcp1.SendData((byte)ModbusTcp.Func_Code.writereg, (int)ModbusTcp.DataConfigArr.MES_PLC_comfirm, 1, 1, 0);//给plc写启动任务
                         MainForm.sptcp1.ReceiveData();
-                        MainForm.sptcp1.SendData((byte)ModbusTcp.Func_Code.writereg, (int)ModbusTcp.DataConfigArr.PLC_MES_respone, 1, 1, 0);//给plc写订单信息
+                        MainForm.sptcp1.SendData((byte)ModbusTcp.Func_Code.writereg, (int)ModbusTcp.DataConfigArr.PLC_MES_respone, 1, 1, 0);//给plc写启动任务
                         MainForm.sptcp1.ReceiveData();
                         MessageBox.Show(temp);
                         return;
@@ -4778,9 +4790,9 @@ namespace SCADA
 
                         ModbusTcp.DataMoubus[(int)ModbusTcp.DataConfigArr.PLC_MES_respone] = 0;
                         ModbusTcp.DataMoubus[(int)ModbusTcp.DataConfigArr.MES_PLC_comfirm] = 0;
-                        MainForm.sptcp1.SendData((byte)ModbusTcp.Func_Code.writereg, (int)ModbusTcp.DataConfigArr.MES_PLC_comfirm, 1, 1, 0);//给plc写订单信息
+                        MainForm.sptcp1.SendData((byte)ModbusTcp.Func_Code.writereg, (int)ModbusTcp.DataConfigArr.MES_PLC_comfirm, 1, 1, 0);//给plc写启动任务
                         MainForm.sptcp1.ReceiveData();
-                        MainForm.sptcp1.SendData((byte)ModbusTcp.Func_Code.writereg, (int)ModbusTcp.DataConfigArr.PLC_MES_respone, 1, 1, 0);//给plc写订单信息
+                        MainForm.sptcp1.SendData((byte)ModbusTcp.Func_Code.writereg, (int)ModbusTcp.DataConfigArr.PLC_MES_respone, 1, 1, 0);//给plc写启动任务
                         MainForm.sptcp1.ReceiveData();
                         MessageBox.Show(temp);
                         return;
@@ -4799,9 +4811,9 @@ namespace SCADA
 
                         ModbusTcp.DataMoubus[(int)ModbusTcp.DataConfigArr.PLC_MES_respone] = 0;
                         ModbusTcp.DataMoubus[(int)ModbusTcp.DataConfigArr.MES_PLC_comfirm] = 0;
-                        MainForm.sptcp1.SendData((byte)ModbusTcp.Func_Code.writereg, (int)ModbusTcp.DataConfigArr.MES_PLC_comfirm, 1, 1, 0);//给plc写订单信息
+                        MainForm.sptcp1.SendData((byte)ModbusTcp.Func_Code.writereg, (int)ModbusTcp.DataConfigArr.MES_PLC_comfirm, 1, 1, 0);//给plc写启动任务
                         MainForm.sptcp1.ReceiveData();
-                        MainForm.sptcp1.SendData((byte)ModbusTcp.Func_Code.writereg, (int)ModbusTcp.DataConfigArr.PLC_MES_respone, 1, 1, 0);//给plc写订单信息
+                        MainForm.sptcp1.SendData((byte)ModbusTcp.Func_Code.writereg, (int)ModbusTcp.DataConfigArr.PLC_MES_respone, 1, 1, 0);//给plc写启动任务
                         MainForm.sptcp1.ReceiveData();
                         MessageBox.Show(temp);
                         return;
@@ -4833,9 +4845,9 @@ namespace SCADA
 
                     ModbusTcp.DataMoubus[(int)ModbusTcp.DataConfigArr.PLC_MES_respone] = 0;
                     ModbusTcp.DataMoubus[(int)ModbusTcp.DataConfigArr.MES_PLC_comfirm] = 0;
-                    MainForm.sptcp1.SendData((byte)ModbusTcp.Func_Code.writereg, (int)ModbusTcp.DataConfigArr.MES_PLC_comfirm, 1, 1, 0);//给plc写订单信息
+                    MainForm.sptcp1.SendData((byte)ModbusTcp.Func_Code.writereg, (int)ModbusTcp.DataConfigArr.MES_PLC_comfirm, 1, 1, 0);//给plc写启动任务
                     MainForm.sptcp1.ReceiveData();
-                    MainForm.sptcp1.SendData((byte)ModbusTcp.Func_Code.writereg, (int)ModbusTcp.DataConfigArr.PLC_MES_respone, 1, 1, 0);//给plc写订单信息
+                    MainForm.sptcp1.SendData((byte)ModbusTcp.Func_Code.writereg, (int)ModbusTcp.DataConfigArr.PLC_MES_respone, 1, 1, 0);//给plc写启动任务
                     MainForm.sptcp1.ReceiveData();
                     MessageBox.Show(temp);
                     return;
@@ -4843,11 +4855,11 @@ namespace SCADA
 
 
 
-                MainForm.sptcp1.SendData((byte)ModbusTcp.Func_Code.writereg, (int)ModbusTcp.DataConfigArr.MES_PLC_comfirm, 1, 1, 0);//给plc写订单信息
+                MainForm.sptcp1.SendData((byte)ModbusTcp.Func_Code.writereg, (int)ModbusTcp.DataConfigArr.MES_PLC_comfirm, 1, 1, 0);//给plc写启动任务
                 MainForm.sptcp1.ReceiveData();
 
                 Thread.Sleep(2);
-                MainForm.sptcp1.SendData((byte)ModbusTcp.Func_Code.req, 1, 0, (int)ModbusTcp.DataConfigArr.PLC_MES_respone, 1);//给plc写订单信息
+                MainForm.sptcp1.SendData((byte)ModbusTcp.Func_Code.req, 1, 0, (int)ModbusTcp.DataConfigArr.PLC_MES_respone, 1);//给plc写启动任务
                 MainForm.sptcp1.ReceiveData();
                 Thread.Sleep(2);
                 if (ModbusTcp.DataMoubus[(int)ModbusTcp.DataConfigArr.PLC_MES_respone] == ModbusTcp.DataMoubus[(int)ModbusTcp.DataConfigArr.MES_PLC_comfirm])
@@ -4897,6 +4909,9 @@ namespace SCADA
                 return;
         }
 
+        /// <summary>
+        /// PLC反馈设备1的信号处理
+        /// </summary>
         private void PLCToMEScncfun()//机器人放料完成回到home点后，给出完成信号
         {
 
@@ -4958,10 +4973,10 @@ namespace SCADA
                     {
                         MainForm.magprocesss1tate[finishmag - 1] = (int)Processstate.Loaded;
                         tempstring = finishmags + "号料上料完成";
-                        if (language == "English")
-                        {
-                            tempstring = finishmags + "Load finished";
-                        }
+                        //if (language == "English")
+                        //{
+                        //    tempstring = finishmags + "Load finished";
+                        //}
                     }
                     else if (MainForm.magprocesss1tate[finishmag - 1] == (int)Processstate.Unloading)
                     {
@@ -4972,17 +4987,17 @@ namespace SCADA
                         MainForm.magprocesss1tate[finishmag - 1] = (int)Processstate.Unloaded;
                         dataGridVieworder2.Rows[index].Cells[2].Value = "完成";
                         tempstring = finishmags + "号料下料完成";
-                        if (language == "English")
-                        {
-                            dataGridVieworder2.Rows[index].Cells[2].Value = "Finish";
-                            tempstring = finishmags + "unload finished";
-                        }
+                        //if (language == "English")
+                        //{
+                        //    dataGridVieworder2.Rows[index].Cells[2].Value = "Finish";
+                        //    tempstring = finishmags + "unload finished";
+                        //}
                         if (MainForm.cncv2list[0].MagNum == finishmag) // 更新机床完成信号
                         {
                             MainForm.cncv2list[0].MagNum = 0;
                         }
                     }
-                    dataGridVieworder.Rows[index].Cells[6].Style.BackColor = Color.LightGreen;
+                    dataGridVieworder.Rows[index].Cells[6].Style.BackColor = Color.DarkTurquoise;
                 }
                 else if (dataGridVieworder.Rows[index].Cells[3].Value.ToString() == "车工序" || dataGridVieworder.Rows[index].Cells[3].Value.ToString() == "Lathe")
                 {
@@ -4990,10 +5005,10 @@ namespace SCADA
                     {
                         MainForm.magprocesss2tate[finishmag - 1] = (int)Processstate.Loaded;
                         tempstring = finishmags + "号料上料完成";
-                        if (language == "English")
-                        {
-                            tempstring = finishmags + "load finished";
-                        }
+                        //if (language == "English")
+                        //{
+                        //    tempstring = finishmags + "load finished";
+                        //}
                     }
                     else if (MainForm.magprocesss2tate[finishmag - 1] == (int)Processstate.Unloading)
                     {
@@ -5005,16 +5020,16 @@ namespace SCADA
                         ModbusTcp.DataMoubus[magstatei] = (int)ModbusTcp.Mag_state_config.Statecnc1Finish;
                         dataGridVieworder2.Rows[index].Cells[3].Value = "完成";
                         tempstring = finishmags + "号料下料完成";
-                        if (language == "English")
-                        {
-                            dataGridVieworder2.Rows[index].Cells[3].Value = "Finish";
-                            tempstring = finishmags + "Unload finished";
-                        }
+                        //if (language == "English")
+                        //{
+                        //    dataGridVieworder2.Rows[index].Cells[3].Value = "Finish";
+                        //    tempstring = finishmags + "Unload finished";
+                        //}
                         if (MainForm.cncv2list[0].MagNum == finishmag) // 更新机床完成信号
                         {
                             MainForm.cncv2list[0].MagNum = 0;
                         }
-                        dataGridVieworder.Rows[index].Cells[6].Style.BackColor = Color.LightGreen;
+                        dataGridVieworder.Rows[index].Cells[6].Style.BackColor = Color.DarkTurquoise;
                     }
                 }
 
@@ -5023,12 +5038,12 @@ namespace SCADA
             {
                 ModbusTcp.PLC_MES_comfim_req_count++;
 
-                MainForm.sptcp1.SendData((byte)ModbusTcp.Func_Code.writereg, (int)ModbusTcp.DataConfigArr.Mesans_PLC_response, 4, 1, 0);//给plc写订单信息
+                MainForm.sptcp1.SendData((byte)ModbusTcp.Func_Code.writereg, (int)ModbusTcp.DataConfigArr.Mesans_PLC_response, 4, 1, 0);//给plc写机器人任务
                 MainForm.sptcp1.ReceiveData();
 
 
                 Thread.Sleep(2);
-                MainForm.sptcp1.SendData((byte)ModbusTcp.Func_Code.req, 1, 0, (int)ModbusTcp.DataConfigArr.PLC_MES_comfirm, 4);//给plc写订单信息
+                MainForm.sptcp1.SendData((byte)ModbusTcp.Func_Code.req, 1, 0, (int)ModbusTcp.DataConfigArr.PLC_MES_comfirm, 4);//给plc写机器人任务
                 MainForm.sptcp1.ReceiveData();
 
 
@@ -5038,7 +5053,7 @@ namespace SCADA
                     ModbusTcp.DataMoubus[(int)ModbusTcp.DataConfigArr.Machine_type_response] = 0;//MES响应信号清零
                     ModbusTcp.DataMoubus[(int)ModbusTcp.DataConfigArr.Rcak_Load_number_response] = 0;//MES响应信号清零
                     ModbusTcp.DataMoubus[(int)ModbusTcp.DataConfigArr.Rcak_Unload_number_response] = 0;//MES响应信号清零
-                    MainForm.sptcp1.SendData((byte)ModbusTcp.Func_Code.writereg, (int)ModbusTcp.DataConfigArr.Mesans_PLC_response, 4, 1, 0);//给plc写订单信息
+                    MainForm.sptcp1.SendData((byte)ModbusTcp.Func_Code.writereg, (int)ModbusTcp.DataConfigArr.Mesans_PLC_response, 4, 1, 0);//给plc写机器人任务
                     MainForm.sptcp1.ReceiveData();
                     if (ModbusTcp.PLC_MES_comfim_back_flage == false)
                     {
@@ -5048,11 +5063,11 @@ namespace SCADA
                 if (ModbusTcp.PLC_MES_comfim_back_flage == true)
                 {
 
-                    MainForm.sptcp1.SendData((byte)ModbusTcp.Func_Code.req, 1, 0, (int)ModbusTcp.DataConfigArr.Mesans_PLC_response, 4);//给plc写订单信息
+                    MainForm.sptcp1.SendData((byte)ModbusTcp.Func_Code.req, 1, 0, (int)ModbusTcp.DataConfigArr.Mesans_PLC_response, 4);//给plc写机器人任务
                     MainForm.sptcp1.ReceiveData();
 
                     Thread.Sleep(2);
-                    MainForm.sptcp1.SendData((byte)ModbusTcp.Func_Code.req, 1, 0, (int)ModbusTcp.DataConfigArr.Mesans_PLC_response, 4);//给plc写订单信息
+                    MainForm.sptcp1.SendData((byte)ModbusTcp.Func_Code.req, 1, 0, (int)ModbusTcp.DataConfigArr.Mesans_PLC_response, 4);//给plc写机器人任务
                     MainForm.sptcp1.ReceiveData();
 
 
@@ -5065,13 +5080,16 @@ namespace SCADA
                         ModbusTcp.PLC_MES_comfim_req_flage = false;
                         ModbusTcp.PLC_MES_comfim_back_flage = false;
 
-                      //  MessageBox.Show(tempstring);
+                        //  MessageBox.Show(tempstring);
 
                     }
                 }
             }
 
         }
+        /// <summary>
+        ///  PLC反馈设备2的信号处理
+        /// </summary>
         private void PLCToMEScncfun2()
         {
 
@@ -5098,10 +5116,10 @@ namespace SCADA
                 if (finishmag < 1)
                 {
                     tempstring = "无料位号反馈";
-                    if (language == "English")
-                    {
-                        tempstring = finishmags + "Load finished";
-                    }
+                    //if (language == "English")
+                    //{
+                    //    tempstring = finishmags + "Load finished";
+                    //}
                     MessageBox.Show(tempstring);
                     return;
                 }
@@ -5131,10 +5149,10 @@ namespace SCADA
                     {
                         MainForm.magprocesss1tate[finishmag - 1] = (int)Processstate.Loaded;
                         tempstring = finishmags + "号料上料完成";
-                        if (language == "English")
-                        {
-                            tempstring = finishmags + "load finished";
-                        }
+                        //if (language == "English")
+                        //{
+                        //    tempstring = finishmags + "load finished";
+                        //}
                     }
                     else if (MainForm.magprocesss1tate[finishmag - 1] == (int)Processstate.Unloading)
                     {
@@ -5148,11 +5166,11 @@ namespace SCADA
 
                         ModbusTcp.DataMoubus[magstatei] = (int)ModbusTcp.Mag_state_config.Statecnc2Finish;
 
-                        if (language == "English")
-                        {
-                            dataGridVieworder2.Rows[index].Cells[2].Value = "Finish";
-                            tempstring = finishmags + "Unload finished";
-                        }
+                        //if (language == "English")
+                        //{
+                        //    dataGridVieworder2.Rows[index].Cells[2].Value = "Finish";
+                        //    tempstring = finishmags + "Unload finished";
+                        //}
                         if (MainForm.cncv2list[1].MagNum == finishmag) // 更新机床完成信号
                         {
                             MainForm.cncv2list[1].MagNum = 0;
@@ -5165,10 +5183,10 @@ namespace SCADA
                     {
                         MainForm.magprocesss2tate[finishmag - 1] = (int)Processstate.Loaded;
                         tempstring = finishmags + "号料上料完成";
-                        if (language == "English")
-                        {
-                            tempstring = finishmags + "load finished";
-                        }
+                        //if (language == "English")
+                        //{
+                        //    tempstring = finishmags + "load finished";
+                        //}
 
                     }
                     else if (MainForm.magprocesss2tate[finishmag - 1] == (int)Processstate.Unloading)
@@ -5182,11 +5200,11 @@ namespace SCADA
                         MainForm.magprocesss2tate[finishmag - 1] = (int)Processstate.Unloaded;
                         dataGridVieworder2.Rows[index].Cells[3].Value = "完成";
                         tempstring = finishmags + "号料下料完成";
-                        if (language == "English")
-                        {
-                            dataGridVieworder2.Rows[index].Cells[3].Value = "Finish";
-                            tempstring = finishmags + "Unload finished";
-                        }
+                        //if (language == "English")
+                        //{
+                        //    dataGridVieworder2.Rows[index].Cells[3].Value = "Finish";
+                        //    tempstring = finishmags + "Unload finished";
+                        //}
                         if (MainForm.cncv2list[1].MagNum == finishmag) // 更新机床完成信号
                         {
                             MainForm.cncv2list[1].MagNum = 0;
@@ -5195,17 +5213,17 @@ namespace SCADA
                 }
 
 
-                dataGridVieworder.Rows[index].Cells[6].Style.BackColor = Color.LightGreen;
+                dataGridVieworder.Rows[index].Cells[6].Style.BackColor = Color.DarkTurquoise;
             }
             if (ModbusTcp.PLC_MES_comfim_req_flage_2 == true)
             {
                 ModbusTcp.PLC_MES_comfim_req_count_2++;
 
-                MainForm.sptcp1.SendData((byte)ModbusTcp.Func_Code.writereg, (int)ModbusTcp.DataConfigArr.Mesans_PLC_response_2, 4, 1, 0);//给plc写订单信息
+                MainForm.sptcp1.SendData((byte)ModbusTcp.Func_Code.writereg, (int)ModbusTcp.DataConfigArr.Mesans_PLC_response_2, 4, 1, 0);//
                 MainForm.sptcp1.ReceiveData();
 
                 Thread.Sleep(2);
-                MainForm.sptcp1.SendData((byte)ModbusTcp.Func_Code.writereg, (int)ModbusTcp.DataConfigArr.Mesans_PLC_response_2, 4, 1, 0);//给plc写订单信息
+                MainForm.sptcp1.SendData((byte)ModbusTcp.Func_Code.writereg, (int)ModbusTcp.DataConfigArr.Mesans_PLC_response_2, 4, 1, 0);//
                 MainForm.sptcp1.ReceiveData();
 
                 Thread.Sleep(2);
@@ -5268,12 +5286,190 @@ namespace SCADA
                         //    dataGridVieworder2.Rows[index].Cells[5].Value = "Yes";
 
                         //}
-                     //   MessageBox.Show(tempstring);
+                        //   MessageBox.Show(tempstring);
                     }
                 }
             }
         }
 
+        /// <summary>
+        /// PLC反馈设备3的信号处理
+        /// </summary>
+        private void PLCToMEScncfun3()//机器人放料完成回到home点后，给出完成信号
+        {
+
+            if (ModbusTcp.DataMoubus[(int)ModbusTcp.DataConfigArr.PLC_MES_comfirm] == (int)ModbusTcp.MesResponseToPlc.ResMachining //plc202指令
+                && ModbusTcp.DataMoubus[(int)ModbusTcp.DataConfigArr.Mesans_PLC_response] == 0//mes响应为0
+                && ModbusTcp.PLC_MES_comfim_req_flage == false)//互换标识为false
+            {
+
+                finishmag = 0;
+                finishmagload = ModbusTcp.DataMoubus[(int)ModbusTcp.DataConfigArr.Rcak_Load_number_comfirm]; 
+                finishmagunload = ModbusTcp.DataMoubus[(int)ModbusTcp.DataConfigArr.Rcak_Unload_number_comfirm];
+
+                if (finishmagload > 0)
+                {
+
+                    finishmag = finishmagload;
+                }
+                else if (finishmagunload > 0)
+                {
+
+                    finishmag = finishmagunload;
+                }
+
+
+                string finishmags = finishmag.ToString();
+                // int cncmagno = finishmag;
+                if (finishmag < 1)
+                {
+                    tempstring = "无料位号反馈";
+                    if (language == "English")
+                    {
+                        tempstring = finishmags + "is error";
+                    }
+
+                    MessageBox.Show(tempstring);
+                    return;
+
+                }
+
+
+                ModbusTcp.PLC_MES_comfim_req_flage = true;//置位互换标识，开启互换
+
+                ModbusTcp.DataMoubus[(int)ModbusTcp.DataConfigArr.Mesans_PLC_response] = ModbusTcp.DataMoubus[(int)ModbusTcp.DataConfigArr.PLC_MES_comfirm];//置位MES响应信号
+
+                int index = getmagnorowindex(finishmag);
+                if (index == -1)
+                {
+                    if (MessageHasshow1 == true)
+                    {
+                        MessageHasshow1 = false;
+                        MessageBox.Show("无法匹配完成信号的仓位信息！");
+                    }
+                    return;
+                }
+                MessageHasshow1 = true;
+                if (dataGridVieworder.Rows[index].Cells[2].Value.ToString() == "车工序" || dataGridVieworder.Rows[index].Cells[2].Value.ToString() == "Lathe")
+                {
+                    if (MainForm.magprocesss1tate[finishmag - 1] == (int)Processstate.Loading)
+                    {
+                        MainForm.magprocesss1tate[finishmag - 1] = (int)Processstate.Loaded;
+                        tempstring = finishmags + "号料上料完成";
+                        //if (language == "English")
+                        //{
+                        //    tempstring = finishmags + "Load finished";
+                        //}
+                    }
+                    else if (MainForm.magprocesss1tate[finishmag - 1] == (int)Processstate.Unloading)
+                    {
+                        int magstatestart = (int)SCADA.ModbusTcp.DataConfigArr.Mag_state;//零件类型       
+                        int maglength = (int)ModbusTcp.MagLength;
+                        int magstatei = magstatestart + maglength * (finishmag - 1);//料仓状态
+                        ModbusTcp.DataMoubus[magstatei] = (int)ModbusTcp.Mag_state_config.Statecnc1Finish;
+                        MainForm.magprocesss1tate[finishmag - 1] = (int)Processstate.Unloaded;
+                        dataGridVieworder2.Rows[index].Cells[2].Value = "完成";
+                        tempstring = finishmags + "号料下料完成";
+                        //if (language == "English")
+                        //{
+                        //    dataGridVieworder2.Rows[index].Cells[2].Value = "Finish";
+                        //    tempstring = finishmags + "unload finished";
+                        //}
+                        if (MainForm.cncv2list[0].MagNum == finishmag) // 更新机床完成信号
+                        {
+                            MainForm.cncv2list[0].MagNum = 0;
+                        }
+                    }
+                    dataGridVieworder.Rows[index].Cells[6].Style.BackColor = Color.DarkTurquoise;
+                }
+                else if (dataGridVieworder.Rows[index].Cells[3].Value.ToString() == "车工序" || dataGridVieworder.Rows[index].Cells[3].Value.ToString() == "Lathe")
+                {
+                    if (MainForm.magprocesss2tate[finishmag - 1] == (int)Processstate.Loading)
+                    {
+                        MainForm.magprocesss2tate[finishmag - 1] = (int)Processstate.Loaded;
+                        tempstring = finishmags + "号料上料完成";
+                        //if (language == "English")
+                        //{
+                        //    tempstring = finishmags + "load finished";
+                        //}
+                    }
+                    else if (MainForm.magprocesss2tate[finishmag - 1] == (int)Processstate.Unloading)
+                    {
+                        int magstatestart = (int)SCADA.ModbusTcp.DataConfigArr.Mag_state;//零件类型       
+                        int maglength = (int)ModbusTcp.MagLength;
+                        int magstatei = magstatestart + maglength * (finishmag - 1);//料仓状态
+                        MainForm.magprocesss2tate[finishmag - 1] = (int)Processstate.Unloaded;
+
+                        ModbusTcp.DataMoubus[magstatei] = (int)ModbusTcp.Mag_state_config.Statecnc1Finish;
+                        dataGridVieworder2.Rows[index].Cells[3].Value = "完成";
+                        tempstring = finishmags + "号料下料完成";
+                        //if (language == "English")
+                        //{
+                        //    dataGridVieworder2.Rows[index].Cells[3].Value = "Finish";
+                        //    tempstring = finishmags + "Unload finished";
+                        //}
+                        if (MainForm.cncv2list[0].MagNum == finishmag) // 更新机床完成信号
+                        {
+                            MainForm.cncv2list[0].MagNum = 0;
+                        }
+                        dataGridVieworder.Rows[index].Cells[6].Style.BackColor = Color.DarkTurquoise;
+                    }
+                }
+
+            }
+            if (ModbusTcp.PLC_MES_comfim_req_flage == true)
+            {
+                ModbusTcp.PLC_MES_comfim_req_count++;
+
+                MainForm.sptcp1.SendData((byte)ModbusTcp.Func_Code.writereg, (int)ModbusTcp.DataConfigArr.Mesans_PLC_response, 4, 1, 0);//给plc写机器人任务
+                MainForm.sptcp1.ReceiveData();
+
+
+                Thread.Sleep(2);
+                MainForm.sptcp1.SendData((byte)ModbusTcp.Func_Code.req, 1, 0, (int)ModbusTcp.DataConfigArr.PLC_MES_comfirm, 4);//给plc写机器人任务
+                MainForm.sptcp1.ReceiveData();
+
+
+                if (ModbusTcp.DataMoubus[(int)ModbusTcp.DataConfigArr.PLC_MES_comfirm] == 0)
+                {
+                    ModbusTcp.DataMoubus[(int)ModbusTcp.DataConfigArr.Mesans_PLC_response] = 0;//MES响应信号清零
+                    ModbusTcp.DataMoubus[(int)ModbusTcp.DataConfigArr.Machine_type_response] = 0;//MES响应信号清零
+                    ModbusTcp.DataMoubus[(int)ModbusTcp.DataConfigArr.Rcak_Load_number_response] = 0;//MES响应信号清零
+                    ModbusTcp.DataMoubus[(int)ModbusTcp.DataConfigArr.Rcak_Unload_number_response] = 0;//MES响应信号清零
+                    MainForm.sptcp1.SendData((byte)ModbusTcp.Func_Code.writereg, (int)ModbusTcp.DataConfigArr.Mesans_PLC_response, 4, 1, 0);//给plc写机器人任务
+                    MainForm.sptcp1.ReceiveData();
+                    if (ModbusTcp.PLC_MES_comfim_back_flage == false)
+                    {
+                        ModbusTcp.PLC_MES_comfim_back_flage = true;//置位请求plc响应信号
+                    }
+                }
+                if (ModbusTcp.PLC_MES_comfim_back_flage == true)
+                {
+
+                    MainForm.sptcp1.SendData((byte)ModbusTcp.Func_Code.req, 1, 0, (int)ModbusTcp.DataConfigArr.Mesans_PLC_response, 4);//给plc写机器人任务
+                    MainForm.sptcp1.ReceiveData();
+
+                    Thread.Sleep(2);
+                    MainForm.sptcp1.SendData((byte)ModbusTcp.Func_Code.req, 1, 0, (int)ModbusTcp.DataConfigArr.Mesans_PLC_response, 4);//给plc写机器人任务
+                    MainForm.sptcp1.ReceiveData();
+
+
+                    if (ModbusTcp.DataMoubus[(int)ModbusTcp.DataConfigArr.PLC_MES_comfirm] == 0
+                        && ModbusTcp.DataMoubus[(int)ModbusTcp.DataConfigArr.Machine_type_response] == 0
+                     && ModbusTcp.DataMoubus[(int)ModbusTcp.DataConfigArr.Rcak_Load_number_response] == 0//MES响应信号清零
+                     && ModbusTcp.DataMoubus[(int)ModbusTcp.DataConfigArr.Rcak_Unload_number_response] == 0//MES响应信号清零
+                    && ModbusTcp.DataMoubus[(int)ModbusTcp.DataConfigArr.Mesans_PLC_response] == 0)
+                    {
+                        ModbusTcp.PLC_MES_comfim_req_flage = false;
+                        ModbusTcp.PLC_MES_comfim_back_flage = false;
+
+                        //  MessageBox.Show(tempstring);
+
+                    }
+                }
+            }
+
+        }
         /// <summary>
         /// plc给mes测量请求信号
         /// </summary>
@@ -5435,7 +5631,7 @@ namespace SCADA
         //                    }
         //                }
 
-        //                dataGridVieworder.Rows[index].Cells[6].Style.BackColor = Color.LightGreen;
+        //                dataGridVieworder.Rows[index].Cells[6].Style.BackColor =DarkTurquoise;
         //            }
         //        }
         //    }
@@ -5543,7 +5739,7 @@ namespace SCADA
 
         //        }
         //    }
-        //    dataGridVieworder.Rows[index].Cells[6].Style.BackColor = Color.LightGreen;
+        //    dataGridVieworder.Rows[index].Cells[6].Style.BackColor =DarkTurquoise;
 
 
         //}
@@ -5647,7 +5843,7 @@ namespace SCADA
 
             }
             // }
-            dataGridVieworder.Rows[index].Cells[6].Style.BackColor = Color.LightGreen;
+            dataGridVieworder.Rows[index].Cells[6].Style.BackColor = Color.DarkTurquoise;
 
 
         }
@@ -5688,11 +5884,11 @@ namespace SCADA
             }
             catch
             {
-                if (language == "English")
-                {
-                    MessageBox.Show("Please enter number between 1 to 30");
-                }
-                else
+                //if (language == "English")
+                //{
+                //    MessageBox.Show("Please enter number between 1 to 30");
+                //}
+                //else
                     MessageBox.Show("请输入1-30之间的数字");
                 textBoxorderno.Focus();
             }
@@ -5706,11 +5902,11 @@ namespace SCADA
             }
             else
             {
-                if (language == "English")
-                {
-                    MessageBox.Show("Please enter number between 1 to 30");
-                }
-                else
+                //if (language == "English")
+                //{
+                //    MessageBox.Show("Please enter number between 1 to 30");
+                //}
+                //else
                     MessageBox.Show("请输入1-30之间的数字");
                 textBoxorderno.Focus();
             }
@@ -5730,11 +5926,11 @@ namespace SCADA
 
                 if (OrderNo > 30 || OrderNo < 0)
                 {
-                    if (language == "English")
-                    {
-                        MessageBox.Show("Please enter number between 1 to 30");
-                    }
-                    else
+                    //if (language == "English")
+                    //{
+                    //    MessageBox.Show("Please enter number between 1 to 30");
+                    //}
+                    //else
                         MessageBox.Show("请输入1-30之间的数字");
                     textBox1.Focus();
                 }
@@ -5745,11 +5941,11 @@ namespace SCADA
             }
             catch
             {
-                if (language == "English")
-                {
-                    MessageBox.Show("Please enter number between 1 to 30");
-                }
-                else
+                //if (language == "English")
+                //{
+                //    MessageBox.Show("Please enter number between 1 to 30");
+                //}
+                //else
                     MessageBox.Show("请输入1-30之间的数字");
                 textBox1.Focus();
             }
@@ -5764,11 +5960,11 @@ namespace SCADA
             }
             else
             {
-                if (language == "English")
-                {
-                    MessageBox.Show("Please enter number");
-                }
-                else
+                //if (language == "English")
+                //{
+                //    MessageBox.Show("Please enter number");
+                //}
+                //else
                     MessageBox.Show("请输入数字");
                 textBox1.Focus();
             }
@@ -5786,11 +5982,11 @@ namespace SCADA
             int OrderNo = Convert.ToInt16(OrderNoStr) - 1;
             if (OrderNo > dataGridVieworder.RowCount - 1)
             {
-                if (language == "English")
-                {
-                    MessageBox.Show("The Order has not been generated");
-                }
-                else
+                //if (language == "English")
+                //{
+                //    MessageBox.Show("The Order has not been generated");
+                //}
+                //else
                     MessageBox.Show("当前订单号还没有生成");
                 return;
             }
@@ -5805,21 +6001,21 @@ namespace SCADA
                 if (dataGridVieworder2.Rows[OrderNo].Cells[4].Value.ToString() == "进行中" ||
                     dataGridVieworder2.Rows[OrderNo].Cells[4].Value.ToString() == "Processing")
                 {
-                    if (language == "English")
-                    {
-                        MessageBox.Show("The Order  can't be delete,becaude the order is producing");
-                    }
-                    else
+                //    if (language == "English")
+                //    {
+                //        MessageBox.Show("The Order  can't be delete,becaude the order is producing");
+                //    }
+                //    else
                         MessageBox.Show("当前订单正在生产，无法删除");
                 }
                 else if (dataGridVieworder2.Rows[OrderNo].Cells[4].Value.ToString() == "报警" ||
                dataGridVieworder2.Rows[OrderNo].Cells[4].Value.ToString() == "Alarm")
                 {
-                    if (language == "English")
-                    {
-                        MessageBox.Show("The Order  can't be delete,becaude the order is producing");
-                    }
-                    else
+                    //if (language == "English")
+                    //{
+                    //    MessageBox.Show("The Order  can't be delete,becaude the order is producing");
+                    //}
+                    //else
                         MessageBox.Show("当前订单正在生产，无法删除");
                 }
                 else
@@ -5860,11 +6056,11 @@ namespace SCADA
             if (OrderNo > dataGridVieworder.RowCount)
             //  if (OrderNo > dataGridVieworder.RowCount - 1)
             {
-                if (language == "English")
-                {
-                    MessageBox.Show("The Order has not been generated");
-                }
-                else
+                //if (language == "English")
+                //{
+                //    MessageBox.Show("The Order has not been generated");
+                //}
+                //else
                     MessageBox.Show("当前订单号还没有生成");
             }
             else
@@ -5897,11 +6093,11 @@ namespace SCADA
                         ModbusTcp.DataMoubus[(int)ModbusTcp.DataConfigArr.Rcak_Unload_number_response_2] = 0;//MES响应信号清零
                         ModbusTcp.DataMoubus[(int)ModbusTcp.DataConfigArr.Machine_type_response] = 0;
 
-                        if (language == "English")
-                        {
-                            MessageBox.Show("The cnc1 process call back");
-                        }
-                        else
+                        //if (language == "English")
+                        //{
+                        //    MessageBox.Show("The cnc1 process call back");
+                        //}
+                        //else
                             MessageBox.Show("车床工序取消");
                     }
                     if (magoi == MainForm.cncv2list[1].MagNum)//车床
@@ -5919,11 +6115,11 @@ namespace SCADA
                         ModbusTcp.DataMoubus[(int)ModbusTcp.DataConfigArr.Rcak_Unload_number_response_2] = 0;//MES响应信号清零
                         ModbusTcp.DataMoubus[(int)ModbusTcp.DataConfigArr.Machine_type_response_2] = 0;
 
-                        if (language == "English")
-                        {
-                            MessageBox.Show("The cnc2 process call back");
-                        }
-                        else
+                        //if (language == "English")
+                        //{
+                        //    MessageBox.Show("The cnc2 process call back");
+                        //}
+                        //else
                             MessageBox.Show("加工中心工序取消");
                     }
                     if (magoi == MainForm.cncv2list[0].MagNum)//车床
@@ -5935,11 +6131,12 @@ namespace SCADA
                         MainForm.cncv2list[1].MagNum = 0; ;
                     }
 
-                    if (language == "English")
-                    {
-                        dataGridVieworder2.Rows[OrderNo - 1].Cells[4].Value = "Reback";
-                    }
-                    else dataGridVieworder2.Rows[OrderNo - 1].Cells[4].Value = "撤销";
+                    //if (language == "English")
+                    //{
+                    //    dataGridVieworder2.Rows[OrderNo - 1].Cells[4].Value = "Reback";
+                    //}
+                    //else
+                        dataGridVieworder2.Rows[OrderNo - 1].Cells[4].Value = "撤销";
 
                     MainForm.ordertate[magoi - 1] = (int)Orderstate.Reback;
                     //if (aotorunmag == magoi)
@@ -5951,11 +6148,11 @@ namespace SCADA
                 }
                 else
                 {
-                    if (language == "English")
-                    {
-                        MessageBox.Show("The order is not processing");
-                    }
-                    else
+                    //if (language == "English")
+                    //{
+                    //    MessageBox.Show("The order is not processing");
+                    //}
+                    //else
                         MessageBox.Show("当前订单不是正在生产中，不用撤回");
                 }
 
@@ -5986,11 +6183,11 @@ namespace SCADA
                     dataGridVieworder2.Rows[jj].Cells[4].Value = "撤销";
 
                     dataGridVieworder.Rows[jj].Cells[8].Value = "撤销";
-                    if (language == "English")
-                    {
-                        dataGridVieworder2.Rows[jj].Cells[4].Value = "Reback";
-                        dataGridVieworder.Rows[jj].Cells[8].Value = "Reback";
-                    }
+                    //if (language == "English")
+                    //{
+                    //    dataGridVieworder2.Rows[jj].Cells[4].Value = "Reback";
+                    //    dataGridVieworder.Rows[jj].Cells[8].Value = "Reback";
+                    //}
 
                 }
                 else if ((MainForm.magprocesss1tate[magno - 1] == (int)Processstate.None && MainForm.magprocesss2tate[magno - 1] == (int)Processstate.Unloaded)
@@ -6046,8 +6243,8 @@ namespace SCADA
                 {
 
                 }
-                else if (language == "Chinese")
-                {
+                //else if (language == "Chinese")
+                //{
                     if (MainForm.magprocesss1tate[magno - 1] == (int)Processstate.None)
                     {
                         dataGridVieworder2.Rows[jj].Cells[2].Value = "无";
@@ -6175,117 +6372,117 @@ namespace SCADA
                     //{
                     //    dataGridVieworder2.Rows[jj].Cells[4].Value = "完成";
                     //}
-                }
-                else
-                {
-                    if (MainForm.magprocesss1tate[magno - 1] == (int)Processstate.None)
-                    {
-                        dataGridVieworder2.Rows[jj].Cells[2].Value = "None";
-                    }
-                    else if (MainForm.magprocesss1tate[magno - 1] == (int)Processstate.Notstart)
-                    {
-                        dataGridVieworder2.Rows[jj].Cells[2].Value = "Notstart";
-                    }
-                    else if (MainForm.magprocesss1tate[magno - 1] == (int)Processstate.Loading)
-                    {
-                        dataGridVieworder2.Rows[jj].Cells[2].Value = "Loading";
-                    }
-                    else if (MainForm.magprocesss1tate[magno - 1] == (int)Processstate.Loaded)
-                    {
+                //}
+                //else
+                //{
+                //    if (MainForm.magprocesss1tate[magno - 1] == (int)Processstate.None)
+                //    {
+                //        dataGridVieworder2.Rows[jj].Cells[2].Value = "None";
+                //    }
+                //    else if (MainForm.magprocesss1tate[magno - 1] == (int)Processstate.Notstart)
+                //    {
+                //        dataGridVieworder2.Rows[jj].Cells[2].Value = "Notstart";
+                //    }
+                //    else if (MainForm.magprocesss1tate[magno - 1] == (int)Processstate.Loading)
+                //    {
+                //        dataGridVieworder2.Rows[jj].Cells[2].Value = "Loading";
+                //    }
+                //    else if (MainForm.magprocesss1tate[magno - 1] == (int)Processstate.Loaded)
+                //    {
 
-                        dataGridVieworder2.Rows[jj].Cells[2].Value = "Loaded";
-                    }
-                    else if (MainForm.magprocesss1tate[magno - 1] == (int)Processstate.Running)
-                    {
-                        dataGridVieworder2.Rows[jj].Cells[2].Value = "Running";
-                    }
-                    else if (MainForm.magprocesss1tate[magno - 1] == (int)Processstate.Rerunning)
-                    {
+                //        dataGridVieworder2.Rows[jj].Cells[2].Value = "Loaded";
+                //    }
+                //    else if (MainForm.magprocesss1tate[magno - 1] == (int)Processstate.Running)
+                //    {
+                //        dataGridVieworder2.Rows[jj].Cells[2].Value = "Running";
+                //    }
+                //    else if (MainForm.magprocesss1tate[magno - 1] == (int)Processstate.Rerunning)
+                //    {
 
-                        dataGridVieworder2.Rows[jj].Cells[2].Value = "Rerunning";
+                //        dataGridVieworder2.Rows[jj].Cells[2].Value = "Rerunning";
 
-                    }
-                    else if (MainForm.magprocesss1tate[magno - 1] == (int)Processstate.Runned)
-                    {
+                //    }
+                //    else if (MainForm.magprocesss1tate[magno - 1] == (int)Processstate.Runned)
+                //    {
 
-                        dataGridVieworder2.Rows[jj].Cells[2].Value = "Runned";
-                    }
-                    else if (MainForm.magprocesss1tate[magno - 1] == (int)Processstate.Unloading)
-                    {
-                        dataGridVieworder2.Rows[jj].Cells[2].Value = "Unloading";
-                    }
-                    else if (MainForm.magprocesss1tate[magno - 1] == (int)Processstate.Unloaded)
-                    {
-                        dataGridVieworder2.Rows[jj].Cells[2].Value = "Unloaded";
-                    }
-                    else if (MainForm.magprocesss1tate[magno - 1] == (int)Processstate.Alarm)
-                    {
-                        dataGridVieworder2.Rows[jj].Cells[2].Value = "Alarm";
-                    }
+                //        dataGridVieworder2.Rows[jj].Cells[2].Value = "Runned";
+                //    }
+                //    else if (MainForm.magprocesss1tate[magno - 1] == (int)Processstate.Unloading)
+                //    {
+                //        dataGridVieworder2.Rows[jj].Cells[2].Value = "Unloading";
+                //    }
+                //    else if (MainForm.magprocesss1tate[magno - 1] == (int)Processstate.Unloaded)
+                //    {
+                //        dataGridVieworder2.Rows[jj].Cells[2].Value = "Unloaded";
+                //    }
+                //    else if (MainForm.magprocesss1tate[magno - 1] == (int)Processstate.Alarm)
+                //    {
+                //        dataGridVieworder2.Rows[jj].Cells[2].Value = "Alarm";
+                //    }
 
-                    if (MainForm.magprocesss2tate[magno - 1] == (int)Processstate.None)
-                    {
-                        dataGridVieworder2.Rows[jj].Cells[3].Value = "None";
-                    }
-                    else if (MainForm.magprocesss2tate[magno - 1] == (int)Processstate.Notstart)
-                    {
-                        dataGridVieworder2.Rows[jj].Cells[3].Value = "Notstart";
-                    }
-                    else if (MainForm.magprocesss2tate[magno - 1] == (int)Processstate.Loading)
-                    {
-                        dataGridVieworder2.Rows[jj].Cells[3].Value = "Loading";
-                    }
-                    else if (MainForm.magprocesss2tate[magno - 1] == (int)Processstate.Loaded)
-                    {
+                //    if (MainForm.magprocesss2tate[magno - 1] == (int)Processstate.None)
+                //    {
+                //        dataGridVieworder2.Rows[jj].Cells[3].Value = "None";
+                //    }
+                //    else if (MainForm.magprocesss2tate[magno - 1] == (int)Processstate.Notstart)
+                //    {
+                //        dataGridVieworder2.Rows[jj].Cells[3].Value = "Notstart";
+                //    }
+                //    else if (MainForm.magprocesss2tate[magno - 1] == (int)Processstate.Loading)
+                //    {
+                //        dataGridVieworder2.Rows[jj].Cells[3].Value = "Loading";
+                //    }
+                //    else if (MainForm.magprocesss2tate[magno - 1] == (int)Processstate.Loaded)
+                //    {
 
-                        dataGridVieworder2.Rows[jj].Cells[3].Value = "Loaded";
-                    }
-                    else if (MainForm.magprocesss2tate[magno - 1] == (int)Processstate.Running)
-                    {
-                        dataGridVieworder2.Rows[jj].Cells[3].Value = "Running";
-                    }
-                    else if (MainForm.magprocesss2tate[magno - 1] == (int)Processstate.Rerunning)
-                    {
+                //        dataGridVieworder2.Rows[jj].Cells[3].Value = "Loaded";
+                //    }
+                //    else if (MainForm.magprocesss2tate[magno - 1] == (int)Processstate.Running)
+                //    {
+                //        dataGridVieworder2.Rows[jj].Cells[3].Value = "Running";
+                //    }
+                //    else if (MainForm.magprocesss2tate[magno - 1] == (int)Processstate.Rerunning)
+                //    {
 
-                        dataGridVieworder2.Rows[jj].Cells[3].Value = "Rerunning";
+                //        dataGridVieworder2.Rows[jj].Cells[3].Value = "Rerunning";
 
-                    }
-                    else if (MainForm.magprocesss2tate[magno - 1] == (int)Processstate.Runned)
-                    {
+                //    }
+                //    else if (MainForm.magprocesss2tate[magno - 1] == (int)Processstate.Runned)
+                //    {
 
-                        dataGridVieworder2.Rows[jj].Cells[3].Value = "Runned";
-                    }
-                    else if (MainForm.magprocesss2tate[magno - 1] == (int)Processstate.Unloading)
-                    {
-                        dataGridVieworder2.Rows[jj].Cells[3].Value = "Unloading";
-                    }
-                    else if (MainForm.magprocesss2tate[magno - 1] == (int)Processstate.Unloaded)
-                    {
-                        dataGridVieworder2.Rows[jj].Cells[3].Value = "Unloaded";
-                    }
-                    else if (MainForm.magprocesss2tate[magno - 1] == (int)Processstate.Alarm)
-                    {
-                        dataGridVieworder2.Rows[jj].Cells[3].Value = "Alarm";
-                    }
+                //        dataGridVieworder2.Rows[jj].Cells[3].Value = "Runned";
+                //    }
+                //    else if (MainForm.magprocesss2tate[magno - 1] == (int)Processstate.Unloading)
+                //    {
+                //        dataGridVieworder2.Rows[jj].Cells[3].Value = "Unloading";
+                //    }
+                //    else if (MainForm.magprocesss2tate[magno - 1] == (int)Processstate.Unloaded)
+                //    {
+                //        dataGridVieworder2.Rows[jj].Cells[3].Value = "Unloaded";
+                //    }
+                //    else if (MainForm.magprocesss2tate[magno - 1] == (int)Processstate.Alarm)
+                //    {
+                //        dataGridVieworder2.Rows[jj].Cells[3].Value = "Alarm";
+                //    }
 
-                    // 订单状态
-                    if (MainForm.ordertate[magno - 1] == (int)Orderstate.Notstart)
-                    {
-                        dataGridVieworder2.Rows[jj].Cells[4].Value = "Notstart";
-                    }
-                    else if (MainForm.ordertate[magno - 1] == (int)Orderstate.Processing)
-                    {
-                        dataGridVieworder2.Rows[jj].Cells[4].Value = "Processing";
-                    }
-                    else if (MainForm.ordertate[magno - 1] == (int)Orderstate.Finish)
-                    {
-                        dataGridVieworder2.Rows[jj].Cells[4].Value = "Finish";
-                    }
-                    else if (MainForm.ordertate[magno - 1] == (int)Orderstate.Alarm)
-                    {
-                        dataGridVieworder2.Rows[jj].Cells[4].Value = "Alarm";
-                    }
-                }
+                //    // 订单状态
+                //    if (MainForm.ordertate[magno - 1] == (int)Orderstate.Notstart)
+                //    {
+                //        dataGridVieworder2.Rows[jj].Cells[4].Value = "Notstart";
+                //    }
+                //    else if (MainForm.ordertate[magno - 1] == (int)Orderstate.Processing)
+                //    {
+                //        dataGridVieworder2.Rows[jj].Cells[4].Value = "Processing";
+                //    }
+                //    else if (MainForm.ordertate[magno - 1] == (int)Orderstate.Finish)
+                //    {
+                //        dataGridVieworder2.Rows[jj].Cells[4].Value = "Finish";
+                //    }
+                //    else if (MainForm.ordertate[magno - 1] == (int)Orderstate.Alarm)
+                //    {
+                //        dataGridVieworder2.Rows[jj].Cells[4].Value = "Alarm";
+                //    }
+                //}
 
                 string str1 = dataGridVieworder2.Rows[jj].Cells[2].Value.ToString();
                 string str2 = dataGridVieworder2.Rows[jj].Cells[3].Value.ToString();
@@ -6391,7 +6588,7 @@ namespace SCADA
             {
                 if (dataGridVieworder.Rows[index1].Cells[2].Value.ToString() == "车工序" || dataGridVieworder.Rows[index1].Cells[2].Value.ToString() == "Lathe")
                 {
-                    
+
                     if (MainForm.magprocesss1tate[magno1 - 1] == (int)Processstate.Loaded)
                     {
                         if (CNCState0 == "运行")
@@ -6405,7 +6602,7 @@ namespace SCADA
                         {
                             MainForm.magprocesss1tate[magno1 - 1] = (int)Processstate.Runned;
 
-                            dataGridVieworder.Rows[index1].Cells[6].Style.BackColor = Color.LightGreen;
+                            dataGridVieworder.Rows[index1].Cells[6].Style.BackColor = Color.DarkTurquoise;
                         }
                     }
                 }
@@ -6429,7 +6626,7 @@ namespace SCADA
                         {
                             MainForm.magprocesss2tate[magno1 - 1] = (int)Processstate.Runned;
 
-                            dataGridVieworder.Rows[index1].Cells[6].Style.BackColor = Color.LightGreen;
+                            dataGridVieworder.Rows[index1].Cells[6].Style.BackColor = Color.DarkTurquoise;
                         }
                     }
                 }
@@ -6487,10 +6684,10 @@ namespace SCADA
             if (aotomode)
             {
                 labelmode.Text = "自动模式";
-                if (language == "English")
-                    labelmode.Text = "Aoto mode";
+                //if (language == "English")
+                //    labelmode.Text = "Aoto mode";
                 buttonstart1.BackColor = Color.Gray;
-                buttonstop1.BackColor = Color.LightGreen;
+                buttonstop1.BackColor = Color.DarkTurquoise;
                 for (int ii = 0; ii < dataGridVieworder.Rows.Count; ii++)
                 {
                     dataGridVieworder.Rows[ii].Cells[6].Style.BackColor = Color.Gray;
@@ -6501,7 +6698,7 @@ namespace SCADA
                     }
                     else
                     {
-                        dataGridVieworder.Rows[ii].Cells[7].Style.BackColor = Color.LightGreen;
+                        dataGridVieworder.Rows[ii].Cells[7].Style.BackColor = Color.DarkTurquoise;
 
                     }
                 }
@@ -6511,9 +6708,9 @@ namespace SCADA
 
                 OrderForm1.IsRerunning = false;
                 labelmode.Text = "自动模式暂停";
-                if (language == "English")
-                    labelmode.Text = "Stop mode";
-                buttonstart1.BackColor = Color.LightGreen;
+                //if (language == "English")
+                //    labelmode.Text = "Stop mode";
+                buttonstart1.BackColor = Color.DarkTurquoise;
                 buttonstop1.BackColor = Color.Gray;
                 for (int ii = 0; ii < dataGridVieworder.Rows.Count; ii++)
                 {
@@ -6524,16 +6721,16 @@ namespace SCADA
             else
             {
                 // buttonman.BackColor = Color.Gray;                 
-                // buttonaoto.BackColor = Color.LightGreen;
+                // buttonaoto.BackColor =DarkTurquoise;
 
                 OrderForm1.IsRerunning = false;
                 labelmode.Text = "手动模式";
-                if (language == "English")
-                    labelmode.Text = "mannul mode";
+                //if (language == "English")
+                //    labelmode.Text = "mannul mode";
                 for (int ii = 0; ii < dataGridVieworder.Rows.Count; ii++)
                 {
-                    dataGridVieworder.Rows[ii].Cells[6].Style.BackColor = Color.LightGreen;
-                    dataGridVieworder.Rows[ii].Cells[7].Style.BackColor = Color.LightGreen;
+                    dataGridVieworder.Rows[ii].Cells[6].Style.BackColor = Color.DarkTurquoise;
+                    dataGridVieworder.Rows[ii].Cells[7].Style.BackColor = Color.DarkTurquoise;
                 }
             }
             if (MainForm.cncv2list.Count < 2)
@@ -6580,6 +6777,8 @@ namespace SCADA
             PLCToMEScncfun();//车床完成信号处理
 
             PLCToMEScncfun2();//铣床完成信号处理
+            PLCToMEScncfun3();//线边库完成信号处理
+
 
             //  PLCToMEScncfun3();//铣床测量信号处理
             rerunningmeter();
@@ -6612,7 +6811,7 @@ namespace SCADA
 
             GetRoughToolData();
             GetFineToolData();
-           
+
         }
 
         /// <summary>
@@ -6684,11 +6883,12 @@ namespace SCADA
 
                     aotomode = false;
                     aotostop = true;
-                    if (language == "English")
-                    {
-                        MessageBox.Show("The Order message is err!");
-                    }
-                    else MessageBox.Show(" 订单信息读取错误，自动加工暂停!");
+                    //if (language == "English")
+                    //{
+                    //    MessageBox.Show("The Order message is err!");
+                    //}
+                    //else 
+                        MessageBox.Show(" 订单信息读取错误，自动加工暂停!");
                     return;
                 }
 
@@ -6930,10 +7130,10 @@ namespace SCADA
                             aotomode = false;
                             aotostop = true;
                             messagestring = messagestring + "订单下发失败,自动加工暂停";
-                            if (language == "English")
-                            {
-                                messagestring = messagestring + "The order down err,change to manmode";
-                            }
+                            //if (language == "English")
+                            //{
+                            //    messagestring = messagestring + "The order down err,change to manmode";
+                            //}
 
                             return 2;
                         }
@@ -6956,10 +7156,10 @@ namespace SCADA
                         aotomode = false;
                         aotostop = true;
                         messagestring = messagestring + "机床有报警或者提示，自动加工暂停";
-                        if (language == "English")
-                        {
-                            messagestring = messagestring + "The order is err,change to aotostop mode ";
-                        }
+                        //if (language == "English")
+                        //{
+                        //    messagestring = messagestring + "The order is err,change to aotostop mode ";
+                        //}
                         return 2;
                     }
                     if (MainForm.magprocesss2tate[number - 1] == (int)Processstate.Notstart)//上料
@@ -6976,10 +7176,10 @@ namespace SCADA
                             aotomode = false;
                             aotostop = true;
                             messagestring = messagestring + "订单下发失败,自动加工暂停";
-                            if (language == "English")
-                            {
-                                messagestring = messagestring + "The order down err,change to manmode";
-                            }
+                            //if (language == "English")
+                            //{
+                            //    messagestring = messagestring + "The order down err,change to manmode";
+                            //}
 
                             return 2;
 
@@ -7044,10 +7244,10 @@ namespace SCADA
                             aotomode = false;
                             aotostop = true;
                             messagestring = messagestring + "订单下发失败,自动加工暂停";
-                            if (language == "English")
-                            {
-                                messagestring = messagestring + "The order down err,change to manmode";
-                            }
+                            //if (language == "English")
+                            //{
+                            //    messagestring = messagestring + "The order down err,change to manmode";
+                            //}
 
                             return 2;
                         }
@@ -7062,10 +7262,10 @@ namespace SCADA
                 aotomode = false;
                 aotostop = true;
                 messagestring = "订单下发失败,自动加工暂停";
-                if (language == "English")
-                {
-                    messagestring = messagestring + "The order down err,change to manmode";
-                }
+                //if (language == "English")
+                //{
+                //    messagestring = messagestring + "The order down err,change to manmode";
+                //}
 
                 return 2;
             }
@@ -7122,9 +7322,12 @@ namespace SCADA
             }
             else
             {
-                return false; ;
+                return false; 
             }
         }
+        /// <summary>
+        /// 工单自动执行
+        /// </summary>
         private void AotoOrderRun()
         {
             if (aotomode == false)
@@ -7160,8 +7363,9 @@ namespace SCADA
 
             int robortishome = ModbusTcp.DataMoubus[(int)SCADA.ModbusTcp.DataConfigArr.Mesans_Robot_position_comfirm];
 
-            Getlathenumber();
-            Getcncnumber();
+            
+            Getlathenumber();//获取车床匹配的仓位
+            Getcncnumber();//获取铣床匹配的仓位
             if (aotorunmagcnc == 0 && aotorunmaglathe == 0)//如果自动加工仓位铣床为0，那么自动加工停止
             {
 
@@ -7174,32 +7378,32 @@ namespace SCADA
 
 
             string message1 = "";
-            if (aotorunmagcnc > 0)
-            {
-                if (AotoOrderForm.xiaolvflage == true)//效率为优先
-                {
-                    OrderForm1.ReProcessChoose = false;
+            //if (aotorunmagcnc > 0)//判断是否需要在检测完成后停止自动加工
+            //{
+            //    if (AotoOrderForm.xiaolvflage == true)//效率为优先
+            //    {
+            //        OrderForm1.ReProcessChoose = false;
 
-                }
-                else
-                {
-                    bool ret = renewmeterresult(aotorunmagcnc, ref message1);
-                    if (ret == true)
-                    {
-                        aotomode = false;
-                        aotostop = true;
-                        MessageBox.Show(message1);
-                        return;
-                    }
+            //    }
+            //    else
+            //    {
+            //        bool ret = renewmeterresult(aotorunmagcnc, ref message1);
+            //        if (ret == true)
+            //        {
+            //            aotomode = false;
+            //            aotostop = true;
+            //            MessageBox.Show(message1);
+            //            return;
+            //        }
 
-                }
+            //    }
 
-            }
+            //}
             // bool ret = renewmeterresult(aotorunmagcnc, ref message1);
-            if (ModbusTcp.DataMoubus[(int)SCADA.ModbusTcp.DataConfigArr.Mesans_Robot_speed] == 0)
-            {
+            //if (ModbusTcp.DataMoubus[(int)SCADA.ModbusTcp.DataConfigArr.Mesans_Robot_speed] == 0)
+            //{
 
-            }
+            //}
 
             //机器人繁忙状态不能匹配下一步骤
             if (ModbusTcp.DataMoubus[(int)SCADA.ModbusTcp.DataConfigArr.Mesans_Robot_speed] == 1 || ModbusTcp.DataMoubus[(int)SCADA.ModbusTcp.DataConfigArr.Mesans_Robot_position_comfirm] == 0 || ModbusTcp.Rack_number_write_flage == true)
@@ -7220,17 +7424,17 @@ namespace SCADA
 
             //20211025 车床和铣床同时空闲，哪个优先级高下哪个床的工序
             bool LatheFirst = false; //车床优先
-            if (aotorunmaglathe > 0 && aotorunmagcnc > 0)
+            if (aotorunmaglathe > 0 && aotorunmagcnc > 0)//通过成套优先级以及零件类型优先级，综合计算是否优先车床内工序
             {
-                int latheM = 0;
-                int latheT = 0;
-                int CNCM = 0;
-                int CNCT = 0;
+                int latheM = 0;//车床内工件图纸编号
+                int latheT = 0;//车床内零件类型
+                int CNCM = 0;//加工中心内工件图纸编号
+                int CNCT = 0;//加工中心内零件类型
                 int maglength = (int)ModbusTcp.MagLength;
-                int LatheML = 0;
-                int CNCML = 0;
-                int LatheTL = 0;
-                int CNCTL = 0;
+                int LatheML = 0;//车床内工件成套优先级
+                int CNCML = 0;//加工中心内工件成套优先级
+                int LatheTL = 0;//车床内工件类型优先级
+                int CNCTL = 0;//加工中心内工件类型优先级
                 //找到车工工件的模型优先级和物料优先级
                 latheM = ModbusTcp.DataMoubus[(int)SCADA.ModbusTcp.DataConfigArr.Mag1_Sheet_No + aotorunmaglathe - 1];
                 latheT = ModbusTcp.DataMoubus[(int)SCADA.ModbusTcp.DataConfigArr.Mag_Type + maglength * (aotorunmaglathe - 1)];
@@ -7332,19 +7536,19 @@ namespace SCADA
                     }
                 }
             }
-             if (aotorunmaglathe > 0 && aotorunmagcnc==0)
+            if (aotorunmaglathe > 0 && aotorunmagcnc == 0)
             {
                 LatheFirst = true;
             }
 
-             if(dataGridVieworder.Rows.Count >=1)
+            if (dataGridVieworder.Rows.Count >= 1)
             {
                 if (dataGridVieworder.Rows[0].Cells[1].Value.ToString() == aotorunmaglathe.ToString())
                 {
                     LatheFirst = true;
                 }
             }
-            
+
 
             if (LatheFirst)//车工序先执行
             {
@@ -7431,6 +7635,7 @@ namespace SCADA
 
         /// <summary>
         /// 查找下一个车床任务仓位编号，如果查找到的仓位没有物料提示缺料并继续查找下一订单，如果没有符合条件的订单车床不继续增加任务，
+        /// 根据工件等级以及模型成套优先级选择下一个车床待加工工件
         /// </summary>
         private void fideaotorunmaglathe()
         {
@@ -7464,7 +7669,7 @@ namespace SCADA
                         if (ModbusTcp.DataMoubus[magstatei] != (int)ModbusTcp.Mag_state_config.Statenull)
                         {
                             aotorunmaglathe = number;
-                            indexlathe =0;
+                            indexlathe = 0;
                             return;
                         }
                         else
@@ -7505,7 +7710,7 @@ namespace SCADA
 
             }
 
-            if (dataGridVieworder.Rows.Count==1)
+            if (dataGridVieworder.Rows.Count == 1)
             {
                 aotorunmaglathe = 0;
                 return;
@@ -7653,6 +7858,7 @@ namespace SCADA
         }
         /// <summary>
         /// 查找下一个铣床任务仓位编号
+        ///  根据工件等级以及模型成套优先级选择下一个铣床待加工工件
         /// </summary>
         private void fideaotorunmagcnc()
         {
@@ -7698,7 +7904,6 @@ namespace SCADA
                         {
                             message = number.ToString() + "号仓位缺料";
                             MessageBox.Show(message);
-
                         }
 
                     }
@@ -7911,20 +8116,22 @@ namespace SCADA
 
             if (MainForm.PLC_SIMES_ON_line == false)
             {
-                if (language == "English")
-                {
-                    MessageBox.Show("Load failure,because PLC is off line，");
-                }
-                else MessageBox.Show("PLC未连接，不能自动加工!");
+                //if (language == "English")
+                //{
+                //    MessageBox.Show("Load failure,because PLC is off line，");
+                //}
+                //else
+                //MessageBox.Show("PLC未连接，不能自动加工!");
                 return;
             }
             if (!MainForm.linestop)//产线停止状态
             {
-                if (language == "English")
-                {
-                    MessageBox.Show("Load failure,Please start line!");
-                }
-                else MessageBox.Show("自动加工失败，请先启动产线!");
+                //if (language == "English")
+                //{
+                //    MessageBox.Show("Load failure,Please start line!");
+                //}
+                //else 
+                    MessageBox.Show("自动加工失败，请先启动产线!");
                 return;
             }
 
@@ -7961,11 +8168,12 @@ namespace SCADA
             }
             if (MainForm.cncv2list.Count < 2)
             {
-                if (language == "English")
-                {
-                    MessageBox.Show("The lathe or cnc is offline!");
-                }
-                else MessageBox.Show("车床或铣床离线!");
+                //if (language == "English")
+                //{
+                //    MessageBox.Show("The lathe or cnc is offline!");
+                //}
+                //else
+                    MessageBox.Show("车床或铣床离线!");
                 return;
             }
             else if (MainForm.cncv2list[0].MagNum != 0 || MainForm.cncv2list[1].MagNum != 0)
@@ -8080,11 +8288,12 @@ namespace SCADA
                     int magno = Convert.ToInt32(magnos) - 1;
                     if (magnos == "null" || magno < 0 || magno > 30)
                     {
-                        if (language == "English")
-                        {
-                            MessageBox.Show("Mag message error ,Please make a new Order!");
-                        }
-                        else MessageBox.Show("仓位信息错误，请重新下达订单!");
+                        //if (language == "English")
+                        //{
+                        //    MessageBox.Show("Mag message error ,Please make a new Order!");
+                        //}
+                        //else 
+                            MessageBox.Show("仓位信息错误，请重新下达订单!");
                         return;
                     }
                     magstart = (int)SCADA.ModbusTcp.DataConfigArr.Mag_state;//零件类型
@@ -8093,11 +8302,12 @@ namespace SCADA
 
                     if (ModbusTcp.DataMoubus[magstatei] == (int)ModbusTcp.Mag_state_config.Statenull)
                     {
-                        if (language == "English")
-                        {
-                            MessageBox.Show("Current Mag is empty ,Please make a new Order!");
-                        }
-                        else MessageBox.Show("指定仓位无料，请重新下达订单!");
+                        //if (language == "English")
+                        //{
+                        //    MessageBox.Show("Current Mag is empty ,Please make a new Order!");
+                        //}
+                        //else 
+                            MessageBox.Show("指定仓位无料，请重新下达订单!");
                         return;
                     }
                     else
@@ -8107,20 +8317,22 @@ namespace SCADA
             //}
             if (hasaotoorder == false)
             {
-                if (language == "English")
-                {
-                    MessageBox.Show("None of the order is aoto state!");
-                }
-                //   else MessageBox.Show("没有订单是自动状态!");
+                //if (language == "English")
+                //{
+                //    MessageBox.Show("None of the order is aoto state!");
+                //}
+                //   else
+                MessageBox.Show("没有订单是自动状态!");
                 return;
             }
             if (ModbusTcp.DataMoubus[(int)SCADA.ModbusTcp.DataConfigArr.Mesans_Robot_speed] == 1)
             {
-                if (language == "English")
-                {
-                    MessageBox.Show("The robot is busy,please hold on!");
-                }
-                else MessageBox.Show("机器人繁忙状态，请等待!");
+                //if (language == "English")
+                //{
+                //    MessageBox.Show("The robot is busy,please hold on!");
+                //}
+                //else
+                    MessageBox.Show("机器人繁忙状态，请等待!");
                 return;
             }
             //批量加工条件满足
@@ -8132,12 +8344,12 @@ namespace SCADA
 
             aotorunmagcnc = 0;
             buttonstop1.Enabled = true;
-            buttonstop1.BackColor = Color.LightGreen;
+            buttonstop1.BackColor = Color.DarkTurquoise;
             //批量加工开始后，不允许置顶，不允许下发订单
             dataGridVieworder.Rows[0].Cells[7].Style.BackColor = Color.Gray;
             for (int ii = 0; ii < dataGridVieworder.Rows.Count; ii++)
             {
-                dataGridVieworder.Rows[ii].Cells[6].Style.BackColor = Color.Gray;   
+                dataGridVieworder.Rows[ii].Cells[6].Style.BackColor = Color.Gray;
             }
             /*搜索数据表，从第一行往下找到第一个自动状态的订单，取到料位号，根据料位号逐个下发操作，
             直到该料位加工完成后寻找下一个自动订单，在寻找下一个自动状态的订单，取料位号下发和跟踪，直到所有自动订单完成*/
@@ -8159,7 +8371,7 @@ namespace SCADA
             buttonstop1.Enabled = false;
             buttonstop1.BackColor = Color.Gray;
             //buttonstart1.Enabled = false;
-            buttonstart1.BackColor = Color.LightGreen;
+            buttonstart1.BackColor = Color.DarkTurquoise;
 
         }
 
@@ -8169,7 +8381,7 @@ namespace SCADA
             {
 
                 buttonstart1.Enabled = true;
-                buttonstart1.BackColor = Color.LightGreen;
+                buttonstart1.BackColor = Color.DarkTurquoise;
                 aotomode = false;
                 aotostop = false;
                 manmode = false;

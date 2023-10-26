@@ -169,22 +169,22 @@ namespace SCADA
 
                     language = ChangeLanguage.GetDefaultLanguage();
                     ComboBox temp = (ComboBox)control;
-                    if (language == "English")
-                    {
-                        temp.Items.Clear();
-                        temp.Items.Add("None");
-                        temp.Items.Add("Waiting");
-                        temp.Items.Add("Processing");
-                        temp.Items.Add("Qualified");
-                        temp.Items.Add("NotQualified");
-                        temp.Items.Add("LatheFinish");
-                        temp.Items.Add("CNCFinish");
-                        temp.Items.Add("Error");
+                    //if (language == "English")
+                    //{
+                    //    temp.Items.Clear();
+                    //    temp.Items.Add("None");
+                    //    temp.Items.Add("Waiting");
+                    //    temp.Items.Add("Processing");
+                    //    temp.Items.Add("Qualified");
+                    //    temp.Items.Add("NotQualified");
+                    //    temp.Items.Add("LatheFinish");
+                    //    temp.Items.Add("CNCFinish");
+                    //    temp.Items.Add("Error");
 
-                        temp.SelectedIndex = 0;
-                    }
-                    else
-                    {
+                    //    temp.SelectedIndex = 0;
+                    //}
+                    //else
+                    //{
 
                         temp.Items.Clear();
                         temp.Items.Add("无料");
@@ -197,7 +197,7 @@ namespace SCADA
                         temp.Items.Add("异常");
 
                         temp.SelectedIndex = 0;
-                    }
+                    //}
                     
 
                 }
@@ -222,35 +222,39 @@ namespace SCADA
                         dataGridViewcnc2.Rows[i].Cells[0].Value = temp;
                         if(i==0)
                         {
-                            if (language == "English")
-                            {
-                                dataGridViewcnc2.Rows[i].Cells[1].Value = "Door State"; 
-                            }
-                            else dataGridViewcnc2.Rows[i].Cells[1].Value = "开关门状态";
+                            //if (language == "English")
+                            //{
+                            //    dataGridViewcnc2.Rows[i].Cells[1].Value = "Door State"; 
+                            //}
+                            //else
+                        dataGridViewcnc2.Rows[i].Cells[1].Value = "开关门状态";
                         }
                         if (i == 1)
                         {
-                            if (language == "English")
-                            {
-                                dataGridViewcnc2.Rows[i].Cells[1].Value = "Chuck1 State";
-                            }
-                            else dataGridViewcnc2.Rows[i].Cells[1].Value = "液压卡盘状态";
+                            //if (language == "English")
+                            //{
+                            //    dataGridViewcnc2.Rows[i].Cells[1].Value = "Chuck1 State";
+                            //}
+                            //else 
+                        dataGridViewcnc2.Rows[i].Cells[1].Value = "液压卡盘状态";
                         }
                         if (i == 2)
                         {
-                            if (language == "English")
-                            {
-                                dataGridViewcnc2.Rows[i].Cells[1].Value = "Chuck2 State";
-                            }
-                            else dataGridViewcnc2.Rows[i].Cells[1].Value = "零点卡盘状态";
+                            //if (language == "English")
+                            //{
+                            //    dataGridViewcnc2.Rows[i].Cells[1].Value = "Chuck2 State";
+                            //}
+                            //else 
+                        dataGridViewcnc2.Rows[i].Cells[1].Value = "零点卡盘状态";
                         }
                         if (i == 3)
                         {
-                            if (language == "English")
-                            {
-                                dataGridViewcnc2.Rows[i].Cells[1].Value = "Principal Speed";
-                            }
-                            else  dataGridViewcnc2.Rows[i].Cells[1].Value = "主轴转速";
+                            //if (language == "English")
+                            //{
+                            //    dataGridViewcnc2.Rows[i].Cells[1].Value = "Principal Speed";
+                            //}
+                            //else
+                        dataGridViewcnc2.Rows[i].Cells[1].Value = "主轴转速";
                         }
                         dataGridViewcnc2.Rows[i].Cells[2].Value = "";
                     }
@@ -275,27 +279,30 @@ namespace SCADA
                     dataGridViewcnc1.Rows[i].Cells[0].Value = temp;
                     if (i == 0)
                     {
-                        if (language == "English")
-                        {
-                            dataGridViewcnc1.Rows[i].Cells[1].Value = "Door State";
-                        }
-                        else dataGridViewcnc1.Rows[i].Cells[1].Value = "开关门状态";
+                        //if (language == "English")
+                        //{
+                        //    dataGridViewcnc1.Rows[i].Cells[1].Value = "Door State";
+                        //}
+                        //else 
+                        dataGridViewcnc1.Rows[i].Cells[1].Value = "开关门状态";
                     }
                     if (i == 1)
                     {
-                        if (language == "English")
-                        {
-                            dataGridViewcnc1.Rows[i].Cells[1].Value = "Chuck State";
-                        }
-                        else dataGridViewcnc1.Rows[i].Cells[1].Value = "卡盘状态";
+                        //if (language == "English")
+                        //{
+                        //    dataGridViewcnc1.Rows[i].Cells[1].Value = "Chuck State";
+                        //}
+                        //else
+                        dataGridViewcnc1.Rows[i].Cells[1].Value = "卡盘状态";
                     }
                     if (i == 2)
                     {
-                        if (language == "English")
-                        {
-                            dataGridViewcnc1.Rows[i].Cells[1].Value = "Principal Speed";
-                        }
-                        else dataGridViewcnc1.Rows[i].Cells[1].Value = "主轴转速";
+                        //if (language == "English")
+                        //{
+                        //    dataGridViewcnc1.Rows[i].Cells[1].Value = "Principal Speed";
+                        //}
+                        //else
+                        dataGridViewcnc1.Rows[i].Cells[1].Value = "主轴转速";
                     }
                     dataGridViewcnc1.Rows[i].Cells[2].Value = "";
                 }
@@ -320,19 +327,21 @@ namespace SCADA
                     dataGridViewrobort.Rows[i].Cells[0].Value = temp;
                     if (i == 0)
                     {
-                        if (language == "English")
-                        {
-                            dataGridViewrobort.Rows[i].Cells[1].Value = "J6 Position";
-                        }
-                        else dataGridViewrobort.Rows[i].Cells[1].Value = "J6 位置";
+                        //if (language == "English")
+                        //{
+                        //    dataGridViewrobort.Rows[i].Cells[1].Value = "J6 Position";
+                        //}
+                        //else
+                        dataGridViewrobort.Rows[i].Cells[1].Value = "J6 位置";
                     }
                     if (i == 1)
                     {
-                        if (language == "English")
-                        {
-                            dataGridViewrobort.Rows[i].Cells[1].Value = "J7 Position";
-                        }
-                        else dataGridViewrobort.Rows[i].Cells[1].Value = "J7 位置";
+                        //if (language == "English")
+                        //{
+                        //    dataGridViewrobort.Rows[i].Cells[1].Value = "J7 Position";
+                        //}
+                        //else 
+                        dataGridViewrobort.Rows[i].Cells[1].Value = "J7 位置";
                     }              
                 }
             //}
@@ -1099,11 +1108,11 @@ namespace SCADA
             }
             else
             {
-                if (language == "English")
-                {
-                    MessageBox.Show("Please enter number");
-                }
-                else
+                //if (language == "English")
+                //{
+                //    MessageBox.Show("Please enter number");
+                //}
+                //else
                     MessageBox.Show("请输入数字");
                 textBoxspeed2.Focus();
             }
@@ -1131,11 +1140,11 @@ namespace SCADA
                 }
                  if (pointcount > 1)
                  {
-                     if (language == "English")
-                     {
-                         MessageBox.Show("Please enter number correct");
-                     }
-                     else
+                     //if (language == "English")
+                     //{
+                     //    MessageBox.Show("Please enter number correct");
+                     //}
+                     //else
                          MessageBox.Show("请输入正确数字");
                      textBoxspeed2.Focus();
                  }
@@ -1156,11 +1165,11 @@ namespace SCADA
             }
             else
             {
-                if (language == "English")
-                {
-                    MessageBox.Show("Please enter number");
-                }
-                else
+                //if (language == "English")
+                //{
+                //    MessageBox.Show("Please enter number");
+                //}
+                //else
                     MessageBox.Show("请输入数字");
                 textBoxspeed1.Focus();
             }
@@ -1187,11 +1196,11 @@ namespace SCADA
                 }
                 if (pointcount > 1)
                 {
-                    if (language == "English")
-                    {
-                        MessageBox.Show("Please enter number correct");
-                    }
-                    else
+                    //if (language == "English")
+                    //{
+                    //    MessageBox.Show("Please enter number correct");
+                    //}
+                    //else
                         MessageBox.Show("请输入正确数字");
                     textBoxspeed1.Focus();
                 }
@@ -1276,7 +1285,7 @@ namespace SCADA
             }
             else
             {
-                button3.BackColor = Color.LightGreen;
+                button3.BackColor = Color.DarkTurquoise;
                // cleardataGridViewcut();
             }
             if (language == "English" )
@@ -1341,7 +1350,7 @@ namespace SCADA
             else
             {
                 testbegin1 = false;
-                buttonbegin1.BackColor = Color.LightGreen;
+                buttonbegin1.BackColor = Color.DarkTurquoise;
                 comboBoxopen1.Enabled = true;
                 comboBoxpan1.Enabled = true;
                 textBoxspeed1.Enabled = true;
@@ -1366,7 +1375,7 @@ namespace SCADA
             else
             {
                 testbegin2 = false;
-                buttonbegin2.BackColor = Color.LightGreen;
+                buttonbegin2.BackColor = Color.DarkTurquoise;
                 comboBoxopen2.Enabled = true;
                 comboBoxpan2.Enabled = true;
                 textBoxspeed2.Enabled = true;
@@ -1387,11 +1396,11 @@ namespace SCADA
             }
             else
             {
-                if (language == "English")
-                {
-                    MessageBox.Show("Please enter number");
-                }
-                else
+                //if (language == "English")
+                //{
+                //    MessageBox.Show("Please enter number");
+                //}
+                //else
                     MessageBox.Show("请输入数字");
                 textBoxj6.Focus();
             }
@@ -1422,11 +1431,11 @@ namespace SCADA
                 }
                 if (pointcount > 1)
                 {
-                    if (language == "English")
-                    {
-                        MessageBox.Show("Please enter number correct");
-                    }
-                    else
+                    //if (language == "English")
+                    //{
+                    //    MessageBox.Show("Please enter number correct");
+                    //}
+                    //else
                         MessageBox.Show("请输入正确数字");
                     textBoxj6.Focus();
                 }
@@ -1452,11 +1461,11 @@ namespace SCADA
             }
             else
             {
-                if (language == "English")
-                {
-                    MessageBox.Show("Please enter number");
-                }
-                else
+                //if (language == "English")
+                //{
+                //    MessageBox.Show("Please enter number");
+                //}
+                //else
                     MessageBox.Show("请输入数字");
                 textBoxj7.Focus();
             }
@@ -1487,11 +1496,11 @@ namespace SCADA
                 }
                 if (pointcount > 1)
                 {
-                    if (language == "English")
-                    {
-                        MessageBox.Show("Please enter number correct");
-                    }
-                    else
+                    //if (language == "English")
+                    //{
+                    //    MessageBox.Show("Please enter number correct");
+                    //}
+                    //else
                         MessageBox.Show("请输入正确数字");
                     textBoxj7.Focus();
                 }
@@ -1515,7 +1524,7 @@ namespace SCADA
             else
             {
                 testbegin3 = false;
-                button2.BackColor = Color.LightGreen;
+                button2.BackColor = Color.DarkTurquoise;
                 textBoxj6.Enabled = true;
                 textBoxj7.Enabled = true;
             }
@@ -1648,7 +1657,7 @@ namespace SCADA
             else
             {
                 testbegin4 = false;
-                button4.BackColor = Color.LightGreen;
+                button4.BackColor = Color.DarkTurquoise;
             }
         }
 
@@ -1658,12 +1667,12 @@ namespace SCADA
             {
                 if (MainForm.cncv2list[1].IsConnected() == false)
                 {
-                    if (language == "English")
-                    {
-                        //  ShowForm.messagestring = "Cnc is off line";
-                        MessageBox.Show("Cnc is off line");
-                    }
-                    else
+                    //if (language == "English")
+                    //{
+                    //    //  ShowForm.messagestring = "Cnc is off line";
+                    //    MessageBox.Show("Cnc is off line");
+                    //}
+                    //else
                         //ShowForm.messagestring = "加工中心离线，无法获取测量数据";
                         //ShowForm form1 = new ShowForm();
                         //  form1.Show();
@@ -1759,7 +1768,7 @@ namespace SCADA
             else
             {
                 testbegin5 = false;
-                button3.BackColor = Color.LightGreen;
+                button3.BackColor = Color.DarkTurquoise;
             }
         }
 
@@ -1816,11 +1825,11 @@ namespace SCADA
                 }
                 if (pointcount > 1)
                 {
-                    if (language == "English")
-                    {
-                        MessageBox.Show("Please enter number correct");
-                    }
-                    else
+                    //if (language == "English")
+                    //{
+                    //    MessageBox.Show("Please enter number correct");
+                    //}
+                    //else
                         MessageBox.Show("请输入正确数字");
                     ((TextBox)sender).Text = "0.00";
                 }

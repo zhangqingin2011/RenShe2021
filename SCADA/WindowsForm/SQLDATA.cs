@@ -38,6 +38,9 @@ namespace SCADA
         public Guid StorageBinId;
         public Int32 ToolSN;
     }
+    /// <summary>
+    /// 加工中心
+    /// </summary>
     public class FCNCdata
     {
 
@@ -66,6 +69,27 @@ namespace SCADA
         public Guid StorageBinId;
         public Int32 ToolSN;
     }
+    /// <summary>
+    /// AGV数据
+    /// </summary>
+    public class FAGVdata
+    {
+        public Guid MachineId;//机器码
+        public bool LineStoreBit;//	线边库状态(0无料盘1有料盘）
+        public bool FinStoreBit;//	成品库状态(0无料盘1有料盘）
+        public bool RawStore;//	毛坯库状态(0无料盘1有料盘)
+        public bool Task_Raw_Line;//	毛坯库到线边库
+        public bool Task_Fin_Line;//	成品库到线边库
+        public bool Task_Line_Raw;//	从线边库到毛坯库
+        public bool Task_Line_Fine;//	从线边库到成品库
+        public Int32 AGV_Task_State;//0:初始，4:任务创建成功，6:任务创建失败，16:成功完成，24:错误完成
+        public Int32 AGV_State;//AGV状态0：维护中、充电中  1：就绪 2：忙碌 4：故障 10：API接口错误  11：急停中
+        public Int32 AGV_Vol;//电量，百分比
+        public Int32 AGV_Beat;//心跳每秒加1 到1000后回1
+    }
+    /// <summary>
+    /// 工单数据
+    /// </summary>
     public class FOrderdata
     {
         public string UserId;
@@ -203,6 +227,8 @@ namespace SCADA
         /// </summary>
         public bool IsConnect { get; set; }
     }
+
+
     /// <summary>
     /// 设备类型
     /// </summary>

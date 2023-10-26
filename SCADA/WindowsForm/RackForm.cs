@@ -351,42 +351,42 @@ namespace SCADA
         private void timer1_Tick(object sender, EventArgs e)
         {
             language = ChangeLanguage.GetDefaultLanguage(); 
-            if(language == "English")
-            {
-               if (label8.Text == "串口开启")
-              {
-                  label8.Text = "port open";
-              }
-            }
-            else
-            {
+            //if(language == "English")
+            //{
+            //   if (label8.Text == "串口开启")
+            //  {
+            //      label8.Text = "port open";
+            //  }
+            //}
+            //else
+            //{
                 if (label8.Text == "port open")
                 {
                     label8.Text = "串口开启";
                 }
-            }
+            //}
             if (COMCLOSEFLAGE)
             {
                         button2.BackColor = Color.Gray;
-                        button3.BackColor = Color.LightGreen;
+                        button3.BackColor = Color.DarkTurquoise;
                         //comstate =(int) com_state.comopen;
-                         if (language == "English")
-                        {
-                            label8.Text = "port open";
-                        }
-                         else 
+                        // if (language == "English")
+                        //{
+                        //    label8.Text = "port open";
+                        //}
+                        // else 
                              label8.Text = "串口开启";
             }
             if (COMOPENFLAGE)
             {
                 button3.BackColor = Color.Gray;
-                button2.BackColor = Color.LightGreen;
+                button2.BackColor = Color.DarkTurquoise;
                 //comstate = (int)com_state.comclose;
-                if (language == "English")
-                {
-                    label8.Text = "port close";
-                }
-                else
+                //if (language == "English")
+                //{
+                //    label8.Text = "port close";
+                //}
+                //else
                     label8.Text = "串口关闭";
             }
              //如果已经取得了料架点位信息，初始无色等等的信息
@@ -403,35 +403,35 @@ namespace SCADA
             {   //  string language = ChangeLanguage.GetDefaultLanguage();
                 if (Inventoryflag)
                 {
-                    button5.BackColor = Color.LightGreen;
-                    if (language == "English")
-                    {
+                    button5.BackColor = Color.DarkTurquoise;
+                    //if (language == "English")
+                    //{
 
-                        button5.Text = "Inventory";
-                    }
-                    else
+                    //    button5.Text = "Inventory";
+                    //}
+                    //else
                         button5.Text = "料仓盘点";
                 }
                 if (rfidreadflag)
                 {
-                    button4.BackColor = Color.LightGreen;
-                    if (language == "English")
-                    {
+                    button4.BackColor = Color.DarkTurquoise;
+                    //if (language == "English")
+                    //{
 
-                        button4.Text = "HMIWrite";
-                    }
-                    else
+                    //    button4.Text = "HMIWrite";
+                    //}
+                    //else
                         button4.Text = "HMI写入";
                 }
                 if (rfidwriteflag)
                 {
-                    button6.BackColor = Color.LightGreen;
-                    if (language == "English")
-                    {
+                    button6.BackColor = Color.DarkTurquoise;
+                    //if (language == "English")
+                    //{
 
-                        button6.Text = "MESWrite";
-                    }
-                    else
+                    //    button6.Text = "MESWrite";
+                    //}
+                    //else
                         button6.Text = "MES写入";
                 }
             }
@@ -756,11 +756,11 @@ namespace SCADA
             }
             else
             {
-                if (language == "English")
-                {
-                    MessageBox.Show("Please enter number") ;
-                }
-                else 
+                //if (language == "English")
+                //{
+                //    MessageBox.Show("Please enter number") ;
+                //}
+                //else 
                 MessageBox.Show("请输入数字");
                 textBox1.Focus();
             }
@@ -770,14 +770,14 @@ namespace SCADA
         {
             string MagNoStr = ((TextBox)sender).Text;
             int MagNo = getnumformstring(MagNoStr);
-            if (MagNo > 30 || MagNo < 0)
+            if (MagNo > 27 || MagNo < 0)
             {
-                if (language == "English")
-                {
-                    MessageBox.Show("Please enter number between 1 to 30");
-                }
-                else
-                MessageBox.Show("请输入1-30之间的数字");
+                //if (language == "English")
+                //{
+                //    MessageBox.Show("Please enter number between 1 to 30");
+                //}
+                //else
+                MessageBox.Show("请输入1-27之间的数字");
                 textBox1.Focus();
             }
             else
@@ -809,11 +809,11 @@ namespace SCADA
             if (MainForm.cncv2list[0].MagNum == MagNo
                 || MainForm.cncv2list[1].MagNum == MagNo)
             {
-                if (language == "English")
-                {
-                    MessageBox.Show("Current rack is processing , the rack can't be initialized .");
-                }
-                else
+                //if (language == "English")
+                //{
+                //    MessageBox.Show("Current rack is processing , the rack can't be initialized .");
+                //}
+                //else
                     MessageBox.Show("当前仓位订单未完成，无法初始化为无料状态！");
                 textBox1.Focus();
             }
@@ -826,11 +826,11 @@ namespace SCADA
               
 
                 string temp = "";
-                if (language == "English")
-                {
-                   temp = MagNoStr + " the rack initialized successful .";
-                }
-                else 
+                //if (language == "English")
+                //{
+                //   temp = MagNoStr + " the rack initialized successful .";
+                //}
+                //else 
                     temp = MagNoStr + "仓位初始化为无料成功！";
                 MessageBox.Show(temp);
                 return;
@@ -848,25 +848,25 @@ namespace SCADA
                     {
                           // 开启串口成功
                         button2.BackColor = Color.Gray;
-                        button3.BackColor = Color.LightGreen;
+                        button3.BackColor = Color.DarkTurquoise;
                         initlightstate();//料架灯初始化一次
                         //comstate =(int) com_state.comopen;
-                         if (language == "English")
-                        {
-                            label8.Text = "port open";
-                        }
-                         else 
+                        // if (language == "English")
+                        //{
+                        //    label8.Text = "port open";
+                        //}
+                        // else 
                              label8.Text = "串口开启";
                        COMOPENFLAGE = false;
                        COMCLOSEFLAGE = true;      
                     }
                     else
                     {//串口打开失败
-                        if (language == "English")
-                        {
-                            label8.Text = "port open err";
-                        }
-                        else  
+                        //if (language == "English")
+                        //{
+                        //    label8.Text = "port open err";
+                        //}
+                        //else  
                             label8.Text = "串口开启失败";
                         COMOPENFLAGE = true;
                         COMCLOSEFLAGE = false;   
@@ -889,24 +889,24 @@ namespace SCADA
                     if (MainForm.spport1.Close())//串口打开成功
                     {
                         button3.BackColor = Color.Gray;
-                        button2.BackColor = Color.LightGreen;
+                        button2.BackColor = Color.DarkTurquoise;
                         //comstate = (int)com_state.comclose;
-                        if (language == "English")
-                        {
-                            label8.Text = "port close";
-                        }
-                        else
+                        //if (language == "English")
+                        //{
+                        //    label8.Text = "port close";
+                        //}
+                        //else
                             label8.Text = "串口关闭";
                         COMOPENFLAGE = true;
                         COMCLOSEFLAGE = false;
                     }
                     else
                     {
-                        if (language == "English")
-                        {
-                            label8.Text = "port close err";
-                        }
-                        else  
+                        //if (language == "English")
+                        //{
+                        //    label8.Text = "port close err";
+                        //}
+                        //else  
                             label8.Text = "串口关闭失败";
                         COMOPENFLAGE = false;
                         COMCLOSEFLAGE = true;
@@ -932,82 +932,91 @@ namespace SCADA
         {
             if (MainForm.PLC_SIMES_ON_line==false)//plc离线
             {
-                if (language == "English")
-                {
-                    MessageBox.Show("PLC is off-line,can't inventory!");
-                }
-                else  MessageBox.Show("PLC离线，不允许盘点!");
+                //if (language == "English")
+                //{
+                //    MessageBox.Show("PLC is off-line,can't inventory!");
+                //}
+                //else 
+                    MessageBox.Show("PLC离线，不允许盘点!");
                 return ;
             }
             if (MainForm.linereseting )//产线复位中不能盘点
             {
-                if (language == "English")
-                {
-                    MessageBox.Show("The Line is resetting,can't inventory!");
-                }
-                else  MessageBox.Show("产线复位进行中，不允许盘点!");
+                //if (language == "English")
+                //{
+                //    MessageBox.Show("The Line is resetting,can't inventory!");
+                //}
+                //else 
+                    MessageBox.Show("产线复位进行中，不允许盘点!");
                 return;
             }
             if (MainForm.linestarting)//产线复位中不能盘点
             {
-                if (language == "English")
-                {
-                    MessageBox.Show("The Line is starting,can't inventory!");
-                }
-                else MessageBox.Show("产线启动进行中，不允许盘点!");
+                //if (language == "English")
+                //{
+                //    MessageBox.Show("The Line is starting,can't inventory!");
+                //}
+                //else 
+                    MessageBox.Show("产线启动进行中，不允许盘点!");
                 return;
             }
             if (MainForm.linestoping)//产线复位中不能盘点
             {
-                if (language == "English")
-                {
-                    MessageBox.Show("The Line is stopping,can't inventory!");
-                }
-                else MessageBox.Show("产线停止进行中，不允许盘点!");
+                //if (language == "English")
+                //{
+                //    MessageBox.Show("The Line is stopping,can't inventory!");
+                //}
+                //else 
+                    MessageBox.Show("产线停止进行中，不允许盘点!");
                 return;
             }
             if (MainForm.cncv2list[0].MagNum!=0 && MainForm.cncv2list[1].MagNum != 0 )//产线复位中不能盘点
             {
-                if (language == "English")
-                {
-                    MessageBox.Show("The Line is processing,can't inventory!");
-                }
-                else MessageBox.Show("产线生产中，不允许盘点!");
+                //if (language == "English")
+                //{
+                //    MessageBox.Show("The Line is processing,can't inventory!");
+                //}
+                //else 
+                    MessageBox.Show("产线生产中，不允许盘点!");
                     return;
             }
             if (!Inventoryflag)
             {
-                if (language == "English")
-                {
-                    MessageBox.Show("The rackis Inventorying!");
-                }
-                else MessageBox.Show("当前正在盘点!");
+                //if (language == "English")
+                //{
+                //    MessageBox.Show("The rackis Inventorying!");
+                //}
+                //else 
+                    MessageBox.Show("当前正在盘点!");
             }
             if(!rfidreadflag)
             {
-                if (language == "English")
-                {
-                    MessageBox.Show("The rfid is reading ,can't inventory!");
-                }
-                else  MessageBox.Show("HMI信息写入中，不允许盘点!");
+                //if (language == "English")
+                //{
+                //    MessageBox.Show("The rfid is reading ,can't inventory!");
+                //}
+                //else 
+                    MessageBox.Show("HMI信息写入中，不允许盘点!");
                 return;
             }
             if (!rfidwriteflag)
             {
-                if (language == "English")
-                {
-                    MessageBox.Show("The rfid is writting,can't inventory!");
-                }
-                else MessageBox.Show("MES信息写入中，不允许盘点!");
+                //if (language == "English")
+                //{
+                //    MessageBox.Show("The rfid is writting,can't inventory!");
+                //}
+                //else
+                    MessageBox.Show("MES信息写入中，不允许盘点!");
                 return;
             }
             if (MainForm.linestart)//产线没开启，不能盘点
             {
-                if (language == "English")
-                {
-                    MessageBox.Show("The line is stop，please start the line!");
-                }
-                else MessageBox.Show("产线停止，请启动产线!");
+                //if (language == "English")
+                //{
+                //    MessageBox.Show("The line is stop，please start the line!");
+                //}
+                //else 
+                    MessageBox.Show("产线停止，请启动产线!");
                 return;
             }
       
@@ -1018,12 +1027,13 @@ namespace SCADA
                     //获取当前默认语言  
                     //string language = ChangeLanguage.GetDefaultLanguage();
                     button5.BackColor = Color.LightPink;
-                    if (language == "English")
-                    {
+                    //if (language == "English")
+                    //{
 
-                        button5.Text = "On Inventory ";
-                    }
-                    else button5.Text = "料架盘点中";
+                    //    button5.Text = "On Inventory ";
+                    //}
+                    //else
+                        button5.Text = "料架盘点中";
                     ModbusTcp.MES_PLC_comfim_write_flage = true;
                     ModbusTcp.DataMoubus[(int)ModbusTcp.DataConfigArr.MES_PLC_comfirm] = (int)ModbusTcp.MesCommandToPlc.ComWriteRfid;
                     Inventoryflag = false;
@@ -1042,84 +1052,93 @@ namespace SCADA
         {
             if (MainForm.PLC_SIMES_ON_line == false)//plc离线
             {
-                if (language == "English")
-                {
-                    MessageBox.Show("PLC is off-line,can't inventory!");
-                }
-                else MessageBox.Show("PLC离线，不允许HMI信息写入!");
+                //if (language == "English")
+                //{
+                //    MessageBox.Show("PLC is off-line,can't inventory!");
+                //}
+                //else
+                    MessageBox.Show("PLC离线，不允许HMI信息写入!");
                 return;
             }
           //  if (!MainForm.linereset)//产线复位中不能盘点
             if (MainForm.linereseting)//产线复位中不能盘点
             {
-                if (language == "English")
-                {
-                    MessageBox.Show("The Line is resetting,can't inventory!");
-                }
-                else MessageBox.Show("产线复位进行中，不允许HMI信息写入");
+                //if (language == "English")
+                //{
+                //    MessageBox.Show("The Line is resetting,can't inventory!");
+                //}
+                //else 
+                    MessageBox.Show("产线复位进行中，不允许HMI信息写入");
                 return;
             }
             if (MainForm.linestarting)//产线复位中不能盘点
             {
-                if (language == "English")
-                {
-                    MessageBox.Show("The Line is starting,can't inventory!");
-                }
-                else MessageBox.Show("产线启动进行中，不允许HMI信息写入!");
+                //if (language == "English")
+                //{
+                //    MessageBox.Show("The Line is starting,can't inventory!");
+                //}
+                //else
+                    MessageBox.Show("产线启动进行中，不允许HMI信息写入!");
                 return;
             }
             if (MainForm.linestoping)//产线复位中不能盘点
             {
-                if (language == "English")
-                {
-                    MessageBox.Show("The Line is stopping,can't writting!");
-                }
-                else MessageBox.Show("产线停止进行中，不允许HMI信息写入!");
+                //if (language == "English")
+                //{
+                //    MessageBox.Show("The Line is stopping,can't writting!");
+                //}
+                //else
+                    MessageBox.Show("产线停止进行中，不允许HMI信息写入!");
                 return;
             }
           
             if (MainForm.cncv2list[0].MagNum != 0 && MainForm.cncv2list[1].MagNum != 0)//产线复位中不能盘点
             {
-                if (language == "English")
-                {
-                    MessageBox.Show("The Order is processing!");
-                }
-                else MessageBox.Show("产线生产中，不允许HMI信息写入!");
+                //if (language == "English")
+                //{
+                //    MessageBox.Show("The Order is processing!");
+                //}
+                //else 
+                    MessageBox.Show("产线生产中，不允许HMI信息写入!");
                 return;
             }
             if (!Inventoryflag)
             {
-                if (language == "English")
-                {
-                    MessageBox.Show("The rackis writting!");
-                }
-                else MessageBox.Show("当前正在盘点!");
+                //if (language == "English")
+                //{
+                //    MessageBox.Show("The rackis writting!");
+                //}
+                //else 
+                    MessageBox.Show("当前正在盘点!");
                 return;
             }
             if (!rfidreadflag)
             {
-                if (language == "English")
-                {
-                    MessageBox.Show("HMI message is writting!");
-                }
-                else MessageBox.Show("HMI信息正在写入!");
+                //if (language == "English")
+                //{
+                //    MessageBox.Show("HMI message is writting!");
+                //}
+                //else 
+                    MessageBox.Show("HMI信息正在写入!");
             }
             if (!rfidwriteflag)
             {
-                if (language == "English")
-                {
-                    MessageBox.Show("The rfid is writting,can't writting!");
-                }
-                else MessageBox.Show("MES信息写入中，不允许HMI写入!!");
+                //if (language == "English")
+                //{
+                //    MessageBox.Show("The rfid is writting,can't writting!");
+                //}
+                //else
+                    MessageBox.Show("MES信息写入中，不允许HMI写入!!");
                 return;
             }
             if (MainForm.linestart)//产线没开启，不能盘点
             {
-                if (language == "English")
-                {
-                    MessageBox.Show("The line is stop，please start the line!");
-                }
-                else MessageBox.Show("产线停止，请启动产线!");
+                //if (language == "English")
+                //{
+                //    MessageBox.Show("The line is stop，please start the line!");
+                //}
+                //else
+                    MessageBox.Show("产线停止，请启动产线!");
                 return;
             }
             if (rfidreadflag)//Inventoryflag盘点执行中为false，没有盘点为true
@@ -1130,12 +1149,13 @@ namespace SCADA
                     //string language = ChangeLanguage.GetDefaultLanguage();
                     button4.BackColor = Color.LightPink;
                     //RackForm.magstatesyncflag = false;
-                    if (language == "English")
-                    {
+                    //if (language == "English")
+                    //{
 
-                        button4.Text = "HMIWritting";
-                    }
-                    else button4.Text = "HMI写入中";
+                    //    button4.Text = "HMIWritting";
+                    //}
+                    //else 
+                        button4.Text = "HMI写入中";
                     ModbusTcp.MES_PLC_comfim_write_flage = true;
                     ModbusTcp.DataMoubus[(int)ModbusTcp.DataConfigArr.MES_PLC_comfirm] = (int)ModbusTcp.MesCommandToPlc.ComReadRfid;
                     rfidreadflag = false;
@@ -1156,29 +1176,32 @@ namespace SCADA
             }
             if (MainForm.linereseting)//产线复位中不能盘点
             {
-                if (language == "English")
-                {
-                    MessageBox.Show("The Line is resetting,can't writting!");
-                }
-                else MessageBox.Show("产线复位进行中，不允许MES信息写入");
+                //if (language == "English")
+                //{
+                //    MessageBox.Show("The Line is resetting,can't writting!");
+                //}
+                //else
+                    MessageBox.Show("产线复位进行中，不允许MES信息写入");
                 return;
             }
             if (MainForm.linestarting)//产线复位中不能盘点
             {
-                if (language == "English")
-                {
-                    MessageBox.Show("The Line is starting,can't writting!");
-                }
-                else MessageBox.Show("产线启动进行中，不允许MES信息写入!");
+                //if (language == "English")
+                //{
+                //    MessageBox.Show("The Line is starting,can't writting!");
+                //}
+                //else
+                    MessageBox.Show("产线启动进行中，不允许MES信息写入!");
                 return;
             }
             if (MainForm.linestoping)//产线复位中不能盘点
             {
-                if (language == "English")
-                {
-                    MessageBox.Show("The Line is stopping,can't writting!");
-                }
-                else MessageBox.Show("产线停止进行中，不允许MES信息写入!");
+                //if (language == "English")
+                //{
+                //    MessageBox.Show("The Line is stopping,can't writting!");
+                //}
+                //else 
+                    MessageBox.Show("产线停止进行中，不允许MES信息写入!");
                 return;
             }
             if (MainForm.cncv2list[0].MagNum != 0 && MainForm.cncv2list[1].MagNum != 0)//产线复位中不能盘点
@@ -1188,38 +1211,42 @@ namespace SCADA
             }
             if (!Inventoryflag)
             {
-                if (language == "English")
-                {
-                    MessageBox.Show("The rackis Inventorying!");
-                }
-                else MessageBox.Show("当前正在盘点!");
+                //if (language == "English")
+                //{
+                //    MessageBox.Show("The rackis Inventorying!");
+                //}
+                //else 
+                    MessageBox.Show("当前正在盘点!");
                 return;
             }
             if (!rfidreadflag)
             {
-                if (language == "English")
-                {
-                    MessageBox.Show("The rfid is writting,can't writting!");
-                }
-                else MessageBox.Show("HMI信息写入中，不允许再次写入!");
+                //if (language == "English")
+                //{
+                //    MessageBox.Show("The rfid is writting,can't writting!");
+                //}
+                //else
+                    MessageBox.Show("HMI信息写入中，不允许再次写入!");
                 return;
             }
             if (!rfidwriteflag)
             {
-                if (language == "English")
-                {
-                    MessageBox.Show("The rfid is writting!");
-                }
-                else MessageBox.Show("MES信息正在写入!");
+                //if (language == "English")
+                //{
+                //    MessageBox.Show("The rfid is writting!");
+                //}
+                //else 
+                    MessageBox.Show("MES信息正在写入!");
                 return;
             }
             if (MainForm.linestart)//产线没开启，不能盘点
             {
-                if (language == "English")
-                {
-                    MessageBox.Show("The line is stop，please start the line!");
-                }
-                else MessageBox.Show("产线停止，请启动产线!");
+                //if (language == "English")
+                //{
+                //    MessageBox.Show("The line is stop，please start the line!");
+                //}
+                //else
+                    MessageBox.Show("产线停止，请启动产线!");
                 return;
             }
             if (rfidwriteflag)//Inventoryflag盘点执行中为false，没有盘点为true
@@ -1241,12 +1268,13 @@ namespace SCADA
                     //获取当前默认语言  
                     string language = ChangeLanguage.GetDefaultLanguage();
                     button6.BackColor = Color.LightPink;
-                    if (language == "English")
-                    {
+                    //if (language == "English")
+                    //{
 
-                        button6.Text = "MESWritting";
-                    }
-                    else button6.Text = "MES写入中";
+                    //    button6.Text = "MESWritting";
+                    //}
+                    //else
+                        button6.Text = "MES写入中";
                     ModbusTcp.MES_PLC_comfim_write_flage = true;
                     ModbusTcp.DataMoubus[(int)ModbusTcp.DataConfigArr.MES_PLC_comfirm] = (int)ModbusTcp.MesCommandToPlc.ComWriteRfid;
                     rfidwriteflag = false;
@@ -1266,16 +1294,16 @@ namespace SCADA
                || MainForm.cncv2list[1].MagNum == ii)
                 {
                     string temp = "";
-                    if (language == "English")
-                    {
-                        temp = "No." + ii.ToString() + "is processing , the rack can't be initialized !";
-                        MessageBox.Show(temp );
-                    }
-                    else
-                    {
+                    //if (language == "English")
+                    //{
+                    //    temp = "No." + ii.ToString() + "is processing , the rack can't be initialized !";
+                    //    MessageBox.Show(temp );
+                    //}
+                    //else
+                    //{
                         temp = "No." + ii.ToString()+"仓位订单未完成，无法初始化！";
                         MessageBox.Show(temp);
-                    }
+                    //}
   
                 }
                 else //仓位待加工
@@ -1307,29 +1335,32 @@ namespace SCADA
          
             if (!Inventoryflag)
             {
-                if (language == "English")
-                {
-                    MessageBox.Show("The rackis Inventorying!");
-                }
-                else MessageBox.Show("当前正在盘点!");
+                //if (language == "English")
+                //{
+                //    MessageBox.Show("The rackis Inventorying!");
+                //}
+                //else 
+                    MessageBox.Show("当前正在盘点!");
                 return;
             }
             if (!rfidreadflag)
             {
-                if (language == "English")
-                {
-                    MessageBox.Show("The rfid is writting,can't inventory!");
-                }
-                else MessageBox.Show("HMI信息写入中，不允许写入!");
+                //if (language == "English")
+                //{
+                //    MessageBox.Show("The rfid is writting,can't inventory!");
+                //}
+                //else
+                    MessageBox.Show("HMI信息写入中，不允许写入!");
                 return;
             }
             if (!rfidwriteflag)
             {
-                if (language == "English")
-                {
-                    MessageBox.Show("The rfid is writting!");
-                }
-                else MessageBox.Show("MES信息正在写入!");
+                //if (language == "English")
+                //{
+                //    MessageBox.Show("The rfid is writting!");
+                //}
+                //else 
+                    MessageBox.Show("MES信息正在写入!");
                 return;
             }
 
@@ -1337,23 +1368,25 @@ namespace SCADA
             {
                 magstatesyncflag = true;
                 button8.BackColor = Color.Gray;
-                if (language == "English")
-                {
+                //if (language == "English")
+                //{
 
-                    button8.Text = "MessageSteping";
-                }
-                else button8.Text = "信息同步中";
+                //    button8.Text = "MessageSteping";
+                //}
+                //else 
+                    button8.Text = "信息同步中";
             }
             else
             {
                 magstatesyncflag =false ;
-                button8.BackColor = Color.LightGreen;
-                if (language == "English")
-                {
+                button8.BackColor = Color.DarkTurquoise;
+                //if (language == "English")
+                //{
 
-                    button8.Text = "MessageStep";
-                }
-                else button8.Text = "信息同步";
+                //    button8.Text = "MessageStep";
+                //}
+                //else 
+                    button8.Text = "信息同步";
             }
         }
         //场次信息变更

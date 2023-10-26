@@ -146,7 +146,9 @@ namespace SCADA
         private static Form[] m_Formarr = null;
         private static DateTime SystemStartime;
 
+        public static AGVData agvdata = new AGVData();
         public static Flathedata Slathedata = new Flathedata();
+        public static FAGVdata SAGVdata = new FAGVdata();
         public static FCNCdata SCNCdata = new FCNCdata();
         public static FOrderdata SOrderdata = new FOrderdata();
         public static FRobortdata SRobortdata = new FRobortdata();
@@ -721,10 +723,8 @@ namespace SCADA
                             renewCNCdata(cnctemp);
                             if (renewcncsql)
                             {
-
                                 renewToolCNC(cnctemp);
                             }
-
                         }
                         else if (cnctemp.cnctype == CNCType.Lathe)
                         {
@@ -835,7 +835,7 @@ namespace SCADA
                     {
                         // 开启串口成功
                         button2.BackColor = Color.Gray;
-                        button3.BackColor = Color.LightGreen;
+                        button3.BackColor = Color.DarkTurquoise;
                         RackForm.initlightstate();//料架灯初始化一次
                         //comstate =(int) com_state.comopen;
                         RackForm.COMOPENFLAGE = false;
@@ -1675,55 +1675,31 @@ namespace SCADA
         {
             if (MainForm.UserLogin == false)
             {
-                if (language == "English")
-                {
-                    MessageBox.Show("User has no permission!");
-                }
-                else MessageBox.Show("当前用户无此权限!");
+                MessageBox.Show("当前用户无此权限!");
                 return;
             }
             if (!MainForm.PLC_SIMES_ON_line)
             {
-                if (language == "English")
-                {
-                    MessageBox.Show("PLC is offline");
-                }
-                else MessageBox.Show("PLC离线");
+                 MessageBox.Show("PLC离线");
                 return;
             }
             if (ModbusTcp.MES_PLC_comfim_write_flage)//产线正在复位或者盘点
             {
                 if (linereseting == true)
                 {
-                    if (language == "English")
-                    {
-                        MessageBox.Show("The Line is restarting");
-                    }
-                    else MessageBox.Show("产线复位中,不能开启产线");
+                    MessageBox.Show("产线复位中,不能开启产线");
                 }
                 else if (RackForm.Inventoryflag == false)
                 {
-                    if (language == "English")
-                    {
-                        MessageBox.Show("The rack is Inventory");
-                    }
-                    else MessageBox.Show("料架盘点中,不能开启产线");
+                    MessageBox.Show("料架盘点中,不能开启产线");
                 }
                 else if (linestarting == true)
                 {
-                    if (language == "English")
-                    {
-                        MessageBox.Show("The line is starting");
-                    }
-                    else MessageBox.Show("产线正在启动中");
+                    MessageBox.Show("产线正在启动中");
                 }
                 else if (linestoping == true)
                 {
-                    if (language == "English")
-                    {
-                        MessageBox.Show("The line is stopping");
-                    }
-                    MessageBox.Show("产线停止中,不能开启产线");
+                     MessageBox.Show("产线停止中,不能开启产线");
                 }
 
                 return;
@@ -1746,37 +1722,20 @@ namespace SCADA
                     linestoping = false;//产线启动中或者产线启动状态不能点击复位按钮
                     button3.BackColor = Color.Gray;
                     button2.BackColor = Color.Gray;
-                    if (language == "English")
-                    {
-
-                        button1.Text = "STARTING";
-                    }
-                    else button1.Text = "产线启动中";
+                    button1.Text = "产线启动中";
                 }
                 if (ModbusTcp.MES_PLC_comfim_write_flage == false)
                 {
                     button1.BackColor = Color.Gray;
 
                     linestarting = false;
-                    if (language == "English")
-                    {
-
-                        button1.Text = "STARTED";
-                    }
-                    else
+                   
                         button1.Text = "产线已开启";
                     //  linestart = true;
 
-                    button2.BackColor = Color.LightGreen;
-                    if (language == "English")
-                    {
-                        linestart = false;
-                        button2.Text = "STOP";
-                    }
-                    else
-                    {
-                        button2.Text = "产线停止";
-                    }
+                    button2.BackColor =Color.DarkTurquoise;
+                    button2.Text = "产线停止";
+                   
                     linestop = true;
                     linereset = false;
                 }
@@ -1792,20 +1751,12 @@ namespace SCADA
         {
             if (!MainForm.PLC_SIMES_ON_line)
             {
-                if (language == "English")
-                {
-                    MessageBox.Show("PLC is offline");
-                }
-                else MessageBox.Show("PLC离线");
+                MessageBox.Show("PLC离线");
                 return;
             }
             if (RackForm.Inventoryflag == false)
             {
-                if (language == "English")
-                {
-                    MessageBox.Show("The rack is Inventory");
-                }
-                else MessageBox.Show("料架盘点中,不能开启产线");
+                MessageBox.Show("料架盘点中,不能开启产线");
                 return;
             }
             if (linestop)
@@ -1814,11 +1765,7 @@ namespace SCADA
                 //{
                 if (linereseting == true)
                 {
-                    if (language == "English")
-                    {
-                        MessageBox.Show("The line is resetting");
-                    }
-                    else MessageBox.Show("产线复位进行中，不能停止");
+                     MessageBox.Show("产线复位进行中，不能停止");
                     return;
                     //if (ModbusTcp.DataMoubus[(int)ModbusTcp.DataConfigArr.MES_PLC_comfirm] == (int)ModbusTcp.MesCommandToPlc.ComStartDevice)
                     //{
@@ -1838,11 +1785,7 @@ namespace SCADA
                 }
                 if (linestarting == true)
                 {
-                    if (language == "English")
-                    {
-                        MessageBox.Show("The line is startting");
-                    }
-                    else MessageBox.Show("产线启动进行中，不能停止");
+                    MessageBox.Show("产线启动进行中，不能停止");
                     return;
                     //if (ModbusTcp.DataMoubus[(int)ModbusTcp.DataConfigArr.MES_PLC_comfirm] == (int)ModbusTcp.MesCommandToPlc.ComStartSys)
                     //{
@@ -1862,11 +1805,7 @@ namespace SCADA
                 }
                 if (!RackForm.rfidreadflag)
                 {
-                    if (language == "English")
-                    {
-                        MessageBox.Show("The Rack is Inventory");
-                    }
-                    else MessageBox.Show("料仓盘点中，不能停止");
+                     MessageBox.Show("料仓盘点中，不能停止");
                     return;
                     //if (ModbusTcp.DataMoubus[(int)ModbusTcp.DataConfigArr.MES_PLC_comfirm] == (int)ModbusTcp.MesCommandToPlc.ComReadRfid)
                     //{
@@ -1878,11 +1817,7 @@ namespace SCADA
                 }
                 if (!RackForm.rfidwriteflag)
                 {
-                    if (language == "English")
-                    {
-                        MessageBox.Show("The Rack is Inventory");
-                    }
-                    else MessageBox.Show("料仓盘点中，不能停止");
+                     MessageBox.Show("料仓盘点中，不能停止");
                     return;
                     //if (ModbusTcp.DataMoubus[(int)ModbusTcp.DataConfigArr.MES_PLC_comfirm] == (int)ModbusTcp.MesCommandToPlc.ComWriteRfid)
                     //{
@@ -1893,11 +1828,7 @@ namespace SCADA
                 }
                 if (!RackForm.Inventoryflag)
                 {
-                    if (language == "English")
-                    {
-                        MessageBox.Show("The Rack is Inventory");
-                    }
-                    else MessageBox.Show("料仓盘点中，不能停止");
+                     MessageBox.Show("料仓盘点中，不能停止");
                     return;
                     //if (ModbusTcp.DataMoubus[(int)ModbusTcp.DataConfigArr.MES_PLC_comfirm] == (int)ModbusTcp.MesCommandToPlc.ComReadRfid)
                     //{
@@ -1922,33 +1853,20 @@ namespace SCADA
                     linestarting = false;//产线启动中或者产线启动状态不能点击复位按钮
                     button1.BackColor = Color.Gray;
                     button3.BackColor = Color.Gray;
-                    if (language == "English")
-                    {
-
-                        button2.Text = "STOPING";
-                    }
-                    else button2.Text = "产线停止中";
+                     button2.Text = "产线停止中";
                 }
 
                 if (ModbusTcp.MES_PLC_comfim_write_flage == false)
                 {
 
-                    button1.BackColor = Color.LightGreen;
-                    button3.BackColor = Color.LightGreen;
+                    button1.BackColor = Color.DarkTurquoise;
+                    button3.BackColor = Color.DarkTurquoise;
                     button2.BackColor = Color.Gray;
                     linestoping = false;
 
-                    if (language == "English")
-                    {
-
-                        button1.Text = "START";
-                        button2.Text = "STOPPED";
-                    }
-                    else
-                    {
-                        button1.Text = "产线开启";
-                        button2.Text = "产线已停止";
-                    }
+                   button1.Text = "产线开启";
+                    button2.Text = "产线已停止";
+                   
 
 
                     linestart = true;
@@ -2017,30 +1935,13 @@ namespace SCADA
             linestarting = false;//产线启动中或者产线启动状态不能点击复位按钮
             button1.BackColor = Color.Gray;
             button2.BackColor = Color.Gray;
-            if (language == "English")
-            {
-
-                button2.Text = "STOP";
-            }
-            else
-                button2.Text = "产线停止";
-            if (language == "English")
-            {
-
-                button3.Text = "RESETING";
-            }
-            else button3.Text = "产线复位中";
+            button2.Text = "产线停止";
+           button3.Text = "产线复位中";
             // }
             if (ModbusTcp.MES_PLC_comfim_write_flage == false)
             {
-                button3.BackColor = Color.LightGreen;
-                if (language == "English")
-                {
-
-                    button3.Text = "RESET";
-                }
-                else
-                    button3.Text = "产线复位";
+                button3.BackColor = Color.DarkTurquoise;
+               button3.Text = "产线复位";
                 linereset = true;
             }
             // }
@@ -2171,7 +2072,7 @@ namespace SCADA
             //Localization.WriteDefaultSkin("DeepGreen");
             foreach (Form form in Application.OpenForms)
             {
-                ChangeLanguage.LoadSkin(form, Color.LightGreen);
+                ChangeLanguage.LoadSkin(form, Color.DarkTurquoise);
             }
         }
         private void toolStripMenuItem5_Click(object sender, EventArgs e)
@@ -2332,21 +2233,13 @@ namespace SCADA
 
                         button1.BackColor = Color.Gray;
                         button3.BackColor = Color.Gray;
-                        button2.BackColor = Color.LightGreen;
+                        button2.BackColor = Color.DarkTurquoise;
 
-                        if (language == "English")
-                        {
-
-                            button1.Text = "STARTED";
-                            button3.Text = "RESET";
-                            button2.Text = "STOPPED";
-                        }
-                        else
-                        {
+                      
                             button1.Text = "产线已开启";
                             button2.Text = "产线停止";
                             button3.Text = "产线复位";
-                        }
+                       
                     }
                 }
                 else if (Linebuttomcur == 2)
@@ -2360,23 +2253,14 @@ namespace SCADA
                         linereset = true;//产线开启不能复位
 
 
-                        button1.BackColor = Color.LightGreen;
-                        button3.BackColor = Color.LightGreen;
+                        button1.BackColor = Color.DarkTurquoise;
+                        button3.BackColor = Color.DarkTurquoise;
                         button2.BackColor = Color.Gray;
 
-                        if (language == "English")
-                        {
-
-                            button1.Text = "START";
-                            button3.Text = "RESET";
-                            button2.Text = "STOP";
-                        }
-                        else
-                        {
-                            button1.Text = "产线开启";
+                       button1.Text = "产线开启";
                             button2.Text = "产线已停止";
                             button3.Text = "产线复位";
-                        }
+                        
                     }
                 }
                 else if (Linebuttomcur == 3)
@@ -2394,22 +2278,13 @@ namespace SCADA
                         linestop = false;//产线复位时可以停止，产线复位完成后只有开启产线，停止按钮才能有效
 
 
-                        button1.BackColor = Color.LightGreen;
+                        button1.BackColor = Color.DarkTurquoise;
                         button2.BackColor = Color.Gray;
-                        button3.BackColor = Color.LightGreen;
-                        if (language == "English")
-                        {
-
-                            button1.Text = "START";
-                            button3.Text = "RESET";
-                            button2.Text = "STOPPED";
-                        }
-                        else
-                        {
-                            button1.Text = "产线开启";
+                        button3.BackColor = Color.DarkTurquoise;
+                       button1.Text = "产线开启";
                             button2.Text = "产线停止";
                             button3.Text = "产线复位";
-                        }
+                       
                     }
                 }
 
@@ -2427,64 +2302,37 @@ namespace SCADA
                     {
                         PLC_SIMES_ON_line = true;
                         buttonplcconnect.BackColor = Color.Gray;
-                        if (language == "English")
-                        {
-                            labelplcstate.Text = "On-Line";
-                        }
-                        else
-                        {
-                            labelplcstate.Text = "在线";
-                        }
+                        labelplcstate.Text = "在线";
+                        
 
                     }
                     else
                     {
                         plcdataclear();
                         PLC_SIMES_ON_line = false;
-                        buttonplcconnect.BackColor = Color.LightGreen;
+                        buttonplcconnect.BackColor = Color.DarkTurquoise;
 
-                        if (language == "English")
-                        {
-
-                            labelplcstate.Text = "Off-Line";
-                        }
-                        else
-                        {
-                            labelplcstate.Text = "离线";
-                        }
+                       labelplcstate.Text = "离线";
+                        
                     }
                 }
                 else
                 {
                     plcdataclear();
                     PLC_SIMES_ON_line = false;
-                    buttonplcconnect.BackColor = Color.LightGreen;
+                    buttonplcconnect.BackColor = Color.DarkTurquoise;
 
-                    if (language == "English")
-                    {
-
-                        labelplcstate.Text = "Off-Line";
-                    }
-                    else
-                    {
-                        labelplcstate.Text = "离线";
-                    }
+                    labelplcstate.Text = "离线";
+                    
                 }
             }
             else
             {
                 plcdataclear();
                 PLC_SIMES_ON_line = false;
-                buttonplcconnect.BackColor = Color.LightGreen;
-                if (language == "English")
-                {
-
-                    labelplcstate.Text = "Off-Line";
-                }
-                else
-                {
-                    labelplcstate.Text = "离线";
-                }
+                buttonplcconnect.BackColor = Color.DarkTurquoise;
+               labelplcstate.Text = "离线";
+                
             }
             //机床在线判断
 
@@ -2571,14 +2419,8 @@ namespace SCADA
             }
             if (robotconnect)
             {
-                if (language == "English")
-                {
-                    labelrobort.Text = "On-Line";
-                }
-                else
-                {
-                    labelrobort.Text = "在线";
-                }
+                 labelrobort.Text = "在线";
+               
             }
             //数据库在线判断
             if(SQLonline)
@@ -2822,6 +2664,7 @@ namespace SCADA
                 return false;
             }
         }
+       
         private void Updatamagstate()
         {
             int magstatestart = (int)SCADA.ModbusTcp.DataConfigArr.Mag_state;//零件类型          
@@ -3325,10 +3168,10 @@ namespace SCADA
                 }
 
 
-                MainForm.sptcp1.SendData((byte)ModbusTcp.Func_Code.writereg, (int)ModbusTcp.DataConfigArr.MES_PLC_comfirm, 1, 1, 0);//给plc写订单信息
+                MainForm.sptcp1.SendData((byte)ModbusTcp.Func_Code.writereg, (int)ModbusTcp.DataConfigArr.MES_PLC_comfirm, 1, 1, 0);//给plc写启动信息
                 MainForm.sptcp1.ReceiveData();
                 Thread.Sleep(2);
-                MainForm.sptcp1.SendData((byte)ModbusTcp.Func_Code.req, 1, 0, (int)ModbusTcp.DataConfigArr.PLC_MES_respone, 1);//给plc写订单信息
+                MainForm.sptcp1.SendData((byte)ModbusTcp.Func_Code.req, 1, 0, (int)ModbusTcp.DataConfigArr.PLC_MES_respone, 1);//给plc写启动信息
                 MainForm.sptcp1.ReceiveData();
                 Thread.Sleep(2);
 
@@ -3420,96 +3263,96 @@ namespace SCADA
         private void timersql_Tick(object sender, EventArgs e)
         {
             return;
-            if (sqlconnectflage == false)
-            {
-                if (DbHelper.SQL.State == ConnectionState.Closed)
-                {
-                    try
-                    {
-                        DbHelper.SQL.Open();
-                        SQLonline = true;
-                        if (language == "English")
-                        {
-                            labelsqlstate.Text = "On-Line";
-                        }
-                        else
-                        {
-                            labelsqlstate.Text = "在线";
-                        }
-                        sqlconnectcount = 0;
-                    }
-                    catch
-                    {
+            //if (sqlconnectflage == false)
+            //{
+            //    if (DbHelper.SQL.State == ConnectionState.Closed)
+            //    {
+            //        try
+            //        {
+            //            DbHelper.SQL.Open();
+            //            SQLonline = true;
+            //            if (language == "English")
+            //            {
+            //                labelsqlstate.Text = "On-Line";
+            //            }
+            //            else
+            //            {
+            //                labelsqlstate.Text = "在线";
+            //            }
+            //            sqlconnectcount = 0;
+            //        }
+            //        catch
+            //        {
 
-                        SQLonline = false;
-                        if (language == "English")
-                        {
-                            labelsqlstate.Text = "Off-Line";
-                        }
-                        else
-                        {
-                            labelsqlstate.Text = "离线";
-                        }
-                        sqlconnectcount++;
-                        if (sqlconnectcount > 3)
-                        {
-                            sqlconnectflage = true;
+            //            SQLonline = false;
+            //            if (language == "English")
+            //            {
+            //                labelsqlstate.Text = "Off-Line";
+            //            }
+            //            else
+            //            {
+            //                labelsqlstate.Text = "离线";
+            //            }
+            //            sqlconnectcount++;
+            //            if (sqlconnectcount > 3)
+            //            {
+            //                sqlconnectflage = true;
 
-                            buttonsqlconnect.BackColor = Color.SpringGreen;
-                        }
-                    }
-                }
-            }
+            //                buttonsqlconnect.BackColor = Color.SpringGreen;
+            //            }
+            //        }
+            //    }
+            //}
 
-            if (SQLonline)
-            {
-                DbHelper.SQL.Close();
-                try
-                {
+            //if (SQLonline)
+            //{
+            //    DbHelper.SQL.Close();
+            //    try
+            //    {
 
 
-                    renewWorkpieceCategory();
-                    renewStoragebin();
-                    //renewLathedata();
-                    //renewCNCdata();
-                    foreach (var cnctemp in cncv2list)
-                    {
-                        if (cnctemp.cnctype == CNCType.CNC)
-                        {
-                            renewCNCdata(cnctemp);
-                            if (renewcncsql)
-                            {
+            //        renewWorkpieceCategory();
+            //        renewStoragebin();
+            //        //renewLathedata();
+            //        //renewCNCdata();
+            //        foreach (var cnctemp in cncv2list)
+            //        {
+            //            if (cnctemp.cnctype == CNCType.CNC)
+            //            {
+            //                renewCNCdata(cnctemp);
+            //                if (renewcncsql)
+            //                {
 
-                                renewToolCNC(cnctemp);
-                            }
+            //                    renewToolCNC(cnctemp);
+            //                }
 
-                        }
-                        else if (cnctemp.cnctype == CNCType.Lathe)
-                        {
-                            renewLathedata(cnctemp);
-                            if (renewlathesql)
-                            {
-                                renewToolLathe(cnctemp);
-                            }
-                        }
-                    }
-                    renewSRobot(true);
+            //            }
+            //            else if (cnctemp.cnctype == CNCType.Lathe)
+            //            {
+            //                renewLathedata(cnctemp);
+            //                if (renewlathesql)
+            //                {
+            //                    renewToolLathe(cnctemp);
+            //                }
+            //            }
+            //        }
+            //        renewSRobot(true);
              
 
-                }
-                catch (Exception ex)
-                {
-                    if (language == "English")
-                    {
-                        MessageBox.Show("SQL operate error!");
-                    }
-                    else
-                    {
+            //    }
+            //    catch (Exception ex)
+            //    {
+            //        if (language == "English")
+            //        {
+            //            MessageBox.Show("SQL operate error!");
+            //        }
+            //        else
+            //        {
 
-                        MessageBox.Show("数据库操作错误!");
-                    }
-                }
-            }
+            //            MessageBox.Show("数据库操作错误!");
+            //        }
+            //    }
+            //}
         }
         private static bool connectrobot = true;//允许重新连接机器人
         private void UpdataRobotData()
@@ -3657,6 +3500,7 @@ namespace SCADA
         {
             if (connectrobot)
             {
+                MainForm.ROBORTAddress = "10.10.56.214";
                 var conn = cmApi.connect(MainForm.ROBORTAddress, 23234);//
                 if (conn != 0)
                 {
@@ -4771,11 +4615,11 @@ namespace SCADA
             StrFormat.Alignment = StringAlignment.Center;
             StrFormat.LineAlignment = StringAlignment.Center;
 
-            SolidBrush tabBackBrush = new SolidBrush(Color.SkyBlue);
+            SolidBrush tabBackBrush = new SolidBrush(Color.FromArgb(4,17,43));
             //文字色
             SolidBrush FrontBrush = new SolidBrush(Color.White);
             //StringFormat stringF = new StringFormat();
-            Font wordfont = new Font("微软雅黑", 14.25F);
+            Font wordfont = new Font("微软雅黑", 14.25F, FontStyle.Bold);
             e.Graphics.DrawImage(backImage, 0, 0, tabPagemain.Width, tabPagemain.Height);
             for (int i = 0; i < tabPagemain.TabCount; i++)
             {
@@ -4790,7 +4634,9 @@ namespace SCADA
             tabPagemain.ResumeLayout();
         }
 
+   
 
+       
     }
 
 

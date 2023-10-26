@@ -30,30 +30,30 @@
             this.components = new System.ComponentModel.Container();
             System.ComponentModel.ComponentResourceManager resources = new System.ComponentModel.ComponentResourceManager(typeof(MainForm));
             this.splitContainer1 = new System.Windows.Forms.SplitContainer();
-            this.pictureBox1 = new System.Windows.Forms.PictureBox();
-            this.button1 = new System.Windows.Forms.Button();
-            this.buttonsqlconnect = new System.Windows.Forms.Button();
-            this.button2 = new System.Windows.Forms.Button();
-            this.button3 = new System.Windows.Forms.Button();
+            this.tableLayoutPanel2 = new System.Windows.Forms.TableLayoutPanel();
             this.label2 = new System.Windows.Forms.Label();
-            this.buttonplcconnect = new System.Windows.Forms.Button();
-            this.label_CNCLiXian = new System.Windows.Forms.Label();
-            this.labelsqlstate = new System.Windows.Forms.Label();
-            this.label_CNCbaojing = new System.Windows.Forms.Label();
-            this.label4 = new System.Windows.Forms.Label();
-            this.label_CNCkongxian = new System.Windows.Forms.Label();
-            this.label_CNCRuning = new System.Windows.Forms.Label();
-            this.labelSQL = new System.Windows.Forms.Label();
-            this.label_CNCLiXianNum = new System.Windows.Forms.Label();
-            this.labellathe = new System.Windows.Forms.Label();
-            this.label_CNCbaojingNum = new System.Windows.Forms.Label();
-            this.labelcnc = new System.Windows.Forms.Label();
-            this.label_CNCkongxianNum = new System.Windows.Forms.Label();
-            this.labelplcstate = new System.Windows.Forms.Label();
-            this.label_CNCRuningNum = new System.Windows.Forms.Label();
-            this.labelrobort = new System.Windows.Forms.Label();
             this.label6 = new System.Windows.Forms.Label();
             this.labelplc = new System.Windows.Forms.Label();
+            this.labelcnc = new System.Windows.Forms.Label();
+            this.label_CNCLiXianNum = new System.Windows.Forms.Label();
+            this.labelrobort = new System.Windows.Forms.Label();
+            this.label_CNCbaojingNum = new System.Windows.Forms.Label();
+            this.labellathe = new System.Windows.Forms.Label();
+            this.label_CNCkongxianNum = new System.Windows.Forms.Label();
+            this.label_CNCRuningNum = new System.Windows.Forms.Label();
+            this.labelsqlstate = new System.Windows.Forms.Label();
+            this.labelplcstate = new System.Windows.Forms.Label();
+            this.label_CNCRuning = new System.Windows.Forms.Label();
+            this.label_CNCkongxian = new System.Windows.Forms.Label();
+            this.label_CNCbaojing = new System.Windows.Forms.Label();
+            this.label_CNCLiXian = new System.Windows.Forms.Label();
+            this.labelSQL = new System.Windows.Forms.Label();
+            this.label4 = new System.Windows.Forms.Label();
+            this.button3 = new System.Windows.Forms.Button();
+            this.button2 = new System.Windows.Forms.Button();
+            this.button1 = new System.Windows.Forms.Button();
+            this.buttonsqlconnect = new System.Windows.Forms.Button();
+            this.buttonplcconnect = new System.Windows.Forms.Button();
             this.tabPagemain = new System.Windows.Forms.TabControl();
             this.tabPageschedule = new System.Windows.Forms.TabPage();
             this.tabPagedevice = new System.Windows.Forms.TabPage();
@@ -66,18 +66,7 @@
             this.StripMenuItemFile = new System.Windows.Forms.ToolStripMenuItem();
             this.StripMenuItemEdit = new System.Windows.Forms.ToolStripMenuItem();
             this.changeSkin = new System.Windows.Forms.ToolStripMenuItem();
-            this.toolStripMenuItem2 = new System.Windows.Forms.ToolStripMenuItem();
-            this.toolStripMenuItem3 = new System.Windows.Forms.ToolStripMenuItem();
-            this.toolStripMenuItem4 = new System.Windows.Forms.ToolStripMenuItem();
-            this.toolStripMenuItem5 = new System.Windows.Forms.ToolStripMenuItem();
-            this.toolStripMenuItem6 = new System.Windows.Forms.ToolStripMenuItem();
-            this.toolStripMenuItem7 = new System.Windows.Forms.ToolStripMenuItem();
-            this.toolStripMenuItem8 = new System.Windows.Forms.ToolStripMenuItem();
-            this.toolStripMenuItem9 = new System.Windows.Forms.ToolStripMenuItem();
             this.toolStripMenuItem10 = new System.Windows.Forms.ToolStripMenuItem();
-            this.toolStripMenuItem13 = new System.Windows.Forms.ToolStripMenuItem();
-            this.toolStripMenuItem14 = new System.Windows.Forms.ToolStripMenuItem();
-            this.toolStripMenuItem15 = new System.Windows.Forms.ToolStripMenuItem();
             this.toolStripMenuItem11 = new System.Windows.Forms.ToolStripMenuItem();
             this.toolStripMenuItem12 = new System.Windows.Forms.ToolStripMenuItem();
             this.toolStripMenuItem16 = new System.Windows.Forms.ToolStripMenuItem();
@@ -104,11 +93,22 @@
             this.timersql = new System.Windows.Forms.Timer(this.components);
             this.tabPage3 = new System.Windows.Forms.TabPage();
             this.tabPage4 = new System.Windows.Forms.TabPage();
+            this.toolStripMenuItem2 = new System.Windows.Forms.ToolStripMenuItem();
+            this.toolStripMenuItem3 = new System.Windows.Forms.ToolStripMenuItem();
+            this.toolStripMenuItem4 = new System.Windows.Forms.ToolStripMenuItem();
+            this.toolStripMenuItem5 = new System.Windows.Forms.ToolStripMenuItem();
+            this.toolStripMenuItem6 = new System.Windows.Forms.ToolStripMenuItem();
+            this.toolStripMenuItem7 = new System.Windows.Forms.ToolStripMenuItem();
+            this.toolStripMenuItem8 = new System.Windows.Forms.ToolStripMenuItem();
+            this.toolStripMenuItem9 = new System.Windows.Forms.ToolStripMenuItem();
+            this.toolStripMenuItem13 = new System.Windows.Forms.ToolStripMenuItem();
+            this.toolStripMenuItem14 = new System.Windows.Forms.ToolStripMenuItem();
+            this.toolStripMenuItem15 = new System.Windows.Forms.ToolStripMenuItem();
             ((System.ComponentModel.ISupportInitialize)(this.splitContainer1)).BeginInit();
             this.splitContainer1.Panel1.SuspendLayout();
             this.splitContainer1.Panel2.SuspendLayout();
             this.splitContainer1.SuspendLayout();
-            ((System.ComponentModel.ISupportInitialize)(this.pictureBox1)).BeginInit();
+            this.tableLayoutPanel2.SuspendLayout();
             this.tabPagemain.SuspendLayout();
             this.menuStrip1.SuspendLayout();
             this.statusStrip.SuspendLayout();
@@ -116,194 +116,55 @@
             // 
             // splitContainer1
             // 
+            this.splitContainer1.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(4)))), ((int)(((byte)(17)))), ((int)(((byte)(43)))));
             resources.ApplyResources(this.splitContainer1, "splitContainer1");
             this.splitContainer1.FixedPanel = System.Windows.Forms.FixedPanel.Panel1;
             this.splitContainer1.Name = "splitContainer1";
             // 
             // splitContainer1.Panel1
             // 
-            this.splitContainer1.Panel1.BackColor = System.Drawing.Color.LightBlue;
-            this.splitContainer1.Panel1.Controls.Add(this.pictureBox1);
-            this.splitContainer1.Panel1.Controls.Add(this.button1);
-            this.splitContainer1.Panel1.Controls.Add(this.buttonsqlconnect);
-            this.splitContainer1.Panel1.Controls.Add(this.button2);
-            this.splitContainer1.Panel1.Controls.Add(this.button3);
-            this.splitContainer1.Panel1.Controls.Add(this.label2);
-            this.splitContainer1.Panel1.Controls.Add(this.buttonplcconnect);
-            this.splitContainer1.Panel1.Controls.Add(this.label_CNCLiXian);
-            this.splitContainer1.Panel1.Controls.Add(this.labelsqlstate);
-            this.splitContainer1.Panel1.Controls.Add(this.label_CNCbaojing);
-            this.splitContainer1.Panel1.Controls.Add(this.label4);
-            this.splitContainer1.Panel1.Controls.Add(this.label_CNCkongxian);
-            this.splitContainer1.Panel1.Controls.Add(this.label_CNCRuning);
-            this.splitContainer1.Panel1.Controls.Add(this.labelSQL);
-            this.splitContainer1.Panel1.Controls.Add(this.label_CNCLiXianNum);
-            this.splitContainer1.Panel1.Controls.Add(this.labellathe);
-            this.splitContainer1.Panel1.Controls.Add(this.label_CNCbaojingNum);
-            this.splitContainer1.Panel1.Controls.Add(this.labelcnc);
-            this.splitContainer1.Panel1.Controls.Add(this.label_CNCkongxianNum);
-            this.splitContainer1.Panel1.Controls.Add(this.labelplcstate);
-            this.splitContainer1.Panel1.Controls.Add(this.label_CNCRuningNum);
-            this.splitContainer1.Panel1.Controls.Add(this.labelrobort);
-            this.splitContainer1.Panel1.Controls.Add(this.label6);
-            this.splitContainer1.Panel1.Controls.Add(this.labelplc);
+            this.splitContainer1.Panel1.BackColor = System.Drawing.Color.Transparent;
+            this.splitContainer1.Panel1.BackgroundImage = global::SCADA.Properties.Resources.back3;
+            resources.ApplyResources(this.splitContainer1.Panel1, "splitContainer1.Panel1");
+            this.splitContainer1.Panel1.Controls.Add(this.tableLayoutPanel2);
             // 
             // splitContainer1.Panel2
             // 
             this.splitContainer1.Panel2.Controls.Add(this.tabPagemain);
             // 
-            // pictureBox1
+            // tableLayoutPanel2
             // 
-            this.pictureBox1.Image = global::SCADA.Properties.Resources.图片2;
-            resources.ApplyResources(this.pictureBox1, "pictureBox1");
-            this.pictureBox1.Name = "pictureBox1";
-            this.pictureBox1.TabStop = false;
-            // 
-            // button1
-            // 
-            this.button1.BackColor = System.Drawing.Color.LightGreen;
-            this.button1.FlatAppearance.BorderSize = 0;
-            resources.ApplyResources(this.button1, "button1");
-            this.button1.ForeColor = System.Drawing.Color.White;
-            this.button1.Name = "button1";
-            this.button1.UseVisualStyleBackColor = false;
-            this.button1.Click += new System.EventHandler(this.button1_Click);
-            // 
-            // buttonsqlconnect
-            // 
-            this.buttonsqlconnect.BackColor = System.Drawing.Color.Gray;
-            this.buttonsqlconnect.FlatAppearance.BorderSize = 0;
-            resources.ApplyResources(this.buttonsqlconnect, "buttonsqlconnect");
-            this.buttonsqlconnect.ForeColor = System.Drawing.Color.White;
-            this.buttonsqlconnect.Name = "buttonsqlconnect";
-            this.buttonsqlconnect.UseVisualStyleBackColor = false;
-            this.buttonsqlconnect.Click += new System.EventHandler(this.button4_Click);
-            // 
-            // button2
-            // 
-            this.button2.BackColor = System.Drawing.Color.Gray;
-            this.button2.FlatAppearance.BorderSize = 0;
-            resources.ApplyResources(this.button2, "button2");
-            this.button2.ForeColor = System.Drawing.Color.White;
-            this.button2.Name = "button2";
-            this.button2.UseVisualStyleBackColor = false;
-            this.button2.Click += new System.EventHandler(this.button2_Click);
-            // 
-            // button3
-            // 
-            this.button3.BackColor = System.Drawing.Color.LightGreen;
-            this.button3.FlatAppearance.BorderSize = 0;
-            resources.ApplyResources(this.button3, "button3");
-            this.button3.ForeColor = System.Drawing.Color.White;
-            this.button3.Name = "button3";
-            this.button3.UseVisualStyleBackColor = false;
-            this.button3.Click += new System.EventHandler(this.button3_Click);
+            resources.ApplyResources(this.tableLayoutPanel2, "tableLayoutPanel2");
+            this.tableLayoutPanel2.Controls.Add(this.label2, 0, 1);
+            this.tableLayoutPanel2.Controls.Add(this.label6, 0, 3);
+            this.tableLayoutPanel2.Controls.Add(this.labelplc, 0, 4);
+            this.tableLayoutPanel2.Controls.Add(this.labelcnc, 1, 2);
+            this.tableLayoutPanel2.Controls.Add(this.label_CNCLiXianNum, 1, 9);
+            this.tableLayoutPanel2.Controls.Add(this.labelrobort, 1, 3);
+            this.tableLayoutPanel2.Controls.Add(this.label_CNCbaojingNum, 1, 8);
+            this.tableLayoutPanel2.Controls.Add(this.labellathe, 1, 1);
+            this.tableLayoutPanel2.Controls.Add(this.label_CNCkongxianNum, 1, 7);
+            this.tableLayoutPanel2.Controls.Add(this.label_CNCRuningNum, 1, 6);
+            this.tableLayoutPanel2.Controls.Add(this.labelsqlstate, 1, 5);
+            this.tableLayoutPanel2.Controls.Add(this.labelplcstate, 1, 4);
+            this.tableLayoutPanel2.Controls.Add(this.label_CNCRuning, 0, 6);
+            this.tableLayoutPanel2.Controls.Add(this.label_CNCkongxian, 0, 7);
+            this.tableLayoutPanel2.Controls.Add(this.label_CNCbaojing, 0, 8);
+            this.tableLayoutPanel2.Controls.Add(this.label_CNCLiXian, 0, 9);
+            this.tableLayoutPanel2.Controls.Add(this.labelSQL, 0, 5);
+            this.tableLayoutPanel2.Controls.Add(this.label4, 0, 2);
+            this.tableLayoutPanel2.Controls.Add(this.button3, 0, 14);
+            this.tableLayoutPanel2.Controls.Add(this.button2, 0, 13);
+            this.tableLayoutPanel2.Controls.Add(this.button1, 0, 12);
+            this.tableLayoutPanel2.Controls.Add(this.buttonsqlconnect, 0, 11);
+            this.tableLayoutPanel2.Controls.Add(this.buttonplcconnect, 0, 10);
+            this.tableLayoutPanel2.Name = "tableLayoutPanel2";
             // 
             // label2
             // 
             resources.ApplyResources(this.label2, "label2");
             this.label2.ForeColor = System.Drawing.Color.White;
             this.label2.Name = "label2";
-            // 
-            // buttonplcconnect
-            // 
-            this.buttonplcconnect.BackColor = System.Drawing.Color.Gray;
-            this.buttonplcconnect.FlatAppearance.BorderSize = 0;
-            resources.ApplyResources(this.buttonplcconnect, "buttonplcconnect");
-            this.buttonplcconnect.ForeColor = System.Drawing.Color.White;
-            this.buttonplcconnect.Name = "buttonplcconnect";
-            this.buttonplcconnect.UseVisualStyleBackColor = false;
-            this.buttonplcconnect.Click += new System.EventHandler(this.buttonplcconnect_Click);
-            // 
-            // label_CNCLiXian
-            // 
-            resources.ApplyResources(this.label_CNCLiXian, "label_CNCLiXian");
-            this.label_CNCLiXian.ForeColor = System.Drawing.Color.White;
-            this.label_CNCLiXian.Name = "label_CNCLiXian";
-            // 
-            // labelsqlstate
-            // 
-            resources.ApplyResources(this.labelsqlstate, "labelsqlstate");
-            this.labelsqlstate.ForeColor = System.Drawing.Color.White;
-            this.labelsqlstate.Name = "labelsqlstate";
-            // 
-            // label_CNCbaojing
-            // 
-            resources.ApplyResources(this.label_CNCbaojing, "label_CNCbaojing");
-            this.label_CNCbaojing.ForeColor = System.Drawing.Color.White;
-            this.label_CNCbaojing.Name = "label_CNCbaojing";
-            // 
-            // label4
-            // 
-            resources.ApplyResources(this.label4, "label4");
-            this.label4.ForeColor = System.Drawing.Color.White;
-            this.label4.Name = "label4";
-            // 
-            // label_CNCkongxian
-            // 
-            resources.ApplyResources(this.label_CNCkongxian, "label_CNCkongxian");
-            this.label_CNCkongxian.ForeColor = System.Drawing.Color.White;
-            this.label_CNCkongxian.Name = "label_CNCkongxian";
-            // 
-            // label_CNCRuning
-            // 
-            resources.ApplyResources(this.label_CNCRuning, "label_CNCRuning");
-            this.label_CNCRuning.ForeColor = System.Drawing.Color.White;
-            this.label_CNCRuning.Name = "label_CNCRuning";
-            // 
-            // labelSQL
-            // 
-            resources.ApplyResources(this.labelSQL, "labelSQL");
-            this.labelSQL.ForeColor = System.Drawing.Color.White;
-            this.labelSQL.Name = "labelSQL";
-            // 
-            // label_CNCLiXianNum
-            // 
-            resources.ApplyResources(this.label_CNCLiXianNum, "label_CNCLiXianNum");
-            this.label_CNCLiXianNum.ForeColor = System.Drawing.Color.White;
-            this.label_CNCLiXianNum.Name = "label_CNCLiXianNum";
-            // 
-            // labellathe
-            // 
-            resources.ApplyResources(this.labellathe, "labellathe");
-            this.labellathe.ForeColor = System.Drawing.Color.White;
-            this.labellathe.Name = "labellathe";
-            // 
-            // label_CNCbaojingNum
-            // 
-            resources.ApplyResources(this.label_CNCbaojingNum, "label_CNCbaojingNum");
-            this.label_CNCbaojingNum.ForeColor = System.Drawing.Color.White;
-            this.label_CNCbaojingNum.Name = "label_CNCbaojingNum";
-            // 
-            // labelcnc
-            // 
-            resources.ApplyResources(this.labelcnc, "labelcnc");
-            this.labelcnc.ForeColor = System.Drawing.Color.White;
-            this.labelcnc.Name = "labelcnc";
-            // 
-            // label_CNCkongxianNum
-            // 
-            resources.ApplyResources(this.label_CNCkongxianNum, "label_CNCkongxianNum");
-            this.label_CNCkongxianNum.ForeColor = System.Drawing.Color.White;
-            this.label_CNCkongxianNum.Name = "label_CNCkongxianNum";
-            // 
-            // labelplcstate
-            // 
-            resources.ApplyResources(this.labelplcstate, "labelplcstate");
-            this.labelplcstate.ForeColor = System.Drawing.Color.White;
-            this.labelplcstate.Name = "labelplcstate";
-            // 
-            // label_CNCRuningNum
-            // 
-            resources.ApplyResources(this.label_CNCRuningNum, "label_CNCRuningNum");
-            this.label_CNCRuningNum.ForeColor = System.Drawing.Color.White;
-            this.label_CNCRuningNum.Name = "label_CNCRuningNum";
-            // 
-            // labelrobort
-            // 
-            resources.ApplyResources(this.labelrobort, "labelrobort");
-            this.labelrobort.ForeColor = System.Drawing.Color.White;
-            this.labelrobort.Name = "labelrobort";
             // 
             // label6
             // 
@@ -316,6 +177,146 @@
             resources.ApplyResources(this.labelplc, "labelplc");
             this.labelplc.ForeColor = System.Drawing.Color.White;
             this.labelplc.Name = "labelplc";
+            // 
+            // labelcnc
+            // 
+            resources.ApplyResources(this.labelcnc, "labelcnc");
+            this.labelcnc.ForeColor = System.Drawing.Color.White;
+            this.labelcnc.Name = "labelcnc";
+            // 
+            // label_CNCLiXianNum
+            // 
+            resources.ApplyResources(this.label_CNCLiXianNum, "label_CNCLiXianNum");
+            this.label_CNCLiXianNum.ForeColor = System.Drawing.Color.White;
+            this.label_CNCLiXianNum.Name = "label_CNCLiXianNum";
+            // 
+            // labelrobort
+            // 
+            resources.ApplyResources(this.labelrobort, "labelrobort");
+            this.labelrobort.ForeColor = System.Drawing.Color.White;
+            this.labelrobort.Name = "labelrobort";
+            // 
+            // label_CNCbaojingNum
+            // 
+            resources.ApplyResources(this.label_CNCbaojingNum, "label_CNCbaojingNum");
+            this.label_CNCbaojingNum.ForeColor = System.Drawing.Color.White;
+            this.label_CNCbaojingNum.Name = "label_CNCbaojingNum";
+            // 
+            // labellathe
+            // 
+            resources.ApplyResources(this.labellathe, "labellathe");
+            this.labellathe.ForeColor = System.Drawing.Color.White;
+            this.labellathe.Name = "labellathe";
+            // 
+            // label_CNCkongxianNum
+            // 
+            resources.ApplyResources(this.label_CNCkongxianNum, "label_CNCkongxianNum");
+            this.label_CNCkongxianNum.ForeColor = System.Drawing.Color.White;
+            this.label_CNCkongxianNum.Name = "label_CNCkongxianNum";
+            // 
+            // label_CNCRuningNum
+            // 
+            resources.ApplyResources(this.label_CNCRuningNum, "label_CNCRuningNum");
+            this.label_CNCRuningNum.ForeColor = System.Drawing.Color.White;
+            this.label_CNCRuningNum.Name = "label_CNCRuningNum";
+            // 
+            // labelsqlstate
+            // 
+            resources.ApplyResources(this.labelsqlstate, "labelsqlstate");
+            this.labelsqlstate.ForeColor = System.Drawing.Color.White;
+            this.labelsqlstate.Name = "labelsqlstate";
+            // 
+            // labelplcstate
+            // 
+            resources.ApplyResources(this.labelplcstate, "labelplcstate");
+            this.labelplcstate.ForeColor = System.Drawing.Color.White;
+            this.labelplcstate.Name = "labelplcstate";
+            // 
+            // label_CNCRuning
+            // 
+            resources.ApplyResources(this.label_CNCRuning, "label_CNCRuning");
+            this.label_CNCRuning.ForeColor = System.Drawing.Color.White;
+            this.label_CNCRuning.Name = "label_CNCRuning";
+            // 
+            // label_CNCkongxian
+            // 
+            resources.ApplyResources(this.label_CNCkongxian, "label_CNCkongxian");
+            this.label_CNCkongxian.ForeColor = System.Drawing.Color.White;
+            this.label_CNCkongxian.Name = "label_CNCkongxian";
+            // 
+            // label_CNCbaojing
+            // 
+            resources.ApplyResources(this.label_CNCbaojing, "label_CNCbaojing");
+            this.label_CNCbaojing.ForeColor = System.Drawing.Color.White;
+            this.label_CNCbaojing.Name = "label_CNCbaojing";
+            // 
+            // label_CNCLiXian
+            // 
+            resources.ApplyResources(this.label_CNCLiXian, "label_CNCLiXian");
+            this.label_CNCLiXian.ForeColor = System.Drawing.Color.White;
+            this.label_CNCLiXian.Name = "label_CNCLiXian";
+            // 
+            // labelSQL
+            // 
+            resources.ApplyResources(this.labelSQL, "labelSQL");
+            this.labelSQL.ForeColor = System.Drawing.Color.White;
+            this.labelSQL.Name = "labelSQL";
+            // 
+            // label4
+            // 
+            resources.ApplyResources(this.label4, "label4");
+            this.label4.ForeColor = System.Drawing.Color.White;
+            this.label4.Name = "label4";
+            // 
+            // button3
+            // 
+            resources.ApplyResources(this.button3, "button3");
+            this.button3.BackColor = System.Drawing.Color.DarkTurquoise;
+            this.button3.FlatAppearance.BorderSize = 0;
+            this.button3.ForeColor = System.Drawing.Color.White;
+            this.button3.Name = "button3";
+            this.button3.UseVisualStyleBackColor = false;
+            this.button3.Click += new System.EventHandler(this.button3_Click);
+            // 
+            // button2
+            // 
+            resources.ApplyResources(this.button2, "button2");
+            this.button2.BackColor = System.Drawing.Color.Gray;
+            this.button2.FlatAppearance.BorderSize = 0;
+            this.button2.ForeColor = System.Drawing.Color.White;
+            this.button2.Name = "button2";
+            this.button2.UseVisualStyleBackColor = false;
+            this.button2.Click += new System.EventHandler(this.button2_Click);
+            // 
+            // button1
+            // 
+            resources.ApplyResources(this.button1, "button1");
+            this.button1.BackColor = System.Drawing.Color.DarkTurquoise;
+            this.button1.FlatAppearance.BorderSize = 0;
+            this.button1.ForeColor = System.Drawing.Color.White;
+            this.button1.Name = "button1";
+            this.button1.UseVisualStyleBackColor = false;
+            this.button1.Click += new System.EventHandler(this.button1_Click);
+            // 
+            // buttonsqlconnect
+            // 
+            resources.ApplyResources(this.buttonsqlconnect, "buttonsqlconnect");
+            this.buttonsqlconnect.BackColor = System.Drawing.Color.Gray;
+            this.buttonsqlconnect.FlatAppearance.BorderSize = 0;
+            this.buttonsqlconnect.ForeColor = System.Drawing.Color.White;
+            this.buttonsqlconnect.Name = "buttonsqlconnect";
+            this.buttonsqlconnect.UseVisualStyleBackColor = false;
+            this.buttonsqlconnect.Click += new System.EventHandler(this.button4_Click);
+            // 
+            // buttonplcconnect
+            // 
+            resources.ApplyResources(this.buttonplcconnect, "buttonplcconnect");
+            this.buttonplcconnect.BackColor = System.Drawing.Color.Gray;
+            this.buttonplcconnect.FlatAppearance.BorderSize = 0;
+            this.buttonplcconnect.ForeColor = System.Drawing.Color.White;
+            this.buttonplcconnect.Name = "buttonplcconnect";
+            this.buttonplcconnect.UseVisualStyleBackColor = false;
+            this.buttonplcconnect.Click += new System.EventHandler(this.buttonplcconnect_Click);
             // 
             // tabPagemain
             // 
@@ -336,7 +337,7 @@
             // 
             // tabPageschedule
             // 
-            this.tabPageschedule.BackColor = System.Drawing.Color.White;
+            this.tabPageschedule.BackColor = System.Drawing.Color.Transparent;
             resources.ApplyResources(this.tabPageschedule, "tabPageschedule");
             this.tabPageschedule.Name = "tabPageschedule";
             this.tabPageschedule.Tag = "SCADA.PaichengForm";
@@ -463,54 +464,6 @@
             this.changeSkin.Name = "changeSkin";
             resources.ApplyResources(this.changeSkin, "changeSkin");
             // 
-            // toolStripMenuItem2
-            // 
-            resources.ApplyResources(this.toolStripMenuItem2, "toolStripMenuItem2");
-            this.toolStripMenuItem2.Name = "toolStripMenuItem2";
-            this.toolStripMenuItem2.Click += new System.EventHandler(this.toolStripMenuItem2_Click);
-            // 
-            // toolStripMenuItem3
-            // 
-            resources.ApplyResources(this.toolStripMenuItem3, "toolStripMenuItem3");
-            this.toolStripMenuItem3.Name = "toolStripMenuItem3";
-            this.toolStripMenuItem3.Click += new System.EventHandler(this.toolStripMenuItem3_Click);
-            // 
-            // toolStripMenuItem4
-            // 
-            resources.ApplyResources(this.toolStripMenuItem4, "toolStripMenuItem4");
-            this.toolStripMenuItem4.Name = "toolStripMenuItem4";
-            this.toolStripMenuItem4.Click += new System.EventHandler(this.toolStripMenuItem4_Click);
-            // 
-            // toolStripMenuItem5
-            // 
-            resources.ApplyResources(this.toolStripMenuItem5, "toolStripMenuItem5");
-            this.toolStripMenuItem5.Name = "toolStripMenuItem5";
-            this.toolStripMenuItem5.Click += new System.EventHandler(this.toolStripMenuItem5_Click);
-            // 
-            // toolStripMenuItem6
-            // 
-            resources.ApplyResources(this.toolStripMenuItem6, "toolStripMenuItem6");
-            this.toolStripMenuItem6.Name = "toolStripMenuItem6";
-            this.toolStripMenuItem6.Click += new System.EventHandler(this.toolStripMenuItem6_Click);
-            // 
-            // toolStripMenuItem7
-            // 
-            resources.ApplyResources(this.toolStripMenuItem7, "toolStripMenuItem7");
-            this.toolStripMenuItem7.Name = "toolStripMenuItem7";
-            this.toolStripMenuItem7.Click += new System.EventHandler(this.toolStripMenuItem7_Click);
-            // 
-            // toolStripMenuItem8
-            // 
-            resources.ApplyResources(this.toolStripMenuItem8, "toolStripMenuItem8");
-            this.toolStripMenuItem8.Name = "toolStripMenuItem8";
-            this.toolStripMenuItem8.Click += new System.EventHandler(this.toolStripMenuItem8_Click);
-            // 
-            // toolStripMenuItem9
-            // 
-            resources.ApplyResources(this.toolStripMenuItem9, "toolStripMenuItem9");
-            this.toolStripMenuItem9.Name = "toolStripMenuItem9";
-            this.toolStripMenuItem9.Click += new System.EventHandler(this.toolStripMenuItem9_Click);
-            // 
             // toolStripMenuItem10
             // 
             this.toolStripMenuItem10.DropDownItems.AddRange(new System.Windows.Forms.ToolStripItem[] {
@@ -521,24 +474,6 @@
             this.toolStripMenuItem12});
             this.toolStripMenuItem10.Name = "toolStripMenuItem10";
             resources.ApplyResources(this.toolStripMenuItem10, "toolStripMenuItem10");
-            // 
-            // toolStripMenuItem13
-            // 
-            resources.ApplyResources(this.toolStripMenuItem13, "toolStripMenuItem13");
-            this.toolStripMenuItem13.Name = "toolStripMenuItem13";
-            this.toolStripMenuItem13.Click += new System.EventHandler(this.toolStripMenuItem13_Click);
-            // 
-            // toolStripMenuItem14
-            // 
-            resources.ApplyResources(this.toolStripMenuItem14, "toolStripMenuItem14");
-            this.toolStripMenuItem14.Name = "toolStripMenuItem14";
-            this.toolStripMenuItem14.Click += new System.EventHandler(this.toolStripMenuItem14_Click);
-            // 
-            // toolStripMenuItem15
-            // 
-            resources.ApplyResources(this.toolStripMenuItem15, "toolStripMenuItem15");
-            this.toolStripMenuItem15.Name = "toolStripMenuItem15";
-            this.toolStripMenuItem15.Click += new System.EventHandler(this.toolStripMenuItem15_Click);
             // 
             // toolStripMenuItem11
             // 
@@ -630,11 +565,13 @@
             // 
             // currentText
             // 
+            this.currentText.BackColor = System.Drawing.Color.Transparent;
             this.currentText.Name = "currentText";
             resources.ApplyResources(this.currentText, "currentText");
             // 
             // ssText
             // 
+            this.ssText.BackColor = System.Drawing.Color.Transparent;
             this.ssText.Name = "ssText";
             resources.ApplyResources(this.ssText, "ssText");
             // 
@@ -654,26 +591,31 @@
             // 
             // totaltimeText
             // 
+            this.totaltimeText.BackColor = System.Drawing.Color.Transparent;
             this.totaltimeText.Name = "totaltimeText";
             resources.ApplyResources(this.totaltimeText, "totaltimeText");
             // 
             // totaldays
             // 
+            this.totaldays.BackColor = System.Drawing.Color.Transparent;
             this.totaldays.Name = "totaldays";
             resources.ApplyResources(this.totaldays, "totaldays");
             // 
             // dayText
             // 
+            this.dayText.BackColor = System.Drawing.Color.Transparent;
             this.dayText.Name = "dayText";
             resources.ApplyResources(this.dayText, "dayText");
             // 
             // timesText
             // 
+            this.timesText.BackColor = System.Drawing.Color.Transparent;
             this.timesText.Name = "timesText";
             resources.ApplyResources(this.timesText, "timesText");
             // 
             // alarmshow
             // 
+            this.alarmshow.BackColor = System.Drawing.Color.Transparent;
             this.alarmshow.Name = "alarmshow";
             resources.ApplyResources(this.alarmshow, "alarmshow");
             this.alarmshow.Click += new System.EventHandler(this.alarmshow_Click_1);
@@ -704,6 +646,72 @@
             this.tabPage4.Tag = "SCADA.LogForm";
             this.tabPage4.UseVisualStyleBackColor = true;
             // 
+            // toolStripMenuItem2
+            // 
+            resources.ApplyResources(this.toolStripMenuItem2, "toolStripMenuItem2");
+            this.toolStripMenuItem2.Name = "toolStripMenuItem2";
+            this.toolStripMenuItem2.Click += new System.EventHandler(this.toolStripMenuItem2_Click);
+            // 
+            // toolStripMenuItem3
+            // 
+            resources.ApplyResources(this.toolStripMenuItem3, "toolStripMenuItem3");
+            this.toolStripMenuItem3.Name = "toolStripMenuItem3";
+            this.toolStripMenuItem3.Click += new System.EventHandler(this.toolStripMenuItem3_Click);
+            // 
+            // toolStripMenuItem4
+            // 
+            resources.ApplyResources(this.toolStripMenuItem4, "toolStripMenuItem4");
+            this.toolStripMenuItem4.Name = "toolStripMenuItem4";
+            this.toolStripMenuItem4.Click += new System.EventHandler(this.toolStripMenuItem4_Click);
+            // 
+            // toolStripMenuItem5
+            // 
+            resources.ApplyResources(this.toolStripMenuItem5, "toolStripMenuItem5");
+            this.toolStripMenuItem5.Name = "toolStripMenuItem5";
+            this.toolStripMenuItem5.Click += new System.EventHandler(this.toolStripMenuItem5_Click);
+            // 
+            // toolStripMenuItem6
+            // 
+            resources.ApplyResources(this.toolStripMenuItem6, "toolStripMenuItem6");
+            this.toolStripMenuItem6.Name = "toolStripMenuItem6";
+            this.toolStripMenuItem6.Click += new System.EventHandler(this.toolStripMenuItem6_Click);
+            // 
+            // toolStripMenuItem7
+            // 
+            resources.ApplyResources(this.toolStripMenuItem7, "toolStripMenuItem7");
+            this.toolStripMenuItem7.Name = "toolStripMenuItem7";
+            this.toolStripMenuItem7.Click += new System.EventHandler(this.toolStripMenuItem7_Click);
+            // 
+            // toolStripMenuItem8
+            // 
+            resources.ApplyResources(this.toolStripMenuItem8, "toolStripMenuItem8");
+            this.toolStripMenuItem8.Name = "toolStripMenuItem8";
+            this.toolStripMenuItem8.Click += new System.EventHandler(this.toolStripMenuItem8_Click);
+            // 
+            // toolStripMenuItem9
+            // 
+            resources.ApplyResources(this.toolStripMenuItem9, "toolStripMenuItem9");
+            this.toolStripMenuItem9.Name = "toolStripMenuItem9";
+            this.toolStripMenuItem9.Click += new System.EventHandler(this.toolStripMenuItem9_Click);
+            // 
+            // toolStripMenuItem13
+            // 
+            resources.ApplyResources(this.toolStripMenuItem13, "toolStripMenuItem13");
+            this.toolStripMenuItem13.Name = "toolStripMenuItem13";
+            this.toolStripMenuItem13.Click += new System.EventHandler(this.toolStripMenuItem13_Click);
+            // 
+            // toolStripMenuItem14
+            // 
+            resources.ApplyResources(this.toolStripMenuItem14, "toolStripMenuItem14");
+            this.toolStripMenuItem14.Name = "toolStripMenuItem14";
+            this.toolStripMenuItem14.Click += new System.EventHandler(this.toolStripMenuItem14_Click);
+            // 
+            // toolStripMenuItem15
+            // 
+            resources.ApplyResources(this.toolStripMenuItem15, "toolStripMenuItem15");
+            this.toolStripMenuItem15.Name = "toolStripMenuItem15";
+            this.toolStripMenuItem15.Click += new System.EventHandler(this.toolStripMenuItem15_Click);
+            // 
             // MainForm
             // 
             resources.ApplyResources(this, "$this");
@@ -718,11 +726,11 @@
             this.FormClosing += new System.Windows.Forms.FormClosingEventHandler(this.MainForm_FormClosing);
             this.Load += new System.EventHandler(this.MainForm_Load);
             this.splitContainer1.Panel1.ResumeLayout(false);
-            this.splitContainer1.Panel1.PerformLayout();
             this.splitContainer1.Panel2.ResumeLayout(false);
             ((System.ComponentModel.ISupportInitialize)(this.splitContainer1)).EndInit();
             this.splitContainer1.ResumeLayout(false);
-            ((System.ComponentModel.ISupportInitialize)(this.pictureBox1)).EndInit();
+            this.tableLayoutPanel2.ResumeLayout(false);
+            this.tableLayoutPanel2.PerformLayout();
             this.tabPagemain.ResumeLayout(false);
             this.menuStrip1.ResumeLayout(false);
             this.menuStrip1.PerformLayout();
@@ -810,8 +818,8 @@
         private System.Windows.Forms.TabPage tabPage3;
         private System.Windows.Forms.TabPage tabPage4;
         private System.Windows.Forms.Button buttonsqlconnect;
-        private System.Windows.Forms.PictureBox pictureBox1;
         private System.Windows.Forms.TabPage tabPagettarsk;
+        private System.Windows.Forms.TableLayoutPanel tableLayoutPanel2;
     }
 }
 

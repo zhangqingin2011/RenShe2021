@@ -668,11 +668,12 @@ namespace SCADA
         {
             if (cncv2.EquipmentState != "离线")
             {
-                if (language == "English")
-                {
-                    textBox1.Text = "Online";
-                }
-                else textBox1.Text = "在线";
+                //if (language == "English")
+                //{
+                //    textBox1.Text = "Online";
+                //}
+                //else 
+                    textBox1.Text = "在线";
                 if (renewtoolflag)
                 {
 
@@ -681,11 +682,12 @@ namespace SCADA
             }
             else
             {
-                if (language == "English")
-                {
-                    textBox1.Text = "Offline";
-                }
-                else textBox1.Text = "离线";
+                //if (language == "English")
+                //{
+                //    textBox1.Text = "Offline";
+                //}
+                //else 
+                    textBox1.Text = "离线";
             }
 
 
@@ -763,11 +765,11 @@ namespace SCADA
             }
             if (pointcount > 1 || pointcount1 > 0)
             {
-                if (language == "English")
-                {
-                    MessageBox.Show("Please enter number correct");
-                }
-                else
+                //if (language == "English")
+                //{
+                //    MessageBox.Show("Please enter number correct");
+                //}
+                //else
                     MessageBox.Show("请输入正确数字");
                 ((TextBox)sender).Text = "";
             }

@@ -111,15 +111,15 @@
             // 
             this.panel1.Anchor = ((System.Windows.Forms.AnchorStyles)(((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Left) 
             | System.Windows.Forms.AnchorStyles.Right)));
+            this.panel1.AutoSizeMode = System.Windows.Forms.AutoSizeMode.GrowAndShrink;
             this.panel1.Controls.Add(this.groupBoxordermode);
             this.panel1.Controls.Add(this.groupBox5);
             this.panel1.Controls.Add(this.groupBox6);
             this.panel1.Controls.Add(this.groupBox3);
             this.panel1.Controls.Add(this.groupBox1);
-            this.panel1.Location = new System.Drawing.Point(0, -4);
-            this.panel1.Margin = new System.Windows.Forms.Padding(4);
+            this.panel1.Location = new System.Drawing.Point(0, -3);
             this.panel1.Name = "panel1";
-            this.panel1.Size = new System.Drawing.Size(2113, 154);
+            this.panel1.Size = new System.Drawing.Size(1585, 123);
             this.panel1.TabIndex = 3;
             // 
             // groupBoxordermode
@@ -130,11 +130,11 @@
             this.groupBoxordermode.Controls.Add(this.labelmode);
             this.groupBoxordermode.Controls.Add(this.label4);
             this.groupBoxordermode.Font = new System.Drawing.Font("微软雅黑", 10.5F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(134)));
-            this.groupBoxordermode.Location = new System.Drawing.Point(1096, 4);
-            this.groupBoxordermode.Margin = new System.Windows.Forms.Padding(5, 4, 5, 4);
+            this.groupBoxordermode.Location = new System.Drawing.Point(822, 3);
+            this.groupBoxordermode.Margin = new System.Windows.Forms.Padding(4, 3, 4, 3);
             this.groupBoxordermode.Name = "groupBoxordermode";
-            this.groupBoxordermode.Padding = new System.Windows.Forms.Padding(5, 4, 5, 4);
-            this.groupBoxordermode.Size = new System.Drawing.Size(245, 144);
+            this.groupBoxordermode.Padding = new System.Windows.Forms.Padding(4, 3, 4, 3);
+            this.groupBoxordermode.Size = new System.Drawing.Size(184, 115);
             this.groupBoxordermode.TabIndex = 16;
             this.groupBoxordermode.TabStop = false;
             this.groupBoxordermode.Text = "加工模式";
@@ -145,10 +145,10 @@
             this.buttonstop1.Enabled = false;
             this.buttonstop1.FlatAppearance.BorderSize = 0;
             this.buttonstop1.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
-            this.buttonstop1.Location = new System.Drawing.Point(129, 91);
-            this.buttonstop1.Margin = new System.Windows.Forms.Padding(4);
+            this.buttonstop1.Font = new System.Drawing.Font("微软雅黑", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(134)));
+            this.buttonstop1.Location = new System.Drawing.Point(97, 73);
             this.buttonstop1.Name = "buttonstop1";
-            this.buttonstop1.Size = new System.Drawing.Size(107, 38);
+            this.buttonstop1.Size = new System.Drawing.Size(80, 30);
             this.buttonstop1.TabIndex = 8;
             this.buttonstop1.Text = "暂停";
             this.buttonstop1.UseVisualStyleBackColor = false;
@@ -160,10 +160,10 @@
             this.buttonstart1.Enabled = false;
             this.buttonstart1.FlatAppearance.BorderSize = 0;
             this.buttonstart1.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
-            this.buttonstart1.Location = new System.Drawing.Point(15, 91);
-            this.buttonstart1.Margin = new System.Windows.Forms.Padding(4);
+            this.buttonstart1.Font = new System.Drawing.Font("微软雅黑", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(134)));
+            this.buttonstart1.Location = new System.Drawing.Point(11, 73);
             this.buttonstart1.Name = "buttonstart1";
-            this.buttonstart1.Size = new System.Drawing.Size(107, 38);
+            this.buttonstart1.Size = new System.Drawing.Size(80, 30);
             this.buttonstart1.TabIndex = 7;
             this.buttonstart1.Text = "开始";
             this.buttonstart1.UseVisualStyleBackColor = false;
@@ -172,10 +172,9 @@
             // checkBox1
             // 
             this.checkBox1.AutoSize = true;
-            this.checkBox1.Location = new System.Drawing.Point(64, 54);
-            this.checkBox1.Margin = new System.Windows.Forms.Padding(4);
+            this.checkBox1.Location = new System.Drawing.Point(48, 43);
             this.checkBox1.Name = "checkBox1";
-            this.checkBox1.Size = new System.Drawing.Size(140, 28);
+            this.checkBox1.Size = new System.Drawing.Size(112, 24);
             this.checkBox1.TabIndex = 6;
             this.checkBox1.Text = "开启自动排程";
             this.checkBox1.UseVisualStyleBackColor = true;
@@ -185,20 +184,20 @@
             // 
             this.labelmode.AutoSize = true;
             this.labelmode.ForeColor = System.Drawing.Color.Red;
-            this.labelmode.Location = new System.Drawing.Point(76, 24);
-            this.labelmode.Margin = new System.Windows.Forms.Padding(5, 0, 5, 0);
+            this.labelmode.Location = new System.Drawing.Point(57, 19);
+            this.labelmode.Margin = new System.Windows.Forms.Padding(4, 0, 4, 0);
             this.labelmode.Name = "labelmode";
-            this.labelmode.Size = new System.Drawing.Size(82, 24);
+            this.labelmode.Size = new System.Drawing.Size(65, 20);
             this.labelmode.TabIndex = 5;
             this.labelmode.Text = "手动模式";
             // 
             // label4
             // 
             this.label4.AutoSize = true;
-            this.label4.Location = new System.Drawing.Point(27, 19);
-            this.label4.Margin = new System.Windows.Forms.Padding(5, 0, 5, 0);
+            this.label4.Location = new System.Drawing.Point(20, 15);
+            this.label4.Margin = new System.Windows.Forms.Padding(4, 0, 4, 0);
             this.label4.Name = "label4";
-            this.label4.Size = new System.Drawing.Size(0, 24);
+            this.label4.Size = new System.Drawing.Size(0, 20);
             this.label4.TabIndex = 0;
             // 
             // groupBox5
@@ -207,24 +206,22 @@
             this.groupBox5.Controls.Add(this.textBox3);
             this.groupBox5.Controls.Add(this.label3);
             this.groupBox5.Font = new System.Drawing.Font("微软雅黑", 10.5F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(134)));
-            this.groupBox5.Location = new System.Drawing.Point(865, 4);
-            this.groupBox5.Margin = new System.Windows.Forms.Padding(4);
+            this.groupBox5.Location = new System.Drawing.Point(649, 3);
             this.groupBox5.Name = "groupBox5";
-            this.groupBox5.Padding = new System.Windows.Forms.Padding(4);
-            this.groupBox5.Size = new System.Drawing.Size(228, 144);
+            this.groupBox5.Size = new System.Drawing.Size(171, 115);
             this.groupBox5.TabIndex = 15;
             this.groupBox5.TabStop = false;
             this.groupBox5.Text = "撤回订单";
             // 
             // button2
             // 
-            this.button2.BackColor = System.Drawing.Color.LightGreen;
+            this.button2.BackColor = System.Drawing.Color.DarkTurquoise;
             this.button2.FlatAppearance.BorderSize = 0;
             this.button2.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
-            this.button2.Location = new System.Drawing.Point(121, 90);
-            this.button2.Margin = new System.Windows.Forms.Padding(4);
+            this.button2.Font = new System.Drawing.Font("微软雅黑", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(134)));
+            this.button2.Location = new System.Drawing.Point(91, 72);
             this.button2.Name = "button2";
-            this.button2.Size = new System.Drawing.Size(107, 38);
+            this.button2.Size = new System.Drawing.Size(80, 30);
             this.button2.TabIndex = 2;
             this.button2.Text = "确定";
             this.button2.UseVisualStyleBackColor = false;
@@ -232,11 +229,11 @@
             // 
             // textBox3
             // 
-            this.textBox3.Font = new System.Drawing.Font("宋体", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(134)));
-            this.textBox3.Location = new System.Drawing.Point(13, 95);
-            this.textBox3.Margin = new System.Windows.Forms.Padding(5, 4, 5, 4);
+            this.textBox3.Font = new System.Drawing.Font("微软雅黑", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(134)));
+            this.textBox3.Location = new System.Drawing.Point(10, 76);
+            this.textBox3.Margin = new System.Windows.Forms.Padding(4, 3, 4, 3);
             this.textBox3.Name = "textBox3";
-            this.textBox3.Size = new System.Drawing.Size(84, 30);
+            this.textBox3.Size = new System.Drawing.Size(64, 29);
             this.textBox3.TabIndex = 1;
             this.textBox3.KeyPress += new System.Windows.Forms.KeyPressEventHandler(this.textBox3_KeyPress);
             this.textBox3.Leave += new System.EventHandler(this.textBox3_Leave);
@@ -244,10 +241,10 @@
             // label3
             // 
             this.label3.AutoSize = true;
-            this.label3.Location = new System.Drawing.Point(11, 52);
-            this.label3.Margin = new System.Windows.Forms.Padding(5, 0, 5, 0);
+            this.label3.Location = new System.Drawing.Point(8, 42);
+            this.label3.Margin = new System.Windows.Forms.Padding(4, 0, 4, 0);
             this.label3.Name = "label3";
-            this.label3.Size = new System.Drawing.Size(82, 24);
+            this.label3.Size = new System.Drawing.Size(65, 20);
             this.label3.TabIndex = 0;
             this.label3.Text = "订单序号";
             // 
@@ -257,11 +254,9 @@
             this.groupBox6.Controls.Add(this.button1);
             this.groupBox6.Controls.Add(this.textBoxorderno);
             this.groupBox6.Font = new System.Drawing.Font("微软雅黑", 10.5F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(134)));
-            this.groupBox6.Location = new System.Drawing.Point(619, 4);
-            this.groupBox6.Margin = new System.Windows.Forms.Padding(4);
+            this.groupBox6.Location = new System.Drawing.Point(464, 3);
             this.groupBox6.Name = "groupBox6";
-            this.groupBox6.Padding = new System.Windows.Forms.Padding(4);
-            this.groupBox6.Size = new System.Drawing.Size(239, 144);
+            this.groupBox6.Size = new System.Drawing.Size(179, 115);
             this.groupBox6.TabIndex = 14;
             this.groupBox6.TabStop = false;
             this.groupBox6.Text = "删除订单";
@@ -270,22 +265,22 @@
             // 
             this.labelorderno.AccessibleRole = System.Windows.Forms.AccessibleRole.None;
             this.labelorderno.AutoSize = true;
-            this.labelorderno.Location = new System.Drawing.Point(36, 56);
-            this.labelorderno.Margin = new System.Windows.Forms.Padding(5, 0, 5, 0);
+            this.labelorderno.Location = new System.Drawing.Point(27, 45);
+            this.labelorderno.Margin = new System.Windows.Forms.Padding(4, 0, 4, 0);
             this.labelorderno.Name = "labelorderno";
-            this.labelorderno.Size = new System.Drawing.Size(82, 24);
+            this.labelorderno.Size = new System.Drawing.Size(65, 20);
             this.labelorderno.TabIndex = 2;
             this.labelorderno.Text = "订单序号";
             // 
             // button1
             // 
-            this.button1.BackColor = System.Drawing.Color.LightGreen;
+            this.button1.BackColor = System.Drawing.Color.DarkTurquoise;
             this.button1.FlatAppearance.BorderSize = 0;
             this.button1.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
-            this.button1.Location = new System.Drawing.Point(128, 90);
-            this.button1.Margin = new System.Windows.Forms.Padding(4);
+            this.button1.Font = new System.Drawing.Font("微软雅黑", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(134)));
+            this.button1.Location = new System.Drawing.Point(96, 72);
             this.button1.Name = "button1";
-            this.button1.Size = new System.Drawing.Size(107, 38);
+            this.button1.Size = new System.Drawing.Size(80, 30);
             this.button1.TabIndex = 1;
             this.button1.Text = "确定";
             this.button1.UseVisualStyleBackColor = false;
@@ -293,11 +288,11 @@
             // 
             // textBoxorderno
             // 
-            this.textBoxorderno.Font = new System.Drawing.Font("宋体", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(134)));
-            this.textBoxorderno.Location = new System.Drawing.Point(21, 96);
-            this.textBoxorderno.Margin = new System.Windows.Forms.Padding(5, 4, 5, 4);
+            this.textBoxorderno.Font = new System.Drawing.Font("微软雅黑", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(134)));
+            this.textBoxorderno.Location = new System.Drawing.Point(16, 77);
+            this.textBoxorderno.Margin = new System.Windows.Forms.Padding(4, 3, 4, 3);
             this.textBoxorderno.Name = "textBoxorderno";
-            this.textBoxorderno.Size = new System.Drawing.Size(84, 30);
+            this.textBoxorderno.Size = new System.Drawing.Size(64, 29);
             this.textBoxorderno.TabIndex = 0;
             this.textBoxorderno.KeyPress += new System.Windows.Forms.KeyPressEventHandler(this.textBoxorderno_KeyPress);
             this.textBoxorderno.Leave += new System.EventHandler(this.textBoxorderno_Leave);
@@ -309,11 +304,11 @@
             this.groupBox3.Controls.Add(this.label2);
             this.groupBox3.Controls.Add(this.label1);
             this.groupBox3.Font = new System.Drawing.Font("微软雅黑", 10.5F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(134)));
-            this.groupBox3.Location = new System.Drawing.Point(1349, 4);
-            this.groupBox3.Margin = new System.Windows.Forms.Padding(5, 4, 5, 4);
+            this.groupBox3.Location = new System.Drawing.Point(1012, 3);
+            this.groupBox3.Margin = new System.Windows.Forms.Padding(4, 3, 4, 3);
             this.groupBox3.Name = "groupBox3";
-            this.groupBox3.Padding = new System.Windows.Forms.Padding(5, 4, 5, 4);
-            this.groupBox3.Size = new System.Drawing.Size(251, 144);
+            this.groupBox3.Padding = new System.Windows.Forms.Padding(4, 3, 4, 3);
+            this.groupBox3.Size = new System.Drawing.Size(188, 115);
             this.groupBox3.TabIndex = 12;
             this.groupBox3.TabStop = false;
             this.groupBox3.Text = "机床运行状态";
@@ -321,42 +316,42 @@
             // textBox2
             // 
             this.textBox2.BackColor = System.Drawing.Color.Silver;
-            this.textBox2.Font = new System.Drawing.Font("宋体", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(134)));
-            this.textBox2.Location = new System.Drawing.Point(132, 99);
-            this.textBox2.Margin = new System.Windows.Forms.Padding(5, 4, 5, 4);
+            this.textBox2.Font = new System.Drawing.Font("微软雅黑", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(134)));
+            this.textBox2.Location = new System.Drawing.Point(99, 79);
+            this.textBox2.Margin = new System.Windows.Forms.Padding(4, 3, 4, 3);
             this.textBox2.Name = "textBox2";
             this.textBox2.ReadOnly = true;
-            this.textBox2.Size = new System.Drawing.Size(89, 30);
+            this.textBox2.Size = new System.Drawing.Size(68, 29);
             this.textBox2.TabIndex = 3;
             // 
             // textBox1
             // 
             this.textBox1.BackColor = System.Drawing.Color.Silver;
-            this.textBox1.Font = new System.Drawing.Font("宋体", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(134)));
-            this.textBox1.Location = new System.Drawing.Point(11, 98);
-            this.textBox1.Margin = new System.Windows.Forms.Padding(5, 4, 5, 4);
+            this.textBox1.Font = new System.Drawing.Font("微软雅黑", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(134)));
+            this.textBox1.Location = new System.Drawing.Point(8, 78);
+            this.textBox1.Margin = new System.Windows.Forms.Padding(4, 3, 4, 3);
             this.textBox1.Name = "textBox1";
             this.textBox1.ReadOnly = true;
-            this.textBox1.Size = new System.Drawing.Size(85, 30);
+            this.textBox1.Size = new System.Drawing.Size(65, 29);
             this.textBox1.TabIndex = 2;
             // 
             // label2
             // 
             this.label2.AutoSize = true;
-            this.label2.Location = new System.Drawing.Point(136, 51);
-            this.label2.Margin = new System.Windows.Forms.Padding(5, 0, 5, 0);
+            this.label2.Location = new System.Drawing.Point(102, 41);
+            this.label2.Margin = new System.Windows.Forms.Padding(4, 0, 4, 0);
             this.label2.Name = "label2";
-            this.label2.Size = new System.Drawing.Size(100, 24);
+            this.label2.Size = new System.Drawing.Size(79, 20);
             this.label2.TabIndex = 1;
             this.label2.Text = "加工中心：";
             // 
             // label1
             // 
             this.label1.AutoSize = true;
-            this.label1.Location = new System.Drawing.Point(24, 51);
-            this.label1.Margin = new System.Windows.Forms.Padding(5, 0, 5, 0);
+            this.label1.Location = new System.Drawing.Point(18, 41);
+            this.label1.Margin = new System.Windows.Forms.Padding(4, 0, 4, 0);
             this.label1.Name = "label1";
-            this.label1.Size = new System.Drawing.Size(64, 24);
+            this.label1.Size = new System.Drawing.Size(51, 20);
             this.label1.TabIndex = 0;
             this.label1.Text = "车床：";
             // 
@@ -371,24 +366,22 @@
             this.groupBox1.Controls.Add(this.labelFun1);
             this.groupBox1.Controls.Add(this.labelmagno);
             this.groupBox1.Font = new System.Drawing.Font("微软雅黑", 10.5F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(134)));
-            this.groupBox1.Location = new System.Drawing.Point(8, 4);
-            this.groupBox1.Margin = new System.Windows.Forms.Padding(4);
+            this.groupBox1.Location = new System.Drawing.Point(6, 3);
             this.groupBox1.Name = "groupBox1";
-            this.groupBox1.Padding = new System.Windows.Forms.Padding(4);
-            this.groupBox1.Size = new System.Drawing.Size(596, 144);
+            this.groupBox1.Size = new System.Drawing.Size(447, 115);
             this.groupBox1.TabIndex = 0;
             this.groupBox1.TabStop = false;
             this.groupBox1.Text = "生成订单";
             // 
             // buttonmadeorder
             // 
-            this.buttonmadeorder.BackColor = System.Drawing.Color.LightGreen;
+            this.buttonmadeorder.BackColor = System.Drawing.Color.DarkTurquoise;
             this.buttonmadeorder.FlatAppearance.BorderSize = 0;
             this.buttonmadeorder.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
-            this.buttonmadeorder.Location = new System.Drawing.Point(445, 92);
-            this.buttonmadeorder.Margin = new System.Windows.Forms.Padding(4);
+            this.buttonmadeorder.Font = new System.Drawing.Font("微软雅黑", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(134)));
+            this.buttonmadeorder.Location = new System.Drawing.Point(334, 74);
             this.buttonmadeorder.Name = "buttonmadeorder";
-            this.buttonmadeorder.Size = new System.Drawing.Size(107, 38);
+            this.buttonmadeorder.Size = new System.Drawing.Size(80, 30);
             this.buttonmadeorder.TabIndex = 11;
             this.buttonmadeorder.Text = "确定";
             this.buttonmadeorder.UseVisualStyleBackColor = false;
@@ -396,39 +389,39 @@
             // 
             // comboBoxFun2
             // 
-            this.comboBoxFun2.Font = new System.Drawing.Font("宋体", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(134)));
+            this.comboBoxFun2.Font = new System.Drawing.Font("微软雅黑", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(134)));
             this.comboBoxFun2.FormattingEnabled = true;
             this.comboBoxFun2.Items.AddRange(new object[] {
             "无",
             "车工序",
             "铣工序"});
-            this.comboBoxFun2.Location = new System.Drawing.Point(269, 99);
-            this.comboBoxFun2.Margin = new System.Windows.Forms.Padding(5, 4, 5, 4);
+            this.comboBoxFun2.Location = new System.Drawing.Point(202, 79);
+            this.comboBoxFun2.Margin = new System.Windows.Forms.Padding(4, 3, 4, 3);
             this.comboBoxFun2.Name = "comboBoxFun2";
-            this.comboBoxFun2.Size = new System.Drawing.Size(111, 28);
+            this.comboBoxFun2.Size = new System.Drawing.Size(84, 29);
             this.comboBoxFun2.TabIndex = 8;
             // 
             // comboBoxFun1
             // 
-            this.comboBoxFun1.Font = new System.Drawing.Font("宋体", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(134)));
+            this.comboBoxFun1.Font = new System.Drawing.Font("微软雅黑", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(134)));
             this.comboBoxFun1.FormattingEnabled = true;
             this.comboBoxFun1.Items.AddRange(new object[] {
             "无",
             "车工序",
             "铣工序"});
-            this.comboBoxFun1.Location = new System.Drawing.Point(125, 98);
-            this.comboBoxFun1.Margin = new System.Windows.Forms.Padding(5, 4, 5, 4);
+            this.comboBoxFun1.Location = new System.Drawing.Point(94, 78);
+            this.comboBoxFun1.Margin = new System.Windows.Forms.Padding(4, 3, 4, 3);
             this.comboBoxFun1.Name = "comboBoxFun1";
-            this.comboBoxFun1.Size = new System.Drawing.Size(111, 28);
+            this.comboBoxFun1.Size = new System.Drawing.Size(84, 29);
             this.comboBoxFun1.TabIndex = 7;
             // 
             // textBox1magno
             // 
-            this.textBox1magno.Font = new System.Drawing.Font("宋体", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(134)));
-            this.textBox1magno.Location = new System.Drawing.Point(13, 95);
-            this.textBox1magno.Margin = new System.Windows.Forms.Padding(5, 4, 5, 4);
+            this.textBox1magno.Font = new System.Drawing.Font("微软雅黑", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(134)));
+            this.textBox1magno.Location = new System.Drawing.Point(10, 76);
+            this.textBox1magno.Margin = new System.Windows.Forms.Padding(4, 3, 4, 3);
             this.textBox1magno.Name = "textBox1magno";
-            this.textBox1magno.Size = new System.Drawing.Size(83, 30);
+            this.textBox1magno.Size = new System.Drawing.Size(63, 29);
             this.textBox1magno.TabIndex = 6;
             this.textBox1magno.KeyPress += new System.Windows.Forms.KeyPressEventHandler(this.textBox1magno_KeyPress);
             this.textBox1magno.Leave += new System.EventHandler(this.textBox1magno_Leave);
@@ -436,52 +429,52 @@
             // label6
             // 
             this.label6.AutoSize = true;
-            this.label6.Location = new System.Drawing.Point(468, 56);
-            this.label6.Margin = new System.Windows.Forms.Padding(5, 0, 5, 0);
+            this.label6.Location = new System.Drawing.Point(351, 45);
+            this.label6.Margin = new System.Windows.Forms.Padding(4, 0, 4, 0);
             this.label6.Name = "label6";
-            this.label6.Size = new System.Drawing.Size(82, 24);
+            this.label6.Size = new System.Drawing.Size(65, 20);
             this.label6.TabIndex = 5;
             this.label6.Text = "生成订单";
             // 
             // labelFun2
             // 
             this.labelFun2.AutoSize = true;
-            this.labelFun2.Location = new System.Drawing.Point(292, 56);
-            this.labelFun2.Margin = new System.Windows.Forms.Padding(5, 0, 5, 0);
+            this.labelFun2.Location = new System.Drawing.Point(219, 45);
+            this.labelFun2.Margin = new System.Windows.Forms.Padding(4, 0, 4, 0);
             this.labelFun2.Name = "labelFun2";
-            this.labelFun2.Size = new System.Drawing.Size(64, 24);
+            this.labelFun2.Size = new System.Drawing.Size(51, 20);
             this.labelFun2.TabIndex = 2;
             this.labelFun2.Text = "工序二";
             // 
             // labelFun1
             // 
             this.labelFun1.AutoSize = true;
-            this.labelFun1.Location = new System.Drawing.Point(157, 56);
-            this.labelFun1.Margin = new System.Windows.Forms.Padding(5, 0, 5, 0);
+            this.labelFun1.Location = new System.Drawing.Point(118, 45);
+            this.labelFun1.Margin = new System.Windows.Forms.Padding(4, 0, 4, 0);
             this.labelFun1.Name = "labelFun1";
-            this.labelFun1.Size = new System.Drawing.Size(64, 24);
+            this.labelFun1.Size = new System.Drawing.Size(51, 20);
             this.labelFun1.TabIndex = 1;
             this.labelFun1.Text = "工序一";
             // 
             // labelmagno
             // 
             this.labelmagno.AutoSize = true;
-            this.labelmagno.Location = new System.Drawing.Point(33, 55);
-            this.labelmagno.Margin = new System.Windows.Forms.Padding(5, 0, 5, 0);
+            this.labelmagno.Location = new System.Drawing.Point(25, 44);
+            this.labelmagno.Margin = new System.Windows.Forms.Padding(4, 0, 4, 0);
             this.labelmagno.Name = "labelmagno";
-            this.labelmagno.Size = new System.Drawing.Size(46, 24);
+            this.labelmagno.Size = new System.Drawing.Size(37, 20);
             this.labelmagno.TabIndex = 0;
             this.labelmagno.Text = "仓位";
             // 
             // panel2
             // 
+            this.panel2.AutoSizeMode = System.Windows.Forms.AutoSizeMode.GrowAndShrink;
             this.panel2.Controls.Add(this.groupBox4);
             this.panel2.Controls.Add(this.groupBox2);
             this.panel2.Font = new System.Drawing.Font("微软雅黑", 9F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(134)));
-            this.panel2.Location = new System.Drawing.Point(0, 151);
-            this.panel2.Margin = new System.Windows.Forms.Padding(4);
+            this.panel2.Location = new System.Drawing.Point(0, 121);
             this.panel2.Name = "panel2";
-            this.panel2.Size = new System.Drawing.Size(1604, 775);
+            this.panel2.Size = new System.Drawing.Size(1203, 620);
             this.panel2.TabIndex = 4;
             // 
             // groupBox4
@@ -490,11 +483,11 @@
             | System.Windows.Forms.AnchorStyles.Right)));
             this.groupBox4.Controls.Add(this.dataGridVieworder2);
             this.groupBox4.Font = new System.Drawing.Font("微软雅黑", 10.5F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(134)));
-            this.groupBox4.Location = new System.Drawing.Point(8, 391);
-            this.groupBox4.Margin = new System.Windows.Forms.Padding(5, 4, 5, 4);
+            this.groupBox4.Location = new System.Drawing.Point(6, 313);
+            this.groupBox4.Margin = new System.Windows.Forms.Padding(4, 3, 4, 3);
             this.groupBox4.Name = "groupBox4";
-            this.groupBox4.Padding = new System.Windows.Forms.Padding(5, 4, 5, 4);
-            this.groupBox4.Size = new System.Drawing.Size(1595, 385);
+            this.groupBox4.Padding = new System.Windows.Forms.Padding(4, 3, 4, 3);
+            this.groupBox4.Size = new System.Drawing.Size(1196, 308);
             this.groupBox4.TabIndex = 2;
             this.groupBox4.TabStop = false;
             this.groupBox4.Text = "订单跟踪";
@@ -525,13 +518,13 @@
             this.dataGridViewTextBoxColumn5,
             this.dataGridViewTextBoxColumn6});
             this.dataGridVieworder2.Dock = System.Windows.Forms.DockStyle.Fill;
-            this.dataGridVieworder2.Location = new System.Drawing.Point(5, 28);
-            this.dataGridVieworder2.Margin = new System.Windows.Forms.Padding(5, 4, 5, 4);
+            this.dataGridVieworder2.Location = new System.Drawing.Point(4, 22);
+            this.dataGridVieworder2.Margin = new System.Windows.Forms.Padding(4, 3, 4, 3);
             this.dataGridVieworder2.Name = "dataGridVieworder2";
             this.dataGridVieworder2.RowHeadersVisible = false;
             this.dataGridVieworder2.RowHeadersWidth = 51;
             this.dataGridVieworder2.RowTemplate.Height = 23;
-            this.dataGridVieworder2.Size = new System.Drawing.Size(1585, 353);
+            this.dataGridVieworder2.Size = new System.Drawing.Size(1188, 283);
             this.dataGridVieworder2.TabIndex = 0;
             // 
             // dataGridViewTextBoxColumn1
@@ -598,11 +591,11 @@
             | System.Windows.Forms.AnchorStyles.Right)));
             this.groupBox2.Controls.Add(this.dataGridVieworder);
             this.groupBox2.Font = new System.Drawing.Font("微软雅黑", 10.5F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(134)));
-            this.groupBox2.Location = new System.Drawing.Point(8, 12);
-            this.groupBox2.Margin = new System.Windows.Forms.Padding(5, 4, 5, 4);
+            this.groupBox2.Location = new System.Drawing.Point(6, 10);
+            this.groupBox2.Margin = new System.Windows.Forms.Padding(4, 3, 4, 3);
             this.groupBox2.Name = "groupBox2";
-            this.groupBox2.Padding = new System.Windows.Forms.Padding(5, 4, 5, 4);
-            this.groupBox2.Size = new System.Drawing.Size(1592, 375);
+            this.groupBox2.Padding = new System.Windows.Forms.Padding(4, 3, 4, 3);
+            this.groupBox2.Size = new System.Drawing.Size(1194, 300);
             this.groupBox2.TabIndex = 1;
             this.groupBox2.TabStop = false;
             this.groupBox2.Text = "订单下发";
@@ -637,13 +630,13 @@
             this.Column9,
             this.Column8});
             this.dataGridVieworder.Dock = System.Windows.Forms.DockStyle.Fill;
-            this.dataGridVieworder.Location = new System.Drawing.Point(5, 28);
-            this.dataGridVieworder.Margin = new System.Windows.Forms.Padding(5, 4, 5, 4);
+            this.dataGridVieworder.Location = new System.Drawing.Point(4, 22);
+            this.dataGridVieworder.Margin = new System.Windows.Forms.Padding(4, 3, 4, 3);
             this.dataGridVieworder.Name = "dataGridVieworder";
             this.dataGridVieworder.RowHeadersVisible = false;
             this.dataGridVieworder.RowHeadersWidth = 51;
             this.dataGridVieworder.RowTemplate.Height = 23;
-            this.dataGridVieworder.Size = new System.Drawing.Size(1582, 343);
+            this.dataGridVieworder.Size = new System.Drawing.Size(1186, 275);
             this.dataGridVieworder.TabIndex = 0;
             this.dataGridVieworder.CellContentClick += new System.Windows.Forms.DataGridViewCellEventHandler(this.dataGridVieworder_CellContentClick);
             // 
@@ -719,7 +712,7 @@
             // Column7
             // 
             dataGridViewCellStyle29.Alignment = System.Windows.Forms.DataGridViewContentAlignment.MiddleCenter;
-            dataGridViewCellStyle29.BackColor = System.Drawing.Color.LightGreen;
+            dataGridViewCellStyle29.BackColor = System.Drawing.Color.DarkTurquoise;
             dataGridViewCellStyle29.ForeColor = System.Drawing.Color.Black;
             dataGridViewCellStyle29.NullValue = "确定";
             this.Column7.DefaultCellStyle = dataGridViewCellStyle29;
@@ -731,7 +724,7 @@
             // Column9
             // 
             dataGridViewCellStyle30.Alignment = System.Windows.Forms.DataGridViewContentAlignment.MiddleCenter;
-            dataGridViewCellStyle30.BackColor = System.Drawing.Color.LightGreen;
+            dataGridViewCellStyle30.BackColor = System.Drawing.Color.DarkTurquoise;
             dataGridViewCellStyle30.ForeColor = System.Drawing.Color.Black;
             dataGridViewCellStyle30.NullValue = "置顶";
             this.Column9.DefaultCellStyle = dataGridViewCellStyle30;
@@ -757,14 +750,14 @@
             // 
             // OrderForm1
             // 
-            this.AutoScaleDimensions = new System.Drawing.SizeF(8F, 15F);
+            this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 12F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
             this.AutoSize = true;
             this.BackColor = System.Drawing.Color.White;
-            this.ClientSize = new System.Drawing.Size(1605, 928);
+            this.ClientSize = new System.Drawing.Size(1204, 742);
             this.Controls.Add(this.panel2);
             this.Controls.Add(this.panel1);
-            this.Margin = new System.Windows.Forms.Padding(5, 4, 5, 4);
+            this.Margin = new System.Windows.Forms.Padding(4, 3, 4, 3);
             this.Name = "OrderForm1";
             this.Text = "OrderForm1";
             this.Load += new System.EventHandler(this.Order_Load);

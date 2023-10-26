@@ -3782,11 +3782,12 @@ catch (System.Exception ex)
                 || strRo4 == strvi4 || strRo4 == strrf4
                 || strvi4 == strrf4)
             {
-                if (language == "English")
-                {
-                    MessageBox.Show("IP Address can not be the same!");
-                }
-                else MessageBox.Show("IP地址重复");
+                //if (language == "English")
+                //{
+                //    MessageBox.Show("IP Address can not be the same!");
+                //}
+                //else 
+                    MessageBox.Show("IP地址重复");
                 return;
             }
             if (strCP1 == strPLC1 && strLa1 == strPLC1
@@ -3832,11 +3833,12 @@ catch (System.Exception ex)
             }
             else
             {
-                if (language == "English")
-                {
-                    MessageBox.Show("IP Address is not at same segment");
-                }
-                else MessageBox.Show("IP不在一个网段");
+                //if (language == "English")
+                //{
+                //    MessageBox.Show("IP Address is not at same segment");
+                //}
+                //else
+                    MessageBox.Show("IP不在一个网段");
                 return;
             }
 
@@ -3894,19 +3896,19 @@ catch (System.Exception ex)
             if (key1 != key2)
             {
                 MessageBox.Show("密码不一致");
-                if (language == "English")
-                {
-                    MessageBox.Show("Key is not the same");
-                }
+                //if (language == "English")
+                //{
+                //    MessageBox.Show("Key is not the same");
+                //}
                 return;
             }
             if (name == "")
             {
                 MessageBox.Show("用户名不能为空!");
-                if (language == "English")
-                {
-                    MessageBox.Show("Username can not be null!");
-                }
+                //if (language == "English")
+                //{
+                //    MessageBox.Show("Username can not be null!");
+                //}
 
                 return;
             }
@@ -3923,18 +3925,18 @@ catch (System.Exception ex)
                             Password = AesEncryption.Encrypt(key2),
                         });
                         MessageBox.Show("注册成功!");
-                        if (language == "English")
-                        {
-                            MessageBox.Show("User add correct!");
-                        }
+                        //if (language == "English")
+                        //{
+                        //    MessageBox.Show("User add correct!");
+                        //}
                     }
                     else
                     {
                         MessageBox.Show("用户名已存在!");
-                        if (language == "English")
-                        {
-                            MessageBox.Show("Username already exist!");
-                        }
+                        //if (language == "English")
+                        //{
+                        //    MessageBox.Show("Username already exist!");
+                        //}
 
                         return;
                     }
@@ -3942,20 +3944,20 @@ catch (System.Exception ex)
                 else
                 {
                     MessageBox.Show("数据库未连接，用户信息操作失败!");
-                    if (language == "English")
-                    {
-                        MessageBox.Show("database connect failure!");
-                    }
+                    //if (language == "English")
+                    //{
+                    //    MessageBox.Show("database connect failure!");
+                    //}
                     return;
                 }
             }
             catch
             {
                 MessageBox.Show("数据库操作失败!");
-                if (language == "English")
-                {
-                    MessageBox.Show("database connect failure!");
-                }
+                //if (language == "English")
+                //{
+                //    MessageBox.Show("database connect failure!");
+                //}
 
                 return;
             }
@@ -3968,10 +3970,10 @@ catch (System.Exception ex)
             if (textBoxname.Text == "" || textBoxkey.Text == "")
             {
                 MessageBox.Show("请正确输入用户名和密码!");
-                if (language == "English")
-                {
-                    MessageBox.Show("Please enter the name and key correct!");
-                }
+                //if (language == "English")
+                //{
+                //    MessageBox.Show("Please enter the name and key correct!");
+                //}
 
                 return;
             }
@@ -3981,14 +3983,14 @@ catch (System.Exception ex)
                 if (temp2 == null)
                 {
 
-                    if (language == "English")
-                    {
-                        MessageBox.Show("User is not exist!");
-                    }
-                    else
-                    {
+                    //if (language == "English")
+                    //{
+                    //    MessageBox.Show("User is not exist!");
+                    //}
+                    //else
+                    //{
                         MessageBox.Show("用户不存在!");
-                    }
+                    //}
 
 
                     return;
@@ -3998,11 +4000,11 @@ catch (System.Exception ex)
                     if (temp2.Username == textBoxname.Text && temp2.Password == AesEncryption.Encrypt(textBoxkey.Text))
                     {
                         MainForm.UserLogin = true;
-                        MessageBox.Show(" 登陆成功!");
-                        if (language == "English")
-                        {
-                            MessageBox.Show("Login!");
-                        }
+                        MessageBox.Show(" 登录成功!");
+                        //if (language == "English")
+                        //{
+                        //    MessageBox.Show("Login!");
+                        //}
                         labelusername.Text = textBoxname.Text;
                         MainForm.UserLoginname = labelusername.Text;
                         return;
@@ -4010,14 +4012,14 @@ catch (System.Exception ex)
                     else
                     {
 
-                        if (language == "English")
-                        {
-                            MessageBox.Show("Key is not error!");
-                        }
-                        else
-                        {
+                        //if (language == "English")
+                        //{
+                        //    MessageBox.Show("Key is not error!");
+                        //}
+                        //else
+                        //{
                             MessageBox.Show("用户密码错误!");
-                        }
+                        //}
 
                         return;
                     }
@@ -4027,10 +4029,10 @@ catch (System.Exception ex)
             catch
             {
                 MessageBox.Show("数据库操作失败!");
-                if (language == "English")
-                {
-                    MessageBox.Show("database connect failure!");
-                }
+                //if (language == "English")
+                //{
+                //    MessageBox.Show("database connect failure!");
+                //}
 
                 return;
             }
@@ -4073,7 +4075,7 @@ catch (System.Exception ex)
             bool robotconnect = MainForm.PingTestCNC(MainForm.ROBORTAddress, 300);//
             if (robotconnect == true)
             {
-                pictureBoxcheckrobot.BackColor = Color.LightGreen;
+                pictureBoxcheckrobot.BackColor =DarkTurquoise;
             }
             else
             {
@@ -4083,7 +4085,7 @@ catch (System.Exception ex)
             bool videoconnect = MainForm.PingTestCNC(MainForm.VIDEOAddress, 300);//
             if (videoconnect == true)
             {
-                pictureBoxcheckvideo.BackColor = Color.LightGreen;
+                pictureBoxcheckvideo.BackColor =DarkTurquoise;
             }
             else
             {

@@ -36,7 +36,7 @@ namespace SCADA
             checkBox1.Checked = false;
             Fvalue1stop = false;
             buttonzhiliang.Text = "选择";
-            buttonzhiliang.BackColor = Color.LightGreen;
+            buttonzhiliang.BackColor =DarkTurquoise;
             buttonxiaolv.Text = "已选中";
             buttonxiaolv.BackColor = Color.Gray;
             zhiliangflage = false;
@@ -58,7 +58,7 @@ namespace SCADA
             buttonzhiliang.Text = "已选中";
             buttonzhiliang.BackColor = Color.Gray;
             buttonxiaolv.Text = "选择";
-            buttonxiaolv.BackColor = Color.LightGreen;
+            buttonxiaolv.BackColor =DarkTurquoise;
             zhiliangflage = true;
             xiaolvflage = false;
         }
@@ -69,7 +69,7 @@ namespace SCADA
             buttonzhiliang.Text = "选择";
             buttonxiaolv.Text = "已选中";
             buttonxiaolv.BackColor = Color.Gray;
-            buttonzhiliang.BackColor = Color.LightGreen;
+            buttonzhiliang.BackColor =DarkTurquoise;
             zhiliangflage = false;
             xiaolvflage = false;
         }

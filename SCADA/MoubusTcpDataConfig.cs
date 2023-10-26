@@ -9,7 +9,7 @@ namespace SCADA
    public partial class ModbusTcp
     {
         public static Int32 ModbusBufferHeadSize = 7;//7个字节的MBAP表头 其中只有长度需要服务端写190，其他的直接复制客户端数据
-        public static Int32 ModbusBufferSize = 315;//190
+        public static Int32 ModbusBufferSize = 322;//190
         public static Int32 ModbusBufferFunCodeSizeReq = 5;
         public static Int32 ModbusBufferFunCodeSizeWrite = 6;
         public static Int32 ResModbusBufferFunCodeSize = 2;
@@ -227,12 +227,27 @@ namespace SCADA
             FineMeter_int,
             FineMeter_Float,
             //料仓对应的模型编号，共30各0-1号模型，1-2号模型，2-3号模型，3-4号模型，275-314
-            Mag1_Sheet_No = 275,
+            Mag1_Sheet_No = 275,//仓位图纸模型编号
 
+              LineStoreBit = 305,//	线边库状态(0无料盘1有料盘）
+              FinStoreBit = 306,//	成品库状态(0无料盘1有料盘）
+              RawStore ,//	毛坯库状态(0无料盘1有料盘)
+              Task_Raw_Line ,//	毛坯库到线边库
+              Task_Fin_Line ,//	成品库到线边库
+              Task_Line_Raw ,//	从线边库到毛坯库
+              Task_Line_Fin ,//	从线边库到成品库
+              Task_Finish ,//	AGV任务完成
 
-
+            AGV_Arriv_RawStore =313,//AGV 到达毛坯库，1到达，0离开
+            AGV_Arriv_FinStore ,//AGV 到达成品库，1到达，0离开
+            AGV_Arriv_LineStore,//AGV 到达线边库，1到达，0离开
+            AGV_Task_State ,//0:初始，4:任务创建成功，6:任务创建失败，16:成功完成，24:错误完成
+            AGV_State,//AGV状态0：维护中、充电中  1：就绪 2：忙碌 4：故障 10：API接口错误  11：急停中
+            AGV_Vol,//电量，百分比
+            AGV_Beat,//心跳每秒加1 到1000后回1
 
         };
+    
  
         public enum Mag_state_config
         {

@@ -139,18 +139,12 @@ namespace SCADA
                         {
                             if (MainForm.PLC_SIMES_ON_line == true)
                             {
-                                if (lang == "English")
-                                {
-                                    StateLang = "On-Line";
-                                }
+                               
                                 StateLang = "在线";
                             }
                             else
                             {
-                                if (lang == "English")
-                                {
-                                    StateLang = "Off-Line";
-                                }
+                                
                                 StateLang = "离线";
                             }
                         }

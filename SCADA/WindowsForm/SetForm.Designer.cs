@@ -528,7 +528,7 @@
             // 
             // btnSaveCNC
             // 
-            this.btnSaveCNC.BackColor = System.Drawing.Color.LightGreen;
+            this.btnSaveCNC.BackColor = System.Drawing.Color.DarkTurquoise;
             this.btnSaveCNC.FlatAppearance.BorderSize = 0;
             resources.ApplyResources(this.btnSaveCNC, "btnSaveCNC");
             this.btnSaveCNC.Name = "btnSaveCNC";
@@ -1030,7 +1030,7 @@
             // 
             // buttonzhuce
             // 
-            this.buttonzhuce.BackColor = System.Drawing.Color.LightGreen;
+            this.buttonzhuce.BackColor = System.Drawing.Color.DarkTurquoise;
             this.buttonzhuce.FlatAppearance.BorderSize = 0;
             resources.ApplyResources(this.buttonzhuce, "buttonzhuce");
             this.buttonzhuce.Name = "buttonzhuce";
@@ -1074,7 +1074,7 @@
             // 
             // buttonlogin
             // 
-            this.buttonlogin.BackColor = System.Drawing.Color.LightGreen;
+            this.buttonlogin.BackColor = System.Drawing.Color.DarkTurquoise;
             this.buttonlogin.FlatAppearance.BorderSize = 0;
             resources.ApplyResources(this.buttonlogin, "buttonlogin");
             this.buttonlogin.Name = "buttonlogin";
@@ -1224,7 +1224,7 @@
             // setTest
             // 
             resources.ApplyResources(this.setTest, "setTest");
-            this.setTest.BackColor = System.Drawing.Color.LightGreen;
+            this.setTest.BackColor = System.Drawing.Color.DarkTurquoise;
             this.setTest.FlatAppearance.BorderSize = 0;
             this.setTest.Name = "setTest";
             this.setTest.UseVisualStyleBackColor = false;
@@ -2122,7 +2122,7 @@
             // 
             // buttonsave
             // 
-            this.buttonsave.BackColor = System.Drawing.Color.LightGreen;
+            this.buttonsave.BackColor = System.Drawing.Color.DarkTurquoise;
             this.buttonsave.FlatAppearance.BorderSize = 0;
             resources.ApplyResources(this.buttonsave, "buttonsave");
             this.buttonsave.Name = "buttonsave";
@@ -2131,7 +2131,7 @@
             // 
             // buttonnettest
             // 
-            this.buttonnettest.BackColor = System.Drawing.Color.LightGreen;
+            this.buttonnettest.BackColor = System.Drawing.Color.DarkTurquoise;
             this.buttonnettest.FlatAppearance.BorderColor = System.Drawing.Color.White;
             this.buttonnettest.FlatAppearance.BorderSize = 0;
             resources.ApplyResources(this.buttonnettest, "buttonnettest");
